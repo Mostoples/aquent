@@ -1,0 +1,15 @@
+{
+  "name": "aquent-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Root-level test infrastructure for AQUENT vanilla JS engine modules (Vitest + fast-check, jsdom).",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "devDependencies": {
+    "fast-check": "^3.23.1",
+    "jsdom": "^25.0.1",
+    "vitest": "^2.1.8"
+  }
+}

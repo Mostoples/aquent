@@ -1,0 +1,304 @@
+[
+  {
+    "id": "eco-warrior",
+    "name": "Eco Warrior",
+    "icon": "🌿",
+    "color": "#51cf66",
+    "tier": "silver",
+    "description": "Konsisten menghemat air mandi lebih dari 30% di bawah rata-rata selama 7 hari berturut-turut. Setara dengan menghemat ±84 liter air per minggu — cukup untuk kebutuhan minum 2 orang selama 1 bulan.",
+    "scientific_basis": "WHO merekomendasikan konsumsi air bersih maksimal 50 liter/orang/hari untuk keperluan dasar. Shower menyumbang 17% konsumsi air rumah tangga. Pengurangan durasi mandi 2 menit menghemat ±20 liter per sesi (rata-rata shower head 10 L/menit).",
+    "trigger": {
+      "metric": "water_saved_pct",
+      "threshold": 30,
+      "streak_days": 7,
+      "comparison": "vs_personal_average"
+    },
+    "xai_popup": "Badge Eco Warrior diperoleh karena kamu berhasil menghemat rata-rata {value}% air selama {days} hari berturut-turut! Itu setara dengan menghemat ±{liters} liter air — cukup untuk {equivalent}.",
+    "sources": ["WHO Water Sanitation Hygiene Report 2022"]
+  },
+  {
+    "id": "skin-guardian",
+    "name": "Skin Guardian",
+    "icon": "🛡️",
+    "color": "#74c0fc",
+    "tier": "gold",
+    "description": "Mencapai skor kualitas air di atas 80/100 selama 5 sesi mandi berturut-turut. Menunjukkan komitmen terhadap kualitas air yang optimal untuk kesehatan kulit.",
+    "scientific_basis": "Kulit memerlukan paparan konsisten terhadap air berkualitas baik untuk mempertahankan skin barrier yang sehat. Studi menunjukkan bahwa perbaikan kualitas air yang berkelanjutan (bukan sesekali) yang memberikan dampak signifikan pada kondisi kulit kronis seperti eksim (Jabbar-Lopez et al., 2021).",
+    "trigger": {
+      "metric": "quality_score",
+      "threshold": 80,
+      "streak_sessions": 5
+    },
+    "xai_popup": "Badge Skin Guardian diperoleh karena skor kualitas air kamu konsisten di atas 80 selama {sessions} sesi berturut-turut! Rata-rata skor: {avg_score}/100. Kulitmu berterima kasih.",
+    "sources": ["doi:10.1111/bjd.19862"]
+  },
+  {
+    "id": "ph-master",
+    "name": "pH Master",
+    "icon": "⚗️",
+    "color": "#ffd43b",
+    "tier": "bronze",
+    "description": "Menjaga pH air dalam rentang optimal 6.5–7.5 selama 10 sesi mandi. Menunjukkan pemahaman dan pengelolaan kualitas air yang baik.",
+    "scientific_basis": "pH optimal untuk skin barrier adalah 5.5 (permukaan kulit), sehingga air dengan pH 6.5–7.5 memberikan buffer yang tepat tanpa mengganggu acid mantle. Paparan konsisten pada pH optimal membantu mempertahankan fungsi ceramide dan filaggrin (Lambers et al., 2019).",
+    "trigger": {
+      "metric": "ph_in_optimal_range",
+      "ph_min": 6.5,
+      "ph_max": 7.5,
+      "session_count": 10,
+      "consecutive": false
+    },
+    "xai_popup": "Badge pH Master diperoleh karena pH air dalam {sessions} sesi mandi kamu berada dalam rentang optimal 6.5–7.5! pH rata-rata: {avg_ph}. Ini membantu menjaga lapisan pelindung kulit (acid mantle) tetap sehat.",
+    "sources": ["doi:10.1111/ics.12562"]
+  },
+  {
+    "id": "early-bird",
+    "name": "Early Bird",
+    "icon": "🌅",
+    "color": "#ff9a3c",
+    "tier": "bronze",
+    "description": "Mandi sebelum pukul 09.00 selama 5 hari berturut-turut. Pagi hari adalah waktu optimal karena kualitas air PAM biasanya lebih baik dan kebiasaan mandi pagi mendukung ritme sirkadian.",
+    "scientific_basis": "Sistem distribusi air PAM biasanya memiliki tekanan dan kualitas terbaik di pagi hari (pukul 06.00–09.00) karena permintaan rendah dan reservoir penuh. Dari sisi dermatologi, mandi pagi membantu membersihkan minyak yang diproduksi kulit saat tidur dan mengaktifkan sirkulasi (AAD Sleep and Skin Care Guidelines).",
+    "trigger": {
+      "metric": "shower_hour",
+      "before_hour": 9,
+      "streak_days": 5
+    },
+    "xai_popup": "Badge Early Bird diperoleh karena kamu rutin mandi sebelum jam 09.00 selama {days} hari berturut-turut! Pagi hari memiliki kualitas air PAM terbaik dan membersihkan minyak tidur dari kulit.",
+    "sources": []
+  },
+  {
+    "id": "streak-king",
+    "name": "Streak King",
+    "icon": "👑",
+    "color": "#fcc419",
+    "tier": "gold",
+    "description": "Menggunakan AQUENT secara konsisten selama 30 hari berturut-turut. Kebiasaan mandi teratur dengan monitoring kualitas air adalah fondasi perawatan kulit jangka panjang.",
+    "scientific_basis": "Penelitian perilaku kesehatan menunjukkan bahwa kebiasaan baru memerlukan rata-rata 66 hari untuk terbentuk, bukan 21 hari seperti mitos populer (Lally et al., 2010). Mencapai 30 hari adalah titik pertengahan yang signifikan. Konsistensi monitoring kualitas air lebih penting daripada satu kali pengukuran yang sempurna.",
+    "trigger": {
+      "metric": "app_usage_streak",
+      "streak_days": 30
+    },
+    "xai_popup": "Badge Streak King! 30 hari tanpa putus menggunakan AQUENT. Konsistensi dalam monitoring kualitas air adalah kunci perawatan kulit yang efektif. Rata-rata skor kualitas air kamu selama 30 hari: {avg_score}/100.",
+    "sources": []
+  },
+  {
+    "id": "filter-pro",
+    "name": "Filter Pro",
+    "icon": "🔧",
+    "color": "#a9e34b",
+    "tier": "silver",
+    "description": "Mengaktifkan mode filter (virtual) saat kualitas air buruk sebanyak 10 kali. Menunjukkan respons proaktif terhadap peringatan kualitas air.",
+    "scientific_basis": "Filter shower karbon aktif terbukti mengurangi konsentrasi klorin bebas hingga 95% dan dapat mengurangi beberapa senyawa organik volatil (Parra et al., 2020). Respons proaktif terhadap kualitas air buruk secara signifikan mengurangi paparan kumulatif terhadap iritan kulit.",
+    "trigger": {
+      "metric": "filter_activated_count",
+      "count": 10,
+      "condition": "when_quality_score_below_70"
+    },
+    "xai_popup": "Badge Filter Pro! Kamu sudah {count} kali mengaktifkan mode filter saat kualitas air kurang baik. Tindakan proaktif seperti ini mengurangi paparan klorin dan iritan lain ke kulitmu secara kumulatif.",
+    "sources": ["doi:10.3390/s20030756"]
+  },
+  {
+    "id": "scanner-pro",
+    "name": "Scanner Pro",
+    "icon": "🔬",
+    "color": "#da77f2",
+    "tier": "silver",
+    "description": "Melakukan skin scan menggunakan fitur AI Scanner sebanyak 5 kali. Pemantauan kulit berkala membantu mendeteksi perubahan dini dan mengkorelasikan kondisi kulit dengan kualitas air.",
+    "scientific_basis": "Pemantauan kulit secara berkala (skin self-monitoring) meningkatkan kesadaran pasien terhadap kondisi kulitnya dan terbukti meningkatkan kepatuhan terhadap regimen perawatan (Daneshjou et al., 2022; Peng et al., 2023). Korelasi temporal antara data sensor air dan kondisi kulit membantu identifikasi pemicu spesifik.",
+    "trigger": {
+      "metric": "skin_scan_count",
+      "count": 5
+    },
+    "xai_popup": "Badge Scanner Pro! Kamu sudah melakukan skin scan sebanyak {count} kali. Pemantauan berkala membantu mendeteksi perubahan dini dan mengkorelasikan kondisi kulitmu dengan kualitas air yang kamu gunakan.",
+    "sources": ["doi:10.1038/s41746-022-00631-8"]
+  },
+  {
+    "id": "water-wise",
+    "name": "Water Wise",
+    "icon": "💡",
+    "color": "#66d9e8",
+    "tier": "bronze",
+    "description": "Membaca 10 entri di Ensiklopedia Dermatologi AQUENT. Literasi tentang kondisi kulit dan hubungannya dengan kualitas air adalah fondasi perawatan kulit yang efektif.",
+    "scientific_basis": "Health literacy — kemampuan individu untuk memahami informasi kesehatan dan membuat keputusan berdasarkan informasi tersebut — secara langsung berkorelasi dengan outcome kesehatan yang lebih baik (Nutbeam, 2000). Pemahaman tentang hubungan kualitas air dengan kondisi kulit meningkatkan motivasi untuk menjaga kualitas air mandi.",
+    "trigger": {
+      "metric": "encyclopedia_reads",
+      "count": 10,
+      "unique": true
+    },
+    "xai_popup": "Badge Water Wise! Kamu sudah membaca {count} entri ensiklopedia. Pengetahuan adalah alat perawatan kulit yang paling kuat — semakin kamu paham hubungan air dan kulitmu, semakin efektif perawatanmu.",
+    "sources": []
+  },
+  {
+    "id": "rookie",
+    "name": "Rookie",
+    "icon": "🚿",
+    "color": "#a5d8ff",
+    "tier": "bronze",
+    "description": "Menyelesaikan sesi mandi pertama yang tercatat oleh AQUENT. Selamat datang di perjalanan menuju kulit lebih sehat dengan air yang lebih baik!",
+    "scientific_basis": "Memulai adalah langkah terpenting. Studi behavioral menunjukkan bahwa langkah pertama penggunaan teknologi kesehatan baru secara signifikan memprediksi keberlangsungan penggunaan jangka panjang (Davis, 1989 — TAM). Badge ini adalah titik awal perjalanan kulitmu.",
+    "trigger": {
+      "metric": "session_count",
+      "threshold": 1,
+      "one_time": true
+    },
+    "xai_popup": "Sesi mandi pertamamu telah tercatat! pH: {ph}, Suhu: {temp}°C, Skor: {score}/100. Ini awal perjalananmu menuju kulit lebih sehat. Badge Rookie berhasil diraih! 🚿",
+    "sources": []
+  },
+  {
+    "id": "first-scan",
+    "name": "First Scan",
+    "icon": "📸",
+    "color": "#e599f7",
+    "tier": "bronze",
+    "description": "Melakukan skin scan AI pertama kali. Langkah pertama dalam memahami kondisi kulitmu secara visual dan menghubungkannya dengan kualitas air yang kamu gunakan.",
+    "scientific_basis": "Penggunaan AI untuk analisis kondisi kulit (dermoscopy AI) terbukti meningkatkan kesadaran diri terhadap kondisi kulit dan mendorong perilaku perawatan lebih proaktif (Daneshjou et al., 2022, NPJ Digital Medicine). Sesi pertama scan membangun baseline kondisi kulit yang menjadi referensi perbandingan ke depan.",
+    "trigger": {
+      "metric": "skin_scan_count",
+      "threshold": 1,
+      "one_time": true
+    },
+    "xai_popup": "Skin scan pertamamu selesai! Skin Score: {skin_score}/100, Tipe kulit terdeteksi: {skin_type}. Badge First Scan berhasil diraih — ini baseline kondisi kulitmu yang akan dibandingkan di scan berikutnya.",
+    "sources": ["doi:10.1038/s41746-022-00631-8"]
+  },
+  {
+    "id": "kontributor-aquent",
+    "name": "Kontributor AQUENT",
+    "icon": "🎓",
+    "color": "#f783ac",
+    "tier": "silver",
+    "description": "Mengisi kuesioner evaluasi AQUENT (TAM/SUS/UEQ) setelah 3 sesi penggunaan. Feedback ilmiah dari pengguna nyata adalah kontribusi berharga untuk pengembangan penelitian ini.",
+    "scientific_basis": "Evaluasi usabilitas berbasis pengguna (System Usability Scale, Brooke 1996; TAM, Davis 1989) adalah standar emas dalam penelitian Human-Computer Interaction. Partisipasi pengguna dalam evaluasi akademik membantu memvalidasi teknologi baru secara ilmiah dan mendorong inovasi berbasis bukti.",
+    "trigger": {
+      "metric": "survey_completed",
+      "value": true,
+      "one_time": true
+    },
+    "xai_popup": "Terima kasih telah mengisi kuesioner evaluasi AQUENT! SUS Score kamu: {sus_score}/100. Kontribusimu membantu penelitian ini berkembang dan menjadi lebih baik untuk semua pengguna. Badge Kontributor AQUENT berhasil diraih! 🎓",
+    "sources": []
+  },
+  {
+    "id": "turbidity-watch",
+    "name": "Turbidity Watch",
+    "icon": "🌊",
+    "color": "#4dabf7",
+    "tier": "bronze",
+    "description": "Merespons 5 peringatan air keruh (turbidity > 1 NTU) dengan menunda atau mempersingkat sesi mandi. Tindakan proaktif ini melindungi kulit dari paparan partikel tersuspensi berbahaya.",
+    "scientific_basis": "Kekeruhan air di atas 1 NTU mengindikasikan keberadaan partikel tersuspensi yang dapat membawa kontaminan mikrobiologis dan menyumbat folikel rambut (Parra et al., 2020). Merespons peringatan turbidity secara aktif mengurangi risiko folikulitis dan iritasi kulit akibat sedimen.",
+    "trigger": {
+      "metric": "turbidity_alert_responded",
+      "count": 5
+    },
+    "xai_popup": "Badge Turbidity Watch! Kamu sudah {count} kali merespons peringatan air keruh secara proaktif. Tindakan ini melindungi kulitmu dari partikel tersuspensi dan kontaminan yang tidak terlihat mata.",
+    "sources": ["doi:10.3390/s20030756"]
+  },
+  {
+    "id": "temperature-pro",
+    "name": "Temperature Pro",
+    "icon": "🌡️",
+    "color": "#ff8787",
+    "tier": "silver",
+    "description": "Menjaga suhu air dalam rentang optimal 36–38°C selama 10 sesi mandi berturut-turut. Konsistensi suhu optimal adalah salah satu cara terbaik menjaga skin barrier tetap sehat.",
+    "scientific_basis": "Suhu air 36–38°C adalah rekomendasi resmi European Academy of Dermatology (Wollenberg et al., 2022) untuk penderita atopic dermatitis. Air di atas 40°C meningkatkan transepidermal water loss (TEWL) secara signifikan, sementara suhu optimal mempertahankan integritas ceramide dan NMF (Natural Moisturizing Factor).",
+    "trigger": {
+      "metric": "temp_in_optimal_range",
+      "temp_min": 36,
+      "temp_max": 38,
+      "streak_sessions": 10
+    },
+    "xai_popup": "Badge Temperature Pro! Suhu airmu konsisten di {avg_temp}°C — tepat di zona optimal 36–38°C selama {sessions} sesi berturut-turut. Ini melindungi lapisan ceramide kulitmu dan mencegah kekeringan setelah mandi.",
+    "sources": ["doi:10.1111/jdv.17927"]
+  },
+  {
+    "id": "night-owl",
+    "name": "Night Owl",
+    "icon": "🦉",
+    "color": "#748ffc",
+    "tier": "bronze",
+    "description": "Mandi secara konsisten setelah pukul 21.00 selama 5 hari berturut-turut. Mandi malam sebelum tidur terbukti meningkatkan kualitas tidur dengan membantu penurunan suhu tubuh.",
+    "scientific_basis": "Studi meta-analisis Haghayegh et al. (2019, Sleep Medicine Reviews) menemukan bahwa mandi air hangat 1–2 jam sebelum tidur meningkatkan kualitas tidur secara signifikan. Mekanismenya: air hangat menginduksi vasodilatasi perifer yang memfasilitasi penurunan suhu inti tubuh — sinyal fisiologis untuk onset tidur.",
+    "trigger": {
+      "metric": "shower_hour",
+      "after_hour": 21,
+      "streak_days": 5
+    },
+    "xai_popup": "Badge Night Owl! Kamu rutin mandi malam setelah jam 21.00 selama {days} hari berturut-turut. Mandi air hangat 1–2 jam sebelum tidur terbukti meningkatkan kualitas tidurmu melalui mekanisme pendinginan suhu tubuh.",
+    "sources": []
+  },
+  {
+    "id": "family-manager",
+    "name": "Family Manager",
+    "icon": "👨‍👩‍👧‍👦",
+    "color": "#ffa94d",
+    "tier": "silver",
+    "description": "Mengaktifkan dan menggunakan 3 profil keluarga atau lebih. Mengelola kualitas air untuk seluruh keluarga menunjukkan komitmen menyeluruh terhadap kesehatan kulit semua anggota keluarga.",
+    "scientific_basis": "Kondisi kulit seperti atopic dermatitis memiliki komponen genetik yang kuat — anak-anak dari orang tua dengan riwayat eksim memiliki risiko 60–80% lebih tinggi (Wollenberg et al., 2022). Memonitor kualitas air untuk seluruh keluarga, terutama anak-anak yang kulitnya lebih sensitif, memiliki dampak preventif yang signifikan.",
+    "trigger": {
+      "metric": "active_profile_count",
+      "threshold": 3
+    },
+    "xai_popup": "Badge Family Manager! Kamu mengelola {count} profil keluarga di AQUENT. Tiap profil mendapatkan analisis kualitas air yang dipersonalisasi sesuai tipe kulitnya masing-masing. Mantap! 👨‍👩‍👧‍👦",
+    "sources": ["doi:10.1111/jdv.17927"]
+  },
+  {
+    "id": "clean-streak",
+    "name": "Clean Streak",
+    "icon": "✨",
+    "color": "#69db7c",
+    "tier": "gold",
+    "description": "Mencapai skor kualitas air 90+ (Grade A) selama 14 sesi mandi berturut-turut. Pencapaian luar biasa yang menunjukkan kualitas air optimal secara konsisten.",
+    "scientific_basis": "Skor kualitas air 90+ mencerminkan kondisi pH optimal (6.5–7.5), suhu ideal (36–38°C), dan kekeruhan minimal (<0.5 NTU) secara bersamaan. Paparan konsisten terhadap kondisi air seperti ini selama 2 minggu berturut-turut secara teori cukup untuk menunjukkan perbaikan kondisi kulit yang terukur, terutama pada parameter TEWL dan hidrasi kulit (Jabbar-Lopez et al., 2021).",
+    "trigger": {
+      "metric": "quality_score",
+      "threshold": 90,
+      "streak_sessions": 14
+    },
+    "xai_popup": "LUAR BIASA! Clean Streak — skor kualitas air 90+ selama {sessions} sesi berturut-turut! Rata-rata skor: {avg_score}/100. Kondisi air seoptimal ini selama 2 minggu adalah hadiah terbaik untuk kulitmu. ✨",
+    "sources": ["doi:10.1111/bjd.19862"]
+  },
+  {
+    "id": "ai-partner",
+    "name": "AI Partner",
+    "icon": "🤖",
+    "color": "#a9e34b",
+    "tier": "bronze",
+    "description": "Melakukan 20 percakapan dengan AQUA AI Skin Consultant. Pengguna yang aktif berdiskusi dengan AI terbukti mendapatkan rekomendasi lebih relevan dan meningkatkan kepatuhan terhadap saran perawatan kulit.",
+    "scientific_basis": "Studi Peng et al. (2023, JMIR) menemukan bahwa pengguna yang berinteraksi aktif dengan AI health chatbot (>15 sesi chat) menunjukkan peningkatan kepatuhan terhadap rekomendasi perawatan sebesar 41% dibandingkan pengguna pasif. Dialog aktif membantu AI memahami konteks personal dan memberikan saran yang semakin akurat.",
+    "trigger": {
+      "metric": "ai_chat_sessions",
+      "count": 20
+    },
+    "xai_popup": "Badge AI Partner! Kamu sudah berdialog dengan AQUA AI sebanyak {count} kali. Semakin sering kamu berbagi kondisi kulit dan keluhanmu, semakin presisi rekomendasi yang AQUA berikan untukmu.",
+    "sources": []
+  },
+  {
+    "id": "alert-responder",
+    "name": "Alert Responder",
+    "icon": "⚡",
+    "color": "#ffe066",
+    "tier": "silver",
+    "description": "Merespons 20 peringatan kualitas air dengan mengambil tindakan yang disarankan (mengaktifkan filter, mempersingkat mandi, atau mengubah suhu). Responsivitas terhadap data real-time adalah kunci manfaat IoT.",
+    "scientific_basis": "Nilai utama sistem monitoring IoT terletak pada kemampuan pengguna untuk bertindak berdasarkan data real-time (Coutts et al., 2023). Pengguna yang aktif merespons peringatan kualitas air mengurangi paparan kumulatif terhadap iritan kulit secara signifikan dibandingkan pengguna yang mengabaikan alert.",
+    "trigger": {
+      "metric": "alert_action_taken_count",
+      "count": 20
+    },
+    "xai_popup": "Badge Alert Responder! Kamu sudah merespons {count} peringatan kualitas air dengan tindakan nyata. Ini mengurangi paparan kulitmu terhadap iritan secara kumulatif — keputusan data-driven terbaik untuk kesehatan kulitmu! ⚡",
+    "sources": []
+  },
+  {
+    "id": "aqua-champion",
+    "name": "AQUA Champion",
+    "icon": "🏆",
+    "color": "#ffd700",
+    "tier": "platinum",
+    "description": "Meraih semua badge di AQUENT dan mencapai level Platinum. Penghargaan tertinggi untuk pengguna yang telah sepenuhnya memanfaatkan ekosistem AQUENT dalam perjalanan kesehatan kulitnya.",
+    "scientific_basis": "Gamifikasi komprehensif dalam aplikasi kesehatan terbukti meningkatkan engagement jangka panjang hingga 48% dibandingkan aplikasi tanpa sistem reward (Coutts et al., 2023). Pengguna yang mencapai semua milestone gamifikasi menunjukkan internalisasi perilaku sehat yang tidak lagi bergantung pada reward eksternal — tanda keberhasilan intervensi behavioral.",
+    "trigger": {
+      "metric": "badges_earned_count",
+      "threshold": "all",
+      "level": "platinum"
+    },
+    "xai_popup": "🏆 AQUA Champion! Kamu telah meraih SEMUA badge AQUENT dan mencapai level Platinum. Perjalanan dari Rookie hingga Champion ini mencerminkan komitmen luar biasa terhadap kesehatan kulit berbasis data. Terima kasih telah menjadi bagian dari penelitian AQUENT!",
+    "sources": []
+  }
+]

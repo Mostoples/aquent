@@ -1,0 +1,19 @@
+{
+  "name":            "AQUENT Skin Classifier",
+  "version":         "1.0.0",
+  "modelName":       "aquent-skin-classifier",
+  "labels":          ["dry", "normal", "oily"],
+  "imageSize":       224,
+  "preprocess":      "tm",
+  "architecture":    "EfficientNetB0 + custom head (transfer learning)",
+  "trainingDate":    "2026-05-30",
+  "validationAcc":   0.87,
+  "params":          5288548,
+  "datasets": [
+    {"source": "kaggle", "id": "shakyadissanayake/oily-dry-and-normal-skin-types-dataset"}
+  ],
+  "preprocessing": {
+    "resize":    [224, 224],
+    "normalize": "img / 127.5 - 1.0"
+  }
+}

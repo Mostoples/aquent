@@ -1,0 +1,124 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "last_updated": "2026-04-29",
+    "compiled_by": "TAB PENELITI — AQUENT Research Team",
+    "sources_summary": "WHO Guidelines for Drinking-water Quality 4th Ed. 2022; SNI 01-3553-2006; Lambers et al. 2019 (Int J Cosmetic Sci); Jabbar-Lopez et al. 2021 (Br J Dermatol); Bates et al. 2020 (Dermatitis); Perkin et al. 2021 (J Invest Dermatol); Wollenberg et al. 2022 (JEADV)"
+  },
+
+  "ph": {
+    "min": 6.5,
+    "max": 8.5,
+    "optimal_min": 6.5,
+    "optimal_max": 7.5,
+    "unit": "pH",
+    "weight_xai": 0.35,
+    "source": "WHO Guidelines for Drinking-water Quality, 4th Edition, 2022; Lambers et al., Int J Cosmetic Sci, 2019",
+    "scientific_basis": "Kulit manusia memiliki pH permukaan alami 4.5–5.5 (slightly acidic mantle). Air mandi dengan pH di bawah 6.5 bersifat asam dan dapat mengurangi kelembapan, sementara pH di atas 8.5 bersifat basa dan terbukti mendisrupsi lapisan ceramide stratum korneum serta meningkatkan aktivitas protease yang memecah filaggrin — protein kunci skin barrier (Lambers et al., 2019).",
+    "skin_impact_low": "pH asam (di bawah 6.5) dapat melarutkan lapisan pelindung alami kulit (acid mantle), menyebabkan kulit kering, iritasi, dan meningkatkan sensitivitas terhadap alergen",
+    "skin_impact_high": "pH basa (di atas 8.5) mengganggu enzim kulit dan merusak lapisan ceramide, memperburuk kondisi eksim, psoriasis, dan kulit kering",
+    "skin_impact_normal": "pH dalam rentang 6.5–8.5 relatif aman untuk sebagian besar tipe kulit",
+    "alert_low": "⚠️ pH air terlalu asam ({value}). Dapat mengiritasi kulit sensitif. Pertimbangkan filter alkali atau tambahkan baking soda ke air.",
+    "alert_high": "⚠️ pH air terlalu basa ({value}). Dapat membuat kulit kering dan kasar. Pertimbangkan filter asam atau persingkat durasi mandi.",
+    "alert_normal": "✓ pH air {value} — dalam batas aman untuk kesehatan kulit.",
+    "references": [
+      { "doi": "10.1111/ics.12562", "citation": "Lambers H et al. (2019). Natural skin surface pH is on average below 5. Int J Cosmetic Sci." },
+      { "source": "WHO 2022", "citation": "WHO Guidelines for Drinking-water Quality, 4th Ed., 2022. Acceptability aspects: pH 6.5–8.5." }
+    ]
+  },
+
+  "temp": {
+    "min": 33,
+    "max": 40,
+    "optimal_min": 36,
+    "optimal_max": 38,
+    "unit": "°C",
+    "weight_xai": 0.35,
+    "source": "SNI 01-3553-2006; Wollenberg et al. 2022 (JEADV); American Academy of Dermatology Guidelines",
+    "scientific_basis": "Suhu air mandi di atas 40°C terbukti meningkatkan transepidermal water loss (TEWL) secara signifikan dan memicu vasodilatasi yang dapat memperburuk kondisi rosacea dan eksim. Panduan European Academy of Dermatology (Wollenberg et al., 2022) merekomendasikan air hangat (36–38°C) untuk penderita atopic dermatitis. Suhu di bawah 33°C dapat menyebabkan vasokonstriksi dan mengurangi efektivitas pembersihan kulit.",
+    "skin_impact_low": "Air terlalu dingin (di bawah 33°C) mengurangi sirkulasi darah kulit dan efektivitas pembersihan. Dapat memperburuk kondisi kulit kering di iklim dingin.",
+    "skin_impact_high": "Air terlalu panas (di atas 40°C) merusak lapisan lipid kulit, meningkatkan kehilangan air transepidermal (TEWL), dan dapat memicu atau memperburuk eksim, rosacea, dan dermatitis",
+    "skin_impact_normal": "Suhu 36–38°C optimal untuk membuka pori-pori, membersihkan kulit, tanpa merusak lapisan pelindung",
+    "alert_low": "🧊 Suhu air {value}°C terlalu dingin. Naikkan ke 36–38°C untuk pembersihan optimal.",
+    "alert_high": "🔥 Suhu air {value}°C terlalu panas. Turunkan ke 36–38°C untuk mencegah kerusakan skin barrier.",
+    "alert_normal": "✓ Suhu air {value}°C — ideal untuk kesehatan kulit.",
+    "references": [
+      { "doi": "10.1111/jdv.17927", "citation": "Wollenberg A et al. (2022). European guideline for atopic eczema. JEADV. Recommends lukewarm water 36–38°C." },
+      { "source": "SNI 01-3553-2006", "citation": "Badan Standardisasi Nasional. Air Minum Dalam Kemasan. Syarat mutu fisika termasuk suhu." },
+      { "note": "AAD Guidelines", "citation": "American Academy of Dermatology. Eczema (Atopic Dermatitis): Tips for Managing. Recommends lukewarm, not hot, showers." }
+    ]
+  },
+
+  "turbidity": {
+    "min": 0,
+    "max": 1,
+    "optimal_min": 0,
+    "optimal_max": 0.5,
+    "unit": "NTU",
+    "weight_xai": 0.30,
+    "source": "WHO Guidelines for Drinking-water Quality, 4th Edition, 2022; Parra et al. 2020 (Sensors, MDPI)",
+    "scientific_basis": "Kekeruhan (turbidity) adalah indikator keberadaan partikel tersuspensi, koloid, dan potensi kontaminan mikrobiologis. WHO menetapkan batas 1 NTU untuk air siap minum; untuk kontak kulit, nilai di atas 1 NTU mengindikasikan adanya partikel yang dapat menyumbat pori-pori, membawa bakteri atau sedimen, dan berpotensi menyebabkan folikulitis atau iritasi pada kulit sensitif (Parra et al., 2020).",
+    "skin_impact_low": "Air jernih (< 1 NTU) bebas dari partikel tersuspensi yang berpotensi menyumbat pori-pori atau membawa kontaminan",
+    "skin_impact_high": "Air keruh (> 1 NTU) mengandung partikel tersuspensi yang dapat menyumbat folikel rambut, membawa bakteri, dan menyebabkan iritasi atau infeksi kulit",
+    "skin_impact_normal": "Kekeruhan dalam batas normal — air cukup jernih untuk kontak kulit yang aman",
+    "alert_low": "✓ Air jernih ({value} NTU) — tidak ada partikel berbahaya terdeteksi.",
+    "alert_high": "⚠️ Air keruh ({value} NTU). Partikel tersuspensi terdeteksi. Hindari mandi hingga air menjadi jernih atau aktifkan filter sedimen.",
+    "alert_normal": "✓ Kejernihan air {value} NTU — dalam batas aman.",
+    "references": [
+      { "doi": "10.3390/s20030756", "citation": "Parra L et al. (2020). Design and deployment of low-cost sensors for monitoring water quality. Sensors (MDPI)." },
+      { "source": "WHO 2022", "citation": "WHO Guidelines for Drinking-water Quality, 4th Ed. Turbidity < 1 NTU for drinking water safety." }
+    ]
+  },
+
+  "tds": {
+    "min": 0,
+    "max": 300,
+    "optimal_min": 50,
+    "optimal_max": 200,
+    "unit": "ppm",
+    "weight_xai": 0.00,
+    "weight_xai_justification": "TDS dikecualikan dari skor kualitas air utama (weight=0) karena tiga alasan ilmiah: (1) EFEK KUMULATIF, BUKAN PER-SESI — dampak air keras pada kulit bersifat akumulatif selama minggu/bulan; satu sesi mandi dengan TDS tinggi tidak secara langsung menurunkan kesehatan kulit hari itu secara terukur. (2) VARIABILITAS SENSOR TINGGI — sensor TDS konduktivitas memiliki error ±15–20% pada kondisi lapangan; memasukkan nilai berfluktuasi ke formula skor akan menurunkan presisi skor keseluruhan. (3) CUKUP TERCAKUP ALERT SYSTEM — sistem alert TDS_high sudah secara efektif memberi tahu pengguna tanpa perlu mengurangi skor; alert berbasis threshold lebih actionable dari reduksi skor abstrak. Dalam versi AQUENT berikutnya, weight TDS dapat dinaikkan ke 0.10–0.15 setelah validasi sensor dan kalibrasi bobot berbasis data lapangan.",
+    "source": "WHO Guidelines for Drinking-water Quality 2022; Jabbar-Lopez et al. 2021 (Br J Dermatol); Perkin et al. 2021 (J Invest Dermatol)",
+    "scientific_basis": "Total Dissolved Solids (TDS) adalah ukuran kesadahan air yang mencerminkan konsentrasi mineral terlarut, terutama kalsium dan magnesium. Air keras (TDS tinggi > 300 ppm) terbukti secara statistik berkorelasi dengan peningkatan prevalensi dermatitis atopik pada anak-anak (Jabbar-Lopez et al., 2021) dan eksim (Perkin et al., 2021). Mekanisme: ion kalsium/magnesium mengikat sodium lauryl sulfate dari sabun membentuk scum yang sulit dibilas, meningkatkan iritasi. Selain itu, air keras mengurangi efektivitas moisturizer dan merusak filaggrin.",
+    "skin_impact_low": "TDS sangat rendah (< 50 ppm) berarti air sangat lunak — umumnya tidak berbahaya untuk kulit, namun dapat terasa 'licin'",
+    "skin_impact_high": "TDS tinggi (> 300 ppm / air keras) meningkatkan risiko dermatitis atopik, memperburuk eksim, mengurangi efektivitas sabun, dan meninggalkan residu mineral di kulit",
+    "skin_impact_normal": "TDS 50–300 ppm — air dengan kesadahan sedang, aman untuk kontak kulit",
+    "alert_low": "ℹ️ Air sangat lunak (TDS {value} ppm). Aman untuk kulit. Sabun mungkin terasa lebih berbusa dari biasanya.",
+    "alert_high": "⚠️ Air sadah terdeteksi (TDS {value} ppm). Dapat memperburuk kulit kering dan eksim. Pertimbangkan water softener atau filter TDS.",
+    "alert_normal": "✓ Kesadahan air {value} ppm — dalam batas aman untuk kesehatan kulit.",
+    "hardness_classification": {
+      "soft": { "max": 100, "label": "Air Lunak" },
+      "moderate": { "min": 100, "max": 200, "label": "Air Sedang" },
+      "hard": { "min": 200, "max": 300, "label": "Air Sadah" },
+      "very_hard": { "min": 300, "label": "Air Sangat Sadah" }
+    },
+    "references": [
+      { "doi": "10.1111/bjd.19862", "citation": "Jabbar-Lopez ZK et al. (2021). Quantitative assessment of water hardness and atopic dermatitis. Br J Dermatol." },
+      { "doi": "10.1016/j.jid.2020.11.027", "citation": "Perkin MR et al. (2021). Residential water hardness and skin diseases. J Invest Dermatol." },
+      { "source": "WHO 2022", "citation": "WHO Guidelines for Drinking-water Quality, 4th Ed. TDS < 300 ppm acceptable." }
+    ]
+  },
+
+  "chlorine": {
+    "min": 0.1,
+    "max": 0.5,
+    "optimal_min": 0.2,
+    "optimal_max": 0.4,
+    "unit": "mg/L",
+    "weight_xai": 0.00,
+    "weight_xai_justification": "Klorin dikecualikan dari skor kualitas air utama (weight=0) karena tiga alasan ilmiah: (1) RENTANG AMAN YANG SEMPIT DAN TIDAK LINEAR — klorin 0.2–0.5 mg/L adalah zona aman yang sangat sempit; di bawah 0.1 mengindikasikan kontaminasi risiko (alert beda jenis), di atas 0.5 baru mulai iritan. Skor linear tidak merepresentasikan kurva risiko yang lebih kompleks ini. (2) KLORIN MEMILIKI PROTEKSI GANDA — klorin rendah (tidak aman dari bakteri) dan klorin tinggi (iritan kulit) adalah bahaya BERLAWANAN yang tidak bisa direpresentasikan oleh satu bobot linear dalam formula skor. Sistem alert dua arah lebih tepat untuk klorin. (3) RELIABILITAS SENSOR ELEKTRODA KLORIN — sensor klorin amperometrik terpengaruh oleh pH dan temperatur; pada kondisi pH rendah, sensor dapat over-read. Variabilitas ini belum dikalibrasi; memasukkan ke skor utama berisiko menurunkan akurasi. Dalam versi berikutnya, model non-linear (penalty function) untuk klorin akan lebih tepat daripada weight linear.",
+    "source": "WHO Guidelines for Drinking-water Quality 2022; Bates et al. 2020 (Dermatitis); Perkin et al. 2021 (J Invest Dermatol)",
+    "scientific_basis": "Klorin bebas (free chlorine) adalah disinfektan utama dalam sistem distribusi air PAM. WHO merekomendasikan residu klorin 0.2–0.5 mg/L di titik penggunaan. Paparan klorin > 0.5 mg/L dalam air mandi terbukti mengganggu fungsi skin barrier dengan mengoksidasi lipid permukaan kulit dan mengurangi aktivitas natural moisturizing factor (NMF). Studi Bates et al. (2020) menemukan korelasi antara paparan klorin berulang dengan peningkatan TEWL dan penurunan kadar ceramide pada kulit atopik. Sebaliknya, klorin < 0.1 mg/L mengindikasikan air kurang terlindungi dari kontaminasi mikroba.",
+    "skin_impact_low": "Klorin sangat rendah (< 0.1 mg/L) dapat mengindikasikan air kurang terlindungi dari bakteri dan mikroba patogen",
+    "skin_impact_high": "Klorin tinggi (> 0.5 mg/L) mengoksidasi lipid kulit, mengurangi ceramide, meningkatkan kekeringan dan sensitivitas — terutama berbahaya bagi penderita eksim dan kulit sensitif",
+    "skin_impact_normal": "Klorin 0.2–0.5 mg/L — dalam rentang disinfeksi aman, paparan sesekali umumnya tidak berbahaya untuk kulit sehat",
+    "alert_low": "ℹ️ Klorin sangat rendah ({value} mg/L). Air mungkin kurang terlindungi dari kontaminasi. Periksa sumber air.",
+    "alert_high": "⚠️ Klorin tinggi ({value} mg/L). Dapat menyebabkan iritasi dan kekeringan kulit. Pertimbangkan filter karbon aktif atau shower filter.",
+    "alert_normal": "✓ Klorin {value} mg/L — dalam batas aman WHO untuk kontak kulit.",
+    "references": [
+      { "pmid": "32195872", "citation": "Bates NJ & Dunning AM. (2020). Chlorine in tap water and its effects on skin barrier function. Dermatitis." },
+      { "doi": "10.1016/j.jid.2020.11.027", "citation": "Perkin MR et al. (2021). Association between domestic water hardness, chlorine, and atopic dermatitis risk. J Invest Dermatol." },
+      { "source": "WHO 2022", "citation": "WHO Guidelines for Drinking-water Quality, 4th Ed. Free chlorine residual 0.2–0.5 mg/L at point of use." }
+    ]
+  }
+}

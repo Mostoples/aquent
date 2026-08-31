@@ -1,0 +1,323 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "last_updated": "2026-04-29",
+    "compiled_by": "TAB PENELITI — AQUENT Research Team",
+    "used_by": "P12 Push Notifications — app.js + sw.js + functions/index.js",
+    "placeholder_guide": {
+      "{value}": "Nilai aktual sensor (angka + satuan)",
+      "{score}": "Skor kualitas air 0–100",
+      "{grade}": "Grade A–F",
+      "{name}": "Nama profil pengguna aktif",
+      "{badge}": "Nama badge yang diraih",
+      "{streak}": "Jumlah hari/sesi streak saat ini",
+      "{tip}": "Saran tindakan singkat (diisi runtime dari thresholds.json alert_*)",
+      "{param}": "Nama parameter sensor (pH / Suhu / Kekeruhan / TDS / Klorin)"
+    }
+  },
+
+  "water_quality_alerts": {
+    "critical": {
+      "turbidity_high": {
+        "title": "⚠️ Air Keruh Terdeteksi",
+        "body": "Kekeruhan {value} NTU — di atas batas aman. Tunda mandi hingga air kembali jernih.",
+        "icon": "turbidity",
+        "priority": "high",
+        "action_label": "Lihat Detail",
+        "action_url": "/app.html#dashboard",
+        "vibrate": [200, 100, 200],
+        "sound": "alert",
+        "scientific_note": "Turbidity > 1 NTU mengindikasikan partikel tersuspensi yang berpotensi membawa kontaminan (WHO 2022)"
+      },
+      "ph_very_low": {
+        "title": "⚠️ pH Air Sangat Asam",
+        "body": "pH air {value} — jauh di bawah normal. Dapat menyebabkan iritasi kulit. Hindari mandi dulu.",
+        "icon": "ph",
+        "priority": "high",
+        "action_label": "Cek Saran Filter",
+        "action_url": "/app.html#dashboard",
+        "vibrate": [200, 100, 200],
+        "sound": "alert"
+      },
+      "ph_very_high": {
+        "title": "⚠️ pH Air Sangat Basa",
+        "body": "pH air {value} — terlalu basa. Dapat merusak lapisan pelindung kulit. Pertimbangkan filter.",
+        "icon": "ph",
+        "priority": "high",
+        "action_label": "Lihat Panduan",
+        "action_url": "/app.html#dermal-guide",
+        "vibrate": [200, 100, 200],
+        "sound": "alert"
+      },
+      "temp_too_hot": {
+        "title": "🔥 Air Terlalu Panas",
+        "body": "Suhu air {value}°C — melebihi batas aman 40°C. Turunkan suhu untuk melindungi kulitmu.",
+        "icon": "temp",
+        "priority": "high",
+        "action_label": "Tips Mandi Sehat",
+        "action_url": "/app.html#dermal-guide",
+        "vibrate": [300, 100, 300],
+        "sound": "alert"
+      }
+    },
+    "warning": {
+      "tds_high": {
+        "title": "💧 Air Sadah Terdeteksi",
+        "body": "TDS {value} ppm — air cukup keras. Bisa memperburuk kulit kering. Oleskan moisturizer segera setelah mandi.",
+        "icon": "tds",
+        "priority": "normal",
+        "action_label": "Rekomendasi Produk",
+        "action_url": "/app.html#recommender",
+        "vibrate": [100, 50, 100],
+        "sound": "soft"
+      },
+      "chlorine_high": {
+        "title": "🧪 Klorin Tinggi",
+        "body": "Klorin {value} mg/L — di atas batas optimal. Pertimbangkan shower filter karbon aktif.",
+        "icon": "chlorine",
+        "priority": "normal",
+        "action_label": "Panduan Filter",
+        "action_url": "/app.html#dashboard",
+        "vibrate": [100, 50, 100],
+        "sound": "soft"
+      },
+      "chlorine_low": {
+        "title": "ℹ️ Klorin Sangat Rendah",
+        "body": "Klorin {value} mg/L — terlalu rendah. Air mungkin kurang terlindungi dari bakteri. Periksa sumber air.",
+        "icon": "chlorine",
+        "priority": "normal",
+        "action_label": "Info Lebih Lanjut",
+        "action_url": "/app.html#encyclopedia",
+        "vibrate": [100],
+        "sound": "soft"
+      },
+      "temp_cold": {
+        "title": "🧊 Air Terlalu Dingin",
+        "body": "Suhu air {value}°C — di bawah optimal. Naikkan ke 36–38°C untuk pembersihan kulit yang efektif.",
+        "icon": "temp",
+        "priority": "low",
+        "action_label": "Kenapa Penting?",
+        "action_url": "/app.html#dashboard",
+        "vibrate": [100],
+        "sound": "soft"
+      },
+      "quality_score_low": {
+        "title": "📉 Skor Air Turun",
+        "body": "Skor kualitas air saat ini {score}/100 (Grade {grade}). {param} menjadi faktor utama. Cek dashboard.",
+        "icon": "score",
+        "priority": "normal",
+        "action_label": "Lihat XAI Panel",
+        "action_url": "/app.html#dashboard",
+        "vibrate": [150, 50, 150],
+        "sound": "soft"
+      }
+    },
+    "info": {
+      "quality_excellent": {
+        "title": "✅ Kondisi Air Optimal!",
+        "body": "Skor kualitas air {score}/100 — Grade A. Waktu yang tepat untuk mandi sehat, {name}!",
+        "icon": "check",
+        "priority": "low",
+        "action_label": "Mulai Sesi",
+        "action_url": "/app.html#dashboard",
+        "vibrate": [50],
+        "sound": "success"
+      },
+      "quality_restored": {
+        "title": "✅ Kualitas Air Pulih",
+        "body": "Air kembali ke kondisi normal. Skor: {score}/100. Aman untuk mandi sekarang.",
+        "icon": "check",
+        "priority": "low",
+        "action_label": "Lihat Dashboard",
+        "action_url": "/app.html#dashboard",
+        "vibrate": [50],
+        "sound": "success"
+      }
+    }
+  },
+
+  "reminders": {
+    "shower_reminder_morning": {
+      "title": "🌤️ Selamat Pagi, {name}!",
+      "body": "Kualitas air pagi ini: {score}/100. {tip}",
+      "icon": "morning",
+      "priority": "low",
+      "schedule": "daily",
+      "default_hour": 7,
+      "user_configurable": true,
+      "action_label": "Cek Dashboard",
+      "action_url": "/app.html#dashboard",
+      "vibrate": [50],
+      "sound": "gentle"
+    },
+    "shower_reminder_evening": {
+      "title": "🌙 Waktunya Mandi Malam, {name}",
+      "body": "Mandi air hangat sebelum tidur meningkatkan kualitas tidurmu. Skor air saat ini: {score}/100.",
+      "icon": "moon",
+      "priority": "low",
+      "schedule": "daily",
+      "default_hour": 21,
+      "user_configurable": true,
+      "action_label": "Mulai Sesi",
+      "action_url": "/app.html#dashboard",
+      "vibrate": [50],
+      "sound": "gentle",
+      "scientific_note": "Mandi air hangat 1–2 jam sebelum tidur meningkatkan kualitas tidur melalui fasilitasi penurunan suhu inti tubuh (Haghayegh et al., 2019)"
+    },
+    "missed_session": {
+      "title": "💦 Kamu Belum Mandi Hari Ini",
+      "body": "Jangan putus streak {streak} hari! Kualitas air saat ini: {score}/100.",
+      "icon": "streak",
+      "priority": "low",
+      "trigger": "no_session_logged_by_hour",
+      "trigger_hour": 22,
+      "action_label": "Catat Sesi",
+      "action_url": "/app.html#history",
+      "vibrate": [100, 50, 100],
+      "sound": "gentle"
+    }
+  },
+
+  "gamification": {
+    "badge_earned": {
+      "title": "🏅 Badge Baru: {badge}!",
+      "body": "Kamu baru saja meraih badge {badge}. Buka AQUENT untuk melihat detail pencapaianmu!",
+      "icon": "badge",
+      "priority": "normal",
+      "action_label": "Lihat Badge",
+      "action_url": "/app.html#gamification",
+      "vibrate": [100, 50, 100, 50, 100],
+      "sound": "achievement"
+    },
+    "streak_milestone": {
+      "title": "🔥 Streak {streak} Hari!",
+      "body": "Luar biasa! Kamu sudah {streak} hari berturut-turut monitoring kualitas air mandiku. Teruskan!",
+      "icon": "fire",
+      "priority": "normal",
+      "trigger_on_streaks": [7, 14, 21, 30, 60, 100],
+      "action_label": "Lihat Progress",
+      "action_url": "/app.html#gamification",
+      "vibrate": [200, 100, 200, 100, 200],
+      "sound": "achievement"
+    },
+    "level_up": {
+      "title": "⬆️ Level Up! Selamat!",
+      "body": "Kamu naik ke level {level}! Terus jaga kualitas airmu untuk meraih badge-badge baru.",
+      "icon": "star",
+      "priority": "normal",
+      "action_label": "Lihat Level",
+      "action_url": "/app.html#gamification",
+      "vibrate": [300, 100, 300],
+      "sound": "achievement"
+    },
+    "streak_at_risk": {
+      "title": "⏰ Streak Hampir Putus!",
+      "body": "Streak {streak} hari kamu terancam putus. Buka AQUENT sebelum tengah malam untuk mempertahankannya!",
+      "icon": "warning",
+      "priority": "high",
+      "trigger_hour": 22,
+      "action_label": "Simpan Streak",
+      "action_url": "/app.html",
+      "vibrate": [200, 100, 200],
+      "sound": "alert"
+    }
+  },
+
+  "maintenance": {
+    "filter_reminder": {
+      "title": "🔧 Cek Filter Showermu",
+      "body": "Berdasarkan {sessions} sesi terakhir, filter showermu mungkin perlu diganti. Klorin rata-rata: {avg_chlorine} mg/L.",
+      "icon": "filter",
+      "priority": "low",
+      "trigger": "session_count_since_filter_reset",
+      "trigger_count": 60,
+      "action_label": "Panduan Filter",
+      "action_url": "/app.html#dashboard",
+      "vibrate": [50],
+      "sound": "soft",
+      "scientific_note": "Filter karbon aktif umumnya efektif untuk 3–6 bulan atau ~300 galon air (tergantung produk)"
+    },
+    "weekly_summary": {
+      "title": "📊 Laporan Mingguan AQUENT",
+      "body": "Minggu ini: {sessions} sesi mandi, skor rata-rata {avg_score}/100, hemat air {water_saved}%. {insight}",
+      "icon": "chart",
+      "priority": "low",
+      "schedule": "weekly",
+      "schedule_day": "sunday",
+      "schedule_hour": 19,
+      "action_label": "Lihat Riwayat",
+      "action_url": "/app.html#history",
+      "vibrate": [50],
+      "sound": "gentle"
+    },
+    "skin_scan_reminder": {
+      "title": "📸 Sudah Lama Tidak Scan Kulit",
+      "body": "Sudah {days} hari sejak skin scan terakhirmu. Pantau perubahan kondisi kulitmu secara berkala.",
+      "icon": "camera",
+      "priority": "low",
+      "trigger": "days_since_last_scan",
+      "trigger_days": 14,
+      "action_label": "Scan Sekarang",
+      "action_url": "/app.html#skin-scanner",
+      "vibrate": [50],
+      "sound": "soft"
+    }
+  },
+
+  "educational": {
+    "daily_tip": {
+      "title": "💡 Tips Kulit Hari Ini",
+      "body": "{tip_text}",
+      "icon": "lightbulb",
+      "priority": "low",
+      "schedule": "daily",
+      "schedule_hour": 8,
+      "user_configurable": true,
+      "action_label": "Baca Selengkapnya",
+      "action_url": "/app.html#encyclopedia",
+      "vibrate": [50],
+      "sound": "none",
+      "tip_pool": [
+        "Air dengan pH 6.5–7.5 adalah kondisi terbaik untuk menjaga acid mantle kulitmu tetap sehat.",
+        "Mandi lebih dari 15 menit dapat menghilangkan minyak alami kulit, meskipun airnya berkualitas baik.",
+        "Oleskan moisturizer dalam 3 menit setelah mandi untuk mengunci kelembapan kulit secara optimal.",
+        "Air keras (TDS > 300 ppm) bereaksi dengan sabun membentuk residu yang susah dibilas — pertimbangkan filter TDS.",
+        "Klorin dalam air PAM memang perlu, tapi shower filter karbon aktif bisa menguranginya hingga 95%.",
+        "Suhu air 36–38°C adalah rekomendasi European Academy of Dermatology untuk menjaga skin barrier.",
+        "Air keruh (turbidity > 1 NTU) bukan hanya soal estetika — partikelnya bisa menyumbat folikel rambutmu.",
+        "Mandi air hangat 1–2 jam sebelum tidur terbukti meningkatkan kualitas tidur secara ilmiah.",
+        "Kulit sensitif 3× lebih rentan terhadap perubahan pH air dibandingkan kulit normal.",
+        "Anak-anak di area air keras memiliki risiko 87% lebih tinggi terkena eksim (Jabbar-Lopez et al., 2021)."
+      ]
+    },
+    "myth_buster": {
+      "title": "🔍 Mitos vs Fakta Kulit",
+      "body": "{myth_text}",
+      "icon": "magnifier",
+      "priority": "low",
+      "schedule": "weekly",
+      "schedule_day": "wednesday",
+      "schedule_hour": 12,
+      "action_label": "Baca Fakta Lengkap",
+      "action_url": "/app.html#encyclopedia",
+      "vibrate": [50],
+      "sound": "none"
+    }
+  },
+
+  "survey": {
+    "survey_prompt": {
+      "title": "🎓 Bantu Kembangkan AQUENT",
+      "body": "Kamu sudah menggunakan AQUENT selama 3 sesi! Isi kuesioner singkat kami dan dapatkan badge eksklusif.",
+      "icon": "survey",
+      "priority": "normal",
+      "trigger": "session_count_equals",
+      "trigger_value": 3,
+      "one_time": true,
+      "action_label": "Isi Kuesioner",
+      "action_url": "/app.html#survey",
+      "vibrate": [100, 50, 100],
+      "sound": "gentle"
+    }
+  }
+}

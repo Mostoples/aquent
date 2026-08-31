@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <!-- Terapkan tema tersimpan sebelum render (hindari flash tema salah) -->
+  <script>(function(){try{var t=localStorage.getItem('aquent-theme');if(['dark','light','elegant','neon','serene'].indexOf(t)>-1)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AQUENT — Pengaturan Akun</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+
+  <script defer src="/__/firebase/12.12.1/firebase-app-compat.js"></script>
+  <script defer src="/__/firebase/12.12.1/firebase-auth-compat.js"></script>
+  <script defer src="/__/firebase/12.12.1/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/12.12.1/firebase-database-compat.js"></script>
+  <script defer src="/__/firebase/init.js"></script>
+  <script src="i18n.js"></script>
+
+  <style>
+    body { padding-top: 32px; padding-bottom: 60px; }
+    .acc-wrap { max-width: 720px; margin: 24px auto; padding: 0 16px; position: relative; z-index: 1; }
+    .acc-header {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 28px;
+      animation: fadeSlide .4s ease both;
+    }
+    .acc-header h1 { font-size: 1.45rem; font-weight: 700; }
+    .acc-header .back-btn {
+      width: 36px; height: 36px; border-radius: 50%; border: none;
+      background: rgba(255,255,255,.08); color: var(--txt2);
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
+    }
+    .acc-header .back-btn:hover { background: rgba(255,255,255,.16); }
+
+    .acc-section { padding: 22px 24px; margin-bottom: 16px; animation: cardIn .4s ease both; }
+    .acc-section h3 { font-size: 1rem; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; color: var(--txt1); }
+    .acc-section h3 i { color: var(--pri); }
+
+    .acc-form-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .acc-form-row label { font-size: .78rem; color: var(--txt3); font-weight: 500; }
+    .acc-form-row input, .acc-form-row textarea {
+      width: 100%; padding: 10px 14px; background: rgba(255,255,255,.06);
+      border: 1px solid var(--border); border-radius: 10px; color: var(--txt1);
+      font-size: .88rem; font-family: 'Inter',sans-serif; outline: none;
+      transition: border-color .2s;
+    }
+    .acc-form-row input:focus, .acc-form-row textarea:focus { border-color: var(--pri); }
+    .acc-form-row input:disabled { opacity: .55; cursor: not-allowed; }
+    .acc-form-row .hint { font-size: .72rem; color: var(--txt3); }
+
+    .info-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 0; border-bottom: 1px solid var(--border); gap: 12px;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-key { font-size: .82rem; color: var(--txt2); display: flex; align-items: center; gap: 8px; }
+    .info-val { font-size: .85rem; color: var(--txt1); font-weight: 500; word-break: break-all; text-align: right; }
+
+    .danger-zone { border-color: rgba(255,107,107,.25); background: rgba(255,107,107,.04); }
+    .danger-zone h3 i { color: var(--danger); }
+
+    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-acc {
+      padding: 9px 18px; border: 1px solid var(--border); border-radius: 10px;
+      background: rgba(255,255,255,.06); color: var(--txt2);
+      font-size: .82rem; font-weight: 500; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 7px; transition: all .2s;
+      font-family: 'Inter',sans-serif;
+    }
+    .btn-acc:hover { background: rgba(255,255,255,.12); color: var(--txt1); }
+    .btn-acc.primary { background: linear-gradient(135deg,var(--pri2),var(--pri)); border: none; color: #fff; }
+    .btn-acc.primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,180,216,.35); }
+    .btn-acc.danger { background: rgba(255,107,107,.1); color: var(--danger); border-color: rgba(255,107,107,.25); }
+    .btn-acc.danger:hover { background: rgba(255,107,107,.2); }
+    .btn-acc:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+    .toast-acc {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px);
+      padding: 12px 20px; border-radius: 12px; font-size: .85rem; font-weight: 500;
+      background: var(--glass2); border: 1px solid var(--border);
+      backdrop-filter: blur(20px); box-shadow: 0 8px 24px rgba(0,0,0,.35);
+      transition: transform .35s; z-index: 9000; max-width: 90vw;
+    }
+    .toast-acc.show { transform: translateX(-50%) translateY(0); }
+    .toast-acc.ok  { border-color: rgba(85,239,196,.35); color: var(--ok); }
+    .toast-acc.err { border-color: rgba(255,107,107,.35); color: var(--danger); }
+
+    .stat-mini-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-top: 12px; }
+    .stat-mini {
+      padding: 12px; background: rgba(255,255,255,.04); border: 1px solid var(--border);
+      border-radius: 10px; text-align: center;
+    }
+    .stat-mini-num { font-size: 1.3rem; font-weight: 700; color: var(--pri2); }
+    .stat-mini-lbl { font-size: .7rem; color: var(--txt3); margin-top: 3px; }
+  </style>
+</head>
+<body>
+<!-- Auth gate -->
+<div class="auth-gate" id="authGate" style="position:fixed;inset:0;background:var(--bg-body);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px">
+  <div style="font-size:2rem;font-weight:700;letter-spacing:.08em;color:var(--pri2)">AQUENT</div>
+  <div style="width:22px;height:22px;border:2.5px solid rgba(0,180,216,.25);border-top-color:var(--pri);border-radius:50%;animation:spin .7s linear infinite"></div>
+</div>
+
+<style>@keyframes spin { to { transform: rotate(360deg); } } .auth-gate.hide { opacity: 0; pointer-events: none; transition: opacity .4s; }</style>
+
+<!-- Background -->
+<div class="bg-scene">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="orb orb-4"></div>
+</div>
+
+<div class="acc-wrap">
+
+  <!-- Header -->
+  <div class="acc-header">
+    <button class="back-btn" onclick="window.location.href='/app.html'" aria-label="Kembali">
+      <i class="ph ph-arrow-left"></i>
+    </button>
+    <h1 style="flex:1"><span data-lang="id">Pengaturan Akun</span><span data-lang="en">Account Settings</span></h1>
+    <button id="langToggle" class="back-btn" style="width:auto;padding:0 14px;border-radius:18px;font-weight:700;font-size:.75rem;letter-spacing:.5px" title="Switch language"><span class="lang-label">ID</span></button>
+  </div>
+
+  <!-- ===== PROFILE ===== -->
+  <div class="glass-card acc-section">
+    <h3><i class="ph-duotone ph-user-circle"></i> <span data-lang="id">Profil</span><span data-lang="en">Profile</span></h3>
+    <div class="acc-form-row">
+      <label>Nama Tampilan</label>
+      <input type="text" id="profName" maxlength="60" placeholder="Nama Anda">
+      <span class="hint">Nama ini muncul di dashboard dan profil keluarga.</span>
+    </div>
+    <div class="acc-form-row">
+      <label>Email</label>
+      <input type="email" id="profEmail" disabled>
+      <span class="hint">Email tidak dapat diubah dari sini.</span>
+    </div>
+    <div class="acc-form-row">
+      <label>URL Foto Profil (opsional)</label>
+      <input type="url" id="profPhoto" placeholder="https://...">
+      <span class="hint">Atau biarkan kosong untuk pakai inisial.</span>
+    </div>
+    <div class="btn-row">
+      <button class="btn-acc primary" id="saveProfileBtn" onclick="saveProfile()">
+        <i class="ph-fill ph-floppy-disk"></i> Simpan Profil
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== ACCOUNT INFO ===== -->
+  <div class="glass-card acc-section">
+    <h3><i class="ph-duotone ph-identification-card"></i> <span data-lang="id">Info Akun</span><span data-lang="en">Account Info</span></h3>
+    <div class="info-row">
+      <span class="info-key"><i class="ph ph-fingerprint"></i> User ID</span>
+      <span class="info-val" id="infoUid" style="font-family:Consolas,monospace;font-size:.78rem">—</span>
+    </div>
+    <div class="info-row">
+      <span class="info-key"><i class="ph ph-crown"></i> Paket</span>
+      <span class="info-val" id="infoPlan">—</span>
+    </div>
+    <div class="info-row">
+      <span class="info-key"><i class="ph ph-calendar-plus"></i> Bergabung Sejak</span>
+      <span class="info-val" id="infoCreated">—</span>
+    </div>
+    <div class="info-row">
+      <span class="info-key"><i class="ph ph-clock"></i> Login Terakhir</span>
+      <span class="info-val" id="infoLastLogin">—</span>
+    </div>
+    <div class="info-row">
+      <span class="info-key"><i class="ph ph-envelope-simple"></i> Email Terverifikasi</span>
+      <span class="info-val" id="infoVerified">—</span>
+    </div>
+
+    <div class="stat-mini-row">
+      <div class="stat-mini">
+        <div class="stat-mini-num" id="statSessions">0</div>
+        <div class="stat-mini-lbl">Sesi Mandi</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num" id="statSurveys">0</div>
+        <div class="stat-mini-lbl">Survey Diisi</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num" id="statProfiles">0</div>
+        <div class="stat-mini-lbl">Profil Keluarga</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PRIVACY & DATA ===== -->
+  <div class="glass-card acc-section">
+    <h3><i class="ph-duotone ph-shield-check"></i> <span data-lang="id">Privasi & Data</span><span data-lang="en">Privacy & Data</span></h3>
+    <p style="font-size:.82rem;color:var(--txt2);margin-bottom:14px;line-height:1.6">
+      Sesuai UU PDP Indonesia (UU No.27/2022) dan GDPR, Anda berhak mengakses, mengubah, dan menghapus data pribadi Anda kapan saja.
+    </p>
+
+    <div class="info-row">
+      <div>
+        <div style="font-weight:600;font-size:.88rem;margin-bottom:3px"><i class="ph-duotone ph-download-simple" style="margin-right:6px;color:var(--pri)"></i>Unduh Semua Data</div>
+        <div style="font-size:.74rem;color:var(--txt3)">JSON export — sessions, profil, badge, survey, dan riwayat AI Chat.</div>
+      </div>
+      <button class="btn-acc" onclick="exportMyData()">
+        <i class="ph ph-file-arrow-down"></i> Export
+      </button>
+    </div>
+
+    <div class="info-row">
+      <div>
+        <div style="font-weight:600;font-size:.88rem;margin-bottom:3px"><i class="ph-duotone ph-broom" style="margin-right:6px;color:var(--warn)"></i>Reset Riwayat Sesi</div>
+        <div style="font-size:.74rem;color:var(--txt3)">Hapus semua data sesi mandi. Profil dan badge tetap tersimpan.</div>
+      </div>
+      <button class="btn-acc" onclick="resetMySessions()" style="color:var(--warn);border-color:rgba(253,203,110,.3)">
+        <i class="ph ph-arrow-counter-clockwise"></i> Reset
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== SECURITY ===== -->
+  <div class="glass-card acc-section">
+    <h3><i class="ph-duotone ph-lock-key"></i> <span data-lang="id">Keamanan</span><span data-lang="en">Security</span></h3>
+
+    <div class="info-row">
+      <div>
+        <div style="font-weight:600;font-size:.88rem;margin-bottom:3px">Reset Password</div>
+        <div style="font-size:.74rem;color:var(--txt3)">Email link reset akan dikirim ke alamat Anda.</div>
+      </div>
+      <button class="btn-acc" onclick="sendPasswordReset()">
+        <i class="ph ph-key"></i> Kirim Email
+      </button>
+    </div>
+
+    <div class="info-row">
+      <div>
+        <div style="font-weight:600;font-size:.88rem;margin-bottom:3px">Keluar dari Akun Ini</div>
+        <div style="font-size:.74rem;color:var(--txt3)">Sesi browser akan dihapus.</div>
+      </div>
+      <button class="btn-acc" onclick="signOut()">
+        <i class="ph ph-sign-out"></i> Keluar
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== DANGER ZONE ===== -->
+  <div class="glass-card acc-section danger-zone">
+    <h3><i class="ph-duotone ph-warning-octagon"></i> <span data-lang="id">Zona Berbahaya</span><span data-lang="en">Danger Zone</span></h3>
+    <p style="font-size:.82rem;color:var(--txt2);margin-bottom:14px;line-height:1.6">
+      Aksi di sini bersifat <strong style="color:var(--danger)">permanen</strong> dan tidak dapat di-undo.
+    </p>
+
+    <div class="info-row">
+      <div>
+        <div style="font-weight:600;font-size:.88rem;margin-bottom:3px;color:var(--danger)">Hapus Akun Saya</div>
+        <div style="font-size:.74rem;color:var(--txt3)">Semua data Anda (profil, sesi, survey) akan dihapus permanen.</div>
+      </div>
+      <button class="btn-acc danger" onclick="confirmDeleteAccount()">
+        <i class="ph-fill ph-trash"></i> Hapus Akun
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<!-- Toast -->
+<div class="toast-acc" id="toast"></div>
+
+<script src="auth.js"></script>
+<script src="ui-dialog.js"></script>
+<script>
+let currentUser = null;
+let currentRole = 'free';
+let firestoreDb = null;
+let rtDb = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+  initAuthListener({ requireAuth: true });
+  onAuthReady(({ user, role }) => {
+    if (!user) return;
+    currentUser = user;
+    currentRole = role;
+    firestoreDb = firebase.firestore();
+    rtDb = firebase.database();
+    document.getElementById('authGate').classList.add('hide');
+    setTimeout(() => { document.getElementById('authGate').remove(); }, 500);
+    loadProfile();
+    loadStats();
+  });
+});
+
+function loadProfile() {
+  document.getElementById('profName').value  = currentUser.displayName || '';
+  document.getElementById('profEmail').value = currentUser.email || '';
+  document.getElementById('profPhoto').value = currentUser.photoURL || '';
+
+  document.getElementById('infoUid').textContent       = currentUser.uid;
+  document.getElementById('infoVerified').textContent  = currentUser.emailVerified ? '✓ Terverifikasi' : '⚠ Belum';
+
+  const meta = currentUser.metadata;
+  if (meta) {
+    if (meta.creationTime)   document.getElementById('infoCreated').textContent   = new Date(meta.creationTime).toLocaleDateString('id-ID', { day:'numeric', month:'long', year:'numeric' });
+    if (meta.lastSignInTime) document.getElementById('infoLastLogin').textContent = new Date(meta.lastSignInTime).toLocaleString('id-ID', { day:'numeric', month:'short', hour:'2-digit', minute:'2-digit' });
+  }
+
+  // Load role/plan dari Firestore
+  firestoreDb.collection('users').doc(currentUser.uid).get().then(snap => {
+    if (snap.exists) {
+      const data = snap.data();
+      const labels = { free:'Free', premium:'Premium', ultimate:'Ultimate', admin:'Admin' };
+      document.getElementById('infoPlan').textContent = labels[data.role || 'free'] || 'Free';
+    }
+  });
+}
+
+async function loadStats() {
+  const uid = currentUser.uid;
+  // Sessions count
+  try {
+    const snap = await rtDb.ref(`sessions/${uid}`).once('value');
+    document.getElementById('statSessions').textContent = snap.numChildren();
+  } catch {}
+  // Surveys count
+  try {
+    const snap = await rtDb.ref(`surveys/${uid}`).once('value');
+    document.getElementById('statSurveys').textContent = snap.numChildren();
+  } catch {}
+  // Profiles count
+  try {
+    const snap = await rtDb.ref(`profiles/${uid}`).once('value');
+    const data = snap.val();
+    document.getElementById('statProfiles').textContent = (data?.list || []).length;
+  } catch {}
+}
+
+async function saveProfile() {
+  const btn = document.getElementById('saveProfileBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="ph ph-circle-notch ico-md" style="animation:spin .7s linear infinite"></i> Menyimpan...';
+  try {
+    const name  = document.getElementById('profName').value.trim();
+    const photo = document.getElementById('profPhoto').value.trim();
+    await currentUser.updateProfile({ displayName: name, photoURL: photo || null });
+    await firestoreDb.collection('users').doc(currentUser.uid).update({
+      displayName: name,
+      photoURL:    photo || '',
+    });
+    toast('✓ Profil tersimpan', 'ok');
+  } catch (e) {
+    toast('Gagal: ' + e.message, 'err');
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="ph-fill ph-floppy-disk"></i> Simpan Profil';
+  }
+}
+
+async function exportMyData() {
+  toast('Mengumpulkan data...', 'ok');
+  const uid = currentUser.uid;
+  const out = {
+    exportedAt: new Date().toISOString(),
+    user: {
+      uid, email: currentUser.email, displayName: currentUser.displayName,
+      photoURL: currentUser.photoURL, emailVerified: currentUser.emailVerified,
+      createdAt: currentUser.metadata?.creationTime,
+      lastSignIn: currentUser.metadata?.lastSignInTime,
+    },
+  };
+  try {
+    const fsSnap = await firestoreDb.collection('users').doc(uid).get();
+    if (fsSnap.exists) out.firestoreUser = fsSnap.data();
+  } catch (e) { out.firestoreUserError = e.message; }
+
+  for (const path of ['profiles', 'sessions', 'surveys', 'fcmTokens']) {
+    try {
+      const snap = await rtDb.ref(`${path}/${uid}`).once('value');
+      out[path] = snap.val();
+    } catch (e) { out[`${path}_error`] = e.message; }
+  }
+
+  const blob = new Blob([JSON.stringify(out, null, 2)], { type:'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url;
+  a.download = `aquent-data-${uid.slice(0,8)}-${new Date().toISOString().slice(0,10)}.json`;
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 200);
+  toast('✓ Data Anda telah ter-download', 'ok');
+}
+
+async function resetMySessions() {
+  if (!await uiConfirm('Hapus SEMUA riwayat sesi mandi Anda? Aksi ini tidak dapat di-undo.',
+      { title:'Reset Riwayat Sesi', danger:true, okText:'Hapus Semua' })) return;
+  try {
+    await rtDb.ref(`sessions/${currentUser.uid}`).remove();
+    localStorage.removeItem('aquent-sessions');
+    toast('✓ Riwayat sesi direset', 'ok');
+    loadStats();
+  } catch (e) {
+    toast('Gagal: ' + e.message, 'err');
+  }
+}
+
+async function sendPasswordReset() {
+  if (!currentUser.email) { toast('Email tidak ditemukan', 'err'); return; }
+  try {
+    await firebase.auth().sendPasswordResetEmail(currentUser.email);
+    toast('✓ Email reset password dikirim ke ' + currentUser.email, 'ok');
+  } catch (e) {
+    toast('Gagal: ' + e.message, 'err');
+  }
+}
+
+async function signOut() {
+  try {
+    await firebase.auth().signOut();
+    window.location.href = '/login.html';
+  } catch (e) { toast('Gagal logout: ' + e.message, 'err'); }
+}
+
+async function confirmDeleteAccount() {
+  const confirmText = await uiPrompt('Untuk menghapus akun, ketik HAPUS (huruf besar):',
+    { title:'Hapus Akun Permanen', danger:true, placeholder:'HAPUS', okText:'Lanjut' });
+  if (confirmText !== 'HAPUS') {
+    if (confirmText !== null) toast('Konfirmasi tidak sesuai', 'err');
+    return;
+  }
+  if (!await uiConfirm('Yakin? Aksi ini PERMANEN dan tidak dapat di-undo.',
+      { title:'Konfirmasi Terakhir', danger:true, okText:'Hapus Akun Saya' })) return;
+
+  try {
+    const uid = currentUser.uid;
+    // Hapus data RTDB
+    await Promise.all([
+      rtDb.ref(`profiles/${uid}`).remove(),
+      rtDb.ref(`sessions/${uid}`).remove(),
+      rtDb.ref(`surveys/${uid}`).remove(),
+      rtDb.ref(`fcmTokens/${uid}`).remove(),
+      rtDb.ref(`meta/admins/${uid}`).remove(),
+    ]);
+    // Hapus dari Firestore
+    await firestoreDb.collection('users').doc(uid).delete();
+    // Hapus akun Firebase Auth
+    await currentUser.delete();
+    // Bersihkan localStorage
+    Object.keys(localStorage)
+      .filter(k => k.startsWith('aquent-'))
+      .forEach(k => localStorage.removeItem(k));
+
+    await uiAlert('Akun Anda berhasil dihapus. Terima kasih telah menggunakan AQUENT.',
+      { title:'Akun Dihapus', icon:'ph-check-circle' });
+    window.location.href = '/index.html';
+  } catch (e) {
+    if (e.code === 'auth/requires-recent-login') {
+      toast('Login ulang dulu untuk hapus akun', 'err');
+      setTimeout(() => signOut(), 1500);
+    } else {
+      toast('Gagal: ' + e.message, 'err');
+    }
+  }
+}
+
+let toastTimer;
+function toast(msg, type='ok') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast-acc show ' + type;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 3500);
+}
+</script>
+</body>
+</html>

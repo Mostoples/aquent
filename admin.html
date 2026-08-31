@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AQUENT — Admin Panel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+
+  <script defer src="/__/firebase/12.12.1/firebase-app-compat.js"></script>
+  <script defer src="/__/firebase/12.12.1/firebase-auth-compat.js"></script>
+  <script defer src="/__/firebase/12.12.1/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/init.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --pri:#00b4d8; --pri2:#48cae4; --pri-dark:#0077b6;
+      --bg:#0d1117; --bg2:#161b22; --bg3:#1e2630;
+      --glass:rgba(22,27,34,.72); --border:rgba(255,255,255,.09);
+      --text:#caf0f8; --text2:rgba(202,240,248,.62);
+      --red:#ff6b6b; --green:#4ade80; --gold:#f0c040; --purple:#c084fc;
+      --ease:.2s ease;
+    }
+    body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; display:flex; }
+
+    /* ---- Auth gate ---- */
+    .auth-gate {
+      position:fixed; inset:0; background:var(--bg); z-index:9999;
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;
+      transition:opacity .4s;
+    }
+    .auth-gate.hide { opacity:0; pointer-events:none; }
+    .gate-logo { font-size:2rem; font-weight:700; letter-spacing:.08em; color:var(--pri2); }
+    .spin { width:22px;height:22px;border:2.5px solid rgba(0,180,216,.3);border-top-color:var(--pri);border-radius:50%;animation:spin .7s linear infinite; }
+    @keyframes spin { to { transform:rotate(360deg); } }
+
+    /* ---- Sidebar ---- */
+    .admin-sidebar {
+      width:230px; flex-shrink:0; background:var(--bg2); border-right:1px solid var(--border);
+      display:flex; flex-direction:column; position:sticky; top:0; height:100vh;
+    }
+    .adm-logo {
+      padding:20px 18px 16px; border-bottom:1px solid var(--border);
+      display:flex; align-items:center; gap:10px;
+    }
+    .adm-logo-icon {
+      width:30px; height:38px;
+      background:linear-gradient(135deg,var(--pri),var(--pri-dark));
+      clip-path:polygon(50% 0%,100% 35%,100% 70%,50% 100%,0% 70%,0% 35%);
+    }
+    .adm-logo-text { font-size:1rem; font-weight:700; letter-spacing:.06em; }
+    .adm-logo-badge {
+      margin-left:auto; font-size:.6rem; font-weight:700; padding:2px 8px; border-radius:10px;
+      background:rgba(255,107,107,.18); color:var(--red); border:1px solid rgba(255,107,107,.3);
+      letter-spacing:.06em;
+    }
+    .adm-nav { padding:12px 10px; flex:1; display:flex; flex-direction:column; gap:2px; }
+    .adm-nav-item {
+      display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:10px;
+      color:var(--text2); font-size:.85rem; font-weight:500; cursor:pointer;
+      transition:all var(--ease); border:none; background:none; width:100%; text-align:left;
+    }
+    .adm-nav-item:hover { background:rgba(255,255,255,.05); color:var(--text); }
+    .adm-nav-item.active { background:rgba(0,180,216,.12); color:var(--pri2); }
+    .adm-nav-item i { font-size:1.1rem; }
+    .adm-logout {
+      margin:12px 10px; padding:10px 14px; border-radius:10px; border:1px solid rgba(255,107,107,.2);
+      background:rgba(255,107,107,.06); color:var(--red); font-size:.82rem; font-weight:500;
+      cursor:pointer; display:flex; align-items:center; gap:8px; transition:all var(--ease);
+    }
+    .adm-logout:hover { background:rgba(255,107,107,.14); }
+
+    /* ---- Main ---- */
+    .admin-main { flex:1; padding:28px 28px 40px; overflow-y:auto; }
+    .adm-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:28px; }
+    .adm-header h1 { font-size:1.4rem; font-weight:700; }
+    .adm-user-chip {
+      display:flex; align-items:center; gap:10px;
+      background:rgba(255,255,255,.05); border:1px solid var(--border);
+      border-radius:30px; padding:6px 14px 6px 8px;
+    }
+    .adm-avatar {
+      width:30px; height:30px; border-radius:50%;
+      background:linear-gradient(135deg,var(--red),#c0392b);
+      display:flex; align-items:center; justify-content:center;
+      font-size:.85rem; font-weight:700; color:#fff; overflow:hidden;
+    }
+    .adm-avatar img { width:100%; height:100%; object-fit:cover; }
+    .adm-uname { font-size:.82rem; font-weight:500; }
+
+    /* ---- Sections ---- */
+    .adm-section { display:none; }
+    .adm-section.active { display:block; }
+
+    /* ---- Stats grid ---- */
+    .stat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:14px; margin-bottom:28px; }
+    .stat-card {
+      background:var(--bg2); border:1px solid var(--border); border-radius:16px;
+      padding:18px 20px; display:flex; flex-direction:column; gap:10px;
+    }
+    .stat-top { display:flex; align-items:center; justify-content:space-between; }
+    .stat-icon {
+      width:36px; height:36px; border-radius:10px;
+      display:flex; align-items:center; justify-content:center; font-size:1.1rem;
+    }
+    .stat-change { font-size:.72rem; font-weight:600; padding:2px 7px; border-radius:6px; }
+    .up   { background:rgba(74,222,128,.12); color:var(--green); }
+    .down { background:rgba(255,107,107,.12); color:var(--red);  }
+    .stat-num  { font-size:1.8rem; font-weight:700; line-height:1; }
+    .stat-label { font-size:.78rem; color:var(--text2); }
+
+    /* ---- Table ---- */
+    .table-wrap {
+      background:var(--bg2); border:1px solid var(--border); border-radius:16px; overflow:hidden;
+    }
+    .table-toolbar {
+      padding:16px 20px; border-bottom:1px solid var(--border);
+      display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+    }
+    .table-toolbar h3 { font-size:1rem; font-weight:600; margin-right:auto; }
+    .search-input {
+      background:rgba(255,255,255,.05); border:1px solid var(--border);
+      border-radius:8px; padding:7px 12px; color:var(--text); font-size:.82rem;
+      outline:none; width:200px; font-family:'Inter',sans-serif;
+    }
+    .search-input:focus { border-color:var(--pri); }
+    .search-input::placeholder { color:var(--text2); }
+    .role-filter {
+      background:rgba(255,255,255,.05); border:1px solid var(--border);
+      border-radius:8px; padding:7px 10px; color:var(--text); font-size:.82rem;
+      outline:none; cursor:pointer;
+    }
+    .role-filter option { background:var(--bg2); }
+
+    table { width:100%; border-collapse:collapse; }
+    thead th {
+      padding:10px 16px; text-align:left; font-size:.75rem; font-weight:600;
+      color:var(--text2); letter-spacing:.04em; text-transform:uppercase;
+      border-bottom:1px solid var(--border); background:rgba(255,255,255,.025);
+    }
+    tbody tr { border-bottom:1px solid rgba(255,255,255,.04); transition:background var(--ease); }
+    tbody tr:last-child { border-bottom:none; }
+    tbody tr:hover { background:rgba(255,255,255,.03); }
+    td { padding:12px 16px; font-size:.85rem; vertical-align:middle; }
+
+    .user-cell { display:flex; align-items:center; gap:10px; }
+    .u-avatar {
+      width:32px; height:32px; border-radius:50%; overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
+      font-size:.85rem; font-weight:700; flex-shrink:0;
+    }
+    .u-avatar img { width:100%; height:100%; object-fit:cover; }
+    .u-name  { font-weight:500; }
+    .u-email { font-size:.75rem; color:var(--text2); }
+
+    .role-badge {
+      display:inline-flex; align-items:center; gap:5px;
+      font-size:.72rem; font-weight:700; padding:3px 9px; border-radius:20px;
+      letter-spacing:.04em;
+    }
+    .role-free     { background:rgba(139,148,158,.12); color:#8b949e; border:1px solid rgba(139,148,158,.2); }
+    .role-premium  { background:rgba(240,192,64,.12);  color:var(--gold); border:1px solid rgba(240,192,64,.25); }
+    .role-ultimate { background:rgba(0,180,216,.12);   color:var(--pri2); border:1px solid rgba(0,180,216,.25); }
+    .role-admin    { background:rgba(255,107,107,.12); color:var(--red);  border:1px solid rgba(255,107,107,.25); }
+
+    .role-select {
+      background:rgba(255,255,255,.06); border:1px solid var(--border);
+      border-radius:7px; padding:5px 8px; color:var(--text); font-size:.8rem;
+      cursor:pointer; outline:none;
+    }
+    .role-select option { background:var(--bg2); }
+
+    .btn-save-role {
+      padding:5px 12px; border-radius:7px; border:none;
+      background:rgba(0,180,216,.18); color:var(--pri2); font-size:.78rem; font-weight:600;
+      cursor:pointer; transition:all var(--ease); display:flex; align-items:center; gap:5px;
+    }
+    .btn-save-role:hover { background:rgba(0,180,216,.3); }
+    .btn-save-role:disabled { opacity:.4; cursor:not-allowed; }
+
+    .date-cell { font-size:.78rem; color:var(--text2); }
+    .empty-row td { text-align:center; color:var(--text2); padding:32px; }
+
+    /* ---- Plan section ---- */
+    .plan-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; }
+    .plan-card {
+      background:var(--bg2); border:1px solid var(--border); border-radius:16px;
+      padding:24px; display:flex; flex-direction:column; gap:14px;
+    }
+    .plan-card.featured { border-color:rgba(0,180,216,.4); background:rgba(0,180,216,.06); }
+    .plan-name { font-size:1rem; font-weight:700; display:flex; align-items:center; gap:8px; }
+    .plan-price { font-size:1.6rem; font-weight:800; }
+    .plan-price span { font-size:.8rem; font-weight:400; color:var(--text2); }
+    .plan-features { list-style:none; display:flex; flex-direction:column; gap:8px; }
+    .plan-features li { font-size:.82rem; display:flex; align-items:center; gap:8px; color:var(--text2); }
+    .plan-features li i { color:var(--green); flex-shrink:0; }
+    .plan-features li.no i { color:var(--red); }
+    .plan-features li.no { opacity:.55; }
+    .plan-users-count { font-size:.78rem; color:var(--text2); text-align:center; margin-top:auto; padding-top:12px; border-top:1px solid var(--border); }
+
+    /* ---- Toast ---- */
+    .toast {
+      position:fixed; bottom:24px; right:24px; z-index:9000;
+      background:var(--bg2); border:1px solid var(--border); border-radius:12px;
+      padding:12px 18px; font-size:.85rem; font-weight:500;
+      display:flex; align-items:center; gap:8px;
+      transform:translateY(80px); opacity:0; transition:all .3s;
+      box-shadow:0 4px 24px rgba(0,0,0,.4);
+    }
+    .toast.show { transform:translateY(0); opacity:1; }
+    .toast.ok  { border-color:rgba(74,222,128,.3);  color:var(--green); }
+    .toast.err { border-color:rgba(255,107,107,.3); color:var(--red);  }
+
+    .date-range-btn:hover { color:var(--pri2); }
+    .date-range-btn.active-range { background:rgba(0,180,216,.18) !important; color:var(--pri2) !important; }
+
+    /* ---- Loading skeleton ---- */
+    .skeleton {
+      background: linear-gradient(90deg, rgba(255,255,255,.04) 25%, rgba(255,255,255,.08) 37%, rgba(255,255,255,.04) 63%);
+      background-size: 400% 100%;
+      animation: skeleton-loading 1.4s ease infinite;
+      border-radius: 6px;
+    }
+    @keyframes skeleton-loading {
+      0% { background-position: 100% 50%; }
+      100% { background-position: 0 50%; }
+    }
+    .skeleton-row { height: 14px; margin-bottom: 8px; }
+    .skeleton-card { padding: 18px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,.02); margin-bottom: 14px; }
+
+    /* ---- Empty state ---- */
+    .empty-state-illust {
+      text-align: center; padding: 48px 24px; color: var(--text2);
+    }
+    .empty-state-illust .icon-bg {
+      width: 72px; height: 72px; margin: 0 auto 14px; border-radius: 50%;
+      background: rgba(0,180,216,.08); display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; color: var(--pri2);
+    }
+    .empty-state-illust h4 { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .empty-state-illust p { font-size: .82rem; max-width: 320px; margin: 0 auto 14px; line-height: 1.6; }
+
+    /* ---- Responsive ---- */
+    @media (max-width:700px) {
+      .admin-sidebar { display:none; }
+      .admin-main { padding:16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Auth gate -->
+<div class="auth-gate" id="authGate">
+  <div class="gate-logo">AQUENT</div>
+  <div class="spin"></div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<div style="display:flex;width:100%">
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="admin-sidebar">
+  <div class="adm-logo">
+    <div class="adm-logo-icon"></div>
+    <span class="adm-logo-text">AQUENT</span>
+    <span class="adm-logo-badge">ADMIN</span>
+  </div>
+  <nav class="adm-nav">
+    <button class="adm-nav-item active" data-page="overview">
+      <i class="ph-duotone ph-chart-pie-slice"></i> Overview
+    </button>
+    <button class="adm-nav-item" data-page="users">
+      <i class="ph-duotone ph-users-three"></i> Manajemen User
+    </button>
+    <button class="adm-nav-item" data-page="plans">
+      <i class="ph-duotone ph-crown"></i> Paket & Harga
+    </button>
+    <button class="adm-nav-item" data-page="surveys">
+      <i class="ph-duotone ph-clipboard-text"></i> Survei (P15)
+    </button>
+    <button class="adm-nav-item" data-page="analytics">
+      <i class="ph-duotone ph-chart-line-up"></i> Survey Analytics
+    </button>
+    <button class="adm-nav-item" data-page="insights">
+      <i class="ph-duotone ph-drop-half"></i> Session Insights
+    </button>
+    <button class="adm-nav-item" data-page="sensors">
+      <i class="ph-duotone ph-pulse"></i> Live Sensors
+    </button>
+    <button class="adm-nav-item" data-page="announcements">
+      <i class="ph-duotone ph-megaphone"></i> Pengumuman
+    </button>
+    <button class="adm-nav-item" data-page="logs">
+      <i class="ph-duotone ph-clock-counter-clockwise"></i> Audit Log
+    </button>
+  </nav>
+  <button class="adm-logout" onclick="adminSignOut()">
+    <i class="ph ph-sign-out"></i> Keluar
+  </button>
+</aside>
+
+<!-- ===== MAIN ===== -->
+<main class="admin-main">
+
+  <!-- Header -->
+  <div class="adm-header">
+    <h1 id="pageTitle">Overview</h1>
+    <div class="adm-user-chip">
+      <div class="adm-avatar" id="admAvatar">A</div>
+      <span class="adm-uname" id="admName">Admin</span>
+    </div>
+  </div>
+
+  <!-- =========== OVERVIEW =========== -->
+  <div class="adm-section active" id="pg-overview">
+    <div class="stat-grid" id="statGrid">
+      <div class="stat-card">
+        <div class="stat-top">
+          <div class="stat-icon" style="background:rgba(0,180,216,.12);color:var(--pri)"><i class="ph-duotone ph-users-three"></i></div>
+          <span class="stat-change up" id="statTotalChange">...</span>
+        </div>
+        <div class="stat-num" id="statTotal">—</div>
+        <div class="stat-label">Total Pengguna</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top">
+          <div class="stat-icon" style="background:rgba(240,192,64,.1);color:var(--gold)"><i class="ph-duotone ph-star"></i></div>
+          <span class="stat-change up" id="statPremChange">—</span>
+        </div>
+        <div class="stat-num" id="statPremium">—</div>
+        <div class="stat-label">Premium</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top">
+          <div class="stat-icon" style="background:rgba(0,180,216,.12);color:var(--pri2)"><i class="ph-duotone ph-lightning"></i></div>
+          <span class="stat-change up" id="statUltChange">—</span>
+        </div>
+        <div class="stat-num" id="statUltimate">—</div>
+        <div class="stat-label">Ultimate</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top">
+          <div class="stat-icon" style="background:rgba(74,222,128,.1);color:var(--green)"><i class="ph-duotone ph-user-plus"></i></div>
+          <span class="stat-change up" id="statNewChange">+0</span>
+        </div>
+        <div class="stat-num" id="statNew">—</div>
+        <div class="stat-label">Baru Hari Ini</div>
+      </div>
+    </div>
+
+    <!-- Chart growth user -->
+    <div class="table-wrap" style="margin-bottom:24px">
+      <div class="table-toolbar">
+        <h3><i class="ph ph-chart-line-up" style="margin-right:6px"></i>Pertumbuhan Pengguna (30 Hari)</h3>
+      </div>
+      <div style="padding:18px;height:260px"><canvas id="userGrowthChart"></canvas></div>
+    </div>
+
+    <!-- Recent users mini-table -->
+    <div class="table-wrap">
+      <div class="table-toolbar">
+        <h3><i class="ph ph-clock-countdown" style="margin-right:6px"></i>Pendaftar Terbaru</h3>
+      </div>
+      <table>
+        <thead><tr>
+          <th>Pengguna</th><th>Paket</th><th>Bergabung</th>
+        </tr></thead>
+        <tbody id="recentBody">
+          <tr class="empty-row"><td colspan="3"><div class="spin" style="margin:auto"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- =========== USERS =========== -->
+  <div class="adm-section" id="pg-users">
+    <div class="table-wrap">
+      <div class="table-toolbar">
+        <h3><i class="ph ph-users-three" style="margin-right:6px"></i>Semua Pengguna</h3>
+        <input type="text" class="search-input" id="userSearch" placeholder="Cari nama / email...">
+        <select class="role-filter" id="roleFilter">
+          <option value="">Semua Paket</option>
+          <option value="free">Free</option>
+          <option value="premium">Premium</option>
+          <option value="ultimate">Ultimate</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+      <table>
+        <thead><tr>
+          <th>Pengguna</th><th>Paket Aktif</th><th>Ubah Paket</th><th>Bergabung</th>
+        </tr></thead>
+        <tbody id="userBody">
+          <tr class="empty-row"><td colspan="4"><div class="spin" style="margin:auto"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- =========== PLANS =========== -->
+  <div class="adm-section" id="pg-plans">
+    <div class="plan-grid" id="planGrid">
+      <!-- Filled by JS -->
+    </div>
+  </div>
+
+  <!-- =========== SURVEYS =========== -->
+  <div class="adm-section" id="pg-surveys">
+    <div class="table-wrap">
+      <div class="table-toolbar" style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border);gap:12px;flex-wrap:wrap">
+        <div>
+          <div style="font-weight:600">Hasil Survei TAM/SUS/UEQ/XAI</div>
+          <div id="surveyMeta" style="font-size:.78rem;color:var(--text2);margin-top:3px">Memuat...</div>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn-outline" onclick="refreshSurveys()" style="padding:8px 14px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;font-size:.82rem"><i class="ph ph-arrow-clockwise"></i> Refresh</button>
+          <button id="exportSurveyBtn" onclick="exportSurveysCsv()" style="padding:8px 16px;border-radius:8px;border:none;background:linear-gradient(135deg,var(--pri-dark),var(--pri));color:#fff;cursor:pointer;font-size:.82rem;font-weight:600"><i class="ph-fill ph-download-simple"></i> Export CSV</button>
+        </div>
+      </div>
+      <div id="surveyTableHost" style="padding:18px"></div>
+    </div>
+  </div>
+
+  <!-- =========== SURVEY ANALYTICS =========== -->
+  <div class="adm-section" id="pg-analytics">
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-top"><div class="stat-icon" style="background:rgba(192,132,252,.12);color:var(--purple)"><i class="ph-duotone ph-chart-bar"></i></div></div>
+        <div class="stat-num" id="anaSusScore">—</div>
+        <div class="stat-label">SUS Score (avg)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top"><div class="stat-icon" style="background:rgba(0,180,216,.12);color:var(--pri)"><i class="ph-duotone ph-thumbs-up"></i></div></div>
+        <div class="stat-num" id="anaTamPU">—</div>
+        <div class="stat-label">TAM · Perceived Usefulness</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top"><div class="stat-icon" style="background:rgba(74,222,128,.12);color:var(--green)"><i class="ph-duotone ph-hand-tap"></i></div></div>
+        <div class="stat-num" id="anaTamPEOU">—</div>
+        <div class="stat-label">TAM · Perceived Ease of Use</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top"><div class="stat-icon" style="background:rgba(240,192,64,.1);color:var(--gold)"><i class="ph-duotone ph-shield-check"></i></div></div>
+        <div class="stat-num" id="anaXAITrust">—</div>
+        <div class="stat-label">XAI Trust (avg)</div>
+      </div>
+    </div>
+
+    <div class="table-wrap" style="margin-bottom:24px">
+      <div class="table-toolbar">
+        <h3><i class="ph ph-chart-line-up" style="margin-right:6px"></i>Skor per Konstruk</h3>
+        <span style="font-size:.78rem;color:var(--text2);margin-left:auto" id="anaMeta">—</span>
+      </div>
+      <div id="anaConstructs" style="padding:18px"></div>
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-toolbar">
+        <h3><i class="ph ph-chat-text" style="margin-right:6px"></i>Jawaban Terbuka (Section H)</h3>
+      </div>
+      <div id="anaOpenEnded" style="padding:18px;max-height:400px;overflow-y:auto"></div>
+    </div>
+  </div>
+
+  <!-- =========== SESSION INSIGHTS =========== -->
+  <div class="adm-section" id="pg-insights">
+    <div class="date-filter-row" style="display:flex;gap:6px;margin-bottom:18px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:4px;width:fit-content">
+      <button class="date-range-btn" data-days="7"  onclick="setDateRange(7)"  style="padding:6px 14px;border:none;border-radius:7px;background:transparent;color:var(--text2);font-size:.78rem;cursor:pointer;transition:all .2s">7 Hari</button>
+      <button class="date-range-btn active-range" data-days="30" onclick="setDateRange(30)" style="padding:6px 14px;border:none;border-radius:7px;background:rgba(0,180,216,.18);color:var(--pri2);font-size:.78rem;cursor:pointer;transition:all .2s">30 Hari</button>
+      <button class="date-range-btn" data-days="90" onclick="setDateRange(90)" style="padding:6px 14px;border:none;border-radius:7px;background:transparent;color:var(--text2);font-size:.78rem;cursor:pointer;transition:all .2s">90 Hari</button>
+      <button class="date-range-btn" data-days="0"  onclick="setDateRange(0)"  style="padding:6px 14px;border:none;border-radius:7px;background:transparent;color:var(--text2);font-size:.78rem;cursor:pointer;transition:all .2s">Semua</button>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-top"><div class="stat-icon" style="background:rgba(0,180,216,.12);color:var(--pri)"><i class="ph-duotone ph-shower"></i></div></div>
+        <div class="stat-num" id="insTotalSess">—</div>
+        <div class="stat-label">Total Sesi Mandi</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top"><div class="stat-icon" style="background:rgba(74,222,128,.12);color:var(--green)"><i class="ph-duotone ph-drop"></i></div></div>
+        <div class="stat-num" id="insTotalLiters">—</div>
+        <div class="stat-label">Total Air Digunakan (L)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top"><div class="stat-icon" style="background:rgba(240,192,64,.12);color:var(--gold)"><i class="ph-duotone ph-leaf"></i></div></div>
+        <div class="stat-num" id="insWaterSaved">—</div>
+        <div class="stat-label">Avg Air Dihemat (%)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top"><div class="stat-icon" style="background:rgba(192,132,252,.12);color:var(--purple)"><i class="ph-duotone ph-medal"></i></div></div>
+        <div class="stat-num" id="insAvgQs">—</div>
+        <div class="stat-label">Avg Quality Score</div>
+      </div>
+    </div>
+
+    <div class="table-wrap" style="margin-bottom:24px">
+      <div class="table-toolbar">
+        <h3><i class="ph ph-clock" style="margin-right:6px"></i>Jam Mandi Tersibuk</h3>
+        <button class="btn-save-role" onclick="refreshInsights()" style="margin-left:auto"><i class="ph ph-arrow-clockwise"></i> Refresh</button>
+      </div>
+      <div id="insHourChart" style="padding:18px"></div>
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-toolbar">
+        <h3><i class="ph ph-funnel" style="margin-right:6px"></i>Distribusi Quality Score</h3>
+      </div>
+      <div id="insQsDist" style="padding:18px"></div>
+    </div>
+  </div>
+
+  <!-- =========== LIVE SENSORS =========== -->
+  <div class="adm-section" id="pg-sensors">
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-top">
+          <div class="stat-icon" style="background:rgba(0,180,216,.12);color:var(--pri)"><i class="ph-duotone ph-flask"></i></div>
+          <span class="stat-change" id="livPhStatus">—</span>
+        </div>
+        <div class="stat-num" id="livPh">—</div>
+        <div class="stat-label">pH Air</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top">
+          <div class="stat-icon" style="background:rgba(255,107,107,.12);color:var(--red)"><i class="ph-duotone ph-thermometer"></i></div>
+          <span class="stat-change" id="livTempStatus">—</span>
+        </div>
+        <div class="stat-num" id="livTemp">—</div>
+        <div class="stat-label">Suhu (°C)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top">
+          <div class="stat-icon" style="background:rgba(192,132,252,.12);color:var(--purple)"><i class="ph-duotone ph-eye-slash"></i></div>
+          <span class="stat-change" id="livTurbStatus">—</span>
+        </div>
+        <div class="stat-num" id="livTurb">—</div>
+        <div class="stat-label">Turbidity (NTU)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top">
+          <div class="stat-icon" style="background:rgba(74,222,128,.12);color:var(--green)"><i class="ph-duotone ph-broadcast"></i></div>
+          <span class="stat-change" id="livConnDot">●</span>
+        </div>
+        <div class="stat-num" id="livConn">Offline</div>
+        <div class="stat-label">Status Koneksi</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-toolbar">
+        <h3><i class="ph ph-wave-sine" style="margin-right:6px"></i>Sensor Stream Real-time</h3>
+        <span style="font-size:.78rem;color:var(--text2);margin-left:auto" id="livUpdated">Belum ada data</span>
+      </div>
+      <div style="padding:18px;font-size:.85rem;color:var(--text2);line-height:1.6">
+        Halaman ini menampilkan data sensor terbaru dari Firebase Realtime Database (<code>sensors/</code>). Update otomatis tiap kali device IoT mempublish nilai baru.
+      </div>
+    </div>
+  </div>
+
+  <!-- =========== ANNOUNCEMENTS =========== -->
+  <div class="adm-section" id="pg-announcements">
+    <div class="table-wrap" style="margin-bottom:20px">
+      <div class="table-toolbar">
+        <h3><i class="ph ph-megaphone" style="margin-right:6px"></i>Buat Pengumuman</h3>
+      </div>
+      <div style="padding:20px;display:flex;flex-direction:column;gap:12px;max-width:560px">
+        <div>
+          <label style="font-size:.78rem;color:var(--text2);font-weight:500">Judul</label>
+          <input type="text" class="form-input search-input" id="annTitle" placeholder="Contoh: Pemeliharaan terjadwal" style="width:100%;margin-top:4px;padding:9px 14px">
+        </div>
+        <div>
+          <label style="font-size:.78rem;color:var(--text2);font-weight:500">Pesan</label>
+          <textarea id="annBody" rows="3" placeholder="Tulis pesan singkat untuk semua user..." style="background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;padding:9px 14px;color:var(--text);font-size:.85rem;font-family:'Inter',sans-serif;outline:none;width:100%;margin-top:4px;resize:vertical"></textarea>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <label style="font-size:.78rem;color:var(--text2)">Tipe:</label>
+          <select id="annType" class="role-filter">
+            <option value="info">ℹ Info</option>
+            <option value="warning">⚠ Peringatan</option>
+            <option value="success">✓ Sukses</option>
+            <option value="urgent">🚨 Mendesak</option>
+          </select>
+          <button onclick="postAnnouncement()" style="margin-left:auto;padding:8px 18px;border-radius:8px;border:none;background:linear-gradient(135deg,var(--pri-dark),var(--pri));color:#fff;cursor:pointer;font-size:.84rem;font-weight:600">
+            <i class="ph-fill ph-paper-plane-tilt"></i> Publish
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <div class="table-toolbar">
+        <h3><i class="ph ph-list" style="margin-right:6px"></i>Pengumuman Aktif</h3>
+        <button class="btn-save-role" onclick="loadAnnouncements()" style="margin-left:auto"><i class="ph ph-arrow-clockwise"></i></button>
+      </div>
+      <div id="annList" style="padding:18px"></div>
+    </div>
+  </div>
+
+  <!-- =========== AUDIT LOG =========== -->
+  <div class="adm-section" id="pg-logs">
+    <div class="table-wrap">
+      <div class="table-toolbar">
+        <h3><i class="ph ph-clock-counter-clockwise" style="margin-right:6px"></i>50 Aktivitas Terbaru</h3>
+        <button class="btn-save-role" onclick="loadAuditLogs()" style="margin-left:auto"><i class="ph ph-arrow-clockwise"></i> Refresh</button>
+      </div>
+      <div id="auditList"></div>
+    </div>
+    <div style="padding:14px 18px;font-size:.78rem;color:var(--text2);margin-top:14px;background:rgba(255,255,255,.02);border-radius:10px;border:1px solid var(--border)">
+      <i class="ph-duotone ph-info" style="color:var(--pri2);margin-right:5px"></i>
+      Setiap aksi admin (ubah role, post pengumuman, export survey, dll) tercatat otomatis di Firestore <code style="background:rgba(0,0,0,.3);padding:1px 6px;border-radius:4px;font-size:.8em">adminLogs/</code>. Audit log bersifat <strong>immutable</strong> — tidak bisa diedit atau dihapus.
+    </div>
+  </div>
+
+</main>
+</div>
+
+<script defer src="/__/firebase/12.12.1/firebase-database-compat.js"></script>
+<script src="auth.js"></script>
+<script src="ui-dialog.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

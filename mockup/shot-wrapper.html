@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>AQUAVIV shot wrapper</title>
+<!--
+  Pembungkus render presisi.
+
+  Masalah: Chrome headless di Windows mengabaikan --window-size dan mengunci
+  viewport pada ~500–512px, sehingga halaman tidak pernah dirender pada lebar
+  Android yang diminta (412px) dan layout mobile tampak salah.
+
+  Solusi: muat halaman target di dalam <iframe> berlebar TEPAT 412px. Iframe
+  memiliki viewport sendiri, jadi media query & layout mobile terpicu benar.
+  Screenshot jendela lalu di-crop ke 412x915 (dilakukan oleh shoot.cjs/ffmpeg).
+-->
+<style>
+  html, body { margin: 0; padding: 0; background: #ff00ff; } /* magenta = penanda area crop */
+  #vp {
+    position: absolute; top: 0; left: 0;
+    width: 412px; height: 915px;
+    border: 0; display: block; background: #000;
+  }
+</style>
+</head>
+<body>
+<iframe id="vp" referrerpolicy="no-referrer"></iframe>
+<script>
+  var q = new URLSearchParams(location.search);
+  var page = q.get('page') || '/index.html';
+  var w = parseInt(q.get('w') || '412', 10);
+  var h = parseInt(q.get('h') || '915', 10);
+
+  var f = document.getElementById('vp');
+  f.style.width = w + 'px';
+  f.style.height = h + 'px';
+  f.src = page;
+
+  // Naikkan hasil probe audit dari dalam iframe ke title jendela induk,
+  // supaya terbaca lewat --dump-dom (iframe same-origin).
+  function liftAuditTitle() {
+    try {
+      var t = f.contentDocument && f.contentDocument.title;
+      if (t && t.indexOf('AUDIT::') === 0) {
+        document.title = t;
+        return true;
+      }
+    } catch (e) { /* cross-origin: abaikan */ }
+    return false;
+  }
+  var tries = 0;
+  var iv = setInterval(function () {
+    if (liftAuditTitle() || ++tries > 60) clearInterval(iv);
+  }, 250);
+
+  // Mode inspeksi diagnostik (?inspect=1): muat skrip pemeriksa isi iframe.
+  if (q.get('inspect') === '1') {
+    var s = document.createElement('script');
+    s.src = '.inspect.js';
+    document.body.appendChild(s);
+  }
+
+  // Mode pengukuran (?measure=1): laporkan tinggi penuh dokumen di dalam
+  // iframe ke title induk, dipakai scroll-shot.cjs untuk menangkap seluruh
+  // halaman (agar video bisa men-scroll UI).
+  if (q.get('measure') === '1') {
+    var mTries = 0;
+    var mIv = setInterval(function () {
+      var h = 0;
+      try {
+        var d = f.contentDocument;
+        if (d && d.body) {
+          h = Math.max(
+            d.body.scrollHeight, d.body.offsetHeight,
+            d.documentElement.scrollHeight, d.documentElement.offsetHeight
+          );
+        }
+      } catch (e) { /* abaikan */ }
+      if (h > 0) document.title = 'MEASURE::' + h;
+      if (++mTries > 60) clearInterval(mIv);
+    }, 250);
+  }
+</script>
+</body>
+</html>

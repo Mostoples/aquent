@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "01-landing",
+    "label": "Landing",
+    "url": "/index.html",
+    "ok": true,
+    "w": 824,
+    "h": 1830
+  },
+  {
+    "slug": "02-login",
+    "label": "Login",
+    "url": "/login.html",
+    "ok": true,
+    "w": 824,
+    "h": 1830
+  },
+  {
+    "slug": "03-dashboard",
+    "label": "Dashboard",
+    "url": "/app.html",
+    "ok": true,
+    "w": 824,
+    "h": 1830
+  },
+  {
+    "slug": "04-account",
+    "label": "Akun & Privasi",
+    "url": "/account.html",
+    "ok": true,
+    "w": 824,
+    "h": 1830
+  },
+  {
+    "slug": "05-help",
+    "label": "Bantuan & FAQ",
+    "url": "/help.html",
+    "ok": true,
+    "w": 824,
+    "h": 1830
+  }
+]

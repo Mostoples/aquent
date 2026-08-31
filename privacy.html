@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <!-- Terapkan tema tersimpan sebelum render (hindari flash tema salah) -->
+  <script>(function(){try{var t=localStorage.getItem('aquent-theme');if(['dark','light','elegant','neon','serene'].indexOf(t)>-1)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kebijakan Privasi / Privacy Policy — AQUENT</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+  <script src="i18n.js"></script>
+  <style>
+    body { padding: 32px 16px 60px; }
+    .doc-wrap { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+    .doc-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .doc-header h1 { font-size: 1.5rem; font-weight: 700; flex: 1; }
+    .doc-header .back-btn, .lang-btn {
+      width: 36px; height: 36px; border-radius: 50%; border: none;
+      background: rgba(255,255,255,.08); color: var(--txt2);
+      display: flex; align-items: center; justify-content: center; cursor: pointer; text-decoration: none;
+    }
+    .lang-btn { width: auto; padding: 0 14px; border-radius: 18px; font-weight: 700; font-size: .75rem; letter-spacing: .5px; }
+    .doc-meta { font-size: .8rem; color: var(--txt3); margin-bottom: 24px; padding: 12px 16px; background: rgba(0,180,216,.06); border: 1px solid rgba(0,180,216,.18); border-radius: 10px; }
+    .doc-card { padding: 28px 32px; line-height: 1.7; }
+    .doc-card h2 { font-size: 1.1rem; font-weight: 700; margin: 24px 0 10px; color: var(--txt1); border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+    .doc-card h2:first-child { margin-top: 0; }
+    .doc-card h3 { font-size: .95rem; font-weight: 600; margin: 18px 0 8px; color: var(--pri2); }
+    .doc-card p { font-size: .88rem; color: var(--txt2); margin-bottom: 12px; }
+    .doc-card ul { margin: 10px 0 14px 22px; }
+    .doc-card li { font-size: .85rem; color: var(--txt2); margin-bottom: 6px; }
+    .doc-card strong { color: var(--txt1); }
+    .doc-card code { background: rgba(0,0,0,.3); padding: 2px 7px; border-radius: 4px; font-size: .85em; color: var(--pri2); }
+    .doc-card a { color: var(--pri); }
+  </style>
+</head>
+<body>
+<div class="bg-scene">
+  <div class="orb orb-1"></div><div class="orb orb-2"></div>
+  <div class="orb orb-3"></div><div class="orb orb-4"></div>
+</div>
+
+<div class="doc-wrap">
+  <div class="doc-header">
+    <a href="javascript:history.back()" class="back-btn"><i class="ph ph-arrow-left"></i></a>
+    <h1><span data-lang="id">Kebijakan Privasi</span><span data-lang="en">Privacy Policy</span></h1>
+    <button id="langToggle" class="lang-btn" title="Switch language"><span class="lang-label">ID</span></button>
+  </div>
+
+  <div class="doc-meta">
+    <strong>AQUENT</strong> — Smart Shower Monitoring & Skin Health Platform<br>
+    <span data-lang="id"><strong>Tanggal Berlaku:</strong> 30 Mei 2026 · <strong>Versi:</strong> 1.0 · <strong>Kepatuhan:</strong> UU PDP No.27/2022 (Indonesia) & GDPR.</span>
+    <span data-lang="en"><strong>Effective Date:</strong> May 30, 2026 · <strong>Version:</strong> 1.0 · <strong>Compliance:</strong> Indonesian PDP Law No.27/2022 & GDPR.</span>
+  </div>
+
+  <div class="glass-card doc-card">
+    <!-- 1. Data Collected -->
+    <h2><span data-lang="id">1. Data yang Kami Kumpulkan</span><span data-lang="en">1. Data We Collect</span></h2>
+    <div data-lang="id">
+      <h3>a. Data Akun</h3>
+      <ul><li>Email & nama tampilan, foto profil (opsional), UID Firebase, timestamp pendaftaran & login terakhir</li></ul>
+      <h3>b. Data Sensor & IoT</h3>
+      <ul><li>Nilai sensor real-time (pH, suhu, turbidity, TDS, klorin), konfigurasi kontrol, riwayat sesi mandi</li></ul>
+      <h3>c. Data Skin Scanner</h3>
+      <p><strong>Foto wajah TIDAK PERNAH meninggalkan device Anda.</strong> Analisis dijalankan client-side via TensorFlow.js. Yang tersimpan hanya hasil analisis (teks), bukan gambar.</p>
+      <h3>d. Data Survei (Opsional)</h3>
+      <ul><li>Jawaban kuesioner TAM/SUS/UEQ/XAI untuk riset akademik, data demografis anonim. Bisa di-skip.</li></ul>
+    </div>
+    <div data-lang="en">
+      <h3>a. Account Data</h3>
+      <ul><li>Email & display name, profile photo (optional), Firebase UID, registration & last login timestamps</li></ul>
+      <h3>b. Sensor & IoT Data</h3>
+      <ul><li>Real-time sensor values (pH, temperature, turbidity, TDS, chlorine), control settings, shower session history</li></ul>
+      <h3>c. Skin Scanner Data</h3>
+      <p><strong>Facial photos NEVER leave your device.</strong> Analysis runs client-side via TensorFlow.js. Only analysis results (text) are stored, never images.</p>
+      <h3>d. Survey Data (Optional)</h3>
+      <ul><li>TAM/SUS/UEQ/XAI questionnaire responses for academic research, anonymous demographic data. Can be skipped.</li></ul>
+    </div>
+
+    <!-- 2. Purposes -->
+    <h2><span data-lang="id">2. Tujuan Pengumpulan</span><span data-lang="en">2. Purpose of Collection</span></h2>
+    <div data-lang="id">
+      <ul>
+        <li><strong>Operasional:</strong> dashboard, grafik, riwayat sesi</li>
+        <li><strong>Personalisasi:</strong> rekomendasi produk & dermal-guide per tipe kulit</li>
+        <li><strong>Notifikasi:</strong> alert kualitas air, reminder mandi, badge</li>
+        <li><strong>Penelitian:</strong> dengan persetujuan eksplisit di kuesioner</li>
+      </ul>
+      <p>Kami <strong>TIDAK</strong> menggunakan data untuk iklan tertarget, profiling kredit, atau diagnosis medis.</p>
+    </div>
+    <div data-lang="en">
+      <ul>
+        <li><strong>Operations:</strong> dashboard, charts, session history</li>
+        <li><strong>Personalization:</strong> product recommendations & dermal-guide per skin type</li>
+        <li><strong>Notifications:</strong> water quality alerts, shower reminders, badges</li>
+        <li><strong>Research:</strong> with explicit consent in the survey</li>
+      </ul>
+      <p>We do <strong>NOT</strong> use your data for targeted ads, credit profiling, or medical diagnosis.</p>
+    </div>
+
+    <!-- 3. Local vs Cloud -->
+    <h2><span data-lang="id">3. Pemrosesan Lokal vs Cloud</span><span data-lang="en">3. Local vs Cloud Processing</span></h2>
+    <div data-lang="id">
+      <h3>Diproses Lokal (di browser)</h3>
+      <ul><li>Foto skin scan & pixel analysis (TensorFlow.js)</li><li>Quality Score calculation</li><li>Cache offline (Service Worker)</li></ul>
+      <h3>Disimpan di Cloud (Firebase)</h3>
+      <ul><li>Data akun, profil, riwayat sesi, hasil survey, token FCM</li></ul>
+      <h3>API Eksternal (Opt-in)</h3>
+      <ul><li><strong>AI Chat:</strong> jika Anda input Gemini API Key sendiri, teks dikirim ke Google AI. Bisa dinonaktifkan kapan saja.</li></ul>
+    </div>
+    <div data-lang="en">
+      <h3>Processed Locally (in browser)</h3>
+      <ul><li>Skin scan photos & pixel analysis (TensorFlow.js)</li><li>Quality Score calculation</li><li>Offline cache (Service Worker)</li></ul>
+      <h3>Stored in Cloud (Firebase)</h3>
+      <ul><li>Account data, profiles, session history, survey results, FCM tokens</li></ul>
+      <h3>External API (Opt-in)</h3>
+      <ul><li><strong>AI Chat:</strong> if you enter your own Gemini API Key, text is sent to Google AI. Can be disabled anytime.</li></ul>
+    </div>
+
+    <!-- 4. Sharing -->
+    <h2><span data-lang="id">4. Berbagi Data Pihak Ketiga</span><span data-lang="en">4. Third-Party Data Sharing</span></h2>
+    <div data-lang="id">
+      <p>Kami <strong>tidak menjual</strong> data Anda. Data dibagikan hanya dengan: penyedia infrastruktur (Google Firebase), layanan AI opt-in (Google Gemini), otoritas hukum bila diwajibkan, dan penelitian akademik (bentuk agregat anonim).</p>
+    </div>
+    <div data-lang="en">
+      <p>We do <strong>not sell</strong> your data. Data is shared only with: infrastructure provider (Google Firebase), opt-in AI service (Google Gemini), legal authorities when required, and academic research (anonymous aggregate form).</p>
+    </div>
+
+    <!-- 5. Your Rights -->
+    <h2><span data-lang="id">5. Hak Anda Sebagai Pengguna</span><span data-lang="en">5. Your Rights as a User</span></h2>
+    <div data-lang="id">
+      <p>Sesuai UU PDP Pasal 5–11 dan GDPR Bab III, Anda berhak:</p>
+      <ul>
+        <li><strong>Akses</strong> — lihat data di <a href="/account.html">Pengaturan Akun</a></li>
+        <li><strong>Portabilitas</strong> — unduh data JSON via tombol "Export"</li>
+        <li><strong>Koreksi</strong> — edit nama, foto, preferensi</li>
+        <li><strong>Penghapusan</strong> — hapus akun permanen dari Zona Berbahaya</li>
+        <li><strong>Penolakan</strong> — XAI menjelaskan setiap keputusan AI</li>
+      </ul>
+      <p>Permohonan diproses dalam <strong>maksimal 30 hari kerja</strong>.</p>
+    </div>
+    <div data-lang="en">
+      <p>Under Indonesian PDP Law Art. 5–11 and GDPR Chapter III, you have the right to:</p>
+      <ul>
+        <li><strong>Access</strong> — view your data in <a href="/account.html">Account Settings</a></li>
+        <li><strong>Portability</strong> — download JSON data via the "Export" button</li>
+        <li><strong>Rectification</strong> — edit name, photo, preferences</li>
+        <li><strong>Erasure</strong> — permanently delete your account from the Danger Zone</li>
+        <li><strong>Objection</strong> — XAI explains every AI decision</li>
+      </ul>
+      <p>Requests are processed within <strong>30 business days</strong>.</p>
+    </div>
+
+    <!-- 6. Retention -->
+    <h2><span data-lang="id">6. Penyimpanan & Retensi</span><span data-lang="en">6. Storage & Retention</span></h2>
+    <div data-lang="id">
+      <ul><li>Data akun: selama akun aktif</li><li>Riwayat sesi: 90 hari lokal, unlimited di Firebase</li><li>Survey: hingga publikasi penelitian selesai</li><li>Setelah hapus akun: data dihapus dalam 24 jam</li></ul>
+    </div>
+    <div data-lang="en">
+      <ul><li>Account data: while account is active</li><li>Session history: 90 days locally, unlimited on Firebase</li><li>Survey: until research publication is complete</li><li>After account deletion: data removed within 24 hours</li></ul>
+    </div>
+
+    <!-- 7. Security -->
+    <h2><span data-lang="id">7. Keamanan Data</span><span data-lang="en">7. Data Security</span></h2>
+    <div data-lang="id">
+      <ul><li>HTTPS/TLS untuk semua komunikasi</li><li>Firebase Authentication & Security Rules berbasis UID</li><li>Rate limiting & audit log immutable</li></ul>
+      <p>Kami menginformasikan dalam 72 jam jika terjadi data breach signifikan (UU PDP Pasal 46).</p>
+    </div>
+    <div data-lang="en">
+      <ul><li>HTTPS/TLS for all communications</li><li>UID-based Firebase Authentication & Security Rules</li><li>Rate limiting & immutable audit logs</li></ul>
+      <p>We will notify you within 72 hours of any significant data breach (PDP Law Art. 46).</p>
+    </div>
+
+    <!-- 8. Children -->
+    <h2><span data-lang="id">8. Pengguna Anak-Anak</span><span data-lang="en">8. Children</span></h2>
+    <div data-lang="id"><p>AQUENT untuk pengguna <strong>13 tahun ke atas</strong>. Untuk di bawah 18 tahun, perlu persetujuan orang tua (UU PDP Pasal 25).</p></div>
+    <div data-lang="en"><p>AQUENT is for users <strong>13 years and older</strong>. For those under 18, parental consent is required (PDP Law Art. 25).</p></div>
+
+    <!-- 9. Cookies -->
+    <h2><span data-lang="id">9. Cookies & localStorage</span><span data-lang="en">9. Cookies & localStorage</span></h2>
+    <div data-lang="id"><p>AQUENT memakai: Firebase Auth cookies (sesi), localStorage (tema, bahasa, preferensi), Cache Storage (PWA offline), IndexedDB (Firebase state). <strong>Tidak ada cookies pelacakan pihak ketiga.</strong></p></div>
+    <div data-lang="en"><p>AQUENT uses: Firebase Auth cookies (session), localStorage (theme, language, preferences), Cache Storage (PWA offline), IndexedDB (Firebase state). <strong>No third-party tracking cookies.</strong></p></div>
+
+    <!-- 10. Changes -->
+    <h2><span data-lang="id">10. Perubahan Kebijakan</span><span data-lang="en">10. Policy Changes</span></h2>
+    <div data-lang="id"><p>Perubahan signifikan diberitahukan via banner dashboard, email, dan update tanggal "Berlaku".</p></div>
+    <div data-lang="en"><p>Significant changes will be announced via dashboard banner, email, and updated "Effective Date".</p></div>
+
+    <!-- 11. Contact -->
+    <h2><span data-lang="id">11. Kontak</span><span data-lang="en">11. Contact</span></h2>
+    <div data-lang="id"><ul><li><strong>Email:</strong> privacy@aquent-id.web.app</li><li><strong>Bantuan:</strong> <a href="/help.html">/help.html</a></li></ul></div>
+    <div data-lang="en"><ul><li><strong>Email:</strong> privacy@aquent-id.web.app</li><li><strong>Help:</strong> <a href="/help.html">/help.html</a></li></ul></div>
+  </div>
+
+  <div style="text-align:center;padding:24px;color:var(--txt3);font-size:.78rem">
+    AQUENT © 2026 · <a href="/index.html" style="color:var(--pri2)"><span data-lang="id">Beranda</span><span data-lang="en">Home</span></a> · <a href="/help.html" style="color:var(--pri2)"><span data-lang="id">Bantuan</span><span data-lang="en">Help</span></a>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,180 @@
+[
+  {
+    "id": "myth-hot-water-opens-pores",
+    "myth": "Air panas membuka pori-pori kulit",
+    "verdict": "MITOS",
+    "verdict_color": "red",
+    "fact": "Pori-pori tidak memiliki otot dan tidak bisa 'membuka' atau 'menutup'. Yang terjadi saat terkena air panas adalah folikel rambut sedikit mengembang karena efek termal, dan sebum menjadi lebih cair sehingga lebih mudah dibersihkan. Namun ini bukan 'membuka pori' — dan manfaat kecil ini dibayar mahal dengan kerusakan skin barrier akibat air panas.",
+    "science_detail": "Pori-pori adalah lubang folikel pilosebaseus — sebuah struktur anatomis pasif tanpa otot sfingter. Ukuran pori-pori ditentukan secara genetik dan dipengaruhi produksi sebum, bukan suhu air. Mitos ini kemungkinan muncul karena sensasi air hangat yang terasa 'membersihkan lebih dalam', padahal efek utamanya adalah melarutkan sebum dan meningkatkan sirkulasi.",
+    "water_parameter_link": "temp",
+    "correct_advice": "Gunakan air hangat 36–38°C untuk membersihkan kulit secara efektif tanpa merusak skin barrier. Tidak ada manfaat dermatologi dari air yang lebih panas dari ini.",
+    "references": [
+      { "doi": "10.1111/jdv.17927", "citation": "Wollenberg A et al. (2022). JEADV. European guideline for atopic eczema: recommends lukewarm water." }
+    ]
+  },
+  {
+    "id": "myth-cold-water-closes-pores",
+    "myth": "Air dingin menutup pori-pori dan mengecilkan tampilannya",
+    "verdict": "MITOS",
+    "verdict_color": "red",
+    "fact": "Sama seperti mitos air panas, pori-pori tidak memiliki mekanisme membuka/menutup. Air dingin bisa sedikit mengurangi kemerahan dan pembengkakan sementara (vasokonstriksi), yang membuatnya tampak seperti pori mengecil — tapi ini efek sementara dan bukan perubahan struktural. Ukuran pori-pori tidak berubah karena suhu air.",
+    "science_detail": "Vasokonstriksi akibat air dingin mengurangi aliran darah ke kapiler superfisial kulit selama beberapa menit, yang bisa sedikit mengurangi tampilan kemerahan. Tampilan pori lebih dipengaruhi oleh: produksi sebum, elastisitas kulit, hidrasi, dan kondisi sel kulit mati di sekitarnya.",
+    "water_parameter_link": "temp",
+    "correct_advice": "Untuk mengurangi tampilan pori, fokus pada: eksfoliasi kimia rutin (BHA/AHA), kontrol produksi sebum dengan niacinamide, dan retinol untuk meningkatkan turnover sel kulit.",
+    "references": []
+  },
+  {
+    "id": "myth-more-soap-better-clean",
+    "myth": "Makin banyak sabun, makin bersih kulit",
+    "verdict": "MITOS",
+    "verdict_color": "red",
+    "fact": "Sabun berlebihan menghilangkan tidak hanya kotoran, tapi juga minyak alami (sebum) dan flora bakteri kulit yang sehat (skin microbiome). Microbiome kulit adalah komunitas bakteri 'baik' yang melindungi dari patogen. Sabun berlebihan menggunakannya menyebabkan kulit kering, terganggu pH-nya, dan paradoksnya bisa meningkatkan produksi sebum sebagai kompensasi.",
+    "science_detail": "Deterjen (SLS/SLES) dalam sabun bekerja dengan menurunkan tegangan permukaan dan mengemulsikan minyak. Namun minyak yang dihilangkan mencakup ceramide, asam lemak rantai panjang, dan kolesterol yang membentuk skin barrier. Excess SLS juga bereaksi dengan ion Ca²⁺/Mg²⁺ dalam air keras membentuk sabun logam yang iritan.",
+    "water_parameter_link": "tds",
+    "correct_advice": "Gunakan sabun secukupnya — cukup untuk membusa dan membersihkan. Untuk mandi dengan air keras (TDS tinggi), sabun berbasis syndet (non-SLS) lebih baik karena tidak membentuk soap scum iritan.",
+    "references": [
+      { "doi": "10.1111/bjd.19862", "citation": "Jabbar-Lopez ZK et al. (2021). Br J Dermatol. Water hardness, SLS, and skin irritation." }
+    ]
+  },
+  {
+    "id": "myth-antibacterial-soap-better",
+    "myth": "Sabun antibakteri lebih baik dan lebih sehat untuk kulit",
+    "verdict": "MITOS",
+    "verdict_color": "red",
+    "fact": "Untuk penggunaan sehari-hari, sabun antibakteri tidak lebih efektif dari sabun biasa dalam mencegah penyakit. FDA AS pada 2016 melarang 19 bahan antibakteri (termasuk triclosan dan triclocarban) dalam produk cuci tangan dan mandi karena kurangnya bukti manfaat tambahan dan kekhawatiran resistensi antimikroba.",
+    "science_detail": "Sabun membersihkan melalui mekanisme fisik-kimia (emulsifikasi + pengaliran), bukan pembunuhan bakteri. Sebagian besar bakteri di kulit adalah komensal (tidak berbahaya) atau bahkan menguntungkan sebagai bagian dari skin microbiome. Triclosan mengganggu microbiome kulit dan lingkungan karena tidak terurai dengan baik.",
+    "water_parameter_link": null,
+    "correct_advice": "Gunakan sabun biasa atau syndet dengan pH 5.5 untuk penggunaan harian. Simpan sabun antibakteri untuk situasi medis atau higiene khusus.",
+    "references": [
+      { "source": "FDA 2016", "citation": "FDA Final Rule. Safety and Effectiveness of Consumer Antiseptics; Topical Antimicrobial Drug Products for Over-the-Counter Human Use. 2016." }
+    ]
+  },
+  {
+    "id": "myth-mandi-berulang-lebih-bersih",
+    "myth": "Mandi dua kali sehari lebih baik dan lebih sehat",
+    "verdict": "SEBAGIAN BENAR",
+    "verdict_color": "orange",
+    "fact": "Mandi dua kali sehari bisa tepat untuk orang yang sangat aktif secara fisik, bekerja di lingkungan kotor, atau tinggal di iklim sangat panas dan lembab. Namun untuk kebanyakan orang dengan aktivitas sedang, mandi satu kali sehari sudah cukup. Mandi berlebihan dapat menghilangkan minyak alami pelindung dan mengganggu microbiome kulit.",
+    "science_detail": "American Academy of Dermatology menyatakan mandi setiap hari tidak diperlukan secara medis untuk semua orang. Frekuensi optimal bergantung pada: tingkat aktivitas fisik, kondisi kulit (kulit kering sebaiknya mandi sekali), cuaca, dan paparan polutan. Yang paling penting adalah kualitas mandi, bukan frekuensinya.",
+    "water_parameter_link": "temp",
+    "correct_advice": "Jika mandi dua kali sehari, gunakan air hangat (bukan panas), persingkat durasi, dan pastikan moisturizer dioleskan setelah setiap mandi untuk mengkompensasi hilangnya minyak alami.",
+    "references": [
+      { "source": "AAD", "citation": "American Academy of Dermatology. Bathing recommendations for patients with eczema and dry skin." }
+    ]
+  },
+  {
+    "id": "myth-mandi-air-dingin-terbakar-lemak",
+    "myth": "Mandi air dingin membakar kalori dan membantu menurunkan berat badan",
+    "verdict": "SANGAT DILEBIHKAN",
+    "verdict_color": "orange",
+    "fact": "Memang ada mekanisme ilmiah di balik ini — paparan dingin mengaktifkan brown adipose tissue (lemak cokelat) yang membakar kalori untuk menghasilkan panas. Namun efeknya sangat kecil. Mandi air dingin 10 menit membakar sekitar 50–100 kalori tambahan — setara dengan berjalan kaki 1 menit. Ini tidak bermakna untuk penurunan berat badan.",
+    "science_detail": "Brown adipose tissue (BAT) memang merespons dingin dengan thermogenesis. Studi Cypess et al. (2009, NEJM) mengkonfirmasi BAT aktif pada manusia. Namun volume BAT pada kebanyakan orang dewasa kecil, dan kalori yang dibakar dari mandi dingin sangat tidak signifikan secara klinis untuk tujuan penurunan berat badan.",
+    "water_parameter_link": "temp",
+    "correct_advice": "Mandi air dingin memang memiliki manfaat: meningkatkan kewaspadaan, mengurangi kemerahan pasca-olahraga, dan berpotensi meningkatkan mood (melalui norepinephrine). Namun jangan berharap efek penurunan berat badan yang signifikan.",
+    "references": []
+  },
+  {
+    "id": "myth-air-keras-tidak-berbahaya",
+    "myth": "Air sadah (keras) hanya masalah estetika, tidak berbahaya untuk kulit",
+    "verdict": "MITOS",
+    "verdict_color": "red",
+    "fact": "Air sadah (TDS tinggi, kaya kalsium dan magnesium) memiliki dampak klinis yang terdokumentasi pada kondisi kulit. Meta-analisis Jabbar-Lopez et al. (2021) menemukan risiko atopic dermatitis 87% lebih tinggi pada area dengan air keras. Mekanismenya bukan sekadar estetika — mineral bereaksi dengan sabun dan menghambat kerja filaggrin, protein kunci skin barrier.",
+    "science_detail": "Ion Ca²⁺ dan Mg²⁺ dalam air keras: (1) bereaksi dengan sodium lauryl sulfate (SLS) dari sabun membentuk 'soap scum' yang iritan dan sulit dibilas; (2) secara langsung menghambat aktivitas filaggrin — protein yang memecah menjadi natural moisturizing factor (NMF); (3) menganggu integritas tight junction antar sel kulit. Semua mekanisme ini meningkatkan permeabilitas kulit terhadap alergen.",
+    "water_parameter_link": "tds",
+    "correct_advice": "Jika TDS air di atas 300 ppm secara konsisten dan kamu memiliki riwayat eksim atau kulit sensitif, pertimbangkan water softener atau filter RO. Minimal, bilas lebih lama dan oleskan moisturizer ceramide segera setelah mandi.",
+    "references": [
+      { "doi": "10.1111/bjd.19862", "citation": "Jabbar-Lopez ZK et al. (2021). Br J Dermatol. OR 1.87, 95% CI 1.30–2.68 untuk atopic dermatitis di area air keras." },
+      { "doi": "10.1016/j.jid.2020.11.027", "citation": "Perkin MR et al. (2021). J Invest Dermatol." }
+    ]
+  },
+  {
+    "id": "myth-klorin-pdam-aman-kulit",
+    "myth": "Klorin di air PAM sudah aman dan tidak mempengaruhi kulit",
+    "verdict": "SEBAGIAN BENAR",
+    "verdict_color": "orange",
+    "fact": "Klorin pada kadar normal WHO (0.2–0.5 mg/L) memang aman untuk sebagian besar orang. Namun studi menunjukkan paparan klorin berulang, terutama pada kadar di atas 0.5 mg/L, secara signifikan meningkatkan TEWL (transepidermal water loss) dan mengurangi kadar ceramide pada kulit sensitif dan atopik. Untuk kulit normal yang sehat, dampaknya minimal.",
+    "science_detail": "Klorin bebas adalah oksidator kuat. Pada kontak berkepanjangan (mandi panjang, kolam renang), ia mengoksidasi lipid permukaan kulit dan merusak komponen NMF. Bates et al. (2020) mendokumentasikan peningkatan TEWL yang signifikan pada penderita atopic dermatitis yang terpapar klorin >0.5 mg/L secara rutin.",
+    "water_parameter_link": "chlorine",
+    "correct_advice": "Untuk kulit sehat, klorin PAM tidak perlu dikhawatirkan. Untuk kulit sensitif, atopik, atau eksim, pertimbangkan shower filter karbon aktif yang efektif mengurangi klorin hingga 95% dengan harga terjangkau.",
+    "references": [
+      { "pmid": "32195872", "citation": "Bates NJ & Dunning AM. (2020). Chlorine in tap water and skin barrier function. Dermatitis." }
+    ]
+  },
+  {
+    "id": "myth-moisturizer-bikin-kulit-malas",
+    "myth": "Menggunakan moisturizer membuat kulit 'malas' menghasilkan minyak sendiri",
+    "verdict": "MITOS",
+    "verdict_color": "red",
+    "fact": "Tidak ada bukti ilmiah bahwa penggunaan moisturizer eksternal mengurangi kemampuan kulit memproduksi sebum atau ceramide secara alami. Produksi sebum diatur oleh hormon androgen, bukan oleh keberadaan produk topikal di permukaan kulit. Mitos ini tidak memiliki dasar mekanisme biologis.",
+    "science_detail": "Sebum diproduksi oleh kelenjar sebasea di lapisan dermis dan dipengaruhi oleh sinyal hormonal (androgen, IGF-1). Produk topikal yang dioleskan di stratum korneum (lapisan terluar) tidak memiliki akses ke kelenjar sebasea di lapisan yang lebih dalam. Namun kulit berminyak memang tidak memerlukan heavy moisturizer — pilih formulasi gel ringan berbasis air.",
+    "water_parameter_link": null,
+    "correct_advice": "Semua tipe kulit memerlukan moisturizer — hanya jenisnya yang berbeda. Kulit berminyak: gel berbasis air (water-based). Kulit kering: cream atau balm. Kulit sensitif: formula fragrance-free dengan ceramide.",
+    "references": []
+  },
+  {
+    "id": "myth-air-murni-terbaik",
+    "myth": "Semakin murni air (TDS mendekati nol), semakin baik untuk kulit",
+    "verdict": "TIDAK TEPAT",
+    "verdict_color": "orange",
+    "fact": "Air dengan TDS sangat rendah (<50 ppm) — misalnya air reverse osmosis murni — bersifat agresif secara kimia karena kekurangan ion mineral penyangga. Air ini dapat lebih mudah 'menarik' mineral dari permukaan kulit melalui osmosis, dan terasa lebih 'licin' karena tidak ada mineral yang bereaksi dengan sabun. Optimal adalah air dengan TDS 50–200 ppm.",
+    "science_detail": "Air murni (TDS ~0) adalah 'hungry water' yang secara termodinamika ingin menyeimbangkan konsentrasi ionnya dengan lingkungan — termasuk dari permukaan kulit. Meskipun efeknya pada kulit minimal dalam mandi singkat, ini menjelaskan mengapa air RO murni untuk minum direkomendasikan untuk ditambah mineral kembali (remineralisasi) menurut WHO.",
+    "water_parameter_link": "tds",
+    "correct_advice": "TDS optimal untuk mandi adalah 50–200 ppm (air sedang). Air sadah (>300 ppm) perlu diatasi dengan filter. Air terlalu lunak (<50 ppm) tidak perlu dikhawatirkan untuk mandi — efeknya minimal.",
+    "references": [
+      { "source": "WHO 2022", "citation": "WHO GDWQ 4th Ed. Demineralized water and health: remineralization recommendations." }
+    ]
+  },
+  {
+    "id": "myth-mandi-lama-hidrasi-kulit",
+    "myth": "Mandi lebih lama membuat kulit lebih terhidrasi",
+    "verdict": "MITOS",
+    "verdict_color": "red",
+    "fact": "Paradoksnya, mandi terlalu lama justru mengeringkan kulit. Setelah 10–15 menit, kulit mulai kehilangan lapisan pelindung lipidnya karena efek hidrasi-dehidrasi berulang (kulit menyerap air lalu kehilangan lebih banyak saat keluar). Kulit yang tampak 'keriput' setelah mandi lama adalah tanda maserasi — bukan hidrasi.",
+    "science_detail": "Maserasi adalah kondisi saat stratum korneum menyerap air berlebihan, menyebabkan sel mengembang dan tight junction melemah. Ini meningkatkan permeabilitas kulit terhadap iritan dan alergen. Waktu mandi optimal adalah 5–10 menit. Setelah itu, TEWL post-shower meningkat secara proporsional dengan durasi.",
+    "water_parameter_link": "temp",
+    "correct_advice": "Batasi mandi hingga 5–15 menit. Segera oleskan moisturizer dalam 3 menit setelah mandi (saat kulit masih sedikit lembab) untuk mengunci hidrasi yang sesungguhnya.",
+    "references": [
+      { "doi": "10.1111/jdv.17927", "citation": "Wollenberg A et al. (2022). JEADV. Recommends bath duration <10 minutes for atopic dermatitis." }
+    ]
+  },
+  {
+    "id": "myth-sabun-batang-kotor",
+    "myth": "Sabun batang menyimpan bakteri dan tidak higienis dibanding sabun cair",
+    "verdict": "MITOS DENGAN NUANSA",
+    "verdict_color": "orange",
+    "fact": "Studi menunjukkan bahwa meskipun bakteri dapat ditemukan di permukaan sabun batang yang digunakan, mereka tidak berpindah ke kulit pengguna selanjutnya dalam jumlah signifikan saat digunakan secara normal. Namun sabun batang konvensional umumnya memiliki pH 9–10 (basa) yang lebih mengganggu skin barrier dibandingkan sabun cair syndet (pH 5.5–6.5).",
+    "science_detail": "Masalah utama sabun batang bukan kontaminasi bakteri, melainkan pH tinggi yang meningkatkan aktivitas protease serine di kulit dan mendisrupsi ceramide. Syndet bar (synthetic detergent bar) memiliki pH rendah dan setara keamanannya dengan sabun cair. Air keras (TDS tinggi) bereaksi lebih buruk dengan sabun batang (menghasilkan soap scum) dibanding syndet.",
+    "water_parameter_link": "tds",
+    "correct_advice": "Jika menggunakan sabun batang, pilih yang berlabel 'syndet' atau yang mencantumkan pH 5.5–6.5. Hindari sabun batang alkalin tinggi terutama jika air di area kamu bersifat keras atau basa.",
+    "references": [
+      { "doi": "10.1111/ics.12562", "citation": "Lambers H et al. (2019). Int J Cosmetic Sci. Skin surface pH and detergent interactions." }
+    ]
+  },
+  {
+    "id": "myth-cuci-muka-air-panas",
+    "myth": "Cuci muka dengan air panas lebih efektif membersihkan minyak dan kotoran",
+    "verdict": "MITOS",
+    "verdict_color": "red",
+    "fact": "Air panas memang melarutkan minyak lebih baik secara kimiawi, namun untuk kulit wajah ini berarti juga menghilangkan sebum pelindung yang dibutuhkan acid mantle. Air panas di wajah memicu vasodilatasi yang bisa memperburuk rosacea dan kemerahan kronis. Dermatolog merekomendasikan air suam-suam kuku (lukewarm) untuk cuci muka.",
+    "science_detail": "Suhu air yang efektif melarutkan sebum dimulai dari ~35°C ke atas. Pada 40–45°C, efisiensi pembersihan meningkat tapi kerusakan barrier meningkat lebih cepat. Untuk kulit wajah yang lebih sensitif dibanding tubuh, suhu ideal cuci muka adalah 30–35°C — sedikit di bawah rekomendasi mandi tubuh.",
+    "water_parameter_link": "temp",
+    "correct_advice": "Cuci muka dengan air suam-suam kuku (30–35°C). Biarkan pembersih wajah yang bekerja melarutkan kotoran, bukan suhu air. Oleskan moisturizer wajah segera setelah mengeringkan.",
+    "references": [
+      { "doi": "10.1111/jdv.17927", "citation": "Wollenberg A et al. (2022). JEADV. Recommends lukewarm water for facial cleansing." }
+    ]
+  },
+  {
+    "id": "myth-air-alkali-menyehatkan",
+    "myth": "Air alkali (pH tinggi, ionized water) menyehatkan kulit dan mencegah kanker",
+    "verdict": "TIDAK TERBUKTI",
+    "verdict_color": "red",
+    "fact": "Tidak ada bukti ilmiah yang kuat dan konsisten bahwa air alkali memiliki manfaat kesehatan sistemik khusus untuk kulit atau kanker. Tubuh mempertahankan pH darah di 7.35–7.45 secara ketat melalui sistem buffer (pernapasan + ginjal) — pH air yang diminum tidak mengubah pH darah. Untuk mandi (bukan minum), air pH tinggi (>8.5) justru berbahaya karena mendisrupsi skin barrier.",
+    "science_detail": "Klaim 'air alkali ajaib' tidak didukung RCT berkualitas tinggi. Studi yang sering dikutip produsen biasanya in-vitro (sel, bukan manusia) atau berkualitas rendah. Untuk penggunaan mandi, air dengan pH 6.5–7.5 adalah optimal — bukan air alkali. Air minum alkali (<9.5) mungkin tidak berbahaya, tapi tidak ada bukti manfaat khusus.",
+    "water_parameter_link": "ph",
+    "correct_advice": "Untuk mandi, target pH air 6.5–8.5 (batas WHO). Klaim kesehatan berlebihan tentang air alkali tidak perlu dipercaya. Jika pH air kamu rendah (<6.5), perbaiki dengan filter netralisasi — bukan dengan membeli ionizer mahal.",
+    "references": [
+      { "source": "WHO 2022", "citation": "WHO GDWQ 4th Ed. Acceptable pH range 6.5–8.5 for drinking water." },
+      { "doi": "10.1111/ics.12562", "citation": "Lambers H et al. (2019). Skin pH and water interaction." }
+    ]
+  }
+]

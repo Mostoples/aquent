@@ -1,0 +1,218 @@
+{
+  "01-landing": {
+    "viewport": 412,
+    "scrollW": 412,
+    "overflowPx": 0,
+    "wideEls": [
+      {
+        "el": "span.aurora__blob.b1",
+        "right": 463,
+        "w": 522
+      },
+      {
+        "el": "span.aurora__blob.b2",
+        "right": 491,
+        "w": 442
+      },
+      {
+        "el": "span.aurora__blob.b3",
+        "right": 525,
+        "w": 381
+      },
+      {
+        "el": "div.marquee__track",
+        "right": 2010,
+        "w": 2064
+      },
+      {
+        "el": "span",
+        "right": 470,
+        "w": 145
+      },
+      {
+        "el": "div.arch-layers",
+        "right": 649,
+        "w": 600
+      },
+      {
+        "el": "div.arch-layer",
+        "right": 649,
+        "w": 600
+      },
+      {
+        "el": "div.arch-layer__boxes",
+        "right": 649,
+        "w": 504
+      },
+      {
+        "el": "div.arch-box.highlight",
+        "right": 468,
+        "w": 82
+      },
+      {
+        "el": "div.arch-box",
+        "right": 572,
+        "w": 93
+      },
+      {
+        "el": "div.arch-arrow",
+        "right": 649,
+        "w": 600
+      }
+    ],
+    "smallText": [
+      {
+        "el": "span",
+        "px": 10.2
+      }
+    ],
+    "smallTaps": []
+  },
+  "02-login": {
+    "viewport": 412,
+    "scrollW": 412,
+    "overflowPx": 0,
+    "wideEls": [
+      {
+        "el": "div.orb.orb-2",
+        "right": 550,
+        "w": 401
+      },
+      {
+        "el": "div.orb.orb-3",
+        "right": 521,
+        "w": 266
+      }
+    ],
+    "smallText": [],
+    "smallTaps": [
+      {
+        "el": "a",
+        "w": 137,
+        "h": 15
+      }
+    ]
+  },
+  "03-dashboard": {
+    "viewport": 412,
+    "scrollW": 412,
+    "overflowPx": 0,
+    "wideEls": [
+      {
+        "el": "div.orb.orb-2",
+        "right": 512,
+        "w": 400
+      },
+      {
+        "el": "div.orb.orb-3",
+        "right": 547,
+        "w": 300
+      },
+      {
+        "el": "div.hdr-right",
+        "right": 547,
+        "w": 342
+      },
+      {
+        "el": "div#userWidget",
+        "right": 547,
+        "w": 137
+      },
+      {
+        "el": "div#headerAvatar",
+        "right": 443,
+        "w": 28
+      },
+      {
+        "el": "span#headerName",
+        "right": 486,
+        "w": 35
+      },
+      {
+        "el": "span#headerPlan",
+        "right": 536,
+        "w": 42
+      }
+    ],
+    "smallText": [
+      {
+        "el": "text",
+        "px": 11.2
+      },
+      {
+        "el": "text",
+        "px": 9.6
+      },
+      {
+        "el": "span",
+        "px": 9.1
+      }
+    ],
+    "smallTaps": [
+      {
+        "el": "label",
+        "w": 305,
+        "h": 43
+      },
+      {
+        "el": "button#obSkipBtn",
+        "w": 99,
+        "h": 43
+      }
+    ]
+  },
+  "04-account": {
+    "viewport": 412,
+    "scrollW": 412,
+    "overflowPx": 0,
+    "wideEls": [
+      {
+        "el": "div.orb.orb-2",
+        "right": 508,
+        "w": 400
+      },
+      {
+        "el": "div.orb.orb-3",
+        "right": 546,
+        "w": 303
+      }
+    ],
+    "smallText": [
+      {
+        "el": "div",
+        "px": 11.8
+      }
+    ],
+    "smallTaps": []
+  },
+  "05-help": {
+    "viewport": 412,
+    "scrollW": 412,
+    "overflowPx": 0,
+    "wideEls": [
+      {
+        "el": "div.orb.orb-2",
+        "right": 508,
+        "w": 400
+      },
+      {
+        "el": "div.orb.orb-3",
+        "right": 546,
+        "w": 303
+      }
+    ],
+    "smallText": [
+      {
+        "el": "span",
+        "px": 11.5
+      }
+    ],
+    "smallTaps": [
+      {
+        "el": "a",
+        "w": 39,
+        "h": 15
+      }
+    ]
+  }
+}

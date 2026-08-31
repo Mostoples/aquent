@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>AQUENT — Skin Analyzer Test</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,system-ui,sans-serif; background:#0d1117; color:#caf0f8;
+    min-height:100vh; padding:32px 16px; line-height:1.5; }
+  .wrap { max-width:880px; margin:0 auto; }
+  h1 { font-size:1.4rem; margin-bottom:4px; }
+  .sub { color:#8b949e; margin-bottom:24px; font-size:.85rem; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-bottom:16px; }
+  .card { background:#161b22; border:1px solid rgba(255,255,255,.09); border-radius:14px; padding:20px; }
+  h3 { font-size:.95rem; margin-bottom:12px; }
+  .status { padding:10px 14px; border-radius:8px; margin-bottom:14px; font-size:.85rem; font-family:Consolas,monospace; }
+  .status.ok    { background:rgba(85,239,196,.12); color:#06d6a0; }
+  .status.err   { background:rgba(255,107,107,.12); color:#ff6b6b; }
+  .status.info  { background:rgba(29,161,242,.12); color:#1da1f2; }
+  button { background:linear-gradient(145deg,#1faaf7,#1789cc); color:#fff; border:none; padding:9px 16px; border-radius:8px; cursor:pointer; font-size:.85rem; font-weight:500; margin-right:6px; }
+  button:hover { transform:translateY(-1px); }
+  button:disabled { opacity:.4; cursor:not-allowed; }
+  button.outline { background:transparent; border:1px solid rgba(255,255,255,.13); color:#caf0f8; }
+  input[type=file] { padding:9px 14px; border:1px dashed rgba(255,255,255,.2); border-radius:8px; color:#8b949e; background:rgba(255,255,255,.03); cursor:pointer; }
+  .preview { max-width:100%; max-height:360px; border-radius:10px; margin:12px 0; display:block; }
+  .row { display:flex; align-items:center; gap:10px; margin-bottom:8px; font-size:.85rem; }
+  .label { width:200px; flex-shrink:0; color:#8b949e; }
+  .bar-wrap { flex:1; height:14px; background:rgba(0,0,0,.4); border-radius:4px; overflow:hidden; }
+  .bar { height:100%; background:linear-gradient(90deg,#1faaf7,#6dc7ff); transition:width .8s; }
+  .pct { width:50px; text-align:right; color:#48cae4; font-weight:600; }
+  .meta { font-size:.75rem; color:#8b949e; margin-top:8px; line-height:1.6; }
+  code { background:rgba(0,0,0,.4); padding:2px 6px; border-radius:4px; font-size:.85em; }
+  table { width:100%; border-collapse:collapse; font-size:.78rem; margin-top:8px; }
+  th, td { padding:6px 10px; text-align:left; border-bottom:1px solid rgba(255,255,255,.04); }
+  th { color:#8b949e; font-weight:500; font-size:.7rem; text-transform:uppercase; letter-spacing:.04em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🔬 AQUENT Skin Analyzer Tester</h1>
+  <p class="sub">Verifikasi ML model + pixel analysis pipeline. Halaman ini standalone — buka via <code>file://</code> atau localhost.</p>
+
+  <div class="card">
+    <h3>1. Status Engine</h3>
+    <div id="modelStatus" class="status info">Belum di-load</div>
+    <div id="metaInfo" class="meta"></div>
+    <button id="loadBtn">Load Model + TFJS</button>
+    <button class="outline" onclick="loadDemoImage()">Pakai Demo Image</button>
+  </div>
+
+  <div class="card">
+    <h3>2. Input Foto</h3>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <input type="file" id="fileInput" accept="image/*">
+      <button id="camBtn" onclick="openCam()">📷 Aktifkan Webcam</button>
+      <button id="snapBtn" onclick="snap()" disabled>Ambil Foto</button>
+    </div>
+    <video id="video" class="preview" autoplay playsinline style="display:none"></video>
+    <img id="preview" class="preview" style="display:none" alt="preview">
+  </div>
+
+  <div class="grid">
+    <!-- ML Model Predictions -->
+    <div class="card">
+      <h3>🧠 ML Model Output</h3>
+      <div id="mlPreds"><p style="color:#8b949e;font-size:.82rem">Belum ada prediksi.</p></div>
+      <div id="mlMeta" class="meta"></div>
+    </div>
+
+    <!-- Pixel Analysis -->
+    <div class="card">
+      <h3>🔬 Pixel Analysis (Deterministik)</h3>
+      <div id="pxResult"><p style="color:#8b949e;font-size:.82rem">Belum dianalisis.</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📋 Final Output (kombinasi)</h3>
+    <div id="finalResult"><p style="color:#8b949e;font-size:.82rem">Upload foto untuk lihat hasil gabungan.</p></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.20.0/dist/tf.min.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+let model = null, labels = [], imageSize = 224, preprocess = 'tm', stream = null;
+
+function setStatus(msg, type='info') {
+  $('modelStatus').className = `status ${type}`;
+  $('modelStatus').textContent = msg;
+}
+
+async function loadModel() {
+  $('loadBtn').disabled = true;
+  setStatus('Loading metadata...', 'info');
+  try {
+    try {
+      const meta = await fetch('metadata.json').then(r => r.json());
+      labels    = meta.labels || [];
+      imageSize = meta.imageSize || 224;
+      preprocess = meta.preprocess || 'tm';
+      $('metaInfo').innerHTML =
+        `<strong>${meta.name || 'AQUENT Model'}</strong> v${meta.version || '?'} · ${labels.length} kelas: ${labels.join(', ')}<br>
+         Input: ${imageSize}×${imageSize} · Preprocess: <code>${preprocess}</code> · Arsitektur: ${meta.architecture || '?'}<br>
+         Validation accuracy: ${meta.validationAcc ? (meta.validationAcc*100).toFixed(1) + '%' : '—'} · Trained: ${meta.trainingDate || '—'}`;
+    } catch (e) {
+      $('metaInfo').innerHTML = '<span style="color:#fdcb6e">⚠ metadata.json tidak ditemukan — pakai default</span>';
+    }
+    setStatus('Loading model.json...', 'info');
+    model = await tf.loadLayersModel('model.json');
+    setStatus(`✓ Model siap. ${model.countParams().toLocaleString()} parameters · ${preprocess} preprocess.`, 'ok');
+  } catch (e) {
+    setStatus('✗ Gagal load model: ' + e.message + '. Pixel analysis tetap bisa dipakai.', 'err');
+    $('loadBtn').disabled = false;
+  }
+}
+
+function preprocessTensor(imgEl) {
+  return tf.tidy(() => {
+    let t = tf.browser.fromPixels(imgEl).resizeBilinear([imageSize, imageSize]).toFloat();
+    if (preprocess === 'imagenet') {
+      t = t.sub(tf.tensor1d([123.68, 116.779, 103.939]));
+    } else if (preprocess === 'rescale') {
+      t = t.div(255);
+    } else {
+      t = t.div(127.5).sub(1);
+    }
+    return t.expandDims(0);
+  });
+}
+
+async function predictML(imgEl) {
+  if (!model) return null;
+  const t0 = performance.now();
+  const tensor = preprocessTensor(imgEl);
+  const out = model.predict(tensor);
+  const data = await out.data();
+  tensor.dispose(); out.dispose();
+  const dur = (performance.now() - t0).toFixed(0);
+
+  const ranked = Array.from(data).map((s, i) => ({
+    label: labels[i] || `class_${i}`, score: s,
+  })).sort((a, b) => b.score - a.score);
+
+  $('mlPreds').innerHTML = ranked.map(p => `
+    <div class="row">
+      <span class="label">${p.label}</span>
+      <div class="bar-wrap"><div class="bar" style="width:${(p.score*100).toFixed(1)}%"></div></div>
+      <span class="pct">${(p.score*100).toFixed(1)}%</span>
+    </div>`).join('');
+  $('mlMeta').textContent = `Inference: ${dur}ms · Top-1: ${ranked[0].label} (${(ranked[0].score*100).toFixed(1)}%)`;
+  return ranked;
+}
+
+function analyzePixels(imgEl) {
+  const W = 256, H = Math.round(256 * imgEl.naturalHeight / imgEl.naturalWidth);
+  const c = document.createElement('canvas');
+  c.width = W; c.height = H;
+  const ctx = c.getContext('2d');
+  ctx.drawImage(imgEl, 0, 0, W, H);
+  const data = ctx.getImageData(0, 0, W, H).data;
+
+  const cx0 = Math.floor(W*.2), cx1 = Math.floor(W*.8);
+  const cy0 = Math.floor(H*.2), cy1 = Math.floor(H*.8);
+  let n=0, sumR=0, sumG=0, sumB=0, sumY=0, sumY2=0, sumSat=0, redCount=0, brightCount=0, edgeSum=0, lapSum=0, lapCount=0;
+  const idx = (x,y) => (y*W+x)*4;
+
+  for (let y=cy0; y<cy1; y++) {
+    for (let x=cx0; x<cx1; x++) {
+      const i = idx(x,y), r=data[i], g=data[i+1], b=data[i+2];
+      const Y = .299*r + .587*g + .114*b;
+      const max=Math.max(r,g,b), min=Math.min(r,g,b);
+      const sat = max===0 ? 0 : (max-min)/max;
+      sumR+=r; sumG+=g; sumB+=b; sumY+=Y; sumY2+=Y*Y; sumSat+=sat;
+      if (r/(r+g+b+1) > .4) redCount++;
+      if (Y > 220) brightCount++;
+      n++;
+      if (x>cx0 && x<cx1-1) edgeSum += Math.abs(r - data[idx(x+1,y)]);
+      if (x>cx0 && x<cx1-1 && y>cy0 && y<cy1-1) {
+        const lap = 4*Y - (.299*data[idx(x-1,y)]+.587*data[idx(x-1,y)+1]+.114*data[idx(x-1,y)+2])
+                       - (.299*data[idx(x+1,y)]+.587*data[idx(x+1,y)+1]+.114*data[idx(x+1,y)+2])
+                       - (.299*data[idx(x,y-1)]+.587*data[idx(x,y-1)+1]+.114*data[idx(x,y-1)+2])
+                       - (.299*data[idx(x,y+1)]+.587*data[idx(x,y+1)+1]+.114*data[idx(x,y+1)+2]);
+        lapSum += lap*lap; lapCount++;
+      }
+    }
+  }
+  const avgR=sumR/n, avgG=sumG/n, avgB=sumB/n, avgY=sumY/n;
+  const varY = sumY2/n - avgY*avgY;
+  const avgSat = sumSat/n;
+  const sharpness = lapCount ? lapSum/lapCount : 0;
+
+  const result = {
+    hydrationProxy: Math.round(Math.max(0, Math.min(100, avgSat*220))),
+    rednessIndex:   Math.round(Math.max(0, Math.min(100, (redCount/n)*200))),
+    oilinessProxy:  Math.round(Math.max(0, Math.min(100, (brightCount/n)*400 + Math.sqrt(varY)*.5))),
+    textureScore:   Math.round(Math.max(0, Math.min(100, 100 - (edgeSum/n)*.6))),
+    sharpnessScore: Math.round(Math.max(0, Math.min(100, Math.log10(sharpness+1)*25))),
+    luminance:      Math.round(avgY),
+    skinTone:       `rgb(${Math.round(avgR)}, ${Math.round(avgG)}, ${Math.round(avgB)})`,
+  };
+
+  $('pxResult').innerHTML = `
+    <div class="row"><span class="label">Hidrasi (saturasi)</span>
+      <div class="bar-wrap"><div class="bar" style="width:${result.hydrationProxy}%;background:#48cae4"></div></div>
+      <span class="pct">${result.hydrationProxy}</span></div>
+    <div class="row"><span class="label">Kemerahan</span>
+      <div class="bar-wrap"><div class="bar" style="width:${result.rednessIndex}%;background:#ff6b6b"></div></div>
+      <span class="pct">${result.rednessIndex}</span></div>
+    <div class="row"><span class="label">Berminyak (highlight)</span>
+      <div class="bar-wrap"><div class="bar" style="width:${result.oilinessProxy}%;background:#f0c040"></div></div>
+      <span class="pct">${result.oilinessProxy}</span></div>
+    <div class="row"><span class="label">Tekstur</span>
+      <div class="bar-wrap"><div class="bar" style="width:${result.textureScore}%;background:#a3e635"></div></div>
+      <span class="pct">${result.textureScore}</span></div>
+    <div class="row"><span class="label">Ketajaman foto</span>
+      <div class="bar-wrap"><div class="bar" style="width:${result.sharpnessScore}%;background:#c084fc"></div></div>
+      <span class="pct">${result.sharpnessScore}</span></div>
+    <div class="row"><span class="label">Skin tone</span>
+      <span style="display:inline-block;width:24px;height:24px;border-radius:6px;background:${result.skinTone};border:1px solid rgba(255,255,255,.1)"></span>
+      <code style="font-size:.7rem">${result.skinTone}</code></div>`;
+  return result;
+}
+
+async function process(imgEl) {
+  const [ml, px] = await Promise.all([
+    predictML(imgEl),
+    Promise.resolve(analyzePixels(imgEl)),
+  ]);
+
+  // Final: pakai ML kalau confidence cukup, fallback ke rule-based pixel
+  let skinType = 'normal', conf = 30, source = 'fallback';
+  if (ml && ml[0] && ml[0].score >= 0.4) {
+    skinType = ml[0].label.toLowerCase();
+    conf     = Math.round(ml[0].score * 100);
+    source   = 'ml-model';
+  } else if (px) {
+    // Quick rule
+    if (px.hydrationProxy < 45 && px.oilinessProxy < 40)      { skinType='dry'; conf=70; }
+    else if (px.oilinessProxy > 55)                            { skinType='oily'; conf=70; }
+    else if (px.rednessIndex > 45)                             { skinType='sensitive'; conf=65; }
+    else                                                       { skinType='normal'; conf=60; }
+    source = 'pixel-rule';
+  }
+
+  $('finalResult').innerHTML = `
+    <table>
+      <tr><th>Tipe Kulit Terdeteksi</th><td><strong style="color:#06d6a0">${skinType.toUpperCase()}</strong></td></tr>
+      <tr><th>Confidence</th><td>${conf}%</td></tr>
+      <tr><th>Sumber</th><td><code>${source}</code></td></tr>
+      <tr><th>Hidrasi</th><td>${px.hydrationProxy}/100 ${px.hydrationProxy < 40 ? '⚠ rendah' : px.hydrationProxy > 70 ? '✓ baik' : ''}</td></tr>
+      <tr><th>Kualitas Foto</th><td>${px.sharpnessScore}/100 ${px.sharpnessScore < 30 ? '⚠ buram' : '✓'}</td></tr>
+    </table>`;
+}
+
+$('loadBtn').addEventListener('click', loadModel);
+$('fileInput').addEventListener('change', e => {
+  const f = e.target.files[0]; if (!f) return;
+  const url = URL.createObjectURL(f);
+  const img = $('preview');
+  img.style.display = 'block';
+  $('video').style.display = 'none';
+  img.onload = () => process(img);
+  img.src = url;
+});
+
+async function openCam() {
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ video:{ facingMode:'user' } });
+    $('video').srcObject = stream;
+    $('video').style.display = 'block';
+    $('preview').style.display = 'none';
+    $('snapBtn').disabled = false;
+  } catch (e) { setStatus('Kamera ditolak: ' + e.message, 'err'); }
+}
+
+function snap() {
+  const v = $('video');
+  const c = document.createElement('canvas');
+  c.width = v.videoWidth; c.height = v.videoHeight;
+  c.getContext('2d').drawImage(v, 0, 0);
+  const img = $('preview');
+  img.style.display = 'block';
+  $('video').style.display = 'none';
+  img.onload = () => process(img);
+  img.src = c.toDataURL('image/jpeg');
+  if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
+  $('snapBtn').disabled = true;
+}
+
+function loadDemoImage() {
+  // Generate a demo skin-tone gradient image untuk test pixel analysis
+  const c = document.createElement('canvas');
+  c.width = 400; c.height = 400;
+  const ctx = c.getContext('2d');
+  const grad = ctx.createRadialGradient(200,200,50,200,200,250);
+  grad.addColorStop(0, '#f4d4b8');
+  grad.addColorStop(.7, '#d8b08c');
+  grad.addColorStop(1, '#b58968');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, 400, 400);
+  // Tambah noise untuk realism
+  for (let i = 0; i < 200; i++) {
+    ctx.fillStyle = `rgba(${180+Math.random()*40},${130+Math.random()*30},${100+Math.random()*30},.08)`;
+    ctx.beginPath();
+    ctx.arc(Math.random()*400, Math.random()*400, Math.random()*15, 0, Math.PI*2);
+    ctx.fill();
+  }
+  const img = $('preview');
+  img.style.display = 'block';
+  $('video').style.display = 'none';
+  img.onload = () => process(img);
+  img.src = c.toDataURL('image/jpeg');
+}
+</script>
+</body>
+</html>

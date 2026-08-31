@@ -1,0 +1,2685 @@
+[
+  {
+    "id": "atopic-dermatitis",
+    "name": "Dermatitis Atopik (Eksim)",
+    "tags": [
+      "eksim",
+      "kulit kering",
+      "alergi",
+      "inflamasi",
+      "anak-anak"
+    ],
+    "description": "Kondisi kulit inflamasi kronis yang ditandai dengan kulit gatal, kering, dan kemerahan. Sering kambuh dan mereda secara periodik. Merupakan kondisi paling umum terkait dengan kualitas air mandi.",
+    "causes": "Kombinasi faktor genetik (mutasi gen filaggrin), disfungsi imun, dan paparan lingkungan termasuk kualitas air sadah, klorin, dan deterjen keras.",
+    "symptoms": [
+      "Gatal intens terutama malam hari",
+      "Kulit kering dan bersisik",
+      "Bercak merah atau coklat di tangan, kaki, pergelangan tangan, leher",
+      "Kulit menebal (likenifikasi) akibat garukan",
+      "Lesi basah pada bayi"
+    ],
+    "water_triggers": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Air keras (TDS tinggi) terbukti meningkatkan risiko eksim 87% lebih tinggi pada anak-anak. Ion kalsium bereaksi dengan sodium lauryl sulfate dari sabun membentuk scum iritan. Klorin tinggi merusak filaggrin dan ceramide. pH basa mendisrupsi acid mantle kulit.",
+    "bathing_recommendations": [
+      "Gunakan air hangat 36–38°C, BUKAN air panas",
+      "Batasi durasi mandi maksimal 10 menit",
+      "Gunakan sabun bebas pewangi dan bebas SLS, pH 5.5–6.5",
+      "Tepuk-tepuk kulit kering dengan handuk lembut, jangan digosok",
+      "Oleskan emolien/moisturizer ceramide dalam 3 menit setelah mandi (metode soak and smear)",
+      "Pertimbangkan filter shower karbon aktif untuk mengurangi klorin",
+      "Gunakan water softener jika TDS air > 250 ppm"
+    ],
+    "when_to_see_doctor": "Jika gejala tidak membaik dalam 2 minggu, ada tanda infeksi (nanah, demam, bau tidak sedap dari kulit), atau sangat mengganggu tidur dan aktivitas.",
+    "prevalence": "Mempengaruhi 15–20% anak-anak dan 1–3% orang dewasa di seluruh dunia",
+    "sources": [
+      "doi:10.1111/bjd.19862",
+      "doi:10.1111/jdv.17098",
+      "doi:10.1111/jdv.17927",
+      "doi:10.1016/j.jid.2020.11.027"
+    ],
+    "name_en": "Atopic Dermatitis (Eczema)",
+    "description_en": "A chronic inflammatory skin condition marked by itchy, dry, and reddened skin. It flares and subsides periodically. It is the most common condition related to bathing water quality.",
+    "tags_en": [
+      "eczema",
+      "dry skin",
+      "allergy",
+      "inflammation",
+      "children"
+    ],
+    "causes_en": "A combination of genetic factors (filaggrin gene mutations), immune dysfunction, and environmental exposure including hard water, chlorine, and harsh detergents.",
+    "symptoms_en": [
+      "Intense itching especially at night",
+      "Dry, scaly skin",
+      "Red or brown patches on hands, feet, wrists, neck",
+      "Thickened skin (lichenification) from scratching",
+      "Weeping lesions in infants"
+    ],
+    "bathing_recommendations_en": [
+      "Use warm water 36–38°C, NOT hot water",
+      "Limit shower time to a maximum of 10 minutes",
+      "Use fragrance-free, SLS-free soap with pH 5.5–6.5",
+      "Pat skin dry gently with a soft towel, do not rub",
+      "Apply ceramide emollient/moisturizer within 3 minutes after showering (soak and smear)",
+      "Consider an activated carbon shower filter to reduce chlorine",
+      "Use a water softener if water TDS > 250 ppm"
+    ],
+    "when_to_see_doctor_en": "If symptoms do not improve within 2 weeks, there are signs of infection (pus, fever, foul odor), or it severely disrupts sleep and activities.",
+    "prevalence_en": "Affects 15–20% of children and 1–3% of adults worldwide"
+  },
+  {
+    "id": "psoriasis",
+    "name": "Psoriasis",
+    "tags": [
+      "autoimun",
+      "bersisik",
+      "kronis",
+      "perak"
+    ],
+    "description": "Penyakit autoimun kronis yang menyebabkan sel kulit berkembang biak terlalu cepat, menghasilkan bercak tebal, merah, bersisik berwarna perak. Tidak menular.",
+    "causes": "Disfungsi sistem imun yang memicu produksi sel kulit berlebihan. Dipicu oleh stres, infeksi, obat-obatan tertentu, cuaca dingin, dan paparan kualitas air tertentu.",
+    "symptoms": [
+      "Bercak merah tebal dengan sisik perak (plak)",
+      "Kulit kering yang bisa retak dan berdarah",
+      "Rasa gatal, terbakar, atau nyeri",
+      "Kuku menebal, berlubang-lubang, atau berubah warna",
+      "Sendi kaku dan bengkak (pada psoriatic arthritis)"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Studi Thyssen et al. (2021) menunjukkan korelasi antara kesadahan air dan keparahan psoriasis. Air basa merusak barrier kulit yang sudah terganggu. Klorin tinggi bersifat iritan bagi plak psoriasis. Air panas memperburuk inflamasi.",
+    "bathing_recommendations": [
+      "Mandi dengan air hangat (36–38°C) atau suam kuku — air panas memperburuk psoriasis",
+      "Rendam area berplak selama 10–15 menit untuk melunakkan sisik sebelum diangkat perlahan",
+      "Gunakan sabun tar, sabun sulfur, atau sabun bebas pewangi sesuai rekomendasi dokter",
+      "Keringkan dengan menepuk, bukan menggosok",
+      "Oleskan emolien tebal segera setelah mandi",
+      "Hindari shower filter yang mengandung vitamin C (berpotensi reaksi)"
+    ],
+    "when_to_see_doctor": "Psoriasis selalu memerlukan diagnosis dan penanganan dokter kulit. Konsultasi segera jika plak menyebar luas, menyertai nyeri sendi, atau sangat mengganggu kualitas hidup.",
+    "prevalence": "Mempengaruhi sekitar 2–3% populasi dunia",
+    "sources": [
+      "doi:10.1111/jdv.17098",
+      "doi:10.1016/j.jid.2020.11.027"
+    ],
+    "name_en": "Psoriasis",
+    "description_en": "A chronic autoimmune disease that causes skin cells to multiply too quickly, producing thick, red, silvery-scaled patches. Not contagious.",
+    "tags_en": [
+      "autoimmune",
+      "scaly",
+      "chronic",
+      "silver"
+    ],
+    "causes_en": "Immune system dysfunction triggering excess skin cell production. Triggered by stress, infection, certain medications, cold weather, and certain water conditions.",
+    "symptoms_en": [
+      "Thick red patches with silvery scales (plaques)",
+      "Dry skin that may crack and bleed",
+      "Itching, burning, or pain",
+      "Thickened, pitted, or discolored nails",
+      "Stiff and swollen joints (in psoriatic arthritis)"
+    ],
+    "bathing_recommendations_en": [
+      "Shower with warm (36–38°C) or lukewarm water — hot water worsens psoriasis",
+      "Soak plaque areas for 10–15 minutes to soften scales before gently removing",
+      "Use tar, sulfur, or fragrance-free soap as recommended by your doctor",
+      "Pat dry, do not rub",
+      "Apply thick emollient immediately after showering",
+      "Avoid shower filters containing vitamin C (potential reaction)"
+    ],
+    "when_to_see_doctor_en": "Psoriasis always requires diagnosis and management by a dermatologist. See a doctor immediately if plaques spread widely, are accompanied by joint pain, or severely impact quality of life.",
+    "prevalence_en": "Affects about 2–3% of the world population"
+  },
+  {
+    "id": "contact-dermatitis",
+    "name": "Dermatitis Kontak",
+    "tags": [
+      "alergi",
+      "iritan",
+      "reaksi",
+      "merah"
+    ],
+    "description": "Reaksi peradangan kulit akibat kontak langsung dengan zat iritan atau alergen. Dibagi dua: iritan (kimia langsung) dan alergi (reaksi imun). Produk mandi dan kualitas air adalah pemicu umum.",
+    "causes": "Kontak dengan deterjen keras, sabun alkali, air klorin tinggi, logam (nikel), tanaman, parfum, atau bahan kimia lainnya. Air sadah meningkatkan potensi iritasi dari produk sabun.",
+    "symptoms": [
+      "Kemerahan dan bengkak di area kontak",
+      "Rasa gatal atau terbakar",
+      "Lepuhan berisi cairan",
+      "Kulit bersisik dan kering setelah fase akut",
+      "Batas jelas sesuai area kontak"
+    ],
+    "water_triggers": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true,
+      "temp_high": false
+    },
+    "water_triggers_explanation": "Air dengan pH ekstrem (sangat asam atau sangat basa) langsung bersifat iritan pada kulit yang sudah sensitif. TDS tinggi meningkatkan reaksi sabun. Klorin adalah iritan kimia langsung yang bisa memicu dermatitis kontak iritan.",
+    "bathing_recommendations": [
+      "Gunakan sabun hypoallergenic bebas pewangi dan bebas pengawet",
+      "Bilas sabun dengan sangat bersih — residu sabun adalah iritan umum",
+      "Pertimbangkan filter shower untuk mengurangi klorin dan sedimen",
+      "Pakai sarung tangan karet saat mencuci pakaian atau piring",
+      "Catat produk apa yang digunakan sebelum reaksi muncul untuk identifikasi alergen"
+    ],
+    "when_to_see_doctor": "Jika reaksi meluas, ada lepuhan besar, atau tidak membaik dalam 1 minggu. Untuk identifikasi alergen spesifik, minta patch test ke dokter kulit.",
+    "prevalence": "Salah satu penyakit kulit paling umum — mempengaruhi 15–20% populasi",
+    "sources": [
+      "doi:10.1016/j.jid.2020.11.027",
+      "pmid:32195872"
+    ],
+    "name_en": "Contact Dermatitis",
+    "description_en": "Skin inflammation caused by direct contact with an irritant or allergen, including hard water minerals, chlorine, or harsh soaps.",
+    "tags_en": [
+      "allergy",
+      "irritant",
+      "reaction",
+      "red"
+    ],
+    "causes_en": "Contact with harsh detergents, alkaline soaps, high-chlorine water, metals (nickel), plants, perfumes, or other chemicals. Hard water increases irritation potential from soap products.",
+    "symptoms_en": [
+      "Redness and swelling at the contact area",
+      "Itching or burning",
+      "Fluid-filled blisters",
+      "Scaly, dry skin after the acute phase",
+      "Clear borders matching the contact area"
+    ],
+    "bathing_recommendations_en": [
+      "Use hypoallergenic soap that is fragrance-free and preservative-free",
+      "Rinse soap off very thoroughly — soap residue is a common irritant",
+      "Consider a shower filter to reduce chlorine and sediment",
+      "Wear rubber gloves when washing clothes or dishes",
+      "Note which products were used before reactions appear to identify allergens"
+    ],
+    "when_to_see_doctor_en": "If the reaction spreads, there are large blisters, or it does not improve within 1 week. For specific allergen identification, ask a dermatologist for a patch test.",
+    "prevalence_en": "One of the most common skin diseases — affects 15–20% of the population"
+  },
+  {
+    "id": "xerosis",
+    "name": "Kulit Kering (Xerosis Cutis)",
+    "tags": [
+      "kering",
+      "bersisik",
+      "kasar",
+      "gatal"
+    ],
+    "description": "Kondisi kulit yang kekurangan kelembapan, menyebabkan kulit terasa kencang, kasar, bersisik, dan gatal. Bukan penyakit serius namun sangat terkait dengan kualitas air mandi.",
+    "causes": "Mandi terlalu sering atau terlalu lama, air panas, sabun keras, air sadah, klorin, udara kering (AC), penuaan, dan kondisi medis tertentu (hipotiroidisme, diabetes).",
+    "symptoms": [
+      "Kulit terasa kencang terutama setelah mandi",
+      "Tampilan kulit kasar dan kusam",
+      "Sisik halus atau pengelupasan",
+      "Garis-garis halus di kulit kering",
+      "Gatal ringan hingga sedang"
+    ],
+    "water_triggers": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Hampir semua parameter air yang menyimpang dari normal berkontribusi pada kekeringan kulit. Ini adalah kondisi yang paling langsung dipengaruhi oleh kualitas air mandi sehari-hari.",
+    "bathing_recommendations": [
+      "Kurangi frekuensi mandi jika memungkinkan (1 kali sehari cukup untuk orang dewasa)",
+      "Batasi durasi mandi 5–10 menit dengan air hangat 36–38°C",
+      "Gunakan sabun cream atau oil-based, hindari sabun busa berlebih",
+      "Segera oleskan body lotion/cream berbasis ceramide atau glycerin setelah mandi",
+      "Pasang humidifier di kamar mandi atau ruangan jika menggunakan AC",
+      "Pasang filter shower untuk mengurangi klorin dan kesadahan"
+    ],
+    "when_to_see_doctor": "Jika kulit kering disertai luka, infeksi, atau tidak membaik setelah 2 minggu perawatan mandiri.",
+    "prevalence": "Sangat umum — mempengaruhi hingga 75% orang di atas usia 65 tahun dan banyak orang dewasa muda",
+    "sources": [
+      "doi:10.1111/ics.12562",
+      "doi:10.1111/bjd.19862"
+    ],
+    "name_en": "Dry Skin (Xerosis Cutis)",
+    "description_en": "Abnormally dry skin caused by loss of moisture in the outer layer. Often worsened by hot water, alkaline pH, and hard water.",
+    "tags_en": [
+      "dry",
+      "scaly",
+      "rough",
+      "itchy"
+    ],
+    "causes_en": "Bathing too often or too long, hot water, harsh soaps, hard water, chlorine, dry air (AC), aging, and certain medical conditions (hypothyroidism, diabetes).",
+    "symptoms_en": [
+      "Skin feels tight especially after showering",
+      "Rough and dull appearance",
+      "Fine scaling or flaking",
+      "Fine lines on dry skin",
+      "Mild to moderate itching"
+    ],
+    "bathing_recommendations_en": [
+      "Reduce shower frequency if possible (once daily is enough for adults)",
+      "Limit shower time to 5–10 minutes with warm water 36–38°C",
+      "Use cream or oil-based soap, avoid excessive foaming soaps",
+      "Apply ceramide or glycerin-based body lotion/cream right after showering",
+      "Install a humidifier in the bathroom or room if using AC",
+      "Install a shower filter to reduce chlorine and hardness"
+    ],
+    "when_to_see_doctor_en": "If dry skin is accompanied by wounds, infection, or does not improve after 2 weeks of self-care.",
+    "prevalence_en": "Very common — affects up to 75% of people over age 65 and many young adults"
+  },
+  {
+    "id": "sensitive-skin",
+    "name": "Kulit Sensitif",
+    "tags": [
+      "sensitif",
+      "reaktif",
+      "merah",
+      "gatal"
+    ],
+    "description": "Kecenderungan kulit bereaksi berlebihan terhadap stimulus yang biasanya ditoleransi kulit normal — termasuk produk perawatan, perubahan cuaca, dan kualitas air. Bukan diagnosis medis formal melainkan karakteristik kulit.",
+    "causes": "Skin barrier yang lebih tipis atau kurang efektif, peningkatan sensitivitas saraf kulit, faktor genetik, riwayat eksim atau rosasea.",
+    "symptoms": [
+      "Kemerahan setelah kontak dengan produk atau air tertentu",
+      "Rasa terbakar atau menyengat saat memakai produk baru",
+      "Gatal tanpa sebab jelas",
+      "Kulit terasa kencang setelah mandi",
+      "Reaksi cepat terhadap perubahan suhu air"
+    ],
+    "water_triggers": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Kulit sensitif memiliki toleransi lebih rendah terhadap semua parameter air yang menyimpang. Bahkan perubahan kecil pada pH atau klorin yang tidak terasa pada kulit normal bisa memicu reaksi pada kulit sensitif.",
+    "bathing_recommendations": [
+      "Uji produk baru di area kecil (lengan dalam) selama 48 jam sebelum digunakan luas",
+      "Pilih produk berlabel 'untuk kulit sensitif' atau 'hypoallergenic'",
+      "Gunakan air dengan suhu konsisten dan jangan berganti ekstrem antara panas-dingin",
+      "Pasang shower filter untuk meminimalkan klorin dan kesadahan",
+      "Pilih sabun berbahan alami minimal pengawet dan pewangi",
+      "Hindari menggosok kulit — gunakan tangan, bukan waslap abrasif"
+    ],
+    "when_to_see_doctor": "Jika sensitivitas memburuk, muncul pola tertentu, atau disertai gejala sistemik. Pertimbangkan uji alergi (patch test).",
+    "prevalence": "Sekitar 50% orang melaporkan memiliki kulit sensitif",
+    "sources": [
+      "doi:10.1111/ics.12562"
+    ],
+    "name_en": "Sensitive Skin",
+    "description_en": "A skin condition prone to irritation, redness, and stinging in response to factors like water pH, chlorine, fragrances, and temperature.",
+    "tags_en": [
+      "sensitive",
+      "reactive",
+      "red",
+      "itchy"
+    ],
+    "causes_en": "A thinner or less effective skin barrier, increased skin nerve sensitivity, genetic factors, history of eczema or rosacea.",
+    "symptoms_en": [
+      "Redness after contact with certain products or water",
+      "Burning or stinging when using new products",
+      "Itching for no clear reason",
+      "Skin feels tight after showering",
+      "Quick reaction to water temperature changes"
+    ],
+    "bathing_recommendations_en": [
+      "Test new products on a small area (inner arm) for 48 hours before wider use",
+      "Choose products labeled \"for sensitive skin\" or \"hypoallergenic\"",
+      "Use consistent water temperature and avoid extreme hot-cold switches",
+      "Install a shower filter to minimize chlorine and hardness",
+      "Choose natural soaps with minimal preservatives and fragrance",
+      "Avoid scrubbing skin — use hands, not abrasive washcloths"
+    ],
+    "when_to_see_doctor_en": "If sensitivity worsens, shows a specific pattern, or is accompanied by systemic symptoms. Consider allergy testing (patch test).",
+    "prevalence_en": "About 50% of people report having sensitive skin"
+  },
+  {
+    "id": "rosacea",
+    "name": "Rosasea",
+    "tags": [
+      "kemerahan",
+      "pembuluh darah",
+      "pipi",
+      "kronis"
+    ],
+    "description": "Kondisi kulit kronis yang menyebabkan kemerahan persisten dan kadang jerawat kecil di wajah, terutama pipi, hidung, dahi, dan dagu. Lebih umum pada wanita dan kulit cerah.",
+    "causes": "Belum sepenuhnya dipahami — melibatkan disfungsi pembuluh darah, imun, dan mikrobiom kulit. Dipicu oleh panas, makanan pedas, alkohol, perubahan suhu ekstrem, dan paparan matahari.",
+    "symptoms": [
+      "Kemerahan wajah yang datang dan pergi",
+      "Pembuluh darah kecil terlihat di pipi dan hidung",
+      "Jerawat kecil berisi nanah (bukan komedo)",
+      "Kulit wajah terasa panas dan sensitif",
+      "Mata merah dan iritasi (ocular rosacea)"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Suhu air yang tinggi adalah pemicu utama rosasea — panas menyebabkan vasodilatasi berlebihan pada pembuluh darah yang sudah reaktif. Klorin tinggi juga dapat memperburuk kemerahan. Perubahan suhu mendadak dari sangat panas ke dingin bisa memicu flare-up.",
+    "bathing_recommendations": [
+      "Cuci muka dengan air dingin atau suam kuku (< 36°C) — JANGAN air panas",
+      "Hindari sauna, uap panas, dan mandi air sangat panas",
+      "Gunakan cleanser lembut bebas pewangi dan bebas alkohol",
+      "Bilas dengan air dingin setelah membersihkan wajah untuk menutup pori",
+      "Pakai tabir surya SPF 30+ setiap hari — sinar UV adalah pemicu utama"
+    ],
+    "when_to_see_doctor": "Selalu konsultasikan dengan dokter kulit — rosasea memerlukan penanganan medis termasuk topikal metronidazol atau azelaic acid.",
+    "prevalence": "Mempengaruhi sekitar 10% populasi; lebih umum pada wanita usia 30–60 tahun",
+    "sources": [
+      "doi:10.1111/jdv.17927"
+    ],
+    "name_en": "Rosacea",
+    "description_en": "A chronic skin condition causing facial redness, visible blood vessels, and sometimes small bumps. Triggered by heat, hot water, and temperature changes.",
+    "tags_en": [
+      "redness",
+      "blood vessels",
+      "cheeks",
+      "chronic"
+    ],
+    "causes_en": "Not fully understood — involves blood vessel, immune, and skin microbiome dysfunction. Triggered by heat, spicy food, alcohol, extreme temperature changes, and sun exposure.",
+    "symptoms_en": [
+      "Facial redness that comes and goes",
+      "Small visible blood vessels on cheeks and nose",
+      "Small pus-filled bumps (not blackheads)",
+      "Facial skin feels hot and sensitive",
+      "Red, irritated eyes (ocular rosacea)"
+    ],
+    "bathing_recommendations_en": [
+      "Wash face with cool or lukewarm water (< 36°C) — NOT hot water",
+      "Avoid saunas, hot steam, and very hot showers",
+      "Use a gentle fragrance-free, alcohol-free cleanser",
+      "Rinse with cool water after cleansing to close pores",
+      "Wear SPF 30+ sunscreen daily — UV is a major trigger"
+    ],
+    "when_to_see_doctor_en": "Always consult a dermatologist — rosacea requires medical treatment including topical metronidazole or azelaic acid.",
+    "prevalence_en": "Affects about 10% of the population; more common in women aged 30–60"
+  },
+  {
+    "id": "folliculitis",
+    "name": "Folikulitis",
+    "tags": [
+      "infeksi",
+      "bakteri",
+      "jerawat kecil",
+      "folikel"
+    ],
+    "description": "Infeksi atau peradangan folikel rambut, muncul sebagai benjolan kecil merah atau berisi nanah di sekitar folikel rambut. Bisa disebabkan oleh bakteri, jamur, atau bahan iritan dari air.",
+    "causes": "Bakteri Staphylococcus aureus paling umum. Bisa juga dari Pseudomonas aeruginosa dalam air hangat yang tidak terkelola (hot tub folliculitis). Folikel tersumbat oleh produk atau residu air.",
+    "symptoms": [
+      "Benjolan kecil merah di sekitar folikel rambut",
+      "Benjolan berisi nanah yang bisa pecah",
+      "Gatal dan rasa terbakar",
+      "Bisa muncul di dada, punggung, bokong, paha",
+      "Versi berat: furuncle (bisul) atau carbuncle"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false,
+      "temp_high": false,
+      "turbidity_high": true,
+      "chlorine_low": true
+    },
+    "water_triggers_explanation": "Air keruh (turbidity tinggi) mengandung partikel dan potensi bakteri yang bisa menyumbat dan menginfeksi folikel. Klorin sangat rendah mengindikasikan perlindungan bakteri tidak memadai — meningkatkan risiko Pseudomonas dan bakteri gram negatif lainnya.",
+    "bathing_recommendations": [
+      "Jangan mandi jika air terlihat keruh — tunggu hingga jernih atau gunakan air alternatif",
+      "Ganti pakaian bersih setelah mandi",
+      "Hindari bercukur di area yang sedang berjerawat folikulitis",
+      "Periksa klorin air secara berkala untuk memastikan perlindungan bakteri cukup",
+      "Keringkan kulit dengan baik setelah mandi, terutama area lipatan"
+    ],
+    "when_to_see_doctor": "Jika folikulitis menyebar, membentuk bisul besar, disertai demam, atau tidak membaik dalam 1 minggu dengan perawatan mandiri.",
+    "prevalence": "Sangat umum, bisa terjadi pada semua usia",
+    "sources": [
+      "doi:10.3390/s20030756",
+      "doi:10.3390/ijerph18041997"
+    ],
+    "name_en": "Folliculitis",
+    "description_en": "Inflammation of hair follicles, often caused by bacterial infection from contaminated or turbid water. Appears as small red bumps around follicles.",
+    "tags_en": [
+      "infection",
+      "bacteria",
+      "small bumps",
+      "follicle"
+    ],
+    "causes_en": "Staphylococcus aureus bacteria is most common. Can also come from Pseudomonas aeruginosa in poorly maintained warm water (hot tub folliculitis). Follicles clogged by products or water residue.",
+    "symptoms_en": [
+      "Small red bumps around hair follicles",
+      "Pus-filled bumps that may burst",
+      "Itching and burning",
+      "Can appear on chest, back, buttocks, thighs",
+      "Severe form: furuncle (boil) or carbuncle"
+    ],
+    "bathing_recommendations_en": [
+      "Do not bathe if water looks turbid — wait until clear or use alternative water",
+      "Change into clean clothes after showering",
+      "Avoid shaving areas with active folliculitis",
+      "Check water chlorine regularly to ensure adequate bacterial protection",
+      "Dry skin well after showering, especially folds"
+    ],
+    "when_to_see_doctor_en": "If folliculitis spreads, forms large boils, is accompanied by fever, or does not improve within 1 week of self-care.",
+    "prevalence_en": "Very common, can occur at any age"
+  },
+  {
+    "id": "seborrheic-dermatitis",
+    "name": "Dermatitis Seboroik",
+    "tags": [
+      "ketombe",
+      "bersisik",
+      "berminyak",
+      "kepala"
+    ],
+    "description": "Kondisi kulit umum yang menyebabkan bercak bersisik, kulit merah, dan ketombe. Paling sering di kulit kepala, wajah (alis, hidung, telinga), dan dada.",
+    "causes": "Pertumbuhan berlebihan jamur Malassezia yang hidup di kulit berminyak, dikombinasikan dengan respons imun yang berlebihan. Stres dan cuaca dingin memperburuk kondisi.",
+    "symptoms": [
+      "Ketombe (sisik putih/kuning di rambut dan bahu)",
+      "Bercak merah berminyak di kulit",
+      "Sisik putih atau kuning di alis, telinga, atau dada",
+      "Gatal ringan di area berketombe",
+      "Pada bayi: cradle cap (kerak di kepala)"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": true,
+      "tds_high": false,
+      "chlorine_high": false,
+      "temp_high": false
+    },
+    "water_triggers_explanation": "pH basa dari air dapat mengganggu keseimbangan pH kulit kepala (optimal 5.5), menciptakan lingkungan yang lebih baik untuk pertumbuhan Malassezia. Keramas terlalu sering dengan air panas memperburuk produksi sebum.",
+    "bathing_recommendations": [
+      "Gunakan sampo anti-ketombe dengan bahan aktif: zinc pyrithione, ketoconazole, selenium sulfide, atau coal tar",
+      "Keramas secara teratur sesuai jenis rambut — tidak terlalu jarang maupun terlalu sering",
+      "Gunakan air hangat (bukan panas) saat keramas",
+      "Bilas dengan bersih — residu sampo di kulit kepala memperburuk kondisi",
+      "Gunakan sampo pH-balanced untuk kulit kepala"
+    ],
+    "when_to_see_doctor": "Jika sampo anti-ketombe tidak membantu setelah 4 minggu, atau jika ada tanda infeksi sekunder.",
+    "prevalence": "Mempengaruhi 3–5% populasi umum; 50% orang dewasa mengalami ketombe ringan",
+    "sources": [
+      "doi:10.1111/ics.12562"
+    ],
+    "name_en": "Seborrheic Dermatitis",
+    "description_en": "A common skin condition causing flaky, scaly patches on oily areas like the scalp and face. Influenced by water quality and temperature.",
+    "tags_en": [
+      "dandruff",
+      "scaly",
+      "oily",
+      "scalp"
+    ],
+    "causes_en": "Overgrowth of Malassezia fungus living on oily skin, combined with an excessive immune response. Stress and cold weather worsen the condition.",
+    "symptoms_en": [
+      "Dandruff (white/yellow flakes in hair and shoulders)",
+      "Oily red patches on skin",
+      "White or yellow scales on eyebrows, ears, or chest",
+      "Mild itching in flaky areas",
+      "In infants: cradle cap"
+    ],
+    "bathing_recommendations_en": [
+      "Use anti-dandruff shampoo with active ingredients: zinc pyrithione, ketoconazole, selenium sulfide, or coal tar",
+      "Shampoo regularly according to hair type — not too rarely or too often",
+      "Use warm (not hot) water when shampooing",
+      "Rinse thoroughly — shampoo residue on the scalp worsens the condition",
+      "Use a pH-balanced shampoo for the scalp"
+    ],
+    "when_to_see_doctor_en": "If anti-dandruff shampoo does not help after 4 weeks, or if there are signs of secondary infection.",
+    "prevalence_en": "Affects 3–5% of the general population; 50% of adults experience mild dandruff"
+  },
+  {
+    "id": "urticaria",
+    "name": "Urtikaria (Biduran)",
+    "tags": [
+      "biduran",
+      "bentol",
+      "alergi",
+      "gatal"
+    ],
+    "description": "Reaksi kulit berupa bentol merah gatal yang muncul tiba-tiba dan bisa berpindah tempat. Bisa dipicu oleh alergen, perubahan suhu air, atau tekanan fisik.",
+    "causes": "Pelepasan histamin dari sel mast — dipicu oleh alergen makanan, obat, tekanan, panas, dingin, atau air (aquagenic urticaria — sangat jarang).",
+    "symptoms": [
+      "Bentol merah gatal berbatas tegas yang bisa bergabung",
+      "Muncul mendadak dan biasanya menghilang dalam 24 jam",
+      "Bisa disertai angioedema (bengkak bibir, mata, tenggorokan)",
+      "Rasa panas dan terbakar di area bentol"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": true,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Klorin tinggi dapat memicu reaksi alergi pada individu sensitif. Perubahan suhu mendadak (air sangat panas ke dingin) adalah pemicu urtikaria fisik. Aquagenic urticaria — kondisi sangat langka di mana air itu sendiri memicu urtikaria — memerlukan penanganan dokter.",
+    "bathing_recommendations": [
+      "Hindari air terlalu panas atau perubahan suhu mendadak",
+      "Jika dicurigai klorin sebagai pemicu, coba filter shower karbon aktif",
+      "Gunakan antihistamin oral sesuai anjuran dokter sebelum mandi jika sering kambuh",
+      "Catat kondisi saat kambuh (suhu air, produk yang digunakan) untuk identifikasi pemicu"
+    ],
+    "when_to_see_doctor": "SEGERA ke dokter atau IGD jika disertai sesak napas, bengkak tenggorokan, atau pusing — tanda anafilaksis. Konsultasi dokter untuk urtikaria yang berlangsung > 6 minggu (kronis).",
+    "prevalence": "Mempengaruhi sekitar 20% orang setidaknya sekali seumur hidup",
+    "sources": [
+      "pmid:32195872"
+    ],
+    "name_en": "Urticaria (Hives)",
+    "description_en": "Raised, itchy welts on the skin caused by an allergic reaction. Can be triggered by water temperature (cold/hot urticaria) or chlorine.",
+    "tags_en": [
+      "hives",
+      "welts",
+      "allergy",
+      "itchy"
+    ],
+    "causes_en": "Histamine release from mast cells — triggered by food allergens, drugs, pressure, heat, cold, or water (aquagenic urticaria — very rare).",
+    "symptoms_en": [
+      "Itchy red welts with clear borders that can merge",
+      "Appear suddenly and usually disappear within 24 hours",
+      "May be accompanied by angioedema (swollen lips, eyes, throat)",
+      "Heat and burning sensation in welt areas"
+    ],
+    "bathing_recommendations_en": [
+      "Avoid water that is too hot or sudden temperature changes",
+      "If chlorine is suspected as a trigger, try an activated carbon shower filter",
+      "Use oral antihistamines as advised by your doctor before showering if frequent",
+      "Note conditions during flares (water temperature, products used) to identify triggers"
+    ],
+    "when_to_see_doctor_en": "Go to a doctor or ER IMMEDIATELY if accompanied by shortness of breath, throat swelling, or dizziness — signs of anaphylaxis. Consult a doctor for urticaria lasting > 6 weeks (chronic).",
+    "prevalence_en": "Affects about 20% of people at least once in their lifetime"
+  },
+  {
+    "id": "ichthyosis",
+    "name": "Iktiosis",
+    "tags": [
+      "bersisik",
+      "genetik",
+      "kronis",
+      "kering parah"
+    ],
+    "description": "Sekelompok kondisi kulit genetik yang menyebabkan kulit bersisik berlebihan, menyerupai sisik ikan. Bervariasi dari ringan (ichthyosis vulgaris) hingga berat.",
+    "causes": "Mutasi gen yang mempengaruhi fungsi skin barrier, terutama gen filaggrin (FLG). Menyebabkan penumpukan sel kulit mati yang tidak normal.",
+    "symptoms": [
+      "Kulit bersisik tipis (abu-abu atau coklat)",
+      "Kulit sangat kering dan kasar",
+      "Gatal",
+      "Retakan kulit di telapak tangan dan kaki",
+      "Kadang disertai kondisi lain seperti eksim"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true,
+      "temp_high": false
+    },
+    "water_triggers_explanation": "Sama seperti xerosis parah, semua faktor yang mengurangi kelembapan kulit memperburuk iktiosis. Air keras dan klorin tinggi sangat merugikan bagi kondisi ini.",
+    "bathing_recommendations": [
+      "Rendam dalam air hangat 10–15 menit untuk melunakkan dan mengangkat sisik",
+      "Gunakan bahan pembersih emolien (bukan sabun biasa)",
+      "Segera oleskan emolien tebal (urea 10–40%, petrolatum) setelah mandi",
+      "Pertimbangkan mandi dengan larutan garam (saline bath) sesuai rekomendasi dokter",
+      "Pasang water softener dan shower filter"
+    ],
+    "when_to_see_doctor": "Iktiosis selalu memerlukan penanganan dokter kulit untuk regimen perawatan yang tepat.",
+    "prevalence": "Ichthyosis vulgaris (bentuk paling ringan) mempengaruhi 1 dari 250 orang",
+    "sources": [
+      "doi:10.1111/bjd.19862"
+    ],
+    "name_en": "Ichthyosis",
+    "description_en": "A group of genetic conditions causing dry, thickened, scaly skin resembling fish scales. Worsened by hard water and low humidity.",
+    "tags_en": [
+      "scaly",
+      "genetic",
+      "chronic",
+      "severe dryness"
+    ],
+    "causes_en": "Gene mutations affecting skin barrier function, especially the filaggrin (FLG) gene. Causes abnormal buildup of dead skin cells.",
+    "symptoms_en": [
+      "Thin scaly skin (gray or brown)",
+      "Very dry and rough skin",
+      "Itching",
+      "Skin cracks on palms and soles",
+      "Sometimes accompanied by other conditions like eczema"
+    ],
+    "bathing_recommendations_en": [
+      "Soak in warm water for 10–15 minutes to soften and remove scales",
+      "Use emollient cleansers (not regular soap)",
+      "Apply thick emollient (urea 10–40%, petrolatum) immediately after showering",
+      "Consider saline baths as recommended by your doctor",
+      "Install a water softener and shower filter"
+    ],
+    "when_to_see_doctor_en": "Ichthyosis always requires dermatologist care for the right treatment regimen.",
+    "prevalence_en": "Ichthyosis vulgaris (mildest form) affects 1 in 250 people"
+  },
+  {
+    "id": "acne-vulgaris",
+    "name": "Jerawat (Acne Vulgaris)",
+    "tags": [
+      "jerawat",
+      "komedo",
+      "berminyak",
+      "remaja"
+    ],
+    "description": "Kondisi kulit umum terjadi saat folikel rambut tersumbat oleh minyak dan sel kulit mati. Paling umum di wajah, leher, dada, punggung, dan bahu.",
+    "causes": "Produksi sebum berlebih, sel kulit mati menumpuk, bakteri Cutibacterium acnes, dan perubahan hormon. Kualitas air mempengaruhi secara tidak langsung.",
+    "symptoms": [
+      "Komedo putih (whiteheads) dan hitam (blackheads)",
+      "Papul merah kecil",
+      "Pustul (komedo berisi nanah)",
+      "Nodul besar dan kista yang menyakitkan",
+      "Bisa meninggalkan bekas dan hiperpigmentasi"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": false,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Air basa dapat mengganggu keseimbangan pH kulit berminyak dan mengaktifkan enzim protease yang memicu komedo. Air keras meninggalkan residu mineral yang bisa menyumbat pori. Air panas merangsang produksi sebum berlebih.",
+    "bathing_recommendations": [
+      "Cuci muka 2 kali sehari dengan air hangat, bukan panas",
+      "Gunakan cleanser dengan salicylic acid (0.5–2%) atau benzoyl peroxide (2.5–5%)",
+      "Bilas dengan air dingin untuk menutup pori setelah membersihkan",
+      "Ganti sarung bantal minimal 2 kali seminggu",
+      "Jangan memencet jerawat — meningkatkan risiko infeksi dan bekas"
+    ],
+    "when_to_see_doctor": "Jika jerawat membentuk nodul atau kista besar, meninggalkan bekas gelap atau lubang, atau tidak membaik setelah 2–3 bulan perawatan mandiri.",
+    "prevalence": "Mempengaruhi 85% remaja; tetap berlanjut pada 50% orang dewasa hingga usia 25 tahun",
+    "sources": [
+      "doi:10.1111/ics.12562"
+    ],
+    "name_en": "Acne (Acne Vulgaris)",
+    "description_en": "A common skin condition where pores clog with oil and dead skin cells, causing pimples. Hot water can trigger rebound sebum overproduction.",
+    "tags_en": [
+      "acne",
+      "blackheads",
+      "oily",
+      "teenagers"
+    ],
+    "causes_en": "Excess sebum production, dead skin cell buildup, Cutibacterium acnes bacteria, and hormonal changes. Water quality has an indirect effect.",
+    "symptoms_en": [
+      "Whiteheads and blackheads",
+      "Small red papules",
+      "Pustules (pus-filled pimples)",
+      "Large painful nodules and cysts",
+      "May leave scars and hyperpigmentation"
+    ],
+    "bathing_recommendations_en": [
+      "Wash face twice daily with warm, not hot, water",
+      "Use a cleanser with salicylic acid (0.5–2%) or benzoyl peroxide (2.5–5%)",
+      "Rinse with cool water to close pores after cleansing",
+      "Change pillowcases at least twice a week",
+      "Do not pop pimples — increases risk of infection and scarring"
+    ],
+    "when_to_see_doctor_en": "If acne forms large nodules or cysts, leaves dark marks or pits, or does not improve after 2–3 months of self-care.",
+    "prevalence_en": "Affects 85% of teenagers; persists in 50% of adults up to age 25"
+  },
+  {
+    "id": "tinea-versicolor",
+    "name": "Panu (Tinea Versicolor)",
+    "tags": [
+      "panu",
+      "jamur",
+      "bercak",
+      "tropikal"
+    ],
+    "description": "Infeksi jamur kulit umum yang menyebabkan bercak kecil yang berubah warna (lebih terang atau lebih gelap dari kulit sekitarnya). Sangat umum di iklim tropis seperti Indonesia.",
+    "causes": "Pertumbuhan berlebihan jamur Malassezia furfur yang secara normal hidup di kulit. Dipicu oleh kelembapan, keringat berlebih, kulit berminyak, dan sistem imun lemah.",
+    "symptoms": [
+      "Bercak putih, merah muda, atau coklat di dada, punggung, leher, lengan atas",
+      "Bercak lebih jelas terlihat setelah terpapar sinar matahari",
+      "Kadang terasa sedikit gatal",
+      "Kulit bercak terasa lebih halus atau sedikit bersisik"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false,
+      "temp_high": false
+    },
+    "water_triggers_explanation": "Kualitas air tidak secara langsung memicu panu, namun mandi tidak tuntas dan tidak mengeringkan kulit dengan baik menciptakan lingkungan lembab yang menguntungkan jamur.",
+    "bathing_recommendations": [
+      "Mandi secara teratur dan bersih, terutama setelah berkeringat",
+      "Keringkan tubuh dengan baik setelah mandi, terutama area lipatan",
+      "Gunakan sampo selenium sulfide atau ketoconazole dioleskan ke area terkena, diamkan 5–10 menit, lalu bilas",
+      "Ganti pakaian yang bersih dan kering setiap hari",
+      "Hindari pakaian ketat yang memerangkap panas dan kelembapan"
+    ],
+    "when_to_see_doctor": "Jika bercak tidak membaik setelah 2–4 minggu penggunaan antijamur topikal, atau jika sangat luas. Dokter bisa meresepkan antijamur oral.",
+    "prevalence": "Mempengaruhi sekitar 8% populasi dunia; lebih tinggi di daerah tropis",
+    "sources": [],
+    "name_en": "Tinea Versicolor",
+    "description_en": "A fungal infection causing discolored skin patches, often worsened by warm, humid conditions and excessive sweating.",
+    "tags_en": [
+      "tinea",
+      "fungus",
+      "patches",
+      "tropical"
+    ],
+    "causes_en": "Overgrowth of the Malassezia furfur fungus that normally lives on the skin. Triggered by humidity, excessive sweating, oily skin, and weak immune system.",
+    "symptoms_en": [
+      "White, pink, or brown patches on chest, back, neck, upper arms",
+      "Patches more visible after sun exposure",
+      "Sometimes slightly itchy",
+      "Patch skin feels smoother or slightly scaly"
+    ],
+    "bathing_recommendations_en": [
+      "Bathe regularly and thoroughly, especially after sweating",
+      "Dry the body well after showering, especially folds",
+      "Use selenium sulfide or ketoconazole shampoo applied to affected areas, leave 5–10 minutes, then rinse",
+      "Change into clean, dry clothes daily",
+      "Avoid tight clothing that traps heat and moisture"
+    ],
+    "when_to_see_doctor_en": "If patches do not improve after 2–4 weeks of topical antifungal use, or if very widespread. A doctor can prescribe oral antifungals.",
+    "prevalence_en": "Affects about 8% of the world population; higher in tropical regions"
+  },
+  {
+    "id": "perioral-dermatitis",
+    "name": "Dermatitis Perioral",
+    "tags": [
+      "mulut",
+      "kemerahan",
+      "jerawat kecil",
+      "wanita"
+    ],
+    "description": "Ruam peradangan di sekitar mulut, hidung, dan kadang mata. Lebih umum pada wanita muda. Sering disalahartikan sebagai jerawat.",
+    "causes": "Penggunaan berlebihan steroid topikal, pasta gigi dengan fluoride tinggi, produk perawatan kulit berat (terutama yang mengandung petrolatum/paraffin), dan sabun dengan pewangi.",
+    "symptoms": [
+      "Benjolan kecil merah atau berwarna kulit di sekitar mulut",
+      "Kulit merah dan teriritasi mengelilingi area bercak",
+      "Gatal atau rasa terbakar ringan",
+      "Ada area kulit normal antara ruam dan tepi merah bibir"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": true,
+      "tds_high": false,
+      "chlorine_high": true,
+      "temp_high": false
+    },
+    "water_triggers_explanation": "Air basa dapat mengganggu keseimbangan pH kulit sensitif di sekitar mulut. Klorin tinggi bisa menjadi iritan tambahan.",
+    "bathing_recommendations": [
+      "Hentikan penggunaan produk steroid topikal di wajah (kecuali atas anjuran dokter)",
+      "Ganti ke pasta gigi tanpa sodium lauryl sulfate (SLS) atau fluoride rendah sementara",
+      "Gunakan cleanser wajah yang sangat ringan dan bebas parfum",
+      "Bersihkan wajah dengan air hangat bukan panas"
+    ],
+    "when_to_see_doctor": "Selalu konsultasikan dengan dokter kulit — dermatitis perioral memerlukan resep antibiotik topikal atau oral (doksisiklin, metronidazol).",
+    "prevalence": "Mempengaruhi terutama wanita usia 16–45 tahun",
+    "sources": [],
+    "name_en": "Perioral Dermatitis",
+    "description_en": "An inflammatory rash around the mouth, often linked to harsh products, fluoride, and water quality.",
+    "tags_en": [
+      "mouth",
+      "redness",
+      "small bumps",
+      "women"
+    ],
+    "causes_en": "Overuse of topical steroids, high-fluoride toothpaste, heavy skincare products (especially those with petrolatum/paraffin), and fragranced soaps.",
+    "symptoms_en": [
+      "Small red or skin-colored bumps around the mouth",
+      "Red, irritated skin surrounding the affected area",
+      "Mild itching or burning",
+      "A band of normal skin between the rash and the lip border"
+    ],
+    "bathing_recommendations_en": [
+      "Stop using topical steroid products on the face (unless advised by a doctor)",
+      "Switch to toothpaste without sodium lauryl sulfate (SLS) or low-fluoride temporarily",
+      "Use a very gentle, fragrance-free facial cleanser",
+      "Cleanse the face with warm, not hot, water"
+    ],
+    "when_to_see_doctor_en": "Always consult a dermatologist — perioral dermatitis requires prescription topical or oral antibiotics (doxycycline, metronidazole).",
+    "prevalence_en": "Mainly affects women aged 16–45"
+  },
+  {
+    "id": "hyperpigmentation",
+    "name": "Hiperpigmentasi",
+    "tags": [
+      "bercak gelap",
+      "bekas",
+      "warna kulit",
+      "pigmen"
+    ],
+    "description": "Kondisi di mana area kulit tertentu menjadi lebih gelap dari sekitarnya akibat kelebihan produksi melanin. Bukan penyakit berbahaya namun sering menjadi kekhawatiran estetik.",
+    "causes": "Paparan sinar matahari, bekas jerawat atau luka, perubahan hormon (melasma saat kehamilan), peradangan (hiperpigmentasi pasca-inflamasi), dan gesekan kulit.",
+    "symptoms": [
+      "Bercak atau area kulit lebih gelap dari sekitarnya",
+      "Bisa berupa bintik-bintik kecil (freckles) atau area luas (melasma)",
+      "Tidak gatal atau nyeri",
+      "Lebih jelas terlihat setelah terpapar matahari"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": true,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Klorin tinggi dapat memicu peradangan ringan yang berkontribusi pada hiperpigmentasi pasca-inflamasi pada kulit sensitif. Air panas meningkatkan produksi melanin secara sementara dan memperparah melasma.",
+    "bathing_recommendations": [
+      "Gunakan air hangat (bukan panas) saat mandi dan mencuci muka",
+      "Oleskan vitamin C serum setelah mandi untuk membantu mencerahkan hiperpigmentasi",
+      "Selalu gunakan tabir surya SPF 30+ — sinar matahari adalah penyebab terbesar hiperpigmentasi",
+      "Pertimbangkan filter shower untuk mengurangi klorin"
+    ],
+    "when_to_see_doctor": "Jika bercak berubah bentuk, warna, atau ukuran secara signifikan, atau untuk perawatan estetik (chemical peel, laser).",
+    "prevalence": "Sangat umum terutama pada kulit dengan Fitzpatrick scale III–VI (kulit Asia dan Afrika)",
+    "sources": [
+      "doi:10.1038/s41746-022-00631-8"
+    ],
+    "name_en": "Hyperpigmentation",
+    "description_en": "Darkened patches of skin caused by excess melanin production, often from sun exposure, inflammation, or hormonal changes.",
+    "tags_en": [
+      "dark spots",
+      "marks",
+      "skin tone",
+      "pigment"
+    ],
+    "causes_en": "Sun exposure, acne or wound scars, hormonal changes (melasma during pregnancy), inflammation (post-inflammatory hyperpigmentation), and skin friction.",
+    "symptoms_en": [
+      "Patches or areas of skin darker than surroundings",
+      "Can be small spots (freckles) or large areas (melasma)",
+      "Not itchy or painful",
+      "More visible after sun exposure"
+    ],
+    "bathing_recommendations_en": [
+      "Use warm (not hot) water when bathing and washing the face",
+      "Apply vitamin C serum after showering to help brighten hyperpigmentation",
+      "Always use SPF 30+ sunscreen — sunlight is the biggest cause of hyperpigmentation",
+      "Consider a shower filter to reduce chlorine"
+    ],
+    "when_to_see_doctor_en": "If patches significantly change shape, color, or size, or for aesthetic treatment (chemical peel, laser).",
+    "prevalence_en": "Very common especially in Fitzpatrick scale III–VI skin (Asian and African skin)"
+  },
+  {
+    "id": "miliaria",
+    "name": "Biang Keringat (Miliaria)",
+    "tags": [
+      "biang keringat",
+      "kepanasan",
+      "bayi",
+      "tropikal"
+    ],
+    "description": "Ruam kulit akibat tersumbatnya kelenjar keringat, menghasilkan bintil-bintil kecil. Sangat umum di iklim tropis dan pada bayi.",
+    "causes": "Keringat berlebih yang tidak bisa keluar karena pori keringat tersumbat — oleh sel kulit mati, produk berminyak, atau pakaian ketat dalam cuaca panas.",
+    "symptoms": [
+      "Bintil kecil merah (miliaria rubra) atau bening (miliaria crystallina)",
+      "Gatal atau rasa menyengat",
+      "Terutama di lipatan kulit, dada, punggung",
+      "Umumnya membaik sendiri jika kulit didinginkan"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Air mandi yang terlalu panas meningkatkan produksi keringat sehingga memperburuk biang keringat.",
+    "bathing_recommendations": [
+      "Mandi dengan air dingin atau suam kuku untuk meredakan gejala",
+      "Mandi lebih sering saat cuaca panas untuk membersihkan keringat dan sel kulit mati",
+      "Hindari produk berminyak di area yang rentan biang keringat",
+      "Gunakan pakaian longgar berbahan katun"
+    ],
+    "when_to_see_doctor": "Umumnya tidak perlu. Konsultasi jika biang keringat dalam tidak kunjung sembuh atau disertai demam.",
+    "prevalence": "Sangat umum di iklim tropis; hampir universal pada bayi",
+    "sources": [],
+    "name_en": "Heat Rash (Miliaria)",
+    "description_en": "A rash caused by blocked sweat ducts, leading to small itchy bumps. Common in hot, humid conditions.",
+    "tags_en": [
+      "heat rash",
+      "overheating",
+      "babies",
+      "tropical"
+    ],
+    "causes_en": "Excessive sweat that cannot escape because sweat pores are blocked — by dead skin cells, oily products, or tight clothing in hot weather.",
+    "symptoms_en": [
+      "Small red bumps (miliaria rubra) or clear (miliaria crystallina)",
+      "Itching or stinging",
+      "Especially in skin folds, chest, back",
+      "Generally resolves on its own once skin is cooled"
+    ],
+    "bathing_recommendations_en": [
+      "Bathe with cool or lukewarm water to relieve symptoms",
+      "Bathe more often in hot weather to clean off sweat and dead skin cells",
+      "Avoid oily products in areas prone to heat rash",
+      "Wear loose cotton clothing"
+    ],
+    "when_to_see_doctor_en": "Usually not needed. Consult if deep heat rash does not heal or is accompanied by fever.",
+    "prevalence_en": "Very common in tropical climates; nearly universal in babies"
+  },
+  {
+    "id": "keratosis-pilaris",
+    "name": "Keratosis Pilaris",
+    "tags": [
+      "bintil kasar",
+      "lengan",
+      "paha",
+      "keratin"
+    ],
+    "description": "Kondisi kulit jinak yang menyebabkan bintil-bintil kecil kasar, biasanya di lengan atas, paha, pipi, atau bokong. Sering disebut 'kulit ayam'.",
+    "causes": "Penumpukan protein keratin yang menyumbat folikel rambut. Faktor genetik kuat; lebih umum pada orang dengan eksim atau kulit kering.",
+    "symptoms": [
+      "Bintil kecil keras seperti pasir di kulit",
+      "Tekstur kasar seperti amplas",
+      "Warna kulit di sekitar bintil kemerahan atau abu-abu",
+      "Biasanya tidak gatal",
+      "Lebih buruk di musim kering atau saat dehidrasi"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Semua faktor yang mengeringkan kulit memperburuk keratosis pilaris karena kondisi ini diperparah oleh kekeringan dan penumpukan sel kulit mati.",
+    "bathing_recommendations": [
+      "Gunakan scrub lembut (loofah atau exfoliating gloves) 2–3 kali seminggu untuk mengangkat sel kulit mati",
+      "Oleskan lotion dengan AHA (asam glikolat) atau urea 10–20% setelah mandi",
+      "Jangan menggosok terlalu keras — bisa memperburuk kemerahan",
+      "Pastikan kulit terhidrasi baik dengan minum cukup air"
+    ],
+    "when_to_see_doctor": "Biasanya tidak perlu — kondisi jinak. Konsultasi jika sangat mengganggu secara estetik untuk mendapatkan retinoid topikal atau laser.",
+    "prevalence": "Sangat umum — mempengaruhi 50–80% remaja dan sekitar 40% orang dewasa",
+    "sources": [
+      "doi:10.1111/bjd.19862"
+    ],
+    "name_en": "Keratosis Pilaris",
+    "description_en": "A harmless condition causing small, rough bumps on the skin from keratin buildup. Worsened by dry skin and hard water.",
+    "tags_en": [
+      "rough bumps",
+      "arms",
+      "thighs",
+      "keratin"
+    ],
+    "causes_en": "Buildup of keratin protein clogging hair follicles. Strong genetic factor; more common in people with eczema or dry skin.",
+    "symptoms_en": [
+      "Small hard sandpaper-like bumps on skin",
+      "Rough texture like sandpaper",
+      "Reddish or gray skin color around bumps",
+      "Usually not itchy",
+      "Worse in dry seasons or when dehydrated"
+    ],
+    "bathing_recommendations_en": [
+      "Use a gentle scrub (loofah or exfoliating gloves) 2–3 times a week to remove dead skin cells",
+      "Apply lotion with AHA (glycolic acid) or urea 10–20% after showering",
+      "Do not scrub too hard — can worsen redness",
+      "Keep skin well hydrated by drinking enough water"
+    ],
+    "when_to_see_doctor_en": "Usually not needed — a benign condition. Consult if very aesthetically bothersome to get topical retinoids or laser.",
+    "prevalence_en": "Very common — affects 50–80% of teenagers and about 40% of adults"
+  },
+  {
+    "id": "lichen-simplex-chronicus",
+    "name": "Liken Simpleks Kronikus",
+    "tags": [
+      "menebal",
+      "garukan",
+      "kronis",
+      "stres"
+    ],
+    "description": "Kondisi kulit di mana garukan atau gosokan berulang menyebabkan kulit menebal (likenifikasi) dan bersisik. Merupakan siklus lingkaran setan: gatal → garuk → kulit rusak → lebih gatal.",
+    "causes": "Sering dimulai dari kondisi gatal yang ada (eksim, psoriasis, gigitan serangga) dan diperburuk oleh stres, kecemasan, dan kebiasaan menggaruk.",
+    "symptoms": [
+      "Area kulit menebal dengan tekstur kasar seperti kulit pohon",
+      "Bercak dengan garis kulit sangat jelas",
+      "Intensitas gatal terutama saat stres atau bosan",
+      "Biasanya di leher, pergelangan tangan, pergelangan kaki, kulit kepala"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Faktor air yang meningkatkan kekeringan atau iritasi akan memperburuk rasa gatal, yang kemudian memperparah siklus garukan.",
+    "bathing_recommendations": [
+      "Gunakan air hangat (bukan panas) — air panas memperburuk gatal",
+      "Oleskan emolien tebal segera setelah mandi untuk mencegah kekeringan yang memicu gatal",
+      "Gunakan pakaian longgar berbahan katun setelah mandi",
+      "Pertimbangkan teknik manajemen stres untuk memutus siklus garukan"
+    ],
+    "when_to_see_doctor": "Selalu konsultasikan — biasanya memerlukan steroid topikal atau antihistamin.",
+    "prevalence": "Umum, terutama pada orang dewasa paruh baya",
+    "sources": [
+      "doi:10.1111/jdv.17927"
+    ],
+    "name_en": "Lichen Simplex Chronicus",
+    "description_en": "Thickened, leathery skin caused by chronic scratching or rubbing, often triggered by itch from dry or irritated skin.",
+    "tags_en": [
+      "thickening",
+      "scratching",
+      "chronic",
+      "stress"
+    ],
+    "causes_en": "Often starts from an existing itchy condition (eczema, psoriasis, insect bites) and worsened by stress, anxiety, and scratching habits.",
+    "symptoms_en": [
+      "Thickened skin area with rough bark-like texture",
+      "Patches with very clear skin lines",
+      "Itch intensity especially when stressed or bored",
+      "Usually on neck, wrists, ankles, scalp"
+    ],
+    "bathing_recommendations_en": [
+      "Use warm (not hot) water — hot water worsens itching",
+      "Apply thick emollient right after showering to prevent dryness that triggers itch",
+      "Wear loose cotton clothing after showering",
+      "Consider stress management techniques to break the scratch cycle"
+    ],
+    "when_to_see_doctor_en": "Always consult — usually requires topical steroids or antihistamines.",
+    "prevalence_en": "Common, especially in middle-aged adults"
+  },
+  {
+    "id": "winter-itch",
+    "name": "Gatal Musim Kering (Pruritus Hiemalis)",
+    "tags": [
+      "gatal",
+      "kering",
+      "musim",
+      "lansia"
+    ],
+    "description": "Gatal kulit musiman yang memburuk saat cuaca kering atau ketika terlalu sering menggunakan AC/heater. Sangat umum pada lansia. Di Indonesia lebih sering terjadi saat musim kemarau panjang.",
+    "causes": "Udara kering mengurangi kelembapan kulit, AC mengeringkan udara dalam ruangan, dan mandi terlalu sering dengan air panas.",
+    "symptoms": [
+      "Gatal tanpa ruam yang jelas, terutama di betis, lengan, punggung",
+      "Kulit kering dan sedikit bersisik",
+      "Memburuk malam hari dan setelah mandi air panas"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": true,
+      "tds_high": false,
+      "chlorine_high": true,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Air panas adalah pemicu utama — langsung menghilangkan minyak alami kulit. Klorin tinggi menambah kekeringan. pH basa memperburuk fungsi skin barrier yang sudah melemah.",
+    "bathing_recommendations": [
+      "Kurangi durasi mandi (maksimal 5–7 menit) dengan air hangat",
+      "Oleskan body oil atau moisturizer segera setelah mandi",
+      "Pasang humidifier di kamar untuk menambah kelembapan udara",
+      "Gunakan sabun cream atau sabun berbahan oat"
+    ],
+    "when_to_see_doctor": "Jika gatal sangat mengganggu, meluas, atau tidak membaik setelah 2 minggu perawatan mandiri. Untuk lansia, singkirkan penyebab sistemik (penyakit ginjal, hati, tiroid).",
+    "prevalence": "Sangat umum pada lansia (> 65 tahun) dan orang yang tinggal di ruangan ber-AC",
+    "sources": [
+      "doi:10.1111/ics.12562"
+    ],
+    "name_en": "Winter Itch (Pruritus Hiemalis)",
+    "description_en": "Dry, itchy skin that worsens in cold, dry seasons or with hot showers that strip natural skin oils.",
+    "tags_en": [
+      "itch",
+      "dry",
+      "seasonal",
+      "elderly"
+    ],
+    "causes_en": "Dry air reduces skin moisture, AC dries indoor air, and bathing too often with hot water.",
+    "symptoms_en": [
+      "Itching without a clear rash, especially on calves, arms, back",
+      "Dry and slightly scaly skin",
+      "Worse at night and after hot showers"
+    ],
+    "bathing_recommendations_en": [
+      "Reduce shower time (max 5–7 minutes) with warm water",
+      "Apply body oil or moisturizer right after showering",
+      "Install a humidifier in the room to add air moisture",
+      "Use cream soap or oat-based soap"
+    ],
+    "when_to_see_doctor_en": "If itching is very disruptive, spreads, or does not improve after 2 weeks of self-care. For the elderly, rule out systemic causes (kidney, liver, thyroid disease).",
+    "prevalence_en": "Very common in the elderly (> 65 years) and people living in air-conditioned rooms"
+  },
+  {
+    "id": "chlorine-allergy",
+    "name": "Sensitivitas Klorin",
+    "tags": [
+      "klorin",
+      "kolam renang",
+      "iritasi",
+      "mata"
+    ],
+    "description": "Reaksi hipersensitivitas atau iritasi terhadap klorin dalam air, paling sering dialami setelah berenang atau dari air PAM dengan kadar klorin tinggi.",
+    "causes": "Sensitivitas atau alergi terhadap klorin atau produk sampingannya (trihalomethanes, kloramin). Kulit yang sudah kering atau rusak lebih rentan.",
+    "symptoms": [
+      "Kemerahan dan gatal setelah kontak dengan air berklorin",
+      "Mata merah, berair, dan terasa terbakar",
+      "Kulit kering dan bersisik setelah mandi",
+      "Bau klorin yang menempel di rambut dan kulit"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": true,
+      "temp_high": false
+    },
+    "water_triggers_explanation": "Klorin di atas batas aman (> 0.5 mg/L) adalah penyebab langsung kondisi ini. AQUENT dapat membantu memantau kadar klorin dan memberikan peringatan dini.",
+    "bathing_recommendations": [
+      "Pasang shower filter karbon aktif — sangat efektif mengurangi klorin (efisiensi >95%)",
+      "Bilas tubuh dengan air bersih sebelum dan sesudah berenang di kolam berklorin",
+      "Gunakan krim pelindung (barrier cream) sebelum berenang",
+      "Oleskan moisturizer segera setelah mandi untuk memulihkan kelembapan"
+    ],
+    "when_to_see_doctor": "Jika reaksi parah atau disertai sesak napas (reaksi alergi, bukan hanya iritasi).",
+    "prevalence": "Iritasi klorin ringan sangat umum; alergi klorin sejati relatif jarang",
+    "sources": [
+      "pmid:32195872",
+      "doi:10.1016/j.jid.2020.11.027"
+    ],
+    "name_en": "Chlorine Sensitivity",
+    "description_en": "Skin irritation, dryness, or rash from chlorine exposure in water, common in sensitive or atopic skin.",
+    "tags_en": [
+      "chlorine",
+      "swimming pool",
+      "irritation",
+      "eyes"
+    ],
+    "causes_en": "Sensitivity or allergy to chlorine or its byproducts (trihalomethanes, chloramines). Already dry or damaged skin is more vulnerable.",
+    "symptoms_en": [
+      "Redness and itching after contact with chlorinated water",
+      "Red, watery, burning eyes",
+      "Dry, scaly skin after showering",
+      "Chlorine smell that clings to hair and skin"
+    ],
+    "bathing_recommendations_en": [
+      "Install an activated carbon shower filter — very effective at reducing chlorine (>95% efficiency)",
+      "Rinse the body with clean water before and after swimming in chlorinated pools",
+      "Use a barrier cream before swimming",
+      "Apply moisturizer right after showering to restore moisture"
+    ],
+    "when_to_see_doctor_en": "If the reaction is severe or accompanied by shortness of breath (allergic reaction, not just irritation).",
+    "prevalence_en": "Mild chlorine irritation is very common; true chlorine allergy is relatively rare"
+  },
+  {
+    "id": "hard-water-effects",
+    "name": "Efek Air Keras pada Kulit",
+    "tags": [
+      "air keras",
+      "mineral",
+      "TDS",
+      "kesadahan"
+    ],
+    "description": "Bukan penyakit, melainkan dampak kumulatif dari penggunaan air sadah (TDS/kesadahan tinggi) terhadap kesehatan kulit dalam jangka panjang.",
+    "causes": "Kandungan mineral tinggi (kalsium, magnesium) dalam air bereaksi dengan sabun, mengurangi efektivitas pembersihan, dan meninggalkan residu di kulit.",
+    "symptoms": [
+      "Kulit terasa 'tidak bersih' meski sudah mandi",
+      "Sabun sulit berbusa",
+      "Kulit kering dan kasar setelah mandi",
+      "Rambut kusam, kasar, dan sulit diatur",
+      "Bak mandi/shower berkerak putih (water scale)"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": true,
+      "chlorine_high": false,
+      "temp_high": false
+    },
+    "water_triggers_explanation": "TDS tinggi adalah penyebab langsung kondisi ini. Studi Jabbar-Lopez et al. (2021) menemukan bahwa setiap peningkatan 1°dH kesadahan air meningkatkan risiko eksim 0.87%.",
+    "bathing_recommendations": [
+      "Pasang water softener (ion exchange) untuk mengurangi kalsium dan magnesium secara permanen",
+      "Alternatif: gunakan shower head filter dengan media ion exchange",
+      "Gunakan sabun liquid berbasis syndet (synthetic detergent) yang tidak bereaksi dengan mineral keras",
+      "Tambahkan beberapa tetes cuka apel (ACV) ke air bilasan rambut untuk menetralkan efek mineral"
+    ],
+    "when_to_see_doctor": "Tidak perlu kecuali memicu kondisi kulit yang lebih serius seperti eksim.",
+    "prevalence": "Sangat umum di daerah dengan sumber air tanah yang tinggi mineral; terutama di Jawa",
+    "sources": [
+      "doi:10.1111/bjd.19862",
+      "doi:10.1016/j.jid.2020.11.027"
+    ],
+    "name_en": "Hard Water Effects on Skin",
+    "description_en": "Skin problems caused by high-TDS hard water, where calcium and magnesium react with soap to form irritating residue.",
+    "tags_en": [
+      "hard water",
+      "minerals",
+      "TDS",
+      "hardness"
+    ],
+    "causes_en": "High mineral content (calcium, magnesium) in water reacts with soap, reducing cleaning effectiveness and leaving residue on the skin.",
+    "symptoms_en": [
+      "Skin feels 'unclean' even after showering",
+      "Soap is hard to lather",
+      "Dry and rough skin after showering",
+      "Dull, rough, unmanageable hair",
+      "White scale buildup in tub/shower (water scale)"
+    ],
+    "bathing_recommendations_en": [
+      "Install a water softener (ion exchange) to permanently reduce calcium and magnesium",
+      "Alternative: use a shower head filter with ion exchange media",
+      "Use syndet (synthetic detergent) liquid soap that does not react with hard minerals",
+      "Add a few drops of apple cider vinegar (ACV) to the hair rinse water to neutralize mineral effects"
+    ],
+    "when_to_see_doctor_en": "Not needed unless it triggers a more serious skin condition like eczema.",
+    "prevalence_en": "Very common in areas with high-mineral groundwater; especially in Java"
+  },
+  {
+    "id": "swimmer-skin",
+    "name": "Kulit Perenang (Swimmer's Skin)",
+    "tags": [
+      "kolam renang",
+      "klorin",
+      "kering",
+      "olahraga"
+    ],
+    "description": "Kumpulan masalah kulit yang umum dialami oleh perenang rutin akibat paparan berulang terhadap air berklorin dalam kolam renang.",
+    "causes": "Kombinasi klorin tinggi, pH air kolam yang sering tidak optimal, dan paparan air yang lama dan berulang merusak skin barrier secara kumulatif.",
+    "symptoms": [
+      "Kulit sangat kering dan kasar",
+      "Rambut rapuh dan mudah rontok",
+      "Kulit kepala gatal",
+      "Kuku menjadi rapuh",
+      "Kulit kusam kehilangan kilau alami"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": true,
+      "temp_high": false
+    },
+    "water_triggers_explanation": "Paparan klorin berulang dalam durasi panjang (renang) jauh lebih merusak daripada mandi singkat. Klorin dalam kolam renang biasanya 1–3 mg/L, jauh lebih tinggi dari air PAM.",
+    "bathing_recommendations": [
+      "Bilas tubuh dengan air bersih SEBELUM masuk kolam renang",
+      "Mandi dengan air bersih SEGERA setelah selesai renang",
+      "Gunakan conditioner rambut sebelum masuk kolam sebagai pelindung",
+      "Oleskan emolien di seluruh tubuh setelah mandi pasca renang",
+      "Pertimbangkan suplemen omega-3 dan minum air yang cukup untuk mendukung hidrasi kulit dari dalam"
+    ],
+    "when_to_see_doctor": "Jika timbul iritasi kulit yang tidak membaik atau tanda infeksi.",
+    "prevalence": "Umum pada atlet renang dan pengguna kolam renang rutin",
+    "sources": [
+      "pmid:32195872"
+    ],
+    "name_en": "Swimmer's Skin",
+    "description_en": "Dryness, irritation, and barrier damage from prolonged exposure to chlorinated pool water.",
+    "tags_en": [
+      "swimming pool",
+      "chlorine",
+      "dry",
+      "sports"
+    ],
+    "causes_en": "A combination of high chlorine, often suboptimal pool water pH, and prolonged repeated water exposure cumulatively damages the skin barrier.",
+    "symptoms_en": [
+      "Very dry and rough skin",
+      "Brittle, easily falling hair",
+      "Itchy scalp",
+      "Brittle nails",
+      "Dull skin losing its natural glow"
+    ],
+    "bathing_recommendations_en": [
+      "Rinse the body with clean water BEFORE entering the pool",
+      "Shower with clean water IMMEDIATELY after swimming",
+      "Use hair conditioner before entering the pool as protection",
+      "Apply emollient all over the body after the post-swim shower",
+      "Consider omega-3 supplements and drink enough water to support skin hydration from within"
+    ],
+    "when_to_see_doctor_en": "If skin irritation does not improve or there are signs of infection.",
+    "prevalence_en": "Common in swimming athletes and regular pool users"
+  },
+  {
+    "id": "melasma",
+    "name": "Melasma (Flek Hitam Hormonal)",
+    "tags": [
+      "hiperpigmentasi",
+      "hormonal",
+      "wajah",
+      "perempuan",
+      "UV"
+    ],
+    "description": "Kondisi hiperpigmentasi kronis yang ditandai bercak coklat atau abu-abu simetris, terutama di wajah (pipi, dahi, bibir atas). Dipicu kombinasi hormon, paparan UV, dan faktor panas termasuk air panas.",
+    "causes": "Stimulasi berlebihan melanosit oleh estrogen, progesteron, dan sinar UV. Panas (termasuk air panas saat mandi) adalah pemicu non-UV yang sering diabaikan — disebut heat-induced melasma.",
+    "symptoms": [
+      "Bercak coklat muda hingga coklat gelap simetris di wajah",
+      "Tepi bercak tidak teratur",
+      "Tidak gatal dan tidak nyeri",
+      "Memburuk saat hamil atau penggunaan kontrasepsi hormonal",
+      "Memburuk saat terpapar panas atau sinar matahari"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Air panas (>40°C) merangsang melanosit melalui jalur inflamasi yang sama seperti paparan UV — disebut 'heat-induced pigmentation'. Mandi dengan air panas rutin dapat memperburuk melasma meskipun tidak ada paparan sinar matahari. Studi menunjukkan heat shock protein (HSP) mengaktifkan melanogenesis melalui jalur MITF.",
+    "bathing_recommendations": [
+      "Gunakan air sejuk atau hangat maksimal 36°C untuk membasuh wajah",
+      "Jangan menggosok wajah saat mandi — gesekan memicu inflamasi dan memperburuk pigmentasi",
+      "Gunakan pembersih wajah pH 5–6 yang lembut, bebas sulfat",
+      "Keringkan wajah dengan menepuk perlahan menggunakan kain microfiber",
+      "Aplikasikan sunscreen SPF 50+ segera setelah mandi pagi",
+      "Pertimbangkan memisahkan rutinitas cuci wajah dari mandi — gunakan air bilik yang lebih sejuk"
+    ],
+    "when_to_see_doctor": "Konsultasikan ke dokter kulit untuk konfirmasi diagnosis dan pilihan perawatan (tretinoin, hydroquinone, tranexamic acid). Jangan membeli produk pemutih tanpa resep dokter.",
+    "prevalence": "Mempengaruhi 1.5–33% populasi, terutama perempuan usia 20–40 tahun di daerah tropis",
+    "sources": [
+      "doi:10.1111/jdv.17098",
+      "doi:10.1016/j.jid.2021.01.021"
+    ],
+    "name_en": "Melasma (Hormonal Dark Spots)",
+    "description_en": "Brown or gray-brown facial patches caused by hormonal changes and sun exposure, common in women.",
+    "tags_en": [
+      "hyperpigmentation",
+      "hormonal",
+      "face",
+      "women",
+      "UV"
+    ],
+    "causes_en": "Excessive stimulation of melanocytes by estrogen, progesterone, and UV rays. Heat (including hot water during showers) is a frequently overlooked non-UV trigger — called heat-induced melasma.",
+    "symptoms_en": [
+      "Symmetrical light to dark brown patches on the face",
+      "Irregular patch edges",
+      "Not itchy and not painful",
+      "Worsens during pregnancy or hormonal contraceptive use",
+      "Worsens with heat or sun exposure"
+    ],
+    "bathing_recommendations_en": [
+      "Use cool or warm water max 36°C to wash the face",
+      "Do not rub the face while bathing — friction triggers inflammation and worsens pigmentation",
+      "Use a gentle pH 5–6 facial cleanser, sulfate-free",
+      "Pat the face dry gently with a microfiber cloth",
+      "Apply SPF 50+ sunscreen right after the morning shower",
+      "Consider separating face washing from showering — use cooler basin water"
+    ],
+    "when_to_see_doctor_en": "Consult a dermatologist to confirm diagnosis and treatment options (tretinoin, hydroquinone, tranexamic acid). Do not buy whitening products without a doctor prescription.",
+    "prevalence_en": "Affects 1.5–33% of the population, especially women aged 20–40 in tropical regions"
+  },
+  {
+    "id": "vitiligo",
+    "name": "Vitiligo",
+    "tags": [
+      "autoimun",
+      "depigmentasi",
+      "bercak putih",
+      "melanosit"
+    ],
+    "description": "Kondisi autoimun di mana sistem imun menyerang dan menghancurkan melanosit, menghasilkan bercak putih pada kulit. Tidak menular dan tidak berbahaya secara fisik, namun berdampak psikologis signifikan.",
+    "causes": "Kehancuran melanosit akibat mekanisme autoimun. Faktor pemicu meliputi stres fisik/emosional, cedera kulit (fenomena Koebner), paparan kimia tertentu (termasuk beberapa bahan dalam sabun dan produk mandi), dan infeksi.",
+    "symptoms": [
+      "Bercak putih pucat dengan batas jelas di kulit",
+      "Bercak biasanya dimulai di tangan, wajah, dan area lipatan",
+      "Rambut di area bercak bisa ikut memutih",
+      "Bercak lebih sensitif terhadap sinar matahari",
+      "Tidak gatal, tidak nyeri"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": true,
+      "tds_high": false,
+      "chlorine_high": true,
+      "temp_high": false
+    },
+    "water_triggers_explanation": "Klorin tinggi dan pH basa dapat memicu fenomena Koebner — di mana cedera atau iritasi kulit ringan memicu munculnya bercak vitiligo baru di area tersebut. Area kulit vitiligo kekurangan melanin pelindung, sehingga lebih rentan terhadap kerusakan oksidatif dari klorin.",
+    "bathing_recommendations": [
+      "Hindari produk mandi yang mengandung bahan bleaching, merkuri, atau hidrokuinon tanpa resep",
+      "Gunakan sabun bebas pewangi dan bebas sulfat untuk meminimalkan risiko iritasi",
+      "Oleskan tabir surya SPF 50+ pada bercak vitiligo sebelum beraktivitas di luar — melanin pelindung tidak ada",
+      "Gunakan air bersuhu 36–38°C, hindari air terlalu panas atau terlalu dingin yang mengejutkan kulit",
+      "Gunakan filter shower jika air PAM mengandung klorin tinggi"
+    ],
+    "when_to_see_doctor": "Segera saat pertama kali muncul bercak putih yang mencurigakan untuk konfirmasi diagnosis. Pilihan terapi termasuk fototerapi NB-UVB, imunosupresan topikal, dan transplantasi melanosit.",
+    "prevalence": "Mempengaruhi 0.5–2% populasi dunia, semua ras dan jenis kelamin",
+    "sources": [
+      "doi:10.1016/j.jid.2020.11.027"
+    ],
+    "name_en": "Vitiligo",
+    "description_en": "An autoimmune condition causing loss of skin pigment in patches, resulting in white areas on the skin.",
+    "tags_en": [
+      "autoimmune",
+      "depigmentation",
+      "white patches",
+      "melanocytes"
+    ],
+    "causes_en": "Destruction of melanocytes through autoimmune mechanisms. Triggers include physical/emotional stress, skin injury (Koebner phenomenon), certain chemical exposure (including some ingredients in soaps and bath products), and infection.",
+    "symptoms_en": [
+      "Pale white patches with clear borders on the skin",
+      "Patches usually start on hands, face, and fold areas",
+      "Hair in patch areas can also turn white",
+      "Patches more sensitive to sunlight",
+      "Not itchy, not painful"
+    ],
+    "bathing_recommendations_en": [
+      "Avoid bath products containing bleaching agents, mercury, or hydroquinone without a prescription",
+      "Use fragrance-free, sulfate-free soap to minimize irritation risk",
+      "Apply SPF 50+ sunscreen on vitiligo patches before outdoor activity — protective melanin is absent",
+      "Use water at 36–38°C, avoid water too hot or too cold that shocks the skin",
+      "Use a shower filter if tap water has high chlorine"
+    ],
+    "when_to_see_doctor_en": "As soon as suspicious white patches first appear to confirm diagnosis. Treatment options include NB-UVB phototherapy, topical immunosuppressants, and melanocyte transplantation.",
+    "prevalence_en": "Affects 0.5–2% of the world population, all races and genders"
+  },
+  {
+    "id": "lichen-planus",
+    "name": "Liken Planus",
+    "tags": [
+      "autoimun",
+      "ungu",
+      "segi empat",
+      "mulut",
+      "kuku"
+    ],
+    "description": "Penyakit inflamasi kronis yang mempengaruhi kulit, membran mukosa (mulut, genital), dan kuku. Ditandai papul ungu mengkilat berbentuk segi empat dengan garis putih (Wickham striae).",
+    "causes": "Respons imun yang dimediasi sel-T terhadap antigen yang tidak diketahui. Dipicu oleh obat-obatan (NSAID, antihipertensi), hepatitis C, stres, dan paparan bahan kimia tertentu.",
+    "symptoms": [
+      "Papul (benjolan kecil) ungu-merah mengkilat",
+      "Bentuk poligonal (segi banyak) yang khas",
+      "Garis putih halus di permukaan (Wickham striae)",
+      "Gatal sedang hingga intens",
+      "Bercak putih di mulut yang tidak bisa diusap"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true,
+      "temp_high": false
+    },
+    "water_triggers_explanation": "Klorin dan zat kimia iritan dalam air dapat memicu atau memperburuk liken planus melalui sensitisasi kulit. Fenomena Koebner juga berlaku — iritasi ringan memicu lesi baru. pH basa mengganggu barrier kulit yang sudah rentan.",
+    "bathing_recommendations": [
+      "Hindari air panas — gunakan air hangat suam kuku 35–37°C",
+      "Gunakan sabun bebas pewangi, bebas paraben, dan bebas sulfat",
+      "Oleskan emolien ringan setelah mandi untuk menjaga hidrasi kulit",
+      "Hindari menggosok kulit — gunakan kain lembut atau tangan saat membersihkan",
+      "Kurangi durasi mandi — paparan air berkepanjangan memperburuk iritasi"
+    ],
+    "when_to_see_doctor": "Saat muncul lesi pertama untuk konfirmasi diagnosis. Liken planus oral yang tidak diobati berisiko kecil menjadi kanker mulut. Perlu biopsi untuk konfirmasi.",
+    "prevalence": "Mempengaruhi sekitar 0.5–2% populasi umum, lebih sering pada usia 30–60 tahun",
+    "sources": [
+      "doi:10.1111/jdv.17098"
+    ],
+    "name_en": "Lichen Planus",
+    "description_en": "An inflammatory condition causing itchy, purplish, flat-topped bumps on the skin and mucous membranes.",
+    "tags_en": [
+      "autoimmune",
+      "purple",
+      "polygonal",
+      "mouth",
+      "nails"
+    ],
+    "causes_en": "A T-cell mediated immune response to an unknown antigen. Triggered by medications (NSAIDs, antihypertensives), hepatitis C, stress, and certain chemical exposures.",
+    "symptoms_en": [
+      "Shiny purple-red papules (small bumps)",
+      "Characteristic polygonal shape",
+      "Fine white lines on the surface (Wickham striae)",
+      "Moderate to intense itching",
+      "White patches in the mouth that cannot be wiped off"
+    ],
+    "bathing_recommendations_en": [
+      "Avoid hot water — use lukewarm water 35–37°C",
+      "Use fragrance-free, paraben-free, and sulfate-free soap",
+      "Apply a light emollient after showering to maintain skin hydration",
+      "Avoid scrubbing the skin — use a soft cloth or hands when cleansing",
+      "Reduce shower time — prolonged water exposure worsens irritation"
+    ],
+    "when_to_see_doctor_en": "When the first lesions appear to confirm diagnosis. Untreated oral lichen planus has a small risk of becoming oral cancer. A biopsy is needed for confirmation.",
+    "prevalence_en": "Affects about 0.5–2% of the general population, more common at ages 30–60"
+  },
+  {
+    "id": "pompholyx",
+    "name": "Pompholyx (Eksim Dishidrotik)",
+    "tags": [
+      "lepuh",
+      "tangan",
+      "kaki",
+      "eksim",
+      "dishidrotik"
+    ],
+    "description": "Tipe eksim yang menyebabkan lepuhan kecil berisi cairan bening yang sangat gatal, terutama di tepi jari, telapak tangan, dan telapak kaki. Sering kambuh, terutama pada musim panas atau saat stres.",
+    "causes": "Multifaktorial: stres emosional, paparan nikel/kobalt/kromium, infeksi jamur (tinea), perubahan cuaca, dan kontak berulang dengan air. Hiperhidrosis (keringat berlebih) adalah faktor risiko kuat.",
+    "symptoms": [
+      "Lepuhan kecil (vesikula) 1–5 mm berisi cairan bening",
+      "Gatal intens sebelum dan selama lepuhan muncul",
+      "Lepuhan mengering dan mengupas dalam 2–4 minggu",
+      "Tepi jari, telapak tangan, dan kaki",
+      "Nyeri jika terinfeksi"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": true,
+      "chlorine_high": true,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Kontak berulang dengan air (wet work) adalah pemicu utama pompholyx — bahkan air bersih sekalipun jika kontak terlalu lama. Klorin dan mineral keras memperberat iritasi. Air panas meningkatkan vasodilatasi dan memperparah gatal. Orang yang sering mencuci tangan 20+ kali/hari berisiko 3× lebih tinggi.",
+    "bathing_recommendations": [
+      "Batasi total kontak tangan dengan air maksimal 2 jam per hari",
+      "Gunakan sarung tangan katun di dalam sarung tangan vinyl saat mencuci piring",
+      "Keringkan tangan dan kaki secara menyeluruh setelah mandi, termasuk sela jari",
+      "Oleskan emolien berbasis ceramide segera setelah mengeringkan tangan",
+      "Gunakan air sejuk atau hangat — hindari air panas sama sekali",
+      "Jangan memecahkan lepuhan — risiko infeksi sekunder tinggi"
+    ],
+    "when_to_see_doctor": "Jika lepuhan bernanah (infeksi), sangat nyeri, atau tidak membaik dalam 3 minggu. Dokter dapat meresepkan kortikosteroid topikal atau fototerapi.",
+    "prevalence": "Menyumbang 5–20% dari semua kasus eksim tangan; lebih umum pada pekerja basah",
+    "sources": [
+      "doi:10.1111/bjd.19862",
+      "doi:10.1111/jdv.17098"
+    ],
+    "name_en": "Pompholyx (Dyshidrotic Eczema)",
+    "description_en": "A type of eczema causing small, itchy blisters on the hands and feet, often triggered by moisture and irritants.",
+    "tags_en": [
+      "blisters",
+      "hands",
+      "feet",
+      "eczema",
+      "dyshidrotic"
+    ],
+    "causes_en": "Multifactorial: emotional stress, nickel/cobalt/chromium exposure, fungal infection (tinea), weather changes, and repeated contact with water. Hyperhidrosis (excessive sweating) is a strong risk factor.",
+    "symptoms_en": [
+      "Small blisters (vesicles) 1–5 mm filled with clear fluid",
+      "Intense itching before and during blister formation",
+      "Blisters dry and peel in 2–4 weeks",
+      "Edges of fingers, palms, and feet",
+      "Pain if infected"
+    ],
+    "bathing_recommendations_en": [
+      "Limit total hand contact with water to a maximum of 2 hours per day",
+      "Wear cotton gloves inside vinyl gloves when washing dishes",
+      "Dry hands and feet thoroughly after showering, including between fingers",
+      "Apply ceramide-based emollient immediately after drying hands",
+      "Use cool or warm water — avoid hot water entirely",
+      "Do not pop blisters — high risk of secondary infection"
+    ],
+    "when_to_see_doctor_en": "If blisters become pus-filled (infection), very painful, or do not improve within 3 weeks. A doctor can prescribe topical corticosteroids or phototherapy.",
+    "prevalence_en": "Accounts for 5–20% of all hand eczema cases; more common in wet workers"
+  },
+  {
+    "id": "tinea-pedis",
+    "name": "Tinea Pedis (Kutu Air / Athlete's Foot)",
+    "tags": [
+      "jamur",
+      "kaki",
+      "sela jari",
+      "infeksi",
+      "atletik"
+    ],
+    "description": "Infeksi jamur superfisial pada kaki, terutama sela jari. Sangat umum dan sangat menular melalui kontak permukaan basah. Kebasahan dan kehangatan adalah faktor utama pertumbuhan jamur.",
+    "causes": "Infeksi dermatofita (Trichophyton rubrum, T. mentagrophytes) yang tumbuh subur di lingkungan lembab dan hangat. Ditularkan melalui lantai kamar mandi basah, kolam renang, dan handuk bersama.",
+    "symptoms": [
+      "Kulit mengelupas, bersisik di sela jari kaki",
+      "Gatal dan terbakar antara jari",
+      "Kulit memerah dan meradang",
+      "Lepuhan berisi cairan di telapak kaki (tipe vesikular)",
+      "Bau kaki tidak sedap",
+      "Kuku berubah warna kuning-putih jika menyebar ke kuku"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Air hangat yang menggenang dan kelembaban tinggi di sekitar kaki setelah mandi adalah medium pertumbuhan optimal dermatofita. Pengeringan yang tidak sempurna setelah mandi, terutama di sela jari, adalah faktor risiko paling kritis.",
+    "bathing_recommendations": [
+      "Keringkan kaki secara menyeluruh setelah mandi — terutama sela jari kaki",
+      "Gunakan handuk terpisah untuk kaki dan jangan berbagi handuk",
+      "Gunakan sandal di kamar mandi umum atau area basah bersama",
+      "Ganti kaus kaki setiap hari, pilih bahan yang menyerap keringat (katun, wol)",
+      "Hindari sepatu tertutup dalam waktu lama — beri kaki kesempatan bernapas",
+      "Cuci kaus kaki dengan air panas (60°C) untuk membunuh spora jamur"
+    ],
+    "when_to_see_doctor": "Jika tidak membaik setelah 2 minggu menggunakan antijamur topikal OTC, atau jika menyebar ke kuku (onychomycosis memerlukan antijamur oral).",
+    "prevalence": "Mempengaruhi 15–25% populasi umum; paling umum pada pria dewasa dan atlet",
+    "sources": [
+      "pmid:32195872",
+      "doi:10.1111/jdv.17098"
+    ],
+    "name_en": "Tinea Pedis (Athlete's Foot)",
+    "description_en": "A fungal infection of the feet causing itching, scaling, and redness, thriving in warm, moist environments.",
+    "tags_en": [
+      "fungus",
+      "feet",
+      "between toes",
+      "infection",
+      "athletic"
+    ],
+    "causes_en": "Dermatophyte infection (Trichophyton rubrum, T. mentagrophytes) that thrives in moist, warm environments. Spread through wet bathroom floors, swimming pools, and shared towels.",
+    "symptoms_en": [
+      "Peeling, scaly skin between the toes",
+      "Itching and burning between toes",
+      "Red and inflamed skin",
+      "Fluid-filled blisters on the sole (vesicular type)",
+      "Unpleasant foot odor",
+      "Yellow-white nail discoloration if it spreads to nails"
+    ],
+    "bathing_recommendations_en": [
+      "Dry feet thoroughly after showering — especially between the toes",
+      "Use a separate towel for feet and do not share towels",
+      "Wear sandals in public bathrooms or shared wet areas",
+      "Change socks daily, choose sweat-absorbing materials (cotton, wool)",
+      "Avoid closed shoes for long periods — let feet breathe",
+      "Wash socks in hot water (60°C) to kill fungal spores"
+    ],
+    "when_to_see_doctor_en": "If it does not improve after 2 weeks of OTC topical antifungals, or if it spreads to nails (onychomycosis requires oral antifungals).",
+    "prevalence_en": "Affects 15–25% of the general population; most common in adult men and athletes"
+  },
+  {
+    "id": "onychomycosis",
+    "name": "Onikomikosis (Infeksi Jamur Kuku)",
+    "tags": [
+      "jamur",
+      "kuku",
+      "kaki",
+      "infeksi",
+      "dermatofita"
+    ],
+    "description": "Infeksi jamur pada kuku kaki (lebih umum) atau kuku tangan, menyebabkan kuku menebal, rapuh, berubah warna, dan berubah bentuk. Kondisi kronik yang sulit diobati.",
+    "causes": "Dermatofita (85–90% kasus), ragi Candida, atau jamur non-dermatofita. Sering merupakan komplikasi dari tinea pedis yang tidak diobati. Risiko meningkat pada lansia, diabetes, dan imunokompromais.",
+    "symptoms": [
+      "Kuku menebal dan sulit dipotong",
+      "Kuku berwarna kuning, putih, coklat, atau hitam",
+      "Kuku rapuh, mudah pecah, dan bergerigi di ujung",
+      "Debris putih atau kuning di bawah kuku",
+      "Kuku terpisah dari dasar kuku (onycholysis)",
+      "Bau tidak sedap dari kuku"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Rendaman kuku dalam air hangat yang berkepanjangan melemahkan lempeng kuku dan membuka celah untuk penetrasi jamur. Pekerja dengan wet work (tukang cuci, koki, perawat) memiliki risiko 3× lebih tinggi. Klorin dalam air tidak membunuh jamur kuku karena tidak dapat penetrasi ke bawah lempeng kuku.",
+    "bathing_recommendations": [
+      "Keringkan kaki dan jari secara menyeluruh setelah mandi",
+      "Potong kuku secara teratur dan bersihkan di bawah kuku",
+      "Gunakan kaus kaki bersih setiap hari dan sepatu yang tidak terlalu ketat",
+      "Hindari berjalan tanpa alas kaki di area basah umum",
+      "Desinfeksi gunting kuku setelah digunakan pada kuku yang terinfeksi",
+      "Pertimbangkan antijamur topikal (larutan kuku) setelah mengeringkan kaki"
+    ],
+    "when_to_see_doctor": "Pengobatan onychomycosis memerlukan antijamur oral (terbinafine, itraconazole) selama 3–6 bulan. Konsultasi dokter wajib sebelum memulai pengobatan karena potensi efek samping hepatik.",
+    "prevalence": "Mempengaruhi 10% populasi umum, meningkat hingga 20–50% pada lansia di atas 60 tahun",
+    "sources": [
+      "doi:10.1111/jdv.17098"
+    ],
+    "name_en": "Onychomycosis (Nail Fungal Infection)",
+    "description_en": "A fungal infection of the nails causing thickening, discoloration, and brittleness.",
+    "tags_en": [
+      "fungus",
+      "nails",
+      "feet",
+      "infection",
+      "dermatophyte"
+    ],
+    "causes_en": "Dermatophytes (85–90% of cases), Candida yeast, or non-dermatophyte molds. Often a complication of untreated tinea pedis. Risk increases in the elderly, diabetics, and immunocompromised.",
+    "symptoms_en": [
+      "Thickened nails difficult to trim",
+      "Yellow, white, brown, or black nail color",
+      "Brittle, easily cracked, jagged-edged nails",
+      "White or yellow debris under the nail",
+      "Nail separating from the nail bed (onycholysis)",
+      "Unpleasant nail odor"
+    ],
+    "bathing_recommendations_en": [
+      "Dry feet and toes thoroughly after showering",
+      "Trim nails regularly and clean under them",
+      "Wear clean socks daily and shoes that are not too tight",
+      "Avoid walking barefoot in public wet areas",
+      "Disinfect nail clippers after use on infected nails",
+      "Consider topical antifungals (nail solution) after drying feet"
+    ],
+    "when_to_see_doctor_en": "Treating onychomycosis requires oral antifungals (terbinafine, itraconazole) for 3–6 months. A doctor consultation is mandatory before starting treatment due to potential hepatic side effects.",
+    "prevalence_en": "Affects 10% of the general population, rising to 20–50% in the elderly over 60"
+  },
+  {
+    "id": "pityriasis-rosea",
+    "name": "Pitiriasis Rosea",
+    "tags": [
+      "sisik",
+      "oval",
+      "batang pohon",
+      "virus",
+      "remaja"
+    ],
+    "description": "Ruam kulit jinak yang dimulai dengan satu bercak besar (herald patch) diikuti banyak bercak kecil berpola 'pohon cemara' di batang tubuh. Biasanya sembuh sendiri dalam 6–12 minggu.",
+    "causes": "Diduga dipicu reaktivasi Human Herpesvirus 6 dan 7 (HHV-6/7). Bukan sangat menular, lebih sering terjadi pada musim semi dan gugur, lebih umum pada usia 10–35 tahun.",
+    "symptoms": [
+      "Herald patch: bercak oval 2–10 cm merah-salmon dengan sisik tipis di tepi",
+      "Bercak satelit lebih kecil muncul 1–2 minggu kemudian",
+      "Pola 'pohon cemara' di punggung dan dada",
+      "Gatal ringan hingga sedang",
+      "Kadang disertai gejala flu ringan sebelum ruam muncul"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Air panas dan mandi air panas dapat memperburuk gatal pada pitiriasis rosea secara signifikan, meski tidak mempengaruhi perjalanan penyakit. Mandi dengan air hangat suam kuku atau dingin direkomendasikan untuk meredakan gatal tanpa memperburuk ruam.",
+    "bathing_recommendations": [
+      "Gunakan air sejuk atau hangat — hindari air panas karena memperparah gatal",
+      "Mandi singkat oatmeal colloid untuk meredakan gatal secara alami",
+      "Gunakan sabun bebas pewangi dan lembut",
+      "Tepuk kulit kering dengan lembut setelah mandi",
+      "Oleskan losion calamine atau emolien untuk meredakan gatal"
+    ],
+    "when_to_see_doctor": "Jika diagnosis tidak pasti (perlu menyingkirkan sifilis sekunder yang tampilan serupanya), jika gatal sangat mengganggu, atau jika ruam tidak membaik dalam 12 minggu.",
+    "prevalence": "Mempengaruhi sekitar 0.5–1% populasi per tahun; paling sering pada usia remaja dan dewasa muda",
+    "sources": [
+      "doi:10.1111/jdv.17098"
+    ],
+    "name_en": "Pityriasis Rosea",
+    "description_en": "A self-limiting rash that begins with a single \"herald patch\" followed by smaller spots, possibly viral in origin.",
+    "tags_en": [
+      "scales",
+      "oval",
+      "christmas tree",
+      "virus",
+      "teenagers"
+    ],
+    "causes_en": "Suspected to be triggered by reactivation of Human Herpesvirus 6 and 7 (HHV-6/7). Not highly contagious, more common in spring and autumn, more common at ages 10–35.",
+    "symptoms_en": [
+      "Herald patch: oval 2–10 cm salmon-red patch with thin scales at the edge",
+      "Smaller satellite patches appear 1–2 weeks later",
+      "Christmas-tree pattern on the back and chest",
+      "Mild to moderate itching",
+      "Sometimes preceded by mild flu-like symptoms before the rash"
+    ],
+    "bathing_recommendations_en": [
+      "Use cool or warm water — avoid hot water as it worsens itching",
+      "Take short colloidal oatmeal baths to relieve itching naturally",
+      "Use gentle fragrance-free soap",
+      "Pat skin dry gently after showering",
+      "Apply calamine lotion or emollient to relieve itching"
+    ],
+    "when_to_see_doctor_en": "If the diagnosis is uncertain (need to rule out secondary syphilis which looks similar), if itching is very disruptive, or if the rash does not improve within 12 weeks.",
+    "prevalence_en": "Affects about 0.5–1% of the population per year; most common in teenagers and young adults"
+  },
+  {
+    "id": "intertrigo",
+    "name": "Intertrigo",
+    "tags": [
+      "lipatan kulit",
+      "merah",
+      "jamur",
+      "bakteri",
+      "kelembaban"
+    ],
+    "description": "Peradangan kulit di area lipatan (aksila, selangkangan, bawah payudara, sela jari, lipatan perut) akibat gesekan, kelembaban, dan hangat. Sering dipersulit infeksi jamur atau bakteri sekunder.",
+    "causes": "Kelembaban berlebih yang terperangkap di lipatan kulit menyebabkan maserasi, gesekan antar kulit, dan lingkungan yang mendukung pertumbuhan Candida albicans atau bakteri seperti Staphylococcus. Obesitas, diabetes, dan inkontinensia meningkatkan risiko.",
+    "symptoms": [
+      "Kemerahan, hangat, dan nyeri di area lipatan",
+      "Kulit basah, lembab, dan lunak (maserasi)",
+      "Bau tidak sedap dari area yang terkena",
+      "Bercak putih (jika Candida) atau pustul (jika bakteri)",
+      "Gatal dan rasa terbakar"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Air panas meningkatkan keringat dan memperlama kelembaban di lipatan kulit setelah mandi. Pengeringan yang tidak sempurna di area lipatan adalah faktor risiko paling kritis. Kelembaban residual menciptakan lingkungan optimal untuk pertumbuhan Candida.",
+    "bathing_recommendations": [
+      "Keringkan semua area lipatan secara menyeluruh setelah mandi — gunakan hair dryer dengan setting dingin jika perlu",
+      "Gunakan air hangat, bukan air panas, untuk mengurangi keringat berlebih",
+      "Tepuk area lipatan kering, jangan digosok",
+      "Aplikasikan bedak antijamur (yang mengandung mikonazol) atau bedak bayi untuk menyerap kelembaban",
+      "Gunakan pakaian berbahan katun yang menyerap keringat",
+      "Hindari pakaian ketat di area lipatan"
+    ],
+    "when_to_see_doctor": "Jika tidak membaik dalam 1 minggu dengan perawatan mandiri, ada tanda infeksi bakteri (nanah, demam), atau sangat nyeri.",
+    "prevalence": "Sangat umum, terutama pada individu obesitas, lansia, dan penderita diabetes; prevalensi hingga 27% pada populasi umum rawat inap",
+    "sources": [
+      "doi:10.1111/jdv.17098"
+    ],
+    "name_en": "Intertrigo",
+    "description_en": "Inflammation in skin folds caused by friction, moisture, and heat, often with secondary infection.",
+    "tags_en": [
+      "skin folds",
+      "red",
+      "fungus",
+      "bacteria",
+      "moisture"
+    ],
+    "causes_en": "Excess moisture trapped in skin folds causes maceration, skin-on-skin friction, and an environment supporting Candida albicans or bacteria like Staphylococcus. Obesity, diabetes, and incontinence increase risk.",
+    "symptoms_en": [
+      "Redness, warmth, and pain in fold areas",
+      "Wet, moist, soft skin (maceration)",
+      "Unpleasant odor from affected areas",
+      "White patches (if Candida) or pustules (if bacteria)",
+      "Itching and burning"
+    ],
+    "bathing_recommendations_en": [
+      "Dry all fold areas thoroughly after showering — use a hair dryer on a cool setting if needed",
+      "Use warm, not hot, water to reduce excessive sweating",
+      "Pat fold areas dry, do not rub",
+      "Apply antifungal powder (containing miconazole) or baby powder to absorb moisture",
+      "Wear sweat-absorbing cotton clothing",
+      "Avoid tight clothing in fold areas"
+    ],
+    "when_to_see_doctor_en": "If it does not improve within 1 week of self-care, there are signs of bacterial infection (pus, fever), or it is very painful.",
+    "prevalence_en": "Very common, especially in obese individuals, the elderly, and diabetics; prevalence up to 27% in the general inpatient population"
+  },
+  {
+    "id": "prurigo-nodularis",
+    "name": "Prurigo Nodularis",
+    "tags": [
+      "gatal kronis",
+      "nodul",
+      "siklus gatal-garuk",
+      "saraf"
+    ],
+    "description": "Kondisi kulit kronis dengan nodul keras yang sangat gatal, biasanya di lengan dan tungkai, akibat siklus kronis gatal-garuk yang mengubah saraf kulit dan memperparah pruritus.",
+    "causes": "Siklus pruritus-garukan kronis yang memicu sensitisasi saraf kulit, perubahan histopatologi, dan penebalan epidermis. Sering berasosiasi dengan kondisi lain: eksim, psoriasis, gagal ginjal, HIV, atau gangguan psikologis.",
+    "symptoms": [
+      "Nodul keras dan tebal, diameter 1–3 cm",
+      "Permukaan nodul kasar atau berwarna lebih gelap akibat garukan",
+      "Gatal sangat intens, terutama malam hari",
+      "Distribusi simetris di ekstremitas",
+      "Tanda 'butterfly sign' — punggung tengah bebas (sulit dijangkau untuk digaruk)"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": true,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Air panas memperparah pruritus melalui vasodilatasi dan pelepasan histamin. Klorin bertindak sebagai iritan yang memperburuk siklus gatal-garuk. Mandi air dingin atau sejuk paradoksalmente dapat memberikan relief sementara pada pruritus.",
+    "bathing_recommendations": [
+      "Gunakan air sejuk atau suam kuku — bukan air panas",
+      "Mandi singkat oatmeal colloid untuk efek antipruritik",
+      "Gunakan sabun bebas pewangi dan bebas alkohol",
+      "Oleskan emolien tebal segera setelah mandi untuk menjaga hidrasi barier kulit",
+      "Pertimbangkan filter shower untuk mengurangi klorin",
+      "Potong kuku pendek untuk mengurangi kerusakan akibat garukan"
+    ],
+    "when_to_see_doctor": "Prurigo nodularis selalu memerlukan evaluasi dokter. Terapi meliputi kortikosteroid topikal, fototerapi, dupilumab, atau antikonvulsan untuk modulasi saraf (gabapentin).",
+    "prevalence": "Relatif jarang, namun sangat debilitatif; estimasi prevalensi 72 per 100.000 populasi",
+    "sources": [
+      "doi:10.1111/bjd.19862"
+    ],
+    "name_en": "Prurigo Nodularis",
+    "description_en": "A condition causing hard, intensely itchy nodules on the skin from repeated scratching.",
+    "tags_en": [
+      "chronic itch",
+      "nodules",
+      "itch-scratch cycle",
+      "nerve"
+    ],
+    "causes_en": "A chronic itch-scratch cycle that triggers skin nerve sensitization, histopathological changes, and epidermal thickening. Often associated with other conditions: eczema, psoriasis, kidney failure, HIV, or psychological disorders.",
+    "symptoms_en": [
+      "Hard, thick nodules, 1–3 cm in diameter",
+      "Rough or darker nodule surface from scratching",
+      "Very intense itching, especially at night",
+      "Symmetrical distribution on the extremities",
+      "'Butterfly sign' — central back spared (hard to reach for scratching)"
+    ],
+    "bathing_recommendations_en": [
+      "Use cool or lukewarm water — not hot water",
+      "Take short colloidal oatmeal baths for antipruritic effect",
+      "Use fragrance-free, alcohol-free soap",
+      "Apply thick emollient right after showering to maintain skin barrier hydration",
+      "Consider a shower filter to reduce chlorine",
+      "Keep nails short to reduce scratching damage"
+    ],
+    "when_to_see_doctor_en": "Prurigo nodularis always requires a doctor evaluation. Therapy includes topical corticosteroids, phototherapy, dupilumab, or anticonvulsants for nerve modulation (gabapentin).",
+    "prevalence_en": "Relatively rare but very debilitating; estimated prevalence 72 per 100,000 population"
+  },
+  {
+    "id": "photodermatitis",
+    "name": "Fotodermatitis (Alergi Sinar Matahari)",
+    "tags": [
+      "UV",
+      "matahari",
+      "fotosensitif",
+      "kimia",
+      "ruam"
+    ],
+    "description": "Reaksi abnormal kulit terhadap sinar UV, baik akibat sensitisasi kimia (fotoalergi) maupun reaksi fototoksik langsung. Produk mandi tertentu dapat meningkatkan fotosensitivitas kulit secara signifikan.",
+    "causes": "Paparan sinar UV pada kulit yang mengandung fotosensitizer — parfum, musk, tar, PABA dalam sunscreen, beberapa antibiotik. Reaksi fototoksik (langsung) atau fotoalergi (imun-mediated).",
+    "symptoms": [
+      "Ruam merah, bengkak di area terpajan matahari",
+      "Lepuhan pada reaksi berat",
+      "Batas ruam mengikuti batas pakaian atau bayangan",
+      "Hiperpigmentasi residual setelah sembuh",
+      "Pada fotoalergi: gatal intens; pada fototoksik: rasa terbakar"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false,
+      "temp_high": false
+    },
+    "water_triggers_explanation": "Air sendiri bukan pemicu fotodermatitis. Namun produk mandi yang mengandung parfum, essential oil citrus, atau tar yang tidak dibilas sempurna dapat tertinggal di kulit dan menjadi fotosensitizer saat terkena matahari (berlian efek 'berlian hitam').",
+    "bathing_recommendations": [
+      "Bilas produk mandi sampai bersih — terutama sabun parfum, body wash citrus, dan produk berbasis tar",
+      "Hindari produk mandi yang mengandung bergamot, lemon, jeruk nipis, atau 'fragrance' tidak spesifik",
+      "Mandi sebelum tidur malam (bukan pagi) jika menggunakan produk yang berpotensi fotosensitif",
+      "Gunakan sunscreen broad-spectrum SPF 50+ setelah mandi pagi",
+      "Baca label produk mandi untuk bahan fotosensitif: PABA, benzophenone, parfum citrus"
+    ],
+    "when_to_see_doctor": "Jika reaksi berat, berulang, atau tidak dapat dikaitkan dengan produk spesifik — perlu patch test foto untuk mengidentifikasi allergen.",
+    "prevalence": "Tidak diketahui secara pasti; kasus meningkat seiring penggunaan produk perawatan kulit yang lebih kompleks",
+    "sources": [
+      "doi:10.1111/jdv.17098",
+      "doi:10.1016/j.jid.2021.01.021"
+    ],
+    "name_en": "Photodermatitis (Sun Allergy)",
+    "description_en": "An abnormal skin reaction to sunlight causing rash, redness, or blisters in sun-exposed areas.",
+    "tags_en": [
+      "UV",
+      "sun",
+      "photosensitive",
+      "chemical",
+      "rash"
+    ],
+    "causes_en": "UV exposure on skin containing photosensitizers — perfumes, musk, tar, PABA in sunscreen, some antibiotics. Phototoxic (direct) or photoallergic (immune-mediated) reactions.",
+    "symptoms_en": [
+      "Red, swollen rash on sun-exposed areas",
+      "Blisters in severe reactions",
+      "Rash border follows clothing or shadow lines",
+      "Residual hyperpigmentation after healing",
+      "In photoallergy: intense itch; in phototoxicity: burning sensation"
+    ],
+    "bathing_recommendations_en": [
+      "Rinse off bath products thoroughly — especially perfumed soaps, citrus body wash, and tar-based products",
+      "Avoid bath products containing bergamot, lemon, lime, or unspecified \"fragrance\"",
+      "Bathe at night (not morning) if using potentially photosensitive products",
+      "Use broad-spectrum SPF 50+ sunscreen after the morning shower",
+      "Read bath product labels for photosensitive ingredients: PABA, benzophenone, citrus fragrance"
+    ],
+    "when_to_see_doctor_en": "If the reaction is severe, recurrent, or cannot be linked to a specific product — a photo patch test is needed to identify the allergen.",
+    "prevalence_en": "Not precisely known; cases increase with the use of more complex skincare products"
+  },
+  {
+    "id": "hand-dermatitis",
+    "name": "Dermatitis Tangan (Hand Eczema)",
+    "tags": [
+      "tangan",
+      "eksim",
+      "wet work",
+      "iritan",
+      "profesional"
+    ],
+    "description": "Eksim yang terlokalisir di tangan, sangat umum pada pekerja di industri basah (koki, perawat, tukang cuci, mekanik). Merupakan penyakit akibat kerja paling umum.",
+    "causes": "Paparan berulang terhadap air, deterjen, sabun, dan bahan kimia yang merusak skin barrier tangan. Kontak berulang dengan air >20 kali/hari (wet work) sudah cukup untuk memicu dermatitis tangan.",
+    "symptoms": [
+      "Kulit tangan kering, pecah-pecah, dan mengelupas",
+      "Kemerahan dan bengkak, terutama punggung tangan",
+      "Gatal dan rasa terbakar",
+      "Fisura (retakan dalam) yang nyeri dan bisa berdarah",
+      "Pada kasus berat: lepuhan dan eksudasi"
+    ],
+    "water_triggers": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Kontak berulang dengan air dalam kondisi apapun merusak skin barrier tangan melalui 'wet work effect' — air melarutkan natural moisturizing factor (NMF) dari stratum korneum. Klorin, pH ekstrem, dan mineral keras memperberat kerusakan. Air panas meningkatkan laju penguapan dan memperparah xerosis pasca cuci.",
+    "bathing_recommendations": [
+      "Gunakan air hangat (bukan panas) untuk mencuci tangan — suhu ideal 35–37°C",
+      "Gunakan sabun cair formula lembut atau syndet — hindari sabun batang alkalin",
+      "Oleskan hand cream berbasis ceramide SEGERA setelah mengeringkan tangan",
+      "Gunakan sarung tangan nitrile saat kontak dengan air, deterjen, atau bahan kimia",
+      "Keringkan tangan secara menyeluruh — termasuk sela jari",
+      "Pertimbangkan overnight occlusive treatment dengan petrolatum pada fisura parah"
+    ],
+    "when_to_see_doctor": "Jika tidak membaik dalam 4 minggu perawatan mandiri, fisura sangat dalam dan nyeri, atau ada tanda infeksi. Dokter dapat melakukan patch test untuk mengidentifikasi alergen kontak spesifik.",
+    "prevalence": "10% dari semua eczema adalah dermatitis tangan; prevalensi seumur hidup 15% pada populasi umum",
+    "sources": [
+      "doi:10.1111/bjd.19862",
+      "doi:10.1111/jdv.17927"
+    ],
+    "name_en": "Hand Dermatitis (Hand Eczema)",
+    "description_en": "Eczema affecting the hands, often from frequent water contact, soaps, and irritants. Common in frequent hand washers.",
+    "tags_en": [
+      "hands",
+      "eczema",
+      "wet work",
+      "irritant",
+      "occupational"
+    ],
+    "causes_en": "Repeated exposure to water, detergents, soaps, and chemicals that damage the hand skin barrier. Repeated water contact >20 times/day (wet work) is enough to trigger hand dermatitis.",
+    "symptoms_en": [
+      "Dry, cracked, peeling hand skin",
+      "Redness and swelling, especially on the back of the hand",
+      "Itching and burning",
+      "Painful fissures (deep cracks) that can bleed",
+      "In severe cases: blisters and oozing"
+    ],
+    "bathing_recommendations_en": [
+      "Use warm (not hot) water to wash hands — ideal temperature 35–37°C",
+      "Use gentle liquid soap or syndet — avoid alkaline bar soap",
+      "Apply ceramide-based hand cream IMMEDIATELY after drying hands",
+      "Wear nitrile gloves when in contact with water, detergents, or chemicals",
+      "Dry hands thoroughly — including between the fingers",
+      "Consider overnight occlusive treatment with petrolatum on severe fissures"
+    ],
+    "when_to_see_doctor_en": "If it does not improve within 4 weeks of self-care, fissures are very deep and painful, or there are signs of infection. A doctor can perform a patch test to identify specific contact allergens.",
+    "prevalence_en": "10% of all eczema is hand dermatitis; lifetime prevalence 15% in the general population"
+  },
+  {
+    "id": "striae",
+    "name": "Striae (Stretch Marks)",
+    "tags": [
+      "regangan",
+      "kehamilan",
+      "kolagen",
+      "elastin",
+      "atrofi"
+    ],
+    "description": "Jaringan parut atrofik berupa garis-garis pada kulit akibat peregangan berlebihan yang merobek serat kolagen dan elastin di dermis. Awalnya merah-ungu (striae rubrae), kemudian memudar menjadi putih-perak (striae albae).",
+    "causes": "Pertumbuhan cepat (remaja), kehamilan, kenaikan berat badan cepat, penggunaan kortikosteroid jangka panjang, atau kondisi seperti sindrom Cushing. Faktor genetik menentukan susceptibilitas.",
+    "symptoms": [
+      "Garis-garis merah muda, merah, ungu (striae rubrae) di perut, paha, pantat, payudara, lengan atas",
+      "Memudar menjadi putih-keperakan (striae albae) setelah berbulan-bulan",
+      "Tekstur berbeda dari kulit sekitar — sedikit cekung atau lembut",
+      "Biasanya tidak gatal kecuali saat pertama terbentuk",
+      "Tidak nyeri"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false,
+      "temp_high": false
+    },
+    "water_triggers_explanation": "Air mandi tidak secara langsung memicu striae. Namun hidrasi kulit yang baik (termasuk dari rutinitas mandi yang tepat) dapat memperlambat pembentukan striae dengan mempertahankan elastisitas dermis. Kekeringan kulit kronis akibat air klorin tinggi dapat meningkatkan kerapuhan serat kolagen.",
+    "bathing_recommendations": [
+      "Lakukan dry brushing atau pijat ringan pada area rentan striae sebelum mandi untuk merangsang sirkulasi",
+      "Gunakan air hangat, bukan air panas — panas berlebih merusak kolagen dermis",
+      "Oleskan bio-oil, rosehip oil, atau krim retinol setelah mandi pada striae rubrae (saat masih merah — lebih responsif terhadap perawatan)",
+      "Hidrasi kulit secara konsisten setelah setiap mandi",
+      "Pijat area striae dengan gerakan melingkar saat mengaplikasikan losion"
+    ],
+    "when_to_see_doctor": "Untuk pilihan terapi estetika: laser fraksional, mikroneedling, atau tretinoin topikal yang lebih efektif pada striae rubrae. Striae albae lebih sulit diobati.",
+    "prevalence": "Mempengaruhi 50–80% perempuan hamil; 40% remaja selama masa pertumbuhan pesat",
+    "sources": [
+      "doi:10.1016/j.jid.2021.01.021"
+    ],
+    "name_en": "Striae (Stretch Marks)",
+    "description_en": "Streaks or lines on the skin from rapid stretching, common during growth, pregnancy, or weight change.",
+    "tags_en": [
+      "stretch",
+      "pregnancy",
+      "collagen",
+      "elastin",
+      "atrophy"
+    ],
+    "causes_en": "Rapid growth (adolescence), pregnancy, rapid weight gain, long-term corticosteroid use, or conditions like Cushing syndrome. Genetic factors determine susceptibility.",
+    "symptoms_en": [
+      "Pink, red, purple lines (striae rubrae) on abdomen, thighs, buttocks, breasts, upper arms",
+      "Fade to silvery-white (striae albae) after months",
+      "Texture different from surrounding skin — slightly sunken or soft",
+      "Usually not itchy except when first forming",
+      "Not painful"
+    ],
+    "bathing_recommendations_en": [
+      "Do dry brushing or light massage on striae-prone areas before showering to stimulate circulation",
+      "Use warm, not hot, water — excess heat damages dermal collagen",
+      "Apply bio-oil, rosehip oil, or retinol cream after showering on striae rubrae (while still red — more responsive to treatment)",
+      "Hydrate skin consistently after every shower",
+      "Massage striae areas with circular motions when applying lotion"
+    ],
+    "when_to_see_doctor_en": "For aesthetic treatment options: fractional laser, microneedling, or topical tretinoin which are more effective on striae rubrae. Striae albae are harder to treat.",
+    "prevalence_en": "Affects 50–80% of pregnant women; 40% of teenagers during rapid growth"
+  },
+  {
+    "id": "hidradenitis-suppurativa",
+    "name": "Hidradenitis Supurativa (HS)",
+    "tags": [
+      "folikel rambut",
+      "bisul",
+      "lipatan",
+      "kronis",
+      "autoimun"
+    ],
+    "description": "Penyakit inflamasi folikel rambut kronis di area apokrin (aksila, selangkangan, bokong, bawah payudara) yang menyebabkan nodul nyeri, abses, dan saluran sinus — merusak jaringan secara progresif.",
+    "causes": "Oklusi dan ruptur folikel rambut di area kaya kelenjar apokrin, memicu inflamasi imun yang intens. Bukan infeksi bakteri primer. Faktor risiko: obesitas, merokok, riwayat keluarga, hormonal.",
+    "symptoms": [
+      "Nodul merah nyeri di aksila, selangkangan, bokong",
+      "Abses berulang yang pecah mengeluarkan nanah berbau",
+      "Saluran sinus (terowongan) di bawah kulit",
+      "Bekas luka dan fibrosis progresif",
+      "Nyeri kronik yang signifikan mempengaruhi kualitas hidup"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Air panas meningkatkan keringat dan suhu kulit di area apokrin, yang dapat memperburuk inflamasi dan ketidaknyamanan. Kebersihan yang baik penting untuk mencegah infeksi sekunder, namun penggunaan scrub keras atau produk antiseptik kuat justru memperburuk HS.",
+    "bathing_recommendations": [
+      "Mandi dengan air hangat-sejuk — hindari air panas yang meningkatkan keringat",
+      "Gunakan sabun antibakteri ringan bebas pewangi atau sabun zinc pyrithione di area terdampak",
+      "Hindari scrubbing atau eksfoliasi kasar di area HS",
+      "Gunakan benzoyl peroxide wash 4–5% pada area terdampak (atas rekomendasi dokter)",
+      "Kenakan pakaian katun longgar setelah mandi untuk meminimalkan gesekan",
+      "Oleskan kompres dingin pada nodul nyeri setelah mandi untuk meredakan inflamasi"
+    ],
+    "when_to_see_doctor": "HS memerlukan penanganan dokter untuk diagnosis dan terapi jangka panjang: antibiotik oral, retinoid, biologi (adalimumab, secukinumab), atau eksisi bedah.",
+    "prevalence": "Mempengaruhi sekitar 1% populasi; sering salah didiagnosis selama bertahun-tahun",
+    "sources": [
+      "doi:10.1111/bjd.19862"
+    ],
+    "name_en": "Hidradenitis Suppurativa (HS)",
+    "description_en": "A chronic condition causing painful lumps under the skin in areas with sweat glands, like armpits and groin.",
+    "tags_en": [
+      "hair follicle",
+      "boils",
+      "folds",
+      "chronic",
+      "autoimmune"
+    ],
+    "causes_en": "Occlusion and rupture of hair follicles in apocrine-gland-rich areas, triggering intense immune inflammation. Not a primary bacterial infection. Risk factors: obesity, smoking, family history, hormonal.",
+    "symptoms_en": [
+      "Painful red nodules in armpits, groin, buttocks",
+      "Recurrent abscesses that burst, releasing foul-smelling pus",
+      "Sinus tracts (tunnels) under the skin",
+      "Progressive scarring and fibrosis",
+      "Significant chronic pain affecting quality of life"
+    ],
+    "bathing_recommendations_en": [
+      "Bathe with warm-cool water — avoid hot water that increases sweating",
+      "Use mild fragrance-free antibacterial soap or zinc pyrithione soap on affected areas",
+      "Avoid scrubbing or harsh exfoliation in HS areas",
+      "Use benzoyl peroxide wash 4–5% on affected areas (on doctor recommendation)",
+      "Wear loose cotton clothing after showering to minimize friction",
+      "Apply a cold compress to painful nodules after showering to reduce inflammation"
+    ],
+    "when_to_see_doctor_en": "HS requires medical care for diagnosis and long-term therapy: oral antibiotics, retinoids, biologics (adalimumab, secukinumab), or surgical excision.",
+    "prevalence_en": "Affects about 1% of the population; often misdiagnosed for years"
+  },
+  {
+    "id": "nummular-eczema",
+    "name": "Eksim Numular (Dermatitis Diskoid)",
+    "tags": [
+      "koin",
+      "bundar",
+      "eksim",
+      "kering",
+      "bakteri"
+    ],
+    "description": "Tipe eksim yang ditandai bercak berbentuk bundar seperti koin (numular), gatal, bersisik, dan kadang eksudatif. Sering disalah-artikan sebagai infeksi jamur karena penampilannya yang khas.",
+    "causes": "Tidak sepenuhnya dipahami — kombinasi kulit sangat kering (xerosis), kolonisasi S. aureus, dan hipersensitivitas terhadap metal (nikel) atau bahan lainnya. Sering dipicu oleh cedera kulit kecil, gigitan serangga, atau infeksi.",
+    "symptoms": [
+      "Bercak bundar atau oval diameter 2–10 cm",
+      "Batas jelas, berbeda dengan eksim umumnya",
+      "Sangat gatal, terutama malam hari",
+      "Vesikula kecil di pinggir yang mengering membentuk krusta",
+      "Distribusi: batang tubuh, lengan, kaki",
+      "Sering kambuh di lokasi yang sama"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": true,
+      "chlorine_high": true,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Xerosis (kulit sangat kering) adalah faktor utama yang memicu dan memperburuk eksim numular. Air keras (TDS tinggi), klorin, dan air panas semuanya berkontribusi pada penghancuran skin barrier dan xerosis. Mandi air panas yang lama adalah pemicu kambuh yang paling sering dilaporkan pasien.",
+    "bathing_recommendations": [
+      "Mandi singkat maksimal 10 menit dengan air hangat — BUKAN air panas",
+      "Gunakan sabun bebas pewangi, bebas alkohol, dan pH netral",
+      "Tepuk kulit kering perlahan setelah mandi — jangan menggosok",
+      "Oleskan emolien sangat tebal (petrolatum, ceramide cream) dalam 3 menit setelah mandi",
+      "Pertimbangkan filter shower jika air PAM mengandung klorin tinggi",
+      "Lembabkan rumah dengan humidifier, terutama di musim kemarau atau ruangan ber-AC"
+    ],
+    "when_to_see_doctor": "Jika bercak tidak membaik dalam 2 minggu, bertambah banyak, atau ada tanda infeksi. Kortikosteroid topikal kuat diperlukan pada kasus persisten.",
+    "prevalence": "Relatif jarang, menyumbang sekitar 2–4% dari semua kasus eksim; lebih umum pada pria paruh baya dan lansia",
+    "sources": [
+      "doi:10.1111/bjd.19862",
+      "doi:10.1111/jdv.17927"
+    ],
+    "name_en": "Nummular Eczema (Discoid Dermatitis)",
+    "description_en": "A type of eczema causing coin-shaped itchy patches, often triggered by dry skin and hard water.",
+    "tags_en": [
+      "coin",
+      "round",
+      "eczema",
+      "dry",
+      "bacteria"
+    ],
+    "causes_en": "Not fully understood — a combination of very dry skin (xerosis), S. aureus colonization, and hypersensitivity to metal (nickel) or other materials. Often triggered by minor skin injuries, insect bites, or infection.",
+    "symptoms_en": [
+      "Round or oval patches 2–10 cm in diameter",
+      "Clear borders, unlike typical eczema",
+      "Very itchy, especially at night",
+      "Small vesicles at the edge that dry to form crusts",
+      "Distribution: trunk, arms, legs",
+      "Often recurs at the same location"
+    ],
+    "bathing_recommendations_en": [
+      "Take short showers of max 10 minutes with warm water — NOT hot water",
+      "Use fragrance-free, alcohol-free, pH-neutral soap",
+      "Pat skin dry gently after showering — do not rub",
+      "Apply very thick emollient (petrolatum, ceramide cream) within 3 minutes after showering",
+      "Consider a shower filter if tap water has high chlorine",
+      "Humidify the home with a humidifier, especially in dry season or AC rooms"
+    ],
+    "when_to_see_doctor_en": "If patches do not improve within 2 weeks, increase in number, or there are signs of infection. Strong topical corticosteroids are needed in persistent cases.",
+    "prevalence_en": "Relatively rare, accounting for about 2–4% of all eczema cases; more common in middle-aged and elderly men"
+  },
+  {
+    "id": "aquagenic-pruritus",
+    "name": "Pruritus Aquagenik (Gatal Akibat Air)",
+    "tags": [
+      "gatal",
+      "air",
+      "mandi",
+      "polisitemia",
+      "idiopatik"
+    ],
+    "description": "Kondisi langka di mana kontak dengan air (pada suhu berapapun) memicu rasa gatal intens tanpa ruam yang terlihat, berlangsung 15–60 menit setelah mandi. Dapat menjadi tanda penyakit sistemik serius.",
+    "causes": "Mekanisme tidak sepenuhnya dipahami. Diduga melibatkan pelepasan histamin atau serotonin dari sel mast folikel rambut yang dipicu air. Dapat berasosiasi dengan polisitemia vera (kanker darah), limfoma Hodgkin, atau penyakit hati.",
+    "symptoms": [
+      "Gatal intens seperti tertusuk jarum atau terbakar segera setelah kontak air",
+      "Tidak ada ruam atau urtikaria yang terlihat",
+      "Berlangsung 15–60 menit setelah mandi",
+      "Semua suhu air memicu gejala (berbeda dari cold urticaria)",
+      "Sering memburuk malam hari"
+    ],
+    "water_triggers": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Semua aspek kualitas air dapat memperparah pruritus aquagenik karena mekanismenya adalah kontak air itu sendiri yang memicu pelepasan mediator inflamasi. pH ekstrem, klorin, dan mineral dapat memperberat respons. Suhu air yang lebih sejuk biasanya memicu gejala lebih ringan daripada air panas.",
+    "bathing_recommendations": [
+      "Gunakan air sedingin yang masih dapat ditoleransi — air sejuk biasanya memicu gejala lebih ringan",
+      "Oleskan emolien oklusif sebelum mandi untuk membentuk barrier antara air dan kulit",
+      "Batasi durasi mandi seminimal mungkin — 2–5 menit jika memungkinkan",
+      "Gunakan shower, bukan berendam dalam bathtub",
+      "Jangan menggosok kulit saat mandi maupun setelahnya",
+      "Antihistamin oral sebelum mandi dapat membantu pada beberapa kasus"
+    ],
+    "when_to_see_doctor": "SEGERA jika gejala baru muncul pada usia dewasa-tua — perlu skrining hematologis (darah lengkap, JAK2 mutation) untuk menyingkirkan polisitemia vera.",
+    "prevalence": "Langka — prevalensi tidak diketahui pasti; namun penting karena potensi kaitan dengan penyakit sistemik serius",
+    "sources": [
+      "doi:10.1111/jdv.17098"
+    ],
+    "name_en": "Aquagenic Pruritus (Water-Induced Itch)",
+    "description_en": "Intense itching triggered by contact with water of any temperature, without visible skin changes.",
+    "tags_en": [
+      "itch",
+      "water",
+      "bathing",
+      "polycythemia",
+      "idiopathic"
+    ],
+    "causes_en": "Mechanism not fully understood. Suspected to involve histamine or serotonin release from hair follicle mast cells triggered by water. May be associated with polycythemia vera (blood cancer), Hodgkin lymphoma, or liver disease.",
+    "symptoms_en": [
+      "Intense pin-prick or burning itch immediately after water contact",
+      "No visible rash or urticaria",
+      "Lasts 15–60 minutes after bathing",
+      "All water temperatures trigger symptoms (different from cold urticaria)",
+      "Often worse at night"
+    ],
+    "bathing_recommendations_en": [
+      "Use the coolest water tolerable — cool water usually triggers milder symptoms",
+      "Apply an occlusive emollient before bathing to form a barrier between water and skin",
+      "Limit shower time to a minimum — 2–5 minutes if possible",
+      "Use a shower, not a bathtub soak",
+      "Do not rub the skin during or after bathing",
+      "Oral antihistamines before bathing may help in some cases"
+    ],
+    "when_to_see_doctor_en": "IMMEDIATELY if symptoms newly appear in older adulthood — hematological screening (complete blood count, JAK2 mutation) is needed to rule out polycythemia vera.",
+    "prevalence_en": "Rare — exact prevalence unknown; but important due to potential association with serious systemic disease"
+  },
+  {
+    "id": "granuloma-annulare",
+    "name": "Granuloma Anulare",
+    "tags": [
+      "cincin",
+      "papul",
+      "granuloma",
+      "idiopatik",
+      "diabetes"
+    ],
+    "description": "Kondisi kulit inflamasi jinak dengan papul membentuk pola cincin atau busur, biasanya di punggung tangan dan kaki. Umumnya asimtomatik dan sembuh sendiri, meski bisa memakan waktu bertahun-tahun.",
+    "causes": "Tidak diketahui pasti — diduga respons imun yang dimediasi sel-T terhadap komponen dermis. Beberapa kasus berasosiasi dengan diabetes, tiroid, dan infeksi. Trauma kecil dapat memicu lesi baru (fenomena Koebner).",
+    "symptoms": [
+      "Papul kecil merah muda atau keunguan membentuk cincin atau busur",
+      "Diameter 1–5 cm, batas jelas",
+      "Umumnya tidak gatal atau nyeri",
+      "Paling sering di punggung tangan, kaki, pergelangan",
+      "Permukaan halus, sedikit lebih keras dari kulit sekitar"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false,
+      "temp_high": false
+    },
+    "water_triggers_explanation": "Air mandi tidak secara langsung memicu atau memperburuk granuloma anulare. Namun iritasi kulit dari klorin tinggi atau pH ekstrem dapat secara teori memicu fenomena Koebner pada individu yang rentan. Pelembaban yang baik membantu menjaga integritas kulit.",
+    "bathing_recommendations": [
+      "Tidak ada pembatasan khusus — gunakan rutinitas mandi normal",
+      "Hindari trauma atau gesekan pada area lesi karena fenomena Koebner",
+      "Gunakan sabun lembut dan emolien untuk menjaga kelembaban kulit umum",
+      "Jangan mencoba 'menghilangkan' lesi dengan scrubbing atau produk eksfolian keras"
+    ],
+    "when_to_see_doctor": "Untuk konfirmasi diagnosis (perlu biopsi untuk menyingkirkan tinea atau kondisi lain). Pada pasien dewasa, skrining diabetes direkomendasikan. Sebagian besar kasus sembuh spontan dalam 2 tahun.",
+    "prevalence": "Relatif umum; mempengaruhi sekitar 0.1–0.4% pasien dermatologi; lebih sering pada perempuan dan anak-anak",
+    "sources": [
+      "doi:10.1111/jdv.17098"
+    ],
+    "name_en": "Granuloma Annulare",
+    "description_en": "A benign condition causing ring-shaped, raised bumps on the skin, usually on the hands and feet.",
+    "tags_en": [
+      "ring",
+      "papule",
+      "granuloma",
+      "idiopathic",
+      "diabetes"
+    ],
+    "causes_en": "Not precisely known — suspected to be a T-cell mediated immune response to dermal components. Some cases associated with diabetes, thyroid, and infection. Minor trauma can trigger new lesions (Koebner phenomenon).",
+    "symptoms_en": [
+      "Small pink or purplish papules forming a ring or arc",
+      "1–5 cm in diameter, clear borders",
+      "Generally not itchy or painful",
+      "Most often on the back of hands, feet, wrists",
+      "Smooth surface, slightly firmer than surrounding skin"
+    ],
+    "bathing_recommendations_en": [
+      "No special restrictions — use a normal bathing routine",
+      "Avoid trauma or friction on lesion areas due to the Koebner phenomenon",
+      "Use gentle soap and emollient to maintain general skin moisture",
+      "Do not try to 'remove' lesions with scrubbing or harsh exfoliating products"
+    ],
+    "when_to_see_doctor_en": "To confirm diagnosis (a biopsy is needed to rule out tinea or other conditions). In adult patients, diabetes screening is recommended. Most cases resolve spontaneously within 2 years.",
+    "prevalence_en": "Relatively common; affects about 0.1–0.4% of dermatology patients; more common in women and children"
+  },
+  {
+    "id": "erythema-ab-igne",
+    "name": "Eritema Ab Igne (Heat Rash Kronis)",
+    "tags": [
+      "panas",
+      "kemerahan",
+      "jaring laba-laba",
+      "kronis",
+      "hiperpigmentasi"
+    ],
+    "description": "Kondisi kulit yang timbul akibat paparan panas berulang dalam jangka panjang — termasuk air panas saat mandi yang berlebihan — menyebabkan pola kemerahan seperti jaring laba-laba (reticular erythema) yang lama-kelamaan menjadi hiperpigmentasi permanen.",
+    "causes": "Paparan panas subthreshold berulang (40–45°C) yang merusak pleksus vaskular dan sel melanosit superfisial secara kumulatif. Pemicu modern: botol air panas, laptop, handphone, dan — relevan untuk AQUENT — mandi air panas berulang dalam jangka panjang.",
+    "symptoms": [
+      "Pola kemerahan retikuler (seperti jaring laba-laba) di area yang sering terpapar panas",
+      "Awalnya hilang saat tidak panas, lama-kelamaan menetap",
+      "Hiperpigmentasi coklat-merah permanen pada kasus kronik",
+      "Biasanya tidak nyeri — pasien sering tidak menyadari",
+      "Area paling umum: paha, punggung bawah, perut (area kontak botol panas), betis"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Mandi dengan air panas berulang (>43°C) setiap hari selama berbulan-bulan adalah salah satu penyebab eritema ab igne yang semakin diakui. Area betis dan punggung yang paling sering terkena jet air panas dari shower head adalah area paling rentan. Ini adalah satu-satunya kondisi kulit dalam ensiklopedia ini yang SECARA LANGSUNG disebabkan oleh suhu air shower yang terlalu tinggi.",
+    "bathing_recommendations": [
+      "KUNCI: Turunkan suhu air shower di bawah 40°C — ini adalah intervensi paling penting",
+      "Gunakan sensor suhu AQUENT untuk memantau suhu air secara real-time",
+      "Jika sudah muncul eritema ab igne awal, hentikan paparan panas — reversibel pada stadium awal",
+      "Aplikasikan tabir surya SPF 50+ pada area terdampak jika akan terpapar matahari",
+      "Lesi hiperpigmentasi lanjut dapat diobati dengan retinoid topikal, namun hasilnya terbatas"
+    ],
+    "when_to_see_doctor": "Segera jika lesi tidak memudar setelah menghentikan paparan panas, atau jika ada indurasi (pengerasan) — pada kasus kronik yang sangat jarang, erythema ab igne dapat berkembang menjadi keratosis aktinik atau bahkan karsinoma sel skuamosa.",
+    "prevalence": "Semakin umum seiring meningkatnya penggunaan laptop dan botol panas; insidensi meningkat 3× dalam 20 tahun terakhir",
+    "sources": [
+      "doi:10.1016/j.jid.2021.01.021",
+      "doi:10.1111/jdv.17098"
+    ],
+    "name_en": "Erythema Ab Igne (Chronic Heat Rash)",
+    "description_en": "A reticulated skin discoloration caused by chronic exposure to heat, such as very hot water or heating pads.",
+    "tags_en": [
+      "heat",
+      "redness",
+      "spider web",
+      "chronic",
+      "hyperpigmentation"
+    ],
+    "causes_en": "Repeated subthreshold heat exposure (40–45°C) that cumulatively damages the vascular plexus and superficial melanocytes. Modern triggers: hot water bottles, laptops, phones, and — relevant to AQUENT — repeated hot showers over the long term.",
+    "symptoms_en": [
+      "Reticular (spider-web-like) redness pattern in frequently heat-exposed areas",
+      "Initially disappears when not heated, eventually persists",
+      "Permanent brown-red hyperpigmentation in chronic cases",
+      "Usually painless — patients often unaware",
+      "Most common areas: thighs, lower back, abdomen (hot bottle contact areas), calves"
+    ],
+    "bathing_recommendations_en": [
+      "KEY: Lower the shower water temperature below 40°C — this is the most important intervention",
+      "Use the AQUENT temperature sensor to monitor water temperature in real time",
+      "If early erythema ab igne has appeared, stop heat exposure — reversible in early stages",
+      "Apply SPF 50+ sunscreen on affected areas if they will be sun-exposed",
+      "Advanced hyperpigmentation lesions can be treated with topical retinoids, but results are limited"
+    ],
+    "when_to_see_doctor_en": "Immediately if lesions do not fade after stopping heat exposure, or if there is induration (hardening) — in very rare chronic cases, erythema ab igne can develop into actinic keratosis or even squamous cell carcinoma.",
+    "prevalence_en": "Increasingly common with rising laptop and hot-bottle use; incidence has tripled in the last 20 years"
+  },
+  {
+    "id": "skin-type-oily",
+    "name": "Kulit Berminyak: Panduan Mandi",
+    "tags": [
+      "berminyak",
+      "sebum",
+      "pori besar",
+      "jerawat",
+      "T-zone"
+    ],
+    "description": "Panduan mandi khusus untuk pemilik kulit berminyak. Mandi dengan benar sangat penting — kesalahan rutinitas mandi dapat memperburuk produksi sebum melalui rebound effect.",
+    "causes": "Produksi sebum berlebihan oleh kelenjar sebasea, dipengaruhi faktor genetik, hormonal (androgen), dan lingkungan. Air panas memicu rebound effect: minyak alami hilang berlebihan → kulit memproduksi lebih banyak sebum sebagai kompensasi.",
+    "symptoms": [
+      "Tampilan mengkilap, terutama di zona-T (dahi, hidung, dagu)",
+      "Pori-pori terlihat besar",
+      "Makeup mudah luntur",
+      "Rentan jerawat dan komedo",
+      "Kulit terasa lengket beberapa jam setelah mandi"
+    ],
+    "water_triggers": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": false,
+      "chlorine_high": false,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Air panas adalah musuh utama kulit berminyak — memicu rebound sebum overproduction. pH basa (sabun, air alkali) mendisrupsi acid mantle (pH 4.5–5.5 permukaan kulit) dan memperburuk keseimbangan minyak. pH terlalu asam juga mengiritasi dan memicu peradangan.",
+    "bathing_recommendations": [
+      "Gunakan air hangat-sejuk (30–35°C) atau air dingin — JANGAN air panas",
+      "Batasi mandi 1–2× sehari — mandi berlebihan memicu rebound sebum",
+      "Gunakan pembersih berbasis gel, bukan krim atau oil-based",
+      "Pilih sabun badan dengan pH 5–6 untuk menjaga acid mantle",
+      "Gunakan scrub ringan 2–3× seminggu di area berminyak untuk mencegah penyumbatan pori",
+      "Pilih moisturizer gel ringan atau water-based setelah mandi — kulit berminyak tetap butuh hidrasi"
+    ],
+    "when_to_see_doctor": "Jika kulit berminyak disertai jerawat parah atau kista — perlu evaluasi dokter untuk terapi sistemik.",
+    "prevalence": "Kulit berminyak adalah tipe kulit paling umum di Asia Tenggara, mempengaruhi sekitar 40–50% populasi dewasa muda",
+    "sources": [
+      "doi:10.1111/ics.12562",
+      "doi:10.1111/jdv.17098"
+    ],
+    "name_en": "Oily Skin: Bathing Guide",
+    "description_en": "Guidance for oily skin that overproduces sebum. Avoid hot water which triggers rebound oil production.",
+    "tags_en": [
+      "oily",
+      "sebum",
+      "large pores",
+      "acne",
+      "T-zone"
+    ],
+    "causes_en": "Excessive sebum production by sebaceous glands, influenced by genetic, hormonal (androgen), and environmental factors. Hot water triggers a rebound effect: natural oils are stripped excessively → skin produces more sebum as compensation.",
+    "symptoms_en": [
+      "Shiny appearance, especially in the T-zone (forehead, nose, chin)",
+      "Visibly large pores",
+      "Makeup smudges easily",
+      "Prone to acne and blackheads",
+      "Skin feels sticky a few hours after showering"
+    ],
+    "bathing_recommendations_en": [
+      "Use warm-cool water (30–35°C) or cold water — NOT hot water",
+      "Limit showers to 1–2× daily — over-bathing triggers sebum rebound",
+      "Use a gel-based cleanser, not cream or oil-based",
+      "Choose body soap with pH 5–6 to maintain the acid mantle",
+      "Use a gentle scrub 2–3× a week on oily areas to prevent pore clogging",
+      "Choose a light gel or water-based moisturizer after showering — oily skin still needs hydration"
+    ],
+    "when_to_see_doctor_en": "If oily skin is accompanied by severe acne or cysts — a doctor evaluation is needed for systemic therapy.",
+    "prevalence_en": "Oily skin is the most common skin type in Southeast Asia, affecting about 40–50% of young adults"
+  },
+  {
+    "id": "skin-type-combination",
+    "name": "Kulit Kombinasi: Panduan Mandi",
+    "tags": [
+      "kombinasi",
+      "T-zone",
+      "berminyak",
+      "kering",
+      "seimbang"
+    ],
+    "description": "Panduan untuk kulit kombinasi — berminyak di zona-T (dahi, hidung, dagu) tapi normal atau kering di pipi dan sekitar mata. Tantangan mandi: produk yang cocok untuk satu area dapat memperburuk area lain.",
+    "causes": "Distribusi tidak merata kelenjar sebasea: padat di zona-T, jarang di pipi. Faktor hormonal, diet, dan kualitas air mempengaruhi keseimbangan. Air panas merusak area kering; produk terlalu ringan tidak cukup mengontrol minyak zona-T.",
+    "symptoms": [
+      "Hidung dan dahi mengkilap dan berminyak",
+      "Pipi normal atau terasa ketat dan kering",
+      "Pori-pori besar di zona-T",
+      "Jerawat cenderung muncul di zona-T",
+      "Makeup tampak berbeda di berbagai area wajah"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": false,
+      "temp_high": true
+    },
+    "water_triggers_explanation": "Air panas merusak area pipi yang sudah lebih kering sambil memicu rebound sebum di zona-T. Air keras (TDS tinggi) dan pH basa mengikis natural moisturizing factor terutama di area pipi. Pendekatan diferensial diperlukan.",
+    "bathing_recommendations": [
+      "Gunakan air hangat 35–37°C — kompromi antara terlalu dingin dan terlalu panas",
+      "Pertimbangkan 'zone washing' — gunakan produk berbeda untuk area berbeda",
+      "Gunakan pembersih wajah gel lembut di seluruh wajah, bukan pembersih untuk kulit berminyak saja",
+      "Di zona-T: eksfoliasi ringan 1–2× seminggu",
+      "Di pipi: oleskan toner hydrating atau serum ceramide setelah mandi",
+      "Gunakan moisturizer gel-cream — tidak terlalu berat, tidak terlalu ringan"
+    ],
+    "when_to_see_doctor": "Jika ketidakseimbangan berminyak/kering sangat ekstrem — mungkin ada kondisi kulit yang mendasari.",
+    "prevalence": "Kulit kombinasi adalah tipe kulit yang paling sering dilaporkan secara global, diperkirakan 30–40% populasi",
+    "sources": [
+      "doi:10.1111/ics.12562"
+    ],
+    "name_en": "Combination Skin: Bathing Guide",
+    "description_en": "Guidance for combination skin with an oily T-zone and drier cheeks, requiring zone-specific care.",
+    "tags_en": [
+      "combination",
+      "T-zone",
+      "oily",
+      "dry",
+      "balanced"
+    ],
+    "causes_en": "Uneven distribution of sebaceous glands: dense in the T-zone, sparse on the cheeks. Hormonal factors, diet, and water quality affect the balance. Hot water damages dry areas; products too light do not control T-zone oil.",
+    "symptoms_en": [
+      "Nose and forehead shiny and oily",
+      "Cheeks normal or feeling tight and dry",
+      "Large pores in the T-zone",
+      "Acne tends to appear in the T-zone",
+      "Makeup appears different across facial areas"
+    ],
+    "bathing_recommendations_en": [
+      "Use warm water 35–37°C — a compromise between too cold and too hot",
+      "Consider 'zone washing' — use different products for different areas",
+      "Use a gentle gel facial cleanser on the whole face, not just an oily-skin cleanser",
+      "In the T-zone: exfoliate gently 1–2× a week",
+      "On cheeks: apply hydrating toner or ceramide serum after showering",
+      "Use a gel-cream moisturizer — not too heavy, not too light"
+    ],
+    "when_to_see_doctor_en": "If the oily/dry imbalance is very extreme — there may be an underlying skin condition.",
+    "prevalence_en": "Combination skin is the most frequently reported skin type globally, estimated at 30–40% of the population"
+  },
+  {
+    "id": "chlorine-sensitivity-advanced",
+    "name": "Hipersensitivitas Klorin: Panduan Lanjutan",
+    "tags": [
+      "klorin",
+      "sensitif",
+      "filter",
+      "PAM",
+      "disinfektan"
+    ],
+    "description": "Panduan mendalam tentang hipersensitivitas klorin — reaksi kulit berlebihan terhadap klorin dalam air PAM pada level yang umumnya dianggap aman (0.2–0.5 mg/L). Kondisi ini lebih umum dari yang diperkirakan.",
+    "causes": "Defisiensi genetik enzim detoksifikasi klorin (glutathione peroxidase, superoxide dismutase), skin barrier lemah (mutasi filaggrin), atau sensitisasi sebelumnya. Individu dengan eksim atau kulit sensitif 5× lebih rentan terhadap efek klorin.",
+    "symptoms": [
+      "Kemerahan dan rasa terbakar segera setelah mandi (dalam 15 menit)",
+      "Kulit kering dan gatal yang tidak proporsional dengan durasi mandi",
+      "Eksaserbasi eksim atau dermatitis setelah mandi",
+      "Rambut kering, rapuh, dan mudah rontok",
+      "Mata merah jika klorin airnya tinggi saat mandi"
+    ],
+    "water_triggers": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": true,
+      "temp_high": false
+    },
+    "water_triggers_explanation": "Klorin bebas (free chlorine) bereaksi dengan asam amino pada kulit membentuk kloramin organik yang bersifat iritan. Klorin juga mengoksidasi lipid stratum korneum (ceramide), merusak skin barrier secara langsung. Paparan kumulatif lebih berbahaya dari paparan tunggal yang tinggi.",
+    "bathing_recommendations": [
+      "Pasang filter shower karbon aktif — efektif mengurangi klorin bebas hingga 95%",
+      "Gunakan air sejuk atau hangat — klorin lebih mudah menguap dari air hangat",
+      "Buka jendela kamar mandi saat mandi untuk ventilasi gas klorin",
+      "Mandi singkat 5–7 menit untuk meminimalkan paparan kumulatif",
+      "Bilas dengan air dingin 30 detik di akhir mandi untuk menutup pori dan melepas klorin residual",
+      "Aplikasikan vitamin C serum (mengandung L-ascorbic acid) setelah mandi — menetralisir klorin residual di kulit",
+      "Monitor kadar klorin dengan sensor AQUENT dan aktifkan alert saat >0.5 mg/L"
+    ],
+    "when_to_see_doctor": "Jika gejala persisten meski sudah menggunakan filter shower. Patch test dapat mengkonfirmasi hipersensitivitas klorin dan menyingkirkan alergen lain.",
+    "prevalence": "Hipersensitivitas klorin klinis diperkirakan mempengaruhi 10–15% individu dengan kondisi kulit atopik",
+    "sources": [
+      "doi:10.3390/s20030756",
+      "doi:10.1111/bjd.19862",
+      "doi:10.1016/j.jid.2020.11.027"
+    ],
+    "name_en": "Chlorine Hypersensitivity: Advanced Guide",
+    "description_en": "Advanced management for severe chlorine sensitivity, including filtration and barrier-repair strategies.",
+    "tags_en": [
+      "chlorine",
+      "sensitive",
+      "filter",
+      "tap water",
+      "disinfectant"
+    ],
+    "causes_en": "Genetic deficiency of chlorine detoxification enzymes (glutathione peroxidase, superoxide dismutase), weak skin barrier (filaggrin mutation), or prior sensitization. Individuals with eczema or sensitive skin are 5× more vulnerable to chlorine effects.",
+    "symptoms_en": [
+      "Redness and burning immediately after showering (within 15 minutes)",
+      "Dry, itchy skin disproportionate to shower duration",
+      "Eczema or dermatitis exacerbation after showering",
+      "Dry, brittle, easily falling hair",
+      "Red eyes if the water chlorine is high while showering"
+    ],
+    "bathing_recommendations_en": [
+      "Install an activated carbon shower filter — effective at reducing free chlorine up to 95%",
+      "Use cool or warm water — chlorine evaporates more easily from warm water",
+      "Open the bathroom window while showering to ventilate chlorine gas",
+      "Take short 5–7 minute showers to minimize cumulative exposure",
+      "Rinse with cold water for 30 seconds at the end of the shower to close pores and remove residual chlorine",
+      "Apply vitamin C serum (containing L-ascorbic acid) after showering — neutralizes residual chlorine on the skin",
+      "Monitor chlorine levels with the AQUENT sensor and activate an alert at >0.5 mg/L"
+    ],
+    "when_to_see_doctor_en": "If symptoms persist despite using a shower filter. A patch test can confirm chlorine hypersensitivity and rule out other allergens.",
+    "prevalence_en": "Clinical chlorine hypersensitivity is estimated to affect 10–15% of individuals with atopic skin conditions"
+  }
+]

@@ -1,0 +1,1172 @@
+[
+  {
+    "id": "cerave-moisturizing-cream",
+    "name": "CeraVe Moisturizing Cream",
+    "brand": "CeraVe",
+    "category": "moisturizer",
+    "for_skin_types": [
+      "dry",
+      "sensitive",
+      "normal"
+    ],
+    "active_ingredients": [
+      "ceramide NP",
+      "ceramide AP",
+      "ceramide EOP",
+      "hyaluronic acid",
+      "niacinamide"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true,
+      "temp_high": false
+    },
+    "avoid_when": "Kulit berminyak berat atau berjerawat aktif parah",
+    "how_to_use": "Oleskan segera setelah mandi saat kulit masih sedikit lembab. Untuk tubuh: 1–2 menit setelah handuk. Untuk wajah: setelah serum.",
+    "scientific_basis": "Ceramide memulihkan skin barrier yang rusak akibat air basa, air keras, atau klorin. Hyaluronic acid mengikat kelembapan. Formulasi MVE Technology melepaskan moisturizer perlahan sepanjang hari.",
+    "texture": "Cream kental",
+    "fragrance_free": true,
+    "paraben_free": true,
+    "sources": [
+      "doi:10.1111/bjd.19862"
+    ],
+    "how_to_use_en": "Apply right after showering while skin is still slightly damp, within 1–3 minutes.",
+    "scientific_basis_en": "Ceramides restore the skin barrier damaged by alkaline water, hard water, or chlorine. Hyaluronic acid binds moisture. MVE Technology releases moisturizer slowly throughout the day.",
+    "avoid_when_en": "Severely oily or actively severe acne-prone skin"
+  },
+  {
+    "id": "cerave-hydrating-cleanser",
+    "name": "CeraVe Hydrating Facial Cleanser",
+    "brand": "CeraVe",
+    "category": "cleanser",
+    "for_skin_types": [
+      "dry",
+      "sensitive",
+      "normal"
+    ],
+    "active_ingredients": [
+      "ceramide",
+      "hyaluronic acid",
+      "glycerin"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Kulit sangat berminyak atau berjerawat parah",
+    "how_to_use": "Pijat di kulit lembab selama 30–60 detik, bilas dengan air hangat. Tidak perlu waslap.",
+    "scientific_basis": "Cleanser tanpa busa berlebih yang tidak mengganggu acid mantle kulit. pH-balanced sesuai pH kulit (sekitar 5.5). Tidak mengandung SLS yang reaktif dengan air keras.",
+    "texture": "Gel cair lembut",
+    "fragrance_free": true,
+    "paraben_free": true,
+    "sources": [
+      "doi:10.1111/ics.12562"
+    ],
+    "how_to_use_en": "Massage onto damp skin for 30–60 seconds, then rinse with lukewarm water.",
+    "scientific_basis_en": "A non-foaming cleanser that does not disturb the skin acid mantle. pH-balanced to skin pH (around 5.5). Free of SLS that reacts with hard water.",
+    "avoid_when_en": "Very oily or severe acne-prone skin"
+  },
+  {
+    "id": "dove-sensitive-body-wash",
+    "name": "Dove Sensitive Skin Body Wash",
+    "brand": "Dove",
+    "category": "body_wash",
+    "for_skin_types": [
+      "sensitive",
+      "dry",
+      "normal"
+    ],
+    "active_ingredients": [
+      "glycerin",
+      "stearic acid",
+      "1/4 moisturizing cream"
+    ],
+    "best_when_water": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Kulit sangat berminyak",
+    "how_to_use": "Aplikasikan ke tubuh dengan tangan atau waslap lembut saat mandi. Bilas bersih.",
+    "scientific_basis": "Mengandung 1/4 moisturizing cream yang melindungi skin barrier. Bebas pewangi sehingga cocok untuk kulit sensitif. Formula syndet (synthetic detergent) lebih toleran dengan air keras dibanding sabun batang konvensional.",
+    "texture": "Gel lembut",
+    "fragrance_free": true,
+    "paraben_free": false,
+    "sources": [],
+    "how_to_use_en": "Apply to wet skin, lather gently, and rinse thoroughly with lukewarm water.",
+    "scientific_basis_en": "Contains 1/4 moisturizing cream that protects the skin barrier. Fragrance-free, suitable for sensitive skin. The syndet (synthetic detergent) formula is more tolerant of hard water than conventional bar soap.",
+    "avoid_when_en": "Very oily skin"
+  },
+  {
+    "id": "sebamed-liquid-face-body-wash",
+    "name": "Sebamed Liquid Face & Body Wash",
+    "brand": "Sebamed",
+    "category": "body_wash",
+    "for_skin_types": [
+      "sensitive",
+      "dry",
+      "normal",
+      "combination"
+    ],
+    "active_ingredients": [
+      "lactic acid",
+      "panthenol"
+    ],
+    "best_when_water": {
+      "ph_low": false,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Tidak ada kontraindikasi umum",
+    "how_to_use": "Gunakan langsung di tangan atau busa mandi. Bilas bersih dengan air hangat.",
+    "scientific_basis": "pH 5.5 persis sama dengan pH alami kulit sehat — membantu menjaga acid mantle terutama saat air mandi bersifat basa (pH tinggi). Direkomendasikan oleh dermatolog untuk kulit sensitif.",
+    "texture": "Busa ringan",
+    "fragrance_free": false,
+    "paraben_free": true,
+    "sources": [
+      "doi:10.1111/ics.12562"
+    ],
+    "how_to_use_en": "Apply to wet skin, lather gently, and rinse thoroughly with lukewarm water.",
+    "scientific_basis_en": "pH 5.5 exactly matches the natural pH of healthy skin — helps maintain the acid mantle especially when bath water is alkaline (high pH). Recommended by dermatologists for sensitive skin.",
+    "avoid_when_en": "No general contraindications"
+  },
+  {
+    "id": "cetaphil-gentle-skin-cleanser",
+    "name": "Cetaphil Gentle Skin Cleanser",
+    "brand": "Cetaphil",
+    "category": "cleanser",
+    "for_skin_types": [
+      "sensitive",
+      "dry",
+      "normal",
+      "combination"
+    ],
+    "active_ingredients": [
+      "glycerin",
+      "panthenol",
+      "niacinamide"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Tidak ada kontraindikasi umum; terlalu ringan untuk kulit berminyak parah",
+    "how_to_use": "Oleskan ke wajah kering atau lembab, pijat lembut, bilas atau lap dengan tisu lembab. Bisa digunakan tanpa air.",
+    "scientific_basis": "Formula ultra-lembut yang tidak mengganggu skin barrier. Tanpa deterjen keras. Cocok untuk semua tipe kulit termasuk pasca prosedur dermatologi.",
+    "texture": "Lotion encer",
+    "fragrance_free": true,
+    "paraben_free": false,
+    "sources": [],
+    "how_to_use_en": "Massage onto damp skin for 30–60 seconds, then rinse with lukewarm water.",
+    "scientific_basis_en": "An ultra-gentle formula that does not disturb the skin barrier. No harsh detergents. Suitable for all skin types including post-dermatological procedures.",
+    "avoid_when_en": "No general contraindications; too gentle for severely oily skin"
+  },
+  {
+    "id": "vanicream-moisturizing-skin-cream",
+    "name": "Vanicream Moisturizing Skin Cream",
+    "brand": "Vanicream",
+    "category": "moisturizer",
+    "for_skin_types": [
+      "sensitive",
+      "dry",
+      "atopic"
+    ],
+    "active_ingredients": [
+      "petrolatum",
+      "cetearyl alcohol",
+      "glycerin"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Kulit berminyak parah atau berjerawat",
+    "how_to_use": "Oleskan tipis di area yang sangat kering segera setelah mandi.",
+    "scientific_basis": "Bebas dari 6 alergen umum: pewangi, lanolin, paraben, formaldehida, SLS, dan dyes. Direkomendasikan oleh National Eczema Association USA untuk penderita eksim.",
+    "texture": "Cream berat",
+    "fragrance_free": true,
+    "paraben_free": true,
+    "sources": [
+      "doi:10.1111/bjd.19862"
+    ],
+    "how_to_use_en": "Apply right after showering while skin is still slightly damp, within 1–3 minutes.",
+    "scientific_basis_en": "Free of 6 common allergens: fragrance, lanolin, parabens, formaldehyde, SLS, and dyes. Recommended by the National Eczema Association USA for eczema sufferers.",
+    "avoid_when_en": "Severely oily or acne-prone skin"
+  },
+  {
+    "id": "la-roche-posay-lipikar-baume",
+    "name": "La Roche-Posay Lipikar Baume AP+",
+    "brand": "La Roche-Posay",
+    "category": "moisturizer",
+    "for_skin_types": [
+      "dry",
+      "sensitive",
+      "atopic",
+      "combination"
+    ],
+    "active_ingredients": [
+      "shea butter",
+      "niacinamide",
+      "glycerin",
+      "mannose"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Kulit berminyak di area T-zone",
+    "how_to_use": "Oleskan ke seluruh tubuh setelah mandi, khususnya di area sangat kering. Dapat digunakan 2 kali sehari.",
+    "scientific_basis": "Formulasi dengan Postbiotic AP-Cyclodextrin yang membantu mengurangi gatal dan memperbaiki microbiome kulit. Diuji klinis untuk kulit atopik. Mengandung Shea Butter untuk melindungi skin barrier.",
+    "texture": "Balm kental",
+    "fragrance_free": true,
+    "paraben_free": true,
+    "sources": [
+      "doi:10.1111/jdv.17927"
+    ],
+    "how_to_use_en": "Apply right after showering while skin is still slightly damp, within 1–3 minutes.",
+    "scientific_basis_en": "Formulated with Postbiotic AP-Cyclodextrin that helps reduce itching and repair the skin microbiome. Clinically tested for atopic skin. Contains Shea Butter to protect the skin barrier.",
+    "avoid_when_en": "Oily skin in the T-zone area"
+  },
+  {
+    "id": "bioderma-atoderm-intensive-baume",
+    "name": "Bioderma Atoderm Intensive Baume",
+    "brand": "Bioderma",
+    "category": "moisturizer",
+    "for_skin_types": [
+      "dry",
+      "sensitive",
+      "atopic"
+    ],
+    "active_ingredients": [
+      "glycerine",
+      "vitamin PP",
+      "I-modulia",
+      "sucrose"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Kulit berminyak",
+    "how_to_use": "Oleskan 1–2 kali sehari, terutama setelah mandi.",
+    "scientific_basis": "Dirancang khusus untuk fase 'kering' pada kulit atopik. I-Modulia (ekstrak Vitreoscilla filiformis) memperkuat skin immunity dan mengurangi sensitisasi. Tanpa parfum dan diuji dermatologis.",
+    "texture": "Balm sangat kental",
+    "fragrance_free": true,
+    "paraben_free": true,
+    "sources": [
+      "doi:10.1111/bjd.19862"
+    ],
+    "how_to_use_en": "Apply right after showering while skin is still slightly damp, within 1–3 minutes.",
+    "scientific_basis_en": "Specifically designed for the 'dry' phase of atopic skin. I-Modulia (Vitreoscilla filiformis extract) strengthens skin immunity and reduces sensitization. Fragrance-free and dermatologically tested.",
+    "avoid_when_en": "Oily skin"
+  },
+  {
+    "id": "aveeno-skin-relief-body-wash",
+    "name": "Aveeno Skin Relief Body Wash",
+    "brand": "Aveeno",
+    "category": "body_wash",
+    "for_skin_types": [
+      "sensitive",
+      "dry",
+      "normal"
+    ],
+    "active_ingredients": [
+      "colloidal oatmeal",
+      "glycerin"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": false,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Alergi oat/gluten",
+    "how_to_use": "Gunakan saat mandi dengan tangan atau waslap lembut. Bilas bersih.",
+    "scientific_basis": "Colloidal oatmeal memiliki sifat anti-inflamasi, antioksidan, dan melembapkan yang terbukti klinis untuk kulit kering dan eksim. Disetujui FDA sebagai bahan pelindung kulit.",
+    "texture": "Gel lembut",
+    "fragrance_free": true,
+    "paraben_free": true,
+    "sources": [
+      "doi:10.1111/jdv.17927"
+    ],
+    "how_to_use_en": "Apply to wet skin, lather gently, and rinse thoroughly with lukewarm water.",
+    "scientific_basis_en": "Colloidal oatmeal has clinically proven anti-inflammatory, antioxidant, and moisturizing properties for dry skin and eczema. FDA-approved as a skin protectant ingredient.",
+    "avoid_when_en": "Oat/gluten allergy"
+  },
+  {
+    "id": "neutrogena-hydro-boost-cleanser",
+    "name": "Neutrogena Hydro Boost Hydrating Cleansing Gel",
+    "brand": "Neutrogena",
+    "category": "cleanser",
+    "for_skin_types": [
+      "normal",
+      "combination",
+      "dry"
+    ],
+    "active_ingredients": [
+      "hyaluronic acid",
+      "glycerin"
+    ],
+    "best_when_water": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": true,
+      "chlorine_high": false
+    },
+    "avoid_when": "Kulit sensitif ekstrem atau alergi terhadap bahan-bahannya",
+    "how_to_use": "Gunakan pagi dan malam. Pijat lembut di kulit lembab, bilas bersih.",
+    "scientific_basis": "Hyaluronic acid dalam cleanser membantu mempertahankan kelembapan selama proses pembersihan, tidak hanya membersihkan. Cocok untuk area dengan TDS tinggi karena mineral tidak bereaksi dengan formula.",
+    "texture": "Gel transparan",
+    "fragrance_free": true,
+    "paraben_free": true,
+    "sources": [],
+    "how_to_use_en": "Massage onto damp skin for 30–60 seconds, then rinse with lukewarm water.",
+    "scientific_basis_en": "Hyaluronic acid in the cleanser helps retain moisture during cleansing, not just cleaning. Suitable for high-TDS areas because minerals do not react with the formula.",
+    "avoid_when_en": "Extremely sensitive skin or allergy to its ingredients"
+  },
+  {
+    "id": "eucerin-urea-repair-cream",
+    "name": "Eucerin UreaRepair Original Cream 5%",
+    "brand": "Eucerin",
+    "category": "moisturizer",
+    "for_skin_types": [
+      "dry",
+      "very_dry",
+      "normal"
+    ],
+    "active_ingredients": [
+      "urea 5%",
+      "lactate",
+      "glycerin"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Kulit berminyak; hindari area dengan luka terbuka",
+    "how_to_use": "Oleskan setiap hari ke kulit bersih, terutama area kering seperti siku, lutut, tumit.",
+    "scientific_basis": "Urea 5% adalah humektan kuat yang menarik dan mengikat air ke stratum korneum. Lactate (alpha-hydroxy acid) membantu pengelupasan sel kulit mati yang lembut. Efektif untuk kulit kering sedang hingga berat.",
+    "texture": "Cream ringan",
+    "fragrance_free": false,
+    "paraben_free": false,
+    "sources": [
+      "doi:10.1111/bjd.19862"
+    ],
+    "how_to_use_en": "Apply right after showering while skin is still slightly damp, within 1–3 minutes.",
+    "scientific_basis_en": "Urea 5% is a strong humectant that attracts and binds water to the stratum corneum. Lactate (alpha-hydroxy acid) helps gentle exfoliation of dead skin cells. Effective for moderate to severe dry skin.",
+    "avoid_when_en": "Oily skin; avoid areas with open wounds"
+  },
+  {
+    "id": "physiogel-ai-cream",
+    "name": "Physiogel A.I. Cream",
+    "brand": "Physiogel",
+    "category": "moisturizer",
+    "for_skin_types": [
+      "sensitive",
+      "dry",
+      "atopic",
+      "combination"
+    ],
+    "active_ingredients": [
+      "BioMimic Technology (phospholipids, glycerides)",
+      "glycerin"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Tidak ada kontraindikasi umum",
+    "how_to_use": "Oleskan ke wajah atau tubuh 1–2 kali sehari setelah mandi.",
+    "scientific_basis": "BioMimic Technology meniru komposisi lipid alami kulit (ceramide, phospholipids, glycerides) untuk memperbaiki dan mempertahankan skin barrier. Sangat efektif untuk kulit yang rusak akibat klorin atau air keras.",
+    "texture": "Cream ringan-sedang",
+    "fragrance_free": true,
+    "paraben_free": true,
+    "sources": [
+      "doi:10.1111/jdv.17098"
+    ],
+    "how_to_use_en": "Apply right after showering while skin is still slightly damp, within 1–3 minutes.",
+    "scientific_basis_en": "BioMimic Technology mimics the skin's natural lipid composition (ceramides, phospholipids, glycerides) to repair and maintain the skin barrier. Highly effective for skin damaged by chlorine or hard water.",
+    "avoid_when_en": "No general contraindications"
+  },
+  {
+    "id": "the-ordinary-niacinamide-10",
+    "name": "The Ordinary Niacinamide 10% + Zinc 1%",
+    "brand": "The Ordinary",
+    "category": "serum",
+    "for_skin_types": [
+      "oily",
+      "combination",
+      "normal"
+    ],
+    "active_ingredients": [
+      "niacinamide 10%",
+      "zinc PCA 1%"
+    ],
+    "best_when_water": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false
+    },
+    "avoid_when": "Kulit kering parah; hindari penggunaan bersamaan dengan vitamin C (bisa kurangi efektivitas)",
+    "how_to_use": "Oleskan beberapa tetes ke wajah bersih setelah toner, sebelum moisturizer.",
+    "scientific_basis": "Niacinamide 10% mengurangi produksi sebum, memperkecil tampilan pori, dan meredakan kemerahan. Zinc PCA mengontrol minyak berlebih dan memiliki sifat antibakteri ringan. Cocok untuk kulit berminyak di daerah dengan air normal.",
+    "texture": "Serum cair",
+    "fragrance_free": true,
+    "paraben_free": true,
+    "sources": [],
+    "how_to_use_en": "Apply a few drops to clean skin before moisturizer, morning and/or night.",
+    "scientific_basis_en": "Niacinamide 10% reduces sebum production, minimizes the appearance of pores, and calms redness. Zinc PCA controls excess oil and has mild antibacterial properties. Suitable for oily skin in normal-water areas.",
+    "avoid_when_en": "Severely dry skin; avoid using together with vitamin C (may reduce effectiveness)"
+  },
+  {
+    "id": "innisfree-green-tea-seed-serum",
+    "name": "Innisfree Green Tea Seed Serum",
+    "brand": "Innisfree",
+    "category": "serum",
+    "for_skin_types": [
+      "combination",
+      "normal",
+      "dry"
+    ],
+    "active_ingredients": [
+      "green tea seed",
+      "hyaluronic acid",
+      "green tea water"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false
+    },
+    "avoid_when": "Kulit berminyak parah",
+    "how_to_use": "Oleskan setelah toner, sebelum moisturizer. Tepuk-tepuk hingga meresap.",
+    "scientific_basis": "Antioksidan dari green tea melindungi kulit dari stres oksidatif yang bisa diperparah oleh pH rendah (asam) pada air. Hyaluronic acid memberikan hidrasi intens untuk kulit yang kehilangan kelembapan.",
+    "texture": "Serum ringan",
+    "fragrance_free": false,
+    "paraben_free": true,
+    "sources": [],
+    "how_to_use_en": "Apply a few drops to clean skin before moisturizer, morning and/or night.",
+    "scientific_basis_en": "Antioxidants from green tea protect the skin from oxidative stress that can be worsened by low (acidic) water pH. Hyaluronic acid provides intense hydration for moisture-depleted skin.",
+    "avoid_when_en": "Severely oily skin"
+  },
+  {
+    "id": "hada-labo-gokujyun-lotion",
+    "name": "Hada Labo Gokujyun Hyaluronic Acid Lotion",
+    "brand": "Hada Labo",
+    "category": "toner",
+    "for_skin_types": [
+      "all",
+      "dry",
+      "sensitive",
+      "normal",
+      "combination"
+    ],
+    "active_ingredients": [
+      "hyaluronic acid (5 types)",
+      "glycerin"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false
+    },
+    "avoid_when": "Tidak ada kontraindikasi umum",
+    "how_to_use": "Tepuk-tepuk ke wajah setelah membersihkan, sebelum serum dan moisturizer. Bisa diulang 2–3 lapis (7-skin method).",
+    "scientific_basis": "5 jenis hyaluronic acid dengan berat molekul berbeda memberikan hidrasi di berbagai lapisan kulit. Sangat efektif untuk memulihkan kelembapan setelah mandi dengan air berasam (pH rendah).",
+    "texture": "Lotion/toner berair",
+    "fragrance_free": true,
+    "paraben_free": false,
+    "sources": [],
+    "how_to_use_en": "Apply to clean skin with a cotton pad or hands before serum and moisturizer.",
+    "scientific_basis_en": "Five types of hyaluronic acid with different molecular weights provide hydration in various skin layers. Highly effective for restoring moisture after showering with acidic (low pH) water.",
+    "avoid_when_en": "No general contraindications"
+  },
+  {
+    "id": "johnson-baby-oil",
+    "name": "Johnson's Baby Oil",
+    "brand": "Johnson's",
+    "category": "body_oil",
+    "for_skin_types": [
+      "dry",
+      "sensitive",
+      "normal"
+    ],
+    "active_ingredients": [
+      "mineral oil",
+      "aloe vera"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Kulit berminyak atau berjerawat parah",
+    "how_to_use": "Oleskan ke kulit basah setelah mandi (sebelum dikeringkan) untuk mengunci kelembapan, atau ke kulit kering sebagai pelembap tambahan.",
+    "scientific_basis": "Mineral oil membentuk lapisan oklusif yang mencegah penguapan kelembapan (TEWL). Efektif dan terjangkau sebagai barrier cream untuk kulit sangat kering akibat air keras atau klorin tinggi.",
+    "texture": "Minyak cair",
+    "fragrance_free": false,
+    "paraben_free": true,
+    "sources": [],
+    "how_to_use_en": "Apply to damp skin after showering to lock in moisture.",
+    "scientific_basis_en": "Mineral oil forms an occlusive layer that prevents moisture evaporation (TEWL). Effective and affordable as a barrier cream for very dry skin from hard water or high chlorine.",
+    "avoid_when_en": "Oily or severe acne-prone skin"
+  },
+  {
+    "id": "skintific-5x-ceramide-barrier",
+    "name": "Skintific 5X Ceramide Barrier Moisture Gel",
+    "brand": "Skintific",
+    "category": "moisturizer",
+    "for_skin_types": [
+      "combination",
+      "oily",
+      "normal",
+      "sensitive"
+    ],
+    "active_ingredients": [
+      "5 ceramide types",
+      "niacinamide",
+      "hyaluronic acid"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Tidak ada kontraindikasi umum",
+    "how_to_use": "Oleskan sebagai moisturizer terakhir dalam rutinitas, pagi dan malam.",
+    "scientific_basis": "Formulasi 5 tipe ceramide membantu memperbaiki skin barrier secara komprehensif. Tekstur gel ringan cocok untuk iklim tropis Indonesia. Kombinasi ceramide + niacinamide memberikan perbaikan barrier sekaligus kontrol minyak.",
+    "texture": "Gel krim",
+    "fragrance_free": false,
+    "paraben_free": true,
+    "sources": [],
+    "how_to_use_en": "Apply right after showering while skin is still slightly damp, within 1–3 minutes.",
+    "scientific_basis_en": "A 5-type ceramide formula helps repair the skin barrier comprehensively. The light gel texture suits the Indonesian tropical climate. The ceramide + niacinamide combination provides barrier repair and oil control.",
+    "avoid_when_en": "No general contraindications"
+  },
+  {
+    "id": "wardah-lightening-toner",
+    "name": "Wardah Lightening Toner",
+    "brand": "Wardah",
+    "category": "toner",
+    "for_skin_types": [
+      "normal",
+      "combination",
+      "oily"
+    ],
+    "active_ingredients": [
+      "alpha arbutin",
+      "vitamin C",
+      "aloe vera"
+    ],
+    "best_when_water": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false
+    },
+    "avoid_when": "Kulit sangat kering atau sensitif ekstrem",
+    "how_to_use": "Oleskan ke wajah bersih dengan kapas atau tepuk-tepuk dengan tangan.",
+    "scientific_basis": "Alpha arbutin menghambat produksi melanin, efektif untuk hiperpigmentasi. Vitamin C sebagai antioksidan. Produk lokal halal dengan harga terjangkau.",
+    "texture": "Toner cair",
+    "fragrance_free": false,
+    "paraben_free": true,
+    "sources": [],
+    "how_to_use_en": "Apply to clean skin with a cotton pad or hands before serum and moisturizer.",
+    "scientific_basis_en": "Alpha arbutin inhibits melanin production, effective for hyperpigmentation. Vitamin C as an antioxidant. A local halal product at an affordable price.",
+    "avoid_when_en": "Very dry or extremely sensitive skin"
+  },
+  {
+    "id": "garnier-micellar-water",
+    "name": "Garnier Micellar Cleansing Water All-in-1",
+    "brand": "Garnier",
+    "category": "cleanser",
+    "for_skin_types": [
+      "all",
+      "sensitive",
+      "normal",
+      "oily"
+    ],
+    "active_ingredients": [
+      "micelles",
+      "glycerin"
+    ],
+    "best_when_water": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false
+    },
+    "avoid_when": "Tidak disarankan sebagai pembersih utama tunggal untuk riasan tebal",
+    "how_to_use": "Tuangkan ke kapas, usap lembut ke wajah hingga riasan dan kotoran terangkat. Tidak perlu dibilas (untuk kulit normal); bilas untuk kulit sensitif.",
+    "scientific_basis": "Teknologi micellar mengangkat kotoran tanpa mengganggu pH kulit. Cocok sebagai double cleansing pertama di daerah dengan air TDS tinggi karena kulit tidak perlu kontak lama dengan air keras.",
+    "texture": "Air micellar",
+    "fragrance_free": true,
+    "paraben_free": true,
+    "sources": [],
+    "how_to_use_en": "Massage onto damp skin for 30–60 seconds, then rinse with lukewarm water.",
+    "scientific_basis_en": "Micellar technology lifts dirt without disturbing skin pH. Suitable as a first double-cleansing step in high-TDS areas because skin does not need prolonged contact with hard water.",
+    "avoid_when_en": "Not recommended as the sole main cleanser for heavy makeup"
+  },
+  {
+    "id": "elsheskin-ac-care-series",
+    "name": "Elsheskin AC Care Series Body Wash",
+    "brand": "Elsheskin",
+    "category": "body_wash",
+    "for_skin_types": [
+      "oily",
+      "acne_prone",
+      "combination"
+    ],
+    "active_ingredients": [
+      "salicylic acid 0.5%",
+      "tea tree oil",
+      "niacinamide"
+    ],
+    "best_when_water": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false
+    },
+    "avoid_when": "Kulit kering atau sensitif; hindari area wajah",
+    "how_to_use": "Gunakan saat mandi untuk area tubuh yang rentan jerawat (punggung, dada). Biarkan 1–2 menit sebelum dibilas.",
+    "scientific_basis": "Salicylic acid (BHA) masuk ke dalam pori untuk membersihkan sebum berlebih. Tea tree oil memberikan efek antibakteri alami. Cocok untuk kondisi akne di tubuh terutama saat kualitas air normal.",
+    "texture": "Gel busa",
+    "fragrance_free": false,
+    "paraben_free": true,
+    "sources": [],
+    "how_to_use_en": "Apply to wet skin, lather gently, and rinse thoroughly with lukewarm water.",
+    "scientific_basis_en": "Salicylic acid (BHA) penetrates pores to clear excess sebum. Tea tree oil provides a natural antibacterial effect. Suitable for body acne especially when water quality is normal.",
+    "avoid_when_en": "Dry or sensitive skin; avoid the face area"
+  },
+  {
+    "id": "skin-aqua-uv-moisture-milk",
+    "name": "Skin Aqua UV Moisture Milk SPF 50+ PA++++",
+    "brand": "Skin Aqua",
+    "category": "sunscreen",
+    "for_skin_types": [
+      "all",
+      "normal",
+      "combination",
+      "oily"
+    ],
+    "active_ingredients": [
+      "uvinul A Plus",
+      "tinosorb S",
+      "hyaluronic acid"
+    ],
+    "best_when_water": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false
+    },
+    "avoid_when": "Tidak ada kontraindikasi umum; oleskan setelah skincare selesai",
+    "how_to_use": "Oleskan 15–30 menit sebelum paparan matahari. Ulangi setiap 2–3 jam saat beraktivitas di luar. SELALU aplikasikan setelah mandi dan skincare pagi.",
+    "scientific_basis": "Sunscreen adalah produk dermatologi WAJIB pasca-mandi di pagi hari — tanpa sunscreen, seluruh manfaat mandi sehat dapat terdegradasi oleh kerusakan UV. PA++++ memberikan perlindungan UVA broadspectrum yang mencegah photoaging dan hiperpigmentasi. Formulasi ringan cocok untuk iklim tropis.",
+    "texture": "Milk/lotion ringan",
+    "fragrance_free": false,
+    "paraben_free": true,
+    "use_after_shower": true,
+    "sources": [],
+    "how_to_use_en": "Apply generously 15 minutes before sun exposure; reapply every 2 hours.",
+    "scientific_basis_en": "Sunscreen is a MANDATORY dermatological product after the morning shower — without sunscreen, all the benefits of healthy bathing can be degraded by UV damage. PA++++ provides broad-spectrum UVA protection that prevents photoaging and hyperpigmentation. The light formula suits a tropical climate.",
+    "avoid_when_en": "No general contraindications; apply after skincare is complete"
+  },
+  {
+    "id": "azarine-hydrasoothe-sunscreen",
+    "name": "Azarine Hydrasoothe Sunscreen Gel SPF 45 PA+++",
+    "brand": "Azarine",
+    "origin": "Indonesia",
+    "category": "sunscreen",
+    "for_skin_types": [
+      "oily",
+      "combination",
+      "sensitive",
+      "normal"
+    ],
+    "active_ingredients": [
+      "zinc oxide",
+      "titanium dioxide",
+      "niacinamide",
+      "centella asiatica"
+    ],
+    "best_when_water": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false
+    },
+    "avoid_when": "Tidak ada kontraindikasi umum",
+    "how_to_use": "Aplikasikan sebagai langkah terakhir skincare pagi, setelah mandi. Tambahkan ke area leher dan tangan.",
+    "scientific_basis": "Sunscreen mineral (zinc oxide/titanium dioxide) tidak terserap ke aliran darah dan ideal untuk kulit sensitif. Centella asiatica (CICA) memiliki efek anti-inflamasi yang membantu kulit yang teriritasi air klorin. Produk lokal Indonesia dengan harga terjangkau dan bisa halal.",
+    "texture": "Gel ringan",
+    "fragrance_free": true,
+    "paraben_free": true,
+    "use_after_shower": true,
+    "sources": [],
+    "how_to_use_en": "Apply generously 15 minutes before sun exposure; reapply every 2 hours.",
+    "scientific_basis_en": "Mineral sunscreen (zinc oxide/titanium dioxide) is not absorbed into the bloodstream and is ideal for sensitive skin. Centella asiatica (CICA) has an anti-inflammatory effect that helps skin irritated by chlorinated water. A local Indonesian product, affordable and can be halal.",
+    "avoid_when_en": "No general contraindications"
+  },
+  {
+    "id": "emina-sun-protection",
+    "name": "Emina Sun Protection SPF 30 PA++",
+    "brand": "Emina",
+    "origin": "Indonesia",
+    "category": "sunscreen",
+    "for_skin_types": [
+      "normal",
+      "combination",
+      "oily"
+    ],
+    "active_ingredients": [
+      "avobenzone",
+      "octocrylene",
+      "aloe vera"
+    ],
+    "best_when_water": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false
+    },
+    "avoid_when": "Kulit sangat sensitif terhadap chemical sunscreen filter",
+    "how_to_use": "Oleskan tipis merata setelah skincare. Ideal untuk penggunaan sehari-hari dalam ruangan dengan paparan matahari tidak langsung.",
+    "scientific_basis": "SPF 30 memblokir ~97% sinar UVB — cukup untuk kebutuhan sehari-hari dalam ruangan. Pilihan terjangkau untuk segmen muda yang baru memulai rutinitas sunscreen. Menjaga manfaat post-shower tidak terdegradasi oleh UV.",
+    "texture": "Lotion ringan",
+    "fragrance_free": false,
+    "paraben_free": false,
+    "use_after_shower": true,
+    "sources": [],
+    "how_to_use_en": "Apply generously 15 minutes before sun exposure; reapply every 2 hours.",
+    "scientific_basis_en": "SPF 30 blocks ~97% of UVB rays — enough for daily indoor needs. An affordable choice for young people starting a sunscreen routine. Keeps post-shower benefits from being degraded by UV.",
+    "avoid_when_en": "Skin very sensitive to chemical sunscreen filters"
+  },
+  {
+    "id": "somethinc-barrier-plus-moisturizer",
+    "name": "Somethinc Barrier+ Ceramide & Niacinamide Moisturizer",
+    "brand": "Somethinc",
+    "origin": "Indonesia",
+    "category": "moisturizer",
+    "for_skin_types": [
+      "all",
+      "combination",
+      "sensitive",
+      "dry"
+    ],
+    "active_ingredients": [
+      "ceramide NP",
+      "niacinamide 5%",
+      "panthenol",
+      "allantoin"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Tidak ada kontraindikasi umum",
+    "how_to_use": "Oleskan sebagai langkah terakhir skincare, pagi dan malam hari, setelah mandi.",
+    "scientific_basis": "Ceramide NP adalah komponen utama skin barrier yang terdeplesi akibat air basa dan klorin. Niacinamide 5% memperkuat skin barrier sekaligus mengurangi kemerahan. Produk lokal Indonesia yang formulasinya setara brand internasional dengan harga lebih terjangkau.",
+    "texture": "Gel krim",
+    "fragrance_free": false,
+    "paraben_free": true,
+    "sources": [],
+    "how_to_use_en": "Apply right after showering while skin is still slightly damp, within 1–3 minutes.",
+    "scientific_basis_en": "Ceramide NP is the main skin barrier component depleted by alkaline water and chlorine. Niacinamide 5% strengthens the skin barrier while reducing redness. A local Indonesian product with a formula on par with international brands at a more affordable price.",
+    "avoid_when_en": "No general contraindications"
+  },
+  {
+    "id": "avoskin-miraculous-refining-toner",
+    "name": "Avoskin Miraculous Refining Toner",
+    "brand": "Avoskin",
+    "origin": "Indonesia",
+    "category": "toner",
+    "for_skin_types": [
+      "combination",
+      "oily",
+      "normal",
+      "acne_prone"
+    ],
+    "active_ingredients": [
+      "AHA 7%",
+      "BHA 1%",
+      "PHA 3%",
+      "centella asiatica"
+    ],
+    "best_when_water": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false
+    },
+    "avoid_when": "Kulit sangat kering atau sensitif; hindari penggunaan malam hari tanpa sunscreen keesokan harinya",
+    "how_to_use": "Gunakan 2–3 malam seminggu setelah membersihkan wajah. Mulai dengan 1 malam/minggu untuk adaptasi kulit.",
+    "scientific_basis": "Kombinasi AHA (glycolic/lactic acid) dan BHA (salicylic acid) melakukan eksfoliasi kimia ringan untuk membersihkan pori yang tersumbat akibat residu air keras. PHA lebih ringan dari AHA dan cocok untuk kulit sensitif ringan. Eksfoliasi rutin membantu mengangkat residu mineral dari air sadah.",
+    "texture": "Toner eksfoliasi",
+    "fragrance_free": false,
+    "paraben_free": true,
+    "sources": [],
+    "how_to_use_en": "Apply to clean skin with a cotton pad or hands before serum and moisturizer.",
+    "scientific_basis_en": "A combination of AHA (glycolic/lactic acid) and BHA (salicylic acid) performs gentle chemical exfoliation to clear pores clogged by hard-water residue. PHA is gentler than AHA and suitable for mildly sensitive skin. Regular exfoliation helps remove mineral residue from hard water.",
+    "avoid_when_en": "Very dry or sensitive skin; avoid nighttime use without sunscreen the next day"
+  },
+  {
+    "id": "scarlett-whitening-body-lotion",
+    "name": "Scarlett Whitening Body Lotion Fragrant",
+    "brand": "Scarlett",
+    "origin": "Indonesia",
+    "category": "body_lotion",
+    "for_skin_types": [
+      "normal",
+      "combination",
+      "dry"
+    ],
+    "active_ingredients": [
+      "niacinamide",
+      "glutathione",
+      "vitamin E",
+      "glycerin"
+    ],
+    "best_when_water": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": true,
+      "chlorine_high": false
+    },
+    "avoid_when": "Kulit sangat sensitif terhadap pewangi; jangan gunakan di area luka atau iritasi aktif",
+    "how_to_use": "Oleskan ke seluruh tubuh setelah mandi dan dikeringkan. Fokus ke area kering seperti lutut dan siku.",
+    "scientific_basis": "Niacinamide membantu memperkuat skin barrier dan mengurangi hiperpigmentasi akibat paparan air mineral tinggi. Glutathione sebagai antioksidan. Produk sangat populer di Indonesia dengan price-to-performance yang baik untuk penggunaan harian.",
+    "texture": "Lotion sedang",
+    "fragrance_free": false,
+    "paraben_free": true,
+    "sources": [],
+    "how_to_use_en": "Apply all over the body after showering while skin is still damp.",
+    "scientific_basis_en": "Niacinamide helps strengthen the skin barrier and reduce hyperpigmentation from high-mineral water exposure. Glutathione as an antioxidant. A very popular product in Indonesia with good price-to-performance for daily use.",
+    "avoid_when_en": "Skin very sensitive to fragrance; do not use on wounds or active irritation"
+  },
+  {
+    "id": "vaseline-intensive-care-aloe",
+    "name": "Vaseline Intensive Care Aloe Soothe Body Lotion",
+    "brand": "Vaseline",
+    "category": "body_lotion",
+    "for_skin_types": [
+      "normal",
+      "sensitive",
+      "dry"
+    ],
+    "active_ingredients": [
+      "petrolatum",
+      "glycerin",
+      "aloe vera extract"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Kulit berminyak sangat parah",
+    "how_to_use": "Oleskan ke seluruh tubuh segera setelah mandi (dalam 3 menit). Tepuk-tepuk, jangan gosok.",
+    "scientific_basis": "Petrolatum adalah oklusan paling efektif dan cost-effective untuk mencegah transepidermal water loss (TEWL) — sangat berguna setelah mandi dengan air panas atau air keras yang meningkatkan TEWL. Studi dermatologi menunjukkan petrolatum lebih efektif sebagai barrier dibanding kebanyakan cream ringan.",
+    "texture": "Lotion ringan-sedang",
+    "fragrance_free": false,
+    "paraben_free": true,
+    "sources": [
+      "doi:10.1111/bjd.19862"
+    ],
+    "how_to_use_en": "Apply all over the body after showering while skin is still damp.",
+    "scientific_basis_en": "Petrolatum is the most effective and cost-effective occlusive for preventing transepidermal water loss (TEWL) — very useful after showering with hot or hard water that increases TEWL. Dermatology studies show petrolatum is more effective as a barrier than most light creams.",
+    "avoid_when_en": "Very severely oily skin"
+  },
+  {
+    "id": "the-body-shop-shea-body-butter",
+    "name": "The Body Shop Shea Body Butter",
+    "brand": "The Body Shop",
+    "category": "body_butter",
+    "for_skin_types": [
+      "dry",
+      "very_dry",
+      "sensitive"
+    ],
+    "active_ingredients": [
+      "shea butter",
+      "glycerin",
+      "illipe butter"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true,
+      "temp_high": true
+    },
+    "avoid_when": "Kulit berminyak; hindari wajah jika mudah tersumbat pori",
+    "how_to_use": "Oleskan tipis ke tubuh setelah mandi. Untuk hasil terbaik, aplikasikan di kulit yang masih sedikit lembab.",
+    "scientific_basis": "Shea butter kaya asam lemak (oleat, stearic, palmitic) yang meniru komposisi sebum alami kulit. Sangat efektif sebagai emollient untuk kulit yang rusak akibat air panas ekstrem (temp_high) atau air klorin tinggi. Cocok untuk penggunaan seminggu 2–3 kali sebagai treatment intensif.",
+    "texture": "Butter sangat kental",
+    "fragrance_free": false,
+    "paraben_free": true,
+    "sources": [],
+    "how_to_use_en": "Massage onto dry areas after bathing for deep, lasting hydration.",
+    "scientific_basis_en": "Shea butter is rich in fatty acids (oleic, stearic, palmitic) that mimic the skin's natural sebum composition. Highly effective as an emollient for skin damaged by extreme hot water (temp_high) or high chlorine. Suitable for 2–3 times a week as an intensive treatment.",
+    "avoid_when_en": "Oily skin; avoid the face if pores clog easily"
+  },
+  {
+    "id": "cetaphil-dermacontrol-foam-wash",
+    "name": "Cetaphil DermaControl Oil Control Foam Wash",
+    "brand": "Cetaphil",
+    "category": "cleanser",
+    "for_skin_types": [
+      "oily",
+      "acne_prone",
+      "combination"
+    ],
+    "active_ingredients": [
+      "zinc coceth sulfate",
+      "zinc glycinate",
+      "niacinamide"
+    ],
+    "best_when_water": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Kulit kering atau sangat sensitif",
+    "how_to_use": "Gunakan pagi dan malam. Busa dengan air hangat, pijat 30 detik, bilas bersih.",
+    "scientific_basis": "Zinc complex mengontrol produksi sebum berlebih. Formulasi syndet (pH 5.5–6.0) tidak meningkatkan aktivitas lipase di kulit berminyak. Diuji klinis untuk kulit berjerawat dan tidak mengiritasi pada air dengan TDS atau klorin tinggi.",
+    "texture": "Gel berbusa",
+    "fragrance_free": true,
+    "paraben_free": true,
+    "sources": [],
+    "how_to_use_en": "Massage onto damp skin for 30–60 seconds, then rinse with lukewarm water.",
+    "scientific_basis_en": "Zinc complex controls excess sebum production. The syndet formula (pH 5.5–6.0) does not increase lipase activity on oily skin. Clinically tested for acne-prone skin and non-irritating on high-TDS or high-chlorine water.",
+    "avoid_when_en": "Dry or very sensitive skin"
+  },
+  {
+    "id": "bioderma-sensibio-h2o",
+    "name": "Bioderma Sensibio H2O Micellar Water",
+    "brand": "Bioderma",
+    "category": "cleanser",
+    "for_skin_types": [
+      "sensitive",
+      "normal",
+      "dry"
+    ],
+    "active_ingredients": [
+      "micelles",
+      "cucumber extract",
+      "mannitol"
+    ],
+    "best_when_water": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Tidak ada kontraindikasi umum",
+    "how_to_use": "Tuangkan ke kapas lembut, usap lembut ke wajah. Tidak perlu dibilas untuk kulit sensitif. Sangat direkomendasikan sebagai alternatif saat kualitas air sedang buruk.",
+    "scientific_basis": "Micellar water menghindari kulit dari kontak langsung dengan air keran berkualitas buruk (TDS tinggi, klorin tinggi). Khusus untuk kulit sensitif, membersihkan tanpa mengubah pH dan microbiome kulit. Mannitol adalah osmoprotektant yang melindungi sel kulit dari stres osmotik.",
+    "texture": "Air jernih",
+    "fragrance_free": true,
+    "paraben_free": true,
+    "sources": [],
+    "how_to_use_en": "Massage onto damp skin for 30–60 seconds, then rinse with lukewarm water.",
+    "scientific_basis_en": "Micellar water avoids direct skin contact with poor-quality tap water (high TDS, high chlorine). Specifically for sensitive skin, it cleanses without altering skin pH and microbiome. Mannitol is an osmoprotectant that protects skin cells from osmotic stress.",
+    "avoid_when_en": "No general contraindications"
+  },
+  {
+    "id": "emina-bright-stuff-moisturizer",
+    "name": "Emina Bright Stuff Moisturizing Lotion",
+    "brand": "Emina",
+    "origin": "Indonesia",
+    "category": "moisturizer",
+    "for_skin_types": [
+      "normal",
+      "combination",
+      "oily"
+    ],
+    "active_ingredients": [
+      "niacinamide",
+      "vitamin C derivative",
+      "glycerin"
+    ],
+    "best_when_water": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false
+    },
+    "avoid_when": "Kulit sangat kering atau atopik",
+    "how_to_use": "Gunakan sebagai moisturizer sehari-hari pagi dan malam. Oleskan setelah toner.",
+    "scientific_basis": "Pilihan terjangkau untuk remaja dan young adults. Niacinamide untuk brightening dan kontrol minyak. Formulasi ringan cocok untuk iklim tropis Indonesia dan tipe kulit berminyak/kombinasi.",
+    "texture": "Lotion ringan",
+    "fragrance_free": false,
+    "paraben_free": false,
+    "sources": [],
+    "how_to_use_en": "Apply right after showering while skin is still slightly damp, within 1–3 minutes.",
+    "scientific_basis_en": "An affordable choice for teenagers and young adults. Niacinamide for brightening and oil control. The light formula suits the Indonesian tropical climate and oily/combination skin types.",
+    "avoid_when_en": "Very dry or atopic skin"
+  },
+  {
+    "id": "eau-thermale-avene-trixera",
+    "name": "Eau Thermale Avène Trixéra+ Selectiose Cleansing Gel",
+    "brand": "Avène",
+    "category": "cleanser",
+    "for_skin_types": [
+      "dry",
+      "atopic",
+      "sensitive"
+    ],
+    "active_ingredients": [
+      "Selectiose (lipid fraction)",
+      "thermal spring water",
+      "glycerin"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Tidak ada kontraindikasi umum",
+    "how_to_use": "Aplikasikan ke tubuh basah, pijat lembut, bilas bersih dengan air hangat. Sangat direkomendasikan untuk penderita eksim saat klorin atau TDS tinggi.",
+    "scientific_basis": "Avène Thermal Spring Water mengandung silicate dan mikroorganisme yang secara klinis terbukti mengurangi inflamasi dan reaktivitas kulit. Selectiose melindungi skin barrier lipid terhadap saponifikasi dari air keras. Formula syndet pH 6.5 optimal untuk kulit atopik.",
+    "texture": "Gel lembut berbusa ringan",
+    "fragrance_free": true,
+    "paraben_free": true,
+    "sources": [
+      "doi:10.1111/jdv.17927"
+    ],
+    "how_to_use_en": "Massage onto damp skin for 30–60 seconds, then rinse with lukewarm water.",
+    "scientific_basis_en": "Avène Thermal Spring Water contains silicates and microorganisms clinically proven to reduce inflammation and skin reactivity. Selectiose protects the skin barrier lipids against saponification from hard water. The syndet formula at pH 6.5 is optimal for atopic skin.",
+    "avoid_when_en": "No general contraindications"
+  },
+  {
+    "id": "ms-glow-serum-brightening",
+    "name": "MS Glow Brightening Serum",
+    "brand": "MS Glow",
+    "origin": "Indonesia",
+    "category": "serum",
+    "for_skin_types": [
+      "normal",
+      "combination",
+      "oily"
+    ],
+    "active_ingredients": [
+      "niacinamide",
+      "alpha arbutin",
+      "vitamin C"
+    ],
+    "best_when_water": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false
+    },
+    "avoid_when": "Kulit sangat kering atau sensitif; hindari mata",
+    "how_to_use": "Oleskan 2–3 tetes ke wajah bersih setelah toner, sebelum moisturizer. Gunakan pagi dan malam.",
+    "scientific_basis": "Kombinasi triple brightening: alpha arbutin menghambat tirosinase, niacinamide menghambat transfer melanosom, vitamin C sebagai antioksidan. Efektif untuk hiperpigmentasi yang diperparah oleh air keras (mineral deposit dapat meningkatkan stres oksidatif). Produk lokal halal yang sangat populer di segmen Indonesia.",
+    "texture": "Serum ringan",
+    "fragrance_free": false,
+    "paraben_free": true,
+    "sources": [],
+    "how_to_use_en": "Apply a few drops to clean skin before moisturizer, morning and/or night.",
+    "scientific_basis_en": "A triple brightening combination: alpha arbutin inhibits tyrosinase, niacinamide inhibits melanosome transfer, vitamin C as an antioxidant. Effective for hyperpigmentation worsened by hard water (mineral deposits can increase oxidative stress). A very popular local halal product in the Indonesian segment.",
+    "avoid_when_en": "Very dry or sensitive skin; avoid the eyes"
+  },
+  {
+    "id": "bio-oil",
+    "name": "Bio-Oil Skincare Body Oil",
+    "brand": "Bio-Oil",
+    "category": "body_oil",
+    "for_skin_types": [
+      "dry",
+      "normal",
+      "sensitive"
+    ],
+    "active_ingredients": [
+      "PurCellin Oil",
+      "vitamin A",
+      "vitamin E",
+      "calendula",
+      "lavender"
+    ],
+    "best_when_water": {
+      "ph_low": true,
+      "ph_high": true,
+      "tds_high": true,
+      "chlorine_high": true
+    },
+    "avoid_when": "Kulit berminyak sangat parah; hindari wajah berjerawat",
+    "how_to_use": "Oleskan ke area striae, bekas luka, atau kulit kering segera setelah mandi. Pijat dengan gerakan memutar selama 2 menit.",
+    "scientific_basis": "PurCellin Oil memodifikasi konsistensi minyak agar mudah meresap ke kulit. Vitamin A (retinyl palmitate) meningkatkan pergantian sel kulit. Efektif untuk memperbaiki tampilan striae yang diperparah oleh fluktuasi berat badan dan kulit kering akibat air keras.",
+    "texture": "Minyak ringan",
+    "fragrance_free": false,
+    "paraben_free": true,
+    "sources": [],
+    "how_to_use_en": "Apply to damp skin after showering to lock in moisture.",
+    "scientific_basis_en": "PurCellin Oil modifies the oil consistency so it absorbs easily into the skin. Vitamin A (retinyl palmitate) increases skin cell turnover. Effective for improving the appearance of striae worsened by weight fluctuations and dry skin from hard water.",
+    "avoid_when_en": "Very severely oily skin; avoid acne-prone faces"
+  },
+  {
+    "id": "safi-white-expert-cleanser",
+    "name": "Safi White Expert Deep Cleansing Foam",
+    "brand": "Safi",
+    "origin": "Malaysia/Indonesia",
+    "category": "cleanser",
+    "for_skin_types": [
+      "normal",
+      "combination",
+      "oily"
+    ],
+    "active_ingredients": [
+      "alpha arbutin",
+      "niacinamide",
+      "vitamin C"
+    ],
+    "best_when_water": {
+      "ph_low": false,
+      "ph_high": false,
+      "tds_high": false,
+      "chlorine_high": false
+    },
+    "avoid_when": "Kulit sangat kering atau sensitif",
+    "how_to_use": "Busa di telapak tangan, pijat lembut ke wajah 30–60 detik, bilas bersih.",
+    "scientific_basis": "Cleanser halal dengan formula brightening yang sesuai untuk kulit tropis. Alpha arbutin sebagai inhibitor tirosinase efektif untuk kulit yang rentan hiperpigmentasi. Pilihan terjangkau untuk segmen Muslim yang memerlukan produk halal bersertifikat.",
+    "texture": "Foam",
+    "fragrance_free": false,
+    "paraben_free": true,
+    "halal_certified": true,
+    "sources": [],
+    "how_to_use_en": "Massage onto damp skin for 30–60 seconds, then rinse with lukewarm water.",
+    "scientific_basis_en": "A halal cleanser with a brightening formula suitable for tropical skin. Alpha arbutin as a tyrosinase inhibitor is effective for hyperpigmentation-prone skin. An affordable choice for the Muslim segment requiring certified halal products.",
+    "avoid_when_en": "Very dry or sensitive skin"
+  }
+]

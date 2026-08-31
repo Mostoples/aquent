@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AQUENT — Smart Shower Intelligence</title>
+<meta name="description" content="Platform monitoring kualitas air mandi cerdas berbasis IoT dan Kecerdasan Buatan dengan Explainable AI untuk keselamatan dan kesehatan pengguna.">
+<link rel="stylesheet" href="landing.css?v=2026">
+
+<!-- Phosphor Icons -->
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- animated aurora background -->
+<div class="aurora" aria-hidden="true">
+  <span class="aurora__blob b1"></span>
+  <span class="aurora__blob b2"></span>
+  <span class="aurora__blob b3"></span>
+  <div class="aurora__grid"></div>
+</div>
+
+<!-- ── NAV ── -->
+<nav class="l-nav" id="topnav">
+  <a href="#" class="l-nav__brand">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4C16 4 8 13 8 19a8 8 0 0016 0C24 13 16 4 16 4z" fill="url(#dg)" opacity=".95"/>
+      <path d="M16 14v6m-3-3h6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+      <defs>
+        <linearGradient id="dg" x1="8" y1="4" x2="24" y2="27" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#00b4d8"/><stop offset="1" stop-color="#0077b6"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    AQUENT
+  </a>
+
+  <ul class="l-nav__links">
+    <li><a href="#tentang">Tentang</a></li>
+    <li><a href="#novelty">Novelty</a></li>
+    <li><a href="#fitur">Fitur</a></li>
+    <li><a href="#arsitektur">Arsitektur</a></li>
+    <li><a href="#harga">Harga</a></li>
+    <li><a href="slr.html">Riset</a></li>
+  </ul>
+
+  <a href="login.html" class="l-nav__cta">
+    Mulai Gratis
+    <i class="ph-bold ph-arrow-right"></i>
+  </a>
+
+  <div class="l-nav__hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+    <i class="ph ph-list"></i>
+  </div>
+</nav>
+
+<!-- mobile menu -->
+<div id="mobileMenu">
+  <ul>
+    <li><a href="#tentang"><i class="ph ph-info"></i> Tentang</a></li>
+    <li><a href="#novelty"><i class="ph ph-sparkle"></i> Novelty</a></li>
+    <li><a href="#fitur"><i class="ph ph-squares-four"></i> Fitur</a></li>
+    <li><a href="#arsitektur"><i class="ph ph-graph"></i> Arsitektur</a></li>
+    <li><a href="#harga"><i class="ph ph-crown"></i> Harga</a></li>
+    <li><a href="slr.html"><i class="ph ph-article"></i> Publikasi SLR</a></li>
+    <li><a href="login.html" class="btn-primary" style="justify-content:center"><i class="ph-fill ph-sign-in"></i> Masuk / Daftar</a></li>
+  </ul>
+</div>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <div class="hero__copy">
+    <span class="pill reveal">
+      <span class="pill__dot"></span>
+      Smart Shower Intelligence · IoT + Explainable AI
+    </span>
+    <h1 class="hero__title reveal">
+      Air mandi Anda,<br>
+      <span class="grad">kini bisa bicara.</span>
+    </h1>
+    <p class="hero__sub reveal">
+      AQUENT memantau pH, suhu, kekeruhan, TDS, dan klorin secara real-time —
+      lalu menerjemahkannya jadi rekomendasi kesehatan kulit yang
+      <strong>transparan</strong> lewat AI yang bisa dijelaskan. Divalidasi oleh
+      riset SLR 21 artikel terindeks Q1.
+    </p>
+    <div class="hero__cta reveal">
+      <a href="login.html" class="btn-primary btn-lg">
+        <i class="ph-fill ph-rocket-launch"></i> Coba Gratis Sekarang
+      </a>
+      <a href="#fitur" class="btn-ghost btn-lg">
+        <i class="ph ph-play-circle"></i> Lihat Fitur
+      </a>
+    </div>
+    <div class="hero__trust reveal">
+      <div class="avatars">
+        <span style="background:linear-gradient(135deg,#00b4d8,#0077b6)">Z</span>
+        <span style="background:linear-gradient(135deg,#7c5cff,#5a3fd6)">D</span>
+        <span style="background:linear-gradient(135deg,#00c2a8,#009b86)">K</span>
+        <span style="background:linear-gradient(135deg,#ffb020,#e08600)">+</span>
+      </div>
+      <div class="hero__trust-txt">
+        <div class="stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+        Dirancang dari <strong>847 rekaman riset</strong> · disaring jadi <strong>21 artikel final</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- floating glass dashboard mockup -->
+  <div class="hero__visual reveal">
+    <div class="mock">
+      <div class="mock__bar">
+        <span class="mock__dot" style="background:#ff5f57"></span>
+        <span class="mock__dot" style="background:#febc2e"></span>
+        <span class="mock__dot" style="background:#28c840"></span>
+        <span class="mock__url"><i class="ph ph-lock-simple"></i> aquent-id.web.app/app</span>
+      </div>
+      <div class="mock__body">
+        <div class="hm-ring" style="--val:92">
+          <svg viewBox="0 0 120 120">
+            <circle class="hm-ring__bg" cx="60" cy="60" r="52"/>
+            <circle class="hm-ring__fg" cx="60" cy="60" r="52"/>
+          </svg>
+          <div class="hm-ring__center">
+            <div class="hm-ring__num">92</div>
+            <div class="hm-ring__cap">Skin Score</div>
+          </div>
+        </div>
+        <div class="hm-metrics">
+          <div class="hm-metric">
+            <div class="hm-metric__top"><i class="ph-fill ph-drop"></i> pH</div>
+            <div class="hm-metric__val">7.2</div>
+            <div class="hm-bar"><span style="width:72%"></span></div>
+          </div>
+          <div class="hm-metric">
+            <div class="hm-metric__top"><i class="ph-fill ph-thermometer"></i> Suhu</div>
+            <div class="hm-metric__val">37°C</div>
+            <div class="hm-bar"><span style="width:60%;background:linear-gradient(90deg,#ffb020,#ff7a45)"></span></div>
+          </div>
+          <div class="hm-metric">
+            <div class="hm-metric__top"><i class="ph-fill ph-eyedropper"></i> Klorin</div>
+            <div class="hm-metric__val">0.3<small>mg/L</small></div>
+            <div class="hm-bar"><span style="width:30%;background:linear-gradient(90deg,#00c2a8,#00b4d8)"></span></div>
+          </div>
+          <div class="hm-metric">
+            <div class="hm-metric__top"><i class="ph-fill ph-flask"></i> TDS</div>
+            <div class="hm-metric__val">180<small>ppm</small></div>
+            <div class="hm-bar"><span style="width:45%"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="mock__xai">
+        <div class="mock__xai-head"><i class="ph-fill ph-brain"></i> XAI menjelaskan</div>
+        <p>Kualitas air <b>baik</b>. Klorin rendah &amp; pH seimbang mendukung skin barrier. Suhu sedikit tinggi — turunkan ke 36°C untuk kulit sensitif.</p>
+      </div>
+    </div>
+    <div class="float-chip chip-1"><i class="ph-fill ph-shield-check"></i> Aman dipakai</div>
+    <div class="float-chip chip-2"><i class="ph-fill ph-leaf"></i> Hemat 24L/mgg</div>
+  </div>
+</header>
+
+<!-- ── LOGO / SOURCE MARQUEE ── -->
+<section class="proof">
+  <p class="proof__label">Dilandasi literatur terindeks &amp; standar internasional</p>
+  <div class="marquee">
+    <div class="marquee__track">
+      <span><i class="ph ph-books"></i> PubMed / MEDLINE</span>
+      <span><i class="ph ph-graph"></i> Scopus Q1–Q2</span>
+      <span><i class="ph ph-flask"></i> WHO Guidelines</span>
+      <span><i class="ph ph-certificate"></i> PRISMA 2020</span>
+      <span><i class="ph ph-shield"></i> SNI Air Bersih</span>
+      <span><i class="ph ph-brain-circuit"></i> Explainable AI</span>
+      <!-- duplicate for seamless loop -->
+      <span><i class="ph ph-books"></i> PubMed / MEDLINE</span>
+      <span><i class="ph ph-graph"></i> Scopus Q1–Q2</span>
+      <span><i class="ph ph-flask"></i> WHO Guidelines</span>
+      <span><i class="ph ph-certificate"></i> PRISMA 2020</span>
+      <span><i class="ph ph-shield"></i> SNI Air Bersih</span>
+      <span><i class="ph ph-brain-circuit"></i> Explainable AI</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── STAT BAND ── -->
+<section class="statband">
+  <div class="container statband__grid">
+    <div class="statband__item reveal">
+      <div class="statband__num"><span data-count="87" data-prefix="+" data-suffix="%">0</span></div>
+      <div class="statband__lbl">risiko eksim pada air keras<span>Jabbar-Lopez et al., 2021</span></div>
+    </div>
+    <div class="statband__item reveal">
+      <div class="statband__num"><span data-count="95" data-suffix="%">0</span></div>
+      <div class="statband__lbl">klorin direduksi filter karbon<span>Parra et al., 2020</span></div>
+    </div>
+    <div class="statband__item reveal">
+      <div class="statband__num"><span data-count="34" data-prefix="+" data-suffix="%">0</span></div>
+      <div class="statband__lbl">adopsi naik berkat XAI<span>Coutts et al., 2023</span></div>
+    </div>
+    <div class="statband__item reveal">
+      <div class="statband__num"><span data-count="41" data-prefix="+" data-suffix="%">0</span></div>
+      <div class="statband__lbl">kepatuhan naik dgn AI Chat<span>Peng et al., 2023</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TENTANG ══ -->
+<section id="tentang">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="section-tag"><i class="ph ph-info"></i> Tentang Produk</span>
+      <h2 class="section-title">Apa itu <span>AQUENT</span>?</h2>
+      <p class="section-desc">Dashboard shower pintar berbasis web yang memantau kualitas air real-time dan memberi rekomendasi kesehatan berbasis AI yang dapat dijelaskan.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p><strong>AQUENT</strong> menggabungkan Internet of Things (IoT) dengan Machine Learning dan <strong>Explainable AI (XAI)</strong> untuk menjaga kesehatan kulit Anda di setiap sesi mandi.</p>
+        <p>Sistem mendeteksi parameter berisiko — ketidakseimbangan pH, suhu ekstrem, kekeruhan, mineral berlebih (TDS), hingga klorin — lalu memberikan <strong>rekomendasi personal</strong> yang transparan.</p>
+        <p>Setiap rekomendasi disertai <strong>atribusi faktor</strong>, <em>confidence score</em>, dan penjelasan berbahasa Indonesia yang mudah dipahami.</p>
+        <div class="about-text__cta">
+          <a href="login.html" class="btn-primary"><i class="ph-fill ph-sign-in"></i> Mulai Gratis</a>
+          <a href="slr.html" class="btn-ghost"><i class="ph ph-book-open-text"></i> Baca Metodologi</a>
+        </div>
+      </div>
+      <div class="about-visual reveal">
+        <div class="about-visual__head"><i class="ph ph-flask"></i> Parameter Sensor</div>
+        <ul class="sensor-list">
+          <li><span class="sensor-dot"></span><div><strong>pH Air</strong> — asiditas/alkalinitas (optimal 6.5–8.5)</div></li>
+          <li><span class="sensor-dot"></span><div><strong>Suhu</strong> — temperatur real-time (°C)</div></li>
+          <li><span class="sensor-dot"></span><div><strong>Kekeruhan</strong> — kejernihan air (NTU)</div></li>
+          <li><span class="sensor-dot new"></span><div><strong>TDS / Hardness</strong> <span class="tag-new">BARU</span> — dissolved solids (ppm)</div></li>
+          <li><span class="sensor-dot new"></span><div><strong>Klorin Bebas</strong> <span class="tag-new">BARU</span> — residu disinfektan (mg/L)</div></li>
+          <li><span class="sensor-dot ai"></span><div><strong>AI Skin Health Score</strong> — indeks risiko berbasis XAI</div></li>
+          <li><span class="sensor-dot ai"></span><div><strong>Eco-Monitor</strong> — estimasi air &amp; energi</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NOVELTY ══ -->
+<section id="novelty">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="section-tag"><i class="ph ph-sparkle"></i> Kontribusi Ilmiah</span>
+      <h2 class="section-title">3 Klaim <span>Novelty</span></h2>
+      <p class="section-desc">Berdasarkan SLR terhadap 21 publikasi terindeks Scopus &amp; PubMed (2019–2024), AQUENT mengisi tiga gap penelitian utama.</p>
+    </div>
+    <div class="novelty-grid">
+      <article class="novelty-card reveal">
+        <div class="novelty-card__icon"><i class="ph-duotone ph-brain"></i></div>
+        <div class="novelty-card__num">Novelty 01</div>
+        <h3>Explainable AI untuk Rekomendasi Kualitas Air</h3>
+        <p>Sistem XAI pertama yang mengintegrasikan atribusi faktor sensor air dengan rekomendasi kesehatan kulit berbahasa alami. Setiap output menyertakan bar kontribusi per-faktor dan confidence score — adopsi naik +34% (Coutts et al., 2023).</p>
+      </article>
+      <article class="novelty-card reveal">
+        <div class="novelty-card__icon"><i class="ph-duotone ph-waves"></i></div>
+        <div class="novelty-card__num">Novelty 02</div>
+        <h3>Integrasi 5-Parameter Shower IoT</h3>
+        <p>Menggabungkan pH + Suhu + Turbidity + TDS + Klorin dalam satu platform home-use. Studi terbaik sebelumnya hanya 4 parameter tanpa klorin. TDS &gt;250 ppm menaikkan risiko eksim +44% (Perkin et al., 2021).</p>
+      </article>
+      <article class="novelty-card reveal">
+        <div class="novelty-card__icon"><i class="ph-duotone ph-book-open-text"></i></div>
+        <div class="novelty-card__num">Novelty 03</div>
+        <h3>Ensiklopedia Dermatologi Interaktif</h3>
+        <p>Knowledge-base <strong>41 kondisi kulit</strong> &amp; <strong>31 panduan mandi</strong>, diperbarui berdasarkan profil sensor real-time — integrasi pertama dalam sistem shower IoT. Didukung &gt;20 literatur dermatologi Q1.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FITUR (bento) ══ -->
+<section id="fitur">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="section-tag"><i class="ph ph-star-four"></i> Fitur Inovatif</span>
+      <h2 class="section-title">10 Fitur <span>Unggulan</span></h2>
+      <p class="section-desc">Setiap fitur dipetakan langsung dari gap penelitian SLR — relevansi ilmiah dengan nilai nyata bagi pengguna.</p>
+    </div>
+    <div class="bento">
+      <article class="bento__card span-2 reveal">
+        <div class="feature-card__icon"><i class="ph-duotone ph-monitor-play"></i></div>
+        <div class="feature-card__id">F01 · Gap #1,2</div>
+        <h4>Dashboard Real-Time</h4>
+        <p>Monitoring 5 parameter sensor secara live dengan visualisasi Chart.js, Quality Score, dan alert otomatis saat melewati ambang aman WHO/SNI.</p>
+      </article>
+      <article class="bento__card highlight reveal">
+        <div class="feature-card__icon"><i class="ph-duotone ph-robot"></i></div>
+        <div class="feature-card__id">F02 · Gap #3</div>
+        <h4>XAI Konsultan Kulit</h4>
+        <p>Rekomendasi AI + atribusi faktor + confidence score. Transparan dan dapat dijelaskan.</p>
+      </article>
+      <article class="bento__card reveal">
+        <div class="feature-card__icon"><i class="ph-duotone ph-books"></i></div>
+        <div class="feature-card__id">F03 · Gap #4</div>
+        <h4>Ensiklopedia Dermatologi</h4>
+        <p>Knowledge-base kondisi kulit adaptif terhadap profil sensor.</p>
+      </article>
+      <article class="bento__card reveal">
+        <div class="feature-card__icon"><i class="ph-duotone ph-scan-smiley"></i></div>
+        <div class="feature-card__id">F04 · Gap #1,5</div>
+        <h4>Scanner Risiko Kulit</h4>
+        <p>Skin Health Index dari ML lokal — 100% privat di perangkat.</p>
+      </article>
+      <article class="bento__card reveal">
+        <div class="feature-card__icon"><i class="ph-duotone ph-leaf"></i></div>
+        <div class="feature-card__id">F05 · Gap #6</div>
+        <h4>Eco-Monitor</h4>
+        <p>Estimasi konsumsi air &amp; energi per sesi dengan target hemat.</p>
+      </article>
+      <article class="bento__card reveal">
+        <div class="feature-card__icon"><i class="ph-duotone ph-hand-heart"></i></div>
+        <div class="feature-card__id">F06 · Gap #3,7</div>
+        <h4>Dermal-Guide</h4>
+        <p>Panduan perawatan step-by-step sesuai kondisi air &amp; tipe kulit.</p>
+      </article>
+      <article class="bento__card reveal">
+        <div class="feature-card__icon"><i class="ph-duotone ph-sliders-horizontal"></i></div>
+        <div class="feature-card__id">F07 · Gap #8</div>
+        <h4>Smart Control</h4>
+        <p>Kontrol suhu, durasi, &amp; filter dengan integrasi perangkat pintar.</p>
+      </article>
+      <article class="bento__card reveal">
+        <div class="feature-card__icon"><i class="ph-duotone ph-calendar-dots"></i></div>
+        <div class="feature-card__id">F08 · Gap #9</div>
+        <h4>Scheduler Mandi</h4>
+        <p>Penjadwalan optimal berbasis prediksi kualitas air.</p>
+      </article>
+      <article class="bento__card span-2 reveal">
+        <div class="feature-card__icon"><i class="ph-duotone ph-chart-line-up"></i></div>
+        <div class="feature-card__id">F09 · Gap #2,10</div>
+        <h4>Tren &amp; Histori</h4>
+        <p>Analisis tren jangka panjang dengan deteksi anomali dan laporan berkala — plus F10 Alert real-time saat parameter melewati ambang aman.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ARSITEKTUR ══ -->
+<section id="arsitektur">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="section-tag"><i class="ph ph-graph"></i> Arsitektur Sistem</span>
+      <h2 class="section-title">Desain <span>Teknis</span></h2>
+      <p class="section-desc">Arsitektur berlapis dari sensor fisik hingga layer AI yang dapat dijelaskan, terhubung melalui Firebase.</p>
+    </div>
+    <div class="arch-wrap reveal">
+      <div class="arch-layers">
+        <div class="arch-layer">
+          <div class="arch-layer__label"><i class="ph ph-flask"></i> Sensor</div>
+          <div class="arch-layer__boxes">
+            <div class="arch-box highlight">pH Sensor</div>
+            <div class="arch-box highlight">Suhu (DS18B20)</div>
+            <div class="arch-box highlight">Turbidity</div>
+            <div class="arch-box">TDS Probe</div>
+            <div class="arch-box">Klorin Sensor</div>
+          </div>
+        </div>
+        <div class="arch-arrow"><i class="ph ph-arrow-down"></i></div>
+        <div class="arch-layer">
+          <div class="arch-layer__label"><i class="ph ph-cpu"></i> Edge / MCU</div>
+          <div class="arch-layer__boxes">
+            <div class="arch-box highlight">ESP32 / Arduino</div>
+            <div class="arch-box">ADC Sampling</div>
+            <div class="arch-box">MQTT / HTTP</div>
+          </div>
+        </div>
+        <div class="arch-arrow"><i class="ph ph-arrow-down"></i></div>
+        <div class="arch-layer">
+          <div class="arch-layer__label"><i class="ph ph-cloud"></i> Cloud</div>
+          <div class="arch-layer__boxes">
+            <div class="arch-box highlight">Firebase Realtime DB</div>
+            <div class="arch-box">Firebase Auth</div>
+            <div class="arch-box">Firebase Hosting</div>
+          </div>
+        </div>
+        <div class="arch-arrow"><i class="ph ph-arrow-down"></i></div>
+        <div class="arch-layer">
+          <div class="arch-layer__label"><i class="ph ph-brain"></i> AI / XAI</div>
+          <div class="arch-layer__boxes">
+            <div class="arch-box highlight">TFJS Skin Model</div>
+            <div class="arch-box highlight">Factor Attribution</div>
+            <div class="arch-box">Confidence Score</div>
+            <div class="arch-box">Gemini Konsultan</div>
+          </div>
+        </div>
+        <div class="arch-arrow"><i class="ph ph-arrow-down"></i></div>
+        <div class="arch-layer">
+          <div class="arch-layer__label"><i class="ph ph-monitor"></i> Frontend</div>
+          <div class="arch-layer__boxes">
+            <div class="arch-box highlight">HTML5 + CSS3</div>
+            <div class="arch-box highlight">Vanilla JS + Chart.js</div>
+            <div class="arch-box">Glassmorphism UI</div>
+            <div class="arch-box">PWA Ready</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HARGA ══ -->
+<section id="harga">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="section-tag"><i class="ph ph-crown"></i> Paket &amp; Harga</span>
+      <h2 class="section-title">Pilih <span>Paket</span> Anda</h2>
+      <p class="section-desc">Mulai gratis, upgrade kapan saja. Semua paket pakai data sensor real-time IoT dan Explainable AI.</p>
+    </div>
+    <div class="price-grid">
+
+      <div class="price-card reveal">
+        <div class="price-card__head">
+          <i class="ph-fill ph-leaf" style="color:#8b949e"></i>
+          <span style="color:#8b949e">Free</span>
+        </div>
+        <div class="price-card__amt">Rp 0<small>/bulan</small></div>
+        <div class="price-card__note">Selamanya gratis</div>
+        <ul class="price-list">
+          <li class="ok"><i class="ph-fill ph-check-circle"></i>Dashboard real-time</li>
+          <li class="ok"><i class="ph-fill ph-check-circle"></i>5 pesan AI per hari</li>
+          <li class="ok"><i class="ph-fill ph-check-circle"></i>Eco-Monitor &amp; Smart Control</li>
+          <li class="ok"><i class="ph-fill ph-check-circle"></i>Skin Scanner AI</li>
+          <li class="no"><i class="ph-fill ph-x-circle"></i>AI Chat Unlimited</li>
+          <li class="no"><i class="ph-fill ph-x-circle"></i>Multi-Profil</li>
+        </ul>
+        <a href="login.html" class="btn-ghost" style="justify-content:center"><i class="ph-fill ph-user-plus"></i> Mulai Gratis</a>
+      </div>
+
+      <div class="price-card featured reveal">
+        <div class="price-card__ribbon">PALING POPULER</div>
+        <div class="price-card__head">
+          <i class="ph-fill ph-star" style="color:#ffce4f"></i>
+          <span style="color:#ffce4f">Premium</span>
+        </div>
+        <div class="price-card__amt">Rp 29.000<small>/bulan</small></div>
+        <div class="price-card__note">Semua fitur Free +</div>
+        <ul class="price-list">
+          <li class="ok"><i class="ph-fill ph-check-circle"></i>AI Chat <strong>Unlimited</strong></li>
+          <li class="ok"><i class="ph-fill ph-check-circle"></i>Riwayat Sesi Lengkap</li>
+          <li class="ok"><i class="ph-fill ph-check-circle"></i>Dermal-Guide Personalisasi</li>
+          <li class="no"><i class="ph-fill ph-x-circle"></i>Multi-Profil (5)</li>
+          <li class="no"><i class="ph-fill ph-x-circle"></i>Push Notifikasi</li>
+        </ul>
+        <a href="https://wa.me/6281234567890?text=Halo+saya+ingin+upgrade+AQUENT+Premium" target="_blank" rel="noopener" class="btn-primary" style="justify-content:center"><i class="ph-fill ph-whatsapp-logo"></i> Upgrade Premium</a>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="price-card__head">
+          <i class="ph-fill ph-lightning" style="color:#48cae4"></i>
+          <span style="color:#48cae4">Ultimate</span>
+        </div>
+        <div class="price-card__amt">Rp 59.000<small>/bulan</small></div>
+        <div class="price-card__note">Semua fitur Premium +</div>
+        <ul class="price-list">
+          <li class="ok"><i class="ph-fill ph-check-circle"></i>Multi-Profil (hingga 5)</li>
+          <li class="ok"><i class="ph-fill ph-check-circle"></i>Push Notifikasi</li>
+          <li class="ok"><i class="ph-fill ph-check-circle"></i>Laporan PDF Bulanan</li>
+          <li class="ok"><i class="ph-fill ph-check-circle"></i>Prioritas Support 24/7</li>
+          <li class="ok"><i class="ph-fill ph-check-circle"></i>Akses Fitur Beta</li>
+          <li class="ok"><i class="ph-fill ph-check-circle"></i>API Data Sensor Pribadi</li>
+        </ul>
+        <a href="https://wa.me/6281234567890?text=Halo+saya+ingin+upgrade+AQUENT+Ultimate" target="_blank" rel="noopener" class="btn-ghost" style="justify-content:center"><i class="ph-fill ph-whatsapp-logo"></i> Upgrade Ultimate</a>
+      </div>
+
+    </div>
+    <p class="price-foot"><i class="ph ph-lock-key"></i> Pembayaran aman via WhatsApp · Paket aktif dalam 1×24 jam</p>
+  </div>
+</section>
+
+<!-- ══ TIM ══ -->
+<section id="tim">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="section-tag"><i class="ph ph-users-three"></i> Tim Peneliti</span>
+      <h2 class="section-title">Tim <span>AQUENT</span></h2>
+      <p class="section-desc">Kolaborasi multi-disiplin: Rekayasa Perangkat Lunak, Teknik Biomedis, dan Ilmu Komputer.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card leader reveal">
+        <div class="team-avatar leader-av">Z</div>
+        <div class="team-card__role"><i class="ph-fill ph-crown"></i> Ketua Tim</div>
+        <div class="team-card__name">Zharifa Laduna Faiza</div>
+        <div class="team-card__affil"><i class="ph ph-users-three"></i> Tim Peneliti AQUENT</div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">D</div>
+        <div class="team-card__role"><i class="ph ph-user"></i> Anggota</div>
+        <div class="team-card__name">Dhafa Krisna Bagus Harjanto</div>
+        <div class="team-card__affil"><i class="ph ph-users-three"></i> Tim Peneliti AQUENT</div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">L</div>
+        <div class="team-card__role"><i class="ph ph-user"></i> Anggota</div>
+        <div class="team-card__name">Lais Arsalan Farzana Hartanto</div>
+        <div class="team-card__affil"><i class="ph ph-users-three"></i> Tim Peneliti AQUENT</div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">K</div>
+        <div class="team-card__role"><i class="ph ph-user"></i> Anggota</div>
+        <div class="team-card__name">Kinan Hayu Prima Andini</div>
+        <div class="team-card__affil"><i class="ph ph-users-three"></i> Tim Peneliti AQUENT</div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">J</div>
+        <div class="team-card__role"><i class="ph ph-user"></i> Anggota</div>
+        <div class="team-card__name">Joanna Dharmarina Saputra</div>
+        <div class="team-card__affil"><i class="ph ph-users-three"></i> Tim Peneliti AQUENT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA BAND ══ -->
+<section class="cta-band">
+  <div class="cta-band__inner reveal">
+    <h2>Siap rasakan mandi yang lebih cerdas?</h2>
+    <p>Gratis selamanya untuk fitur inti. Tanpa kartu kredit. Mulai dalam 30 detik.</p>
+    <div class="cta-band__btns">
+      <a href="login.html" class="btn-primary btn-lg"><i class="ph-fill ph-rocket-launch"></i> Buat Akun Gratis</a>
+      <a href="slr.html" class="btn-ghost btn-lg on-band"><i class="ph ph-file-text"></i> Lihat Riset SLR</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="l-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="l-footer__brand"><i class="ph-fill ph-drop"></i> AQUENT</div>
+      <p>Smart Shower Intelligence — memantau kualitas air mandi dan menjaga kesehatan kulit dengan Explainable AI.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Produk</h5>
+      <a href="app.html">Dashboard</a>
+      <a href="#fitur">Fitur</a>
+      <a href="#harga">Harga</a>
+      <a href="login.html">Masuk / Daftar</a>
+    </div>
+    <div class="footer-col">
+      <h5>Riset</h5>
+      <a href="slr.html">Publikasi SLR</a>
+      <a href="#novelty">Novelty</a>
+      <a href="#arsitektur">Arsitektur</a>
+      <a href="#tim">Tim Peneliti</a>
+    </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <a href="privacy.html">Kebijakan Privasi</a>
+      <a href="help.html">Bantuan &amp; FAQ</a>
+      <a href="account.html">Akun Saya</a>
+    </div>
+  </div>
+  <div class="l-footer__copy">© <span id="footYear">2024</span> Tim Peneliti AQUENT. Dikembangkan untuk keperluan penelitian akademik.</div>
+</footer>
+
+<script src="landing.js?v=2026"></script>
+</body>
+</html>

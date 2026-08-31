@@ -1,0 +1,289 @@
+[
+  {
+    "id": "activated-carbon",
+    "name_id": "Filter Karbon Aktif",
+    "name_en": "Activated Carbon Filter",
+    "icon": "🪨",
+    "reduces_parameters": ["chlorine", "chloramine", "voc", "odor", "taste"],
+    "not_effective_for": ["tds", "hardness", "bacteria", "turbidity_heavy"],
+    "effectiveness_pct": {
+      "chlorine": 95,
+      "chloramine": 70,
+      "voc": 85,
+      "odor": 90,
+      "turbidity": 20
+    },
+    "types": [
+      {
+        "subtype": "shower-filter",
+        "description": "Filter dipasang langsung di kepala shower. Paling mudah dipasang tanpa instalasi plumber.",
+        "price_range_idr": "150000-400000",
+        "replacement_interval": "3–6 bulan atau ±300 galon",
+        "brands_available_id": ["Pelican", "Aquasana", "Sprite", "KDF-55", "merk lokal di Tokopedia"]
+      },
+      {
+        "subtype": "under-sink-carbon",
+        "description": "Filter karbon aktif di bawah wastafel untuk air keran.",
+        "price_range_idr": "300000-1200000",
+        "replacement_interval": "6–12 bulan",
+        "brands_available_id": ["3M", "Coway", "Pentair"]
+      }
+    ],
+    "best_for_conditions": ["chlorine_high", "odor"],
+    "skin_benefit": "Mengurangi klorin bebas hingga 95% — mencegah oksidasi lipid kulit dan mempertahankan kadar ceramide dan NMF (Natural Moisturizing Factor) yang optimal.",
+    "skin_benefit_for": ["sensitive", "dry", "atopic_dermatitis"],
+    "installation_difficulty": "mudah",
+    "installation_notes": "Pasang langsung ke kepala shower tanpa alat. Cukup putar dan ganti. Tidak perlu plumber.",
+    "maintenance": "Ganti kartrid setiap 3–6 bulan. Beberapa produk menunjukkan perubahan warna sebagai indikator penggantian.",
+    "scientific_basis": "Filter karbon aktif bekerja melalui adsorpsi — molekul klorin menempel pada permukaan karbon berpori yang sangat luas (1 gram karbon aktif = luas permukaan ±500 m²). Parra et al. (2020) mengkonfirmasi efektivitasnya dalam konteks sensor IoT kualitas air.",
+    "alert_trigger": "chlorine_high",
+    "alert_recommendation": "Pasang shower filter karbon aktif — harga mulai Rp 150.000, mudah dipasang sendiri, dan efektif mengurangi klorin hingga 95%.",
+    "sources": [
+      { "doi": "10.3390/s20030756", "citation": "Parra L et al. (2020). Sensors (MDPI). Design of low-cost water quality sensors." },
+      { "source": "NSF/ANSI 42", "citation": "NSF International Standard 42: Drinking Water Treatment Units — Aesthetic Effects." }
+    ]
+  },
+  {
+    "id": "reverse-osmosis",
+    "name_id": "Filter Reverse Osmosis (RO)",
+    "name_en": "Reverse Osmosis Filter",
+    "icon": "💧",
+    "reduces_parameters": ["tds", "hardness", "nitrate", "heavy_metals", "bacteria", "turbidity", "chlorine"],
+    "not_effective_for": ["voc_some", "certain_pesticides"],
+    "effectiveness_pct": {
+      "tds": 95,
+      "hardness": 95,
+      "nitrate": 90,
+      "heavy_metals": 98,
+      "bacteria": 99,
+      "turbidity": 99,
+      "chlorine": 85
+    },
+    "types": [
+      {
+        "subtype": "under-sink-ro",
+        "description": "Sistem RO di bawah wastafel dengan tangki penyimpanan. Memerlukan instalasi plumber.",
+        "price_range_idr": "1500000-5000000",
+        "replacement_interval": "Membran: 2–3 tahun; pre-filter: 6–12 bulan",
+        "brands_available_id": ["Pentair", "iSpring", "APEC", "Coway", "LG"]
+      },
+      {
+        "subtype": "countertop-ro",
+        "description": "Sistem RO di atas meja dapur, tidak memerlukan instalasi permanen.",
+        "price_range_idr": "2000000-4000000",
+        "replacement_interval": "Membran: 2 tahun",
+        "brands_available_id": ["Waterdrop", "Bluevua"]
+      }
+    ],
+    "best_for_conditions": ["tds_high", "turbidity_high", "heavy_metal_concern"],
+    "skin_benefit": "Secara efektif melunakkan air sadah (TDS tinggi) yang dikaitkan dengan peningkatan risiko dermatitis atopik hingga 87% (Jabbar-Lopez et al., 2021). Air RO hampir bebas mineral, mengurangi residu sabun dan meningkatkan efektivitas moisturizer.",
+    "skin_benefit_for": ["dry", "sensitive", "atopic_dermatitis", "eczema"],
+    "installation_difficulty": "sedang-sulit",
+    "installation_notes": "Memerlukan sambungan ke pipa air dingin dan saluran pembuangan. Disarankan dipasang oleh plumber profesional.",
+    "maintenance": "Ganti pre-filter (karbon/sedimen) setiap 6–12 bulan. Ganti membran RO setiap 2–3 tahun. Bersihkan tangki tahunan.",
+    "scientific_basis": "Membran RO dengan pori 0.0001 mikron menyaring hampir semua ion mineral terlarut melalui tekanan osmotik terbalik. Efektif menurunkan TDS dari 300+ ppm ke di bawah 50 ppm. WHO mencatat bahwa air RO murni (TDS < 50 ppm) mungkin perlu remineralisasi untuk konsumsi minum.",
+    "alert_trigger": "tds_high",
+    "alert_recommendation": "Untuk air sadah (TDS > 300 ppm) yang persisten, sistem Reverse Osmosis adalah solusi paling komprehensif. Pertimbangkan filter RO bawah wastafel untuk hasil jangka panjang.",
+    "caveat": "Air RO (TDS sangat rendah) bersifat agak korosif pada pipa dan terasa sedikit 'flat'. Untuk minum, tambahkan mineral remineralizer. Untuk mandi, tidak ada masalah.",
+    "sources": [
+      { "doi": "10.1111/bjd.19862", "citation": "Jabbar-Lopez ZK et al. (2021). Br J Dermatol. Water hardness and atopic dermatitis." },
+      { "source": "WHO 2022", "citation": "WHO Guidelines for Drinking-water Quality, 4th Ed. TDS and hardness." }
+    ]
+  },
+  {
+    "id": "sediment-filter",
+    "name_id": "Filter Sedimen",
+    "name_en": "Sediment Filter",
+    "icon": "🌫️",
+    "reduces_parameters": ["turbidity", "sediment", "rust", "sand", "silt"],
+    "not_effective_for": ["tds", "chlorine", "bacteria", "dissolved_minerals"],
+    "effectiveness_pct": {
+      "turbidity": 95,
+      "sediment": 99,
+      "rust": 90,
+      "chlorine": 0
+    },
+    "types": [
+      {
+        "subtype": "string-wound",
+        "description": "Kartrid filter berbentuk gulungan benang. Ukuran pori tersedia 1–100 mikron.",
+        "price_range_idr": "25000-80000",
+        "replacement_interval": "1–3 bulan (tergantung kualitas air)",
+        "brands_available_id": ["Pentek", "Omnipure", "merk lokal"]
+      },
+      {
+        "subtype": "pleated-poly",
+        "description": "Filter polipropilena berlipat, dapat dicuci dan digunakan ulang.",
+        "price_range_idr": "50000-150000",
+        "replacement_interval": "3–6 bulan atau sampai flow rate turun signifikan"
+      }
+    ],
+    "best_for_conditions": ["turbidity_high"],
+    "skin_benefit": "Menghilangkan partikel tersuspensi yang dapat menyumbat folikel rambut, mengandung bakteri patogen seperti Pseudomonas, dan menyebabkan folikulitis atau iritasi kulit (Parra et al., 2020). Esensial sebagai pre-filter sebelum filter karbon atau RO.",
+    "skin_benefit_for": ["all"],
+    "installation_difficulty": "mudah",
+    "installation_notes": "Biasanya dipasang sebelum pompa atau filter utama (pre-filter). Bisa ditempatkan di pipa masuk rumah.",
+    "maintenance": "Ganti saat air mulai berwarna atau flow rate berkurang. Jangan tunggu hingga tersumbat total.",
+    "scientific_basis": "Partikel tersuspensi dalam air berukuran 0.5–100 mikron cukup besar untuk tertangkap filter sedimen tapi cukup kecil untuk lolos dari pandangan mata. Filter sedimen 5 mikron efektif menahan sebagian besar partikel biologis dan fisik yang relevan untuk kontak kulit.",
+    "alert_trigger": "turbidity_high",
+    "alert_recommendation": "Aktifkan filter sedimen atau tunggu hingga air menjadi jernih. Jika kekeruhan persisten, cek kondisi pipa dan pertimbangkan pemasangan filter sedimen permanen.",
+    "sources": [
+      { "doi": "10.3390/s20030756", "citation": "Parra L et al. (2020). Sensors (MDPI)." }
+    ]
+  },
+  {
+    "id": "uv-filter",
+    "name_id": "Filter UV (Ultraviolet)",
+    "name_en": "UV Water Purifier",
+    "icon": "☀️",
+    "reduces_parameters": ["bacteria", "virus", "protozoa", "pathogens"],
+    "not_effective_for": ["tds", "chlorine", "turbidity", "heavy_metals", "sediment"],
+    "effectiveness_pct": {
+      "bacteria": 99.9,
+      "virus": 99.9,
+      "protozoa": 99,
+      "chlorine": 0,
+      "tds": 0
+    },
+    "types": [
+      {
+        "subtype": "point-of-use-uv",
+        "description": "Sistem UV di bawah wastafel atau inline di pipa shower.",
+        "price_range_idr": "800000-3000000",
+        "replacement_interval": "Lampu UV: 1 tahun",
+        "brands_available_id": ["Trojan UV", "VIQUA", "Sterilight"]
+      }
+    ],
+    "best_for_conditions": ["chlorine_low", "bacterial_contamination_risk"],
+    "skin_benefit": "Menonaktifkan bakteri dan virus tanpa menambahkan bahan kimia ke air. Esensial ketika klorin sangat rendah (< 0.1 mg/L) yang mengindikasikan perlindungan mikroba tidak memadai — kondisi yang berisiko menyebabkan infeksi kulit seperti folikulitis atau impetigo.",
+    "skin_benefit_for": ["all", "immunocompromised", "wound"],
+    "installation_difficulty": "sedang",
+    "installation_notes": "Harus dipasang SETELAH filter sedimen karena turbidity yang tinggi dapat melindungi bakteri dari radiasi UV (efek shielding).",
+    "maintenance": "Ganti lampu UV setiap tahun meskipun masih menyala — intensitas turun ~40% setelah 9000 jam.",
+    "scientific_basis": "Radiasi UV-C pada 254 nm merusak DNA dan RNA mikroorganisme, mencegah replikasi. Efektif tanpa mengubah komposisi kimia air. WHO merekomendasikan UV sebagai alternatif klorinasi untuk sistem dengan risiko Legionella tinggi.",
+    "alert_trigger": "chlorine_low",
+    "alert_recommendation": "Klorin sangat rendah berisiko terhadap kontaminasi bakteri. Jika filter UV belum terpasang, periksa sumber air dan hubungi PDAM.",
+    "caveat": "Filter UV tidak bekerja pada air keruh (turbidity tinggi). Selalu pasang setelah filter sedimen untuk efektivitas optimal.",
+    "sources": [
+      { "source": "WHO 2022", "citation": "WHO GDWQ 4th Ed. UV disinfection as alternative to chlorination." }
+    ]
+  },
+  {
+    "id": "ion-exchange-softener",
+    "name_id": "Water Softener (Ion Exchange)",
+    "name_en": "Ion Exchange Water Softener",
+    "icon": "🔄",
+    "reduces_parameters": ["hardness", "calcium", "magnesium", "tds_partial"],
+    "not_effective_for": ["chlorine", "bacteria", "turbidity", "heavy_metals_all"],
+    "effectiveness_pct": {
+      "hardness": 99,
+      "calcium": 99,
+      "magnesium": 99,
+      "tds": 50
+    },
+    "types": [
+      {
+        "subtype": "salt-based-softener",
+        "description": "Sistem ion exchange berbasis garam (NaCl). Menukar ion Ca²⁺/Mg²⁺ dengan Na⁺.",
+        "price_range_idr": "3000000-10000000",
+        "replacement_interval": "Garam: isi ulang setiap 2–6 minggu; resin: 10–20 tahun",
+        "brands_available_id": ["Fleck", "GE", "Aquasana"]
+      },
+      {
+        "subtype": "salt-free-conditioner",
+        "description": "Template-assisted crystallization (TAC) — bukan ion exchange sejati, tapi mencegah scale deposit.",
+        "price_range_idr": "2000000-6000000",
+        "replacement_interval": "Media TAC: 3–5 tahun",
+        "note": "Tidak benar-benar mengurangi TDS, tapi mencegah mineral menempel ke permukaan (kulit, pipa)"
+      }
+    ],
+    "best_for_conditions": ["tds_high", "hardness_very_high"],
+    "skin_benefit": "Secara langsung mengatasi penyebab utama dermatitis atopik yang dipicu air — ion Ca²⁺ dan Mg²⁺ yang bereaksi dengan deterjen membentuk soap scum iritan. Studi Perkin et al. (2021) menemukan water softener mengurangi keparahan eksim pada anak-anak di area air keras.",
+    "skin_benefit_for": ["dry", "sensitive", "atopic_dermatitis", "eczema", "child"],
+    "installation_difficulty": "sulit",
+    "installation_notes": "Memerlukan instalasi plumber profesional. Ditempatkan di titik masuk air utama rumah (whole-house). Butuh sambungan ke saluran pembuangan untuk backwash.",
+    "maintenance": "Isi garam regenerasi setiap 2–6 minggu. Bersihkan tangki garam tahunan. Monitor TDS output secara berkala.",
+    "scientific_basis": "Ion exchange menukar kation 'keras' (Ca²⁺, Mg²⁺) dengan Na⁺ yang tidak membentuk scum dengan sabun. Perkin et al. (2021) menemukan water softener untuk whole-house secara signifikan mengurangi keparahan eksim pada anak (RCT, n=336).",
+    "alert_trigger": "tds_high",
+    "alert_recommendation": "Untuk air sangat sadah (TDS > 300 ppm) yang memengaruhi kondisi kulit secara kronis, water softener ion exchange adalah solusi paling efektif meski investasi lebih besar.",
+    "caveat": "Air yang sangat lunak (setelah softener salt-based) memiliki kadar sodium lebih tinggi — tidak direkomendasikan untuk konsumsi minum bagi penderita hipertensi. Pasang tap terpisah untuk air minum.",
+    "sources": [
+      { "doi": "10.1016/j.jid.2020.11.027", "citation": "Perkin MR et al. (2021). J Invest Dermatol. Residential water hardness, skin diseases, and water softener RCT." },
+      { "doi": "10.1111/bjd.19862", "citation": "Jabbar-Lopez ZK et al. (2021). Br J Dermatol." }
+    ]
+  },
+  {
+    "id": "ph-neutralizer",
+    "name_id": "Filter pH Netralisasi",
+    "name_en": "pH Neutralizing Filter",
+    "icon": "⚗️",
+    "reduces_parameters": ["ph_acidity", "corrosivity"],
+    "not_effective_for": ["tds", "chlorine", "bacteria", "turbidity"],
+    "effectiveness_pct": {
+      "ph_correction": 85
+    },
+    "types": [
+      {
+        "subtype": "calcite-filter",
+        "description": "Media kalsit (CaCO₃) secara perlahan melarutkan kalsium ke air asam, menaikkan pH secara alami.",
+        "price_range_idr": "500000-2000000",
+        "replacement_interval": "Media: 6–12 bulan (terkonsumsi perlahan)"
+      },
+      {
+        "subtype": "magnesium-oxide",
+        "description": "Media magnesium oksida menaikkan pH lebih cepat dari kalsit, cocok untuk air sangat asam.",
+        "price_range_idr": "600000-2500000",
+        "replacement_interval": "Media: 4–8 bulan"
+      }
+    ],
+    "best_for_conditions": ["ph_low"],
+    "skin_benefit": "Menaikkan pH air asam mendekati netral (6.5–7.5) yang kompatibel dengan pH kulit. Air asam dapat mengganggu acid mantle kulit dan mengurangi efektivitas sabun — netralisasi pH mengembalikan kompatibilitas air dengan skin barrier (Lambers et al., 2019).",
+    "skin_benefit_for": ["sensitive", "dry", "all"],
+    "installation_difficulty": "sedang",
+    "installation_notes": "Dipasang inline di pipa utama atau di bawah wastafel. Media terkonsumsi secara perlahan dan perlu diisi ulang.",
+    "maintenance": "Periksa pH output bulanan menggunakan test strip. Isi ulang media saat pH output mulai turun kembali.",
+    "scientific_basis": "Kalsit (CaCO₃) bereaksi dengan CO₂ dan asam dalam air: CaCO₃ + CO₂ + H₂O → Ca(HCO₃)₂, menaikkan pH dan alkalinitas. Proses ini juga sedikit meningkatkan TDS karena penambahan ion kalsium dan bikarbonat.",
+    "alert_trigger": "ph_low",
+    "alert_recommendation": "Untuk pH air yang konsisten rendah (< 6.5), filter pH netralisasi dengan media kalsit atau magnesium oksida adalah solusi tepat. Baking soda (NaHCO₃) dapat digunakan sebagai solusi darurat sementara.",
+    "diy_emergency": "Larutkan 1/4 sendok teh baking soda per 4 liter air sebagai solusi sementara menaikkan pH. Tidak disarankan untuk penggunaan rutin.",
+    "sources": [
+      { "doi": "10.1111/ics.12562", "citation": "Lambers H et al. (2019). Int J Cosmetic Sci. Natural skin surface pH." }
+    ]
+  },
+  {
+    "id": "alkaline-filter",
+    "name_id": "Filter Alkali / Ionizer",
+    "name_en": "Alkaline Water Filter / Ionizer",
+    "icon": "🌀",
+    "reduces_parameters": ["ph_for_acidity"],
+    "increases": ["ph"],
+    "not_effective_for": ["tds", "chlorine", "bacteria", "turbidity"],
+    "types": [
+      {
+        "subtype": "pitcher-alkaline",
+        "description": "Pitcher filter dengan media alkali — solusi paling terjangkau.",
+        "price_range_idr": "150000-400000",
+        "replacement_interval": "2–3 bulan"
+      },
+      {
+        "subtype": "electric-ionizer",
+        "description": "Ionizer elektrolisis yang memisahkan air menjadi alkaline dan acidic stream.",
+        "price_range_idr": "3000000-20000000",
+        "note": "Klaim kesehatan ekstrem (anti-aging, anti-kanker) TIDAK didukung bukti ilmiah kuat — hindari marketing berlebihan"
+      }
+    ],
+    "best_for_conditions": ["ph_low"],
+    "skin_benefit": "Menaikkan pH air untuk mandi pada air yang terlalu asam (< 6.5). Catatan: untuk minum, tubuh mempertahankan pH darah 7.35–7.45 secara independen — klaim 'air alkali ajaib' untuk kesehatan sistemik tidak didukung evidence kuat.",
+    "skin_benefit_for": ["dry", "sensitive"],
+    "installation_difficulty": "sangat-mudah",
+    "installation_notes": "Pitcher: isi dan tunggu. Counter-top: sambung ke keran. Tidak perlu instalasi.",
+    "maintenance": "Ganti kartrid sesuai petunjuk produk.",
+    "scientific_basis": "Filter alkali meningkatkan pH air melalui media mineral atau elektrolisis. Untuk penggunaan mandi (bukan minum), manfaat utamanya adalah mengoreksi pH air asam mendekati netral — tidak lebih dari itu.",
+    "evidence_note": "Klaim terapeutik berlebihan tentang air alkali tidak didukung RCT berkualitas tinggi. AQUENT hanya merekomendasikan untuk koreksi pH mandi, bukan klaim kesehatan sistemik.",
+    "alert_trigger": "ph_low",
+    "alert_recommendation": "Untuk pH air asam, filter alkali pitcher adalah solusi paling terjangkau dan mudah. Namun untuk koreksi pH yang stabil, filter kalsit lebih reliable.",
+    "sources": [
+      { "doi": "10.1111/ics.12562", "citation": "Lambers H et al. (2019). Int J Cosmetic Sci." }
+    ]
+  }
+]

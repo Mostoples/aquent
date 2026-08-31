@@ -1,0 +1,378 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "compiled_by": "TAB PENELITI — AQUENT Research Team",
+    "description": "Profil detail 5 tipe kulit sebagai referensi lintas-fitur untuk encyclopedia, dermal-guide, product recommender, AI chat, dan skin scanner",
+    "skin_types": ["dry", "oily", "normal", "combination", "sensitive"],
+    "usage": "Load this file to populate skin type selectors, personalize recommendations, and calibrate AI chat/scanner context",
+    "sources": "Baumann 2008 (J Clin Aesthet Dermatol); Lambers et al. 2019 (IJCS); AAD Skin Type Guidelines; Wollenberg et al. 2022 (JEADV)"
+  },
+
+  "dry": {
+    "id": "dry",
+    "name_id": "Kulit Kering",
+    "name_en": "Dry Skin",
+    "icon": "🌵",
+    "color_hex": "#d4a574",
+    "prevalence_pct": 35,
+    "characteristics": {
+      "sebum_production": "very_low",
+      "tewl": "high",
+      "pore_size": "small",
+      "texture": "rough, flaky, tight-feeling",
+      "skin_ph_typical": "5.0-6.0",
+      "natural_nfm_level": "low",
+      "ceramide_level": "deficient",
+      "moisture_retention": "poor"
+    },
+    "visual_signs": [
+      "Kulit tampak kusam dan tidak bercahaya",
+      "Garis halus lebih terlihat (kulit kering memperjelas kerutan)",
+      "Area kering bersisik, terutama siku, lutut, dan betis",
+      "Kulit terasa tertarik atau 'tight' setelah mandi atau mencuci muka",
+      "Kulit retak (fisura) pada area yang paling kering (tumit, sudut mulut)"
+    ],
+    "common_conditions": [
+      "atopic-dermatitis",
+      "xerosis",
+      "ichthyosis",
+      "hand-dermatitis",
+      "nummular-eczema",
+      "winter-itch",
+      "keratosis-pilaris"
+    ],
+    "water_sensitivity": {
+      "ph_low": "medium",
+      "ph_high": "very_high",
+      "tds_high": "high",
+      "chlorine_high": "high",
+      "temp_high": "very_high",
+      "overall": "high"
+    },
+    "water_sensitivity_explanation": "Kulit kering memiliki NMF (Natural Moisturizing Factor) rendah dan ceramide defisien, membuat skin barrier lemah. Air basa, air keras, klorin tinggi, dan air panas semuanya memperberat kehilangan air transepidermal (TEWL). Satu sesi mandi dengan air panas pada kulit kering dapat meningkatkan TEWL hingga 30% selama 24 jam.",
+    "optimal_shower_parameters": {
+      "temperature_celsius": "35-38",
+      "duration_minutes": "8-12",
+      "frequency_per_day": 1,
+      "optimal_ph": "6.5-7.5",
+      "max_chlorine_mgl": 0.3,
+      "max_tds_ppm": 200
+    },
+    "key_ingredients_for": {
+      "cleanser": ["syndet/synthetic detergent", "gliserin", "ceramide", "shea butter"],
+      "moisturizer": ["ceramide", "hyaluronic acid", "petrolatum", "squalane", "urea 5-10%"],
+      "avoid": ["SLS/SLES", "alkohol denat", "parfum/fragrance", "asam kuat (AHA tinggi)"]
+    },
+    "post_shower_protocol": [
+      "Tepuk kering dalam 30 detik setelah mandi — jangan biarkan kulit mengangin-anginkan",
+      "Oleskan serum hyaluronate saat kulit masih 60% lembab",
+      "Lapisi dengan ceramide cream",
+      "Area paling kering: oleskan oklusif (petrolatum, shea butter) sebagai lapis terakhir"
+    ],
+    "lifestyle_tips": [
+      "Minum 2–2.5 liter air per hari untuk hidrasi kulit dari dalam",
+      "Gunakan humidifier di ruangan ber-AC (target kelembaban ruangan 40–60%)",
+      "Hindari mandi terlalu lama atau terlalu sering",
+      "Ganti handuk setiap 3 hari — handuk lembab dapat mengandung bakteri yang memperburuk kondisi kulit kering"
+    ],
+    "sources": ["doi:10.1111/jdv.17927", "doi:10.1111/bjd.19862"]
+  },
+
+  "oily": {
+    "id": "oily",
+    "name_id": "Kulit Berminyak",
+    "name_en": "Oily Skin",
+    "icon": "✨",
+    "color_hex": "#f0c040",
+    "prevalence_pct": 40,
+    "characteristics": {
+      "sebum_production": "very_high",
+      "tewl": "low",
+      "pore_size": "large",
+      "texture": "smooth but shiny, thick",
+      "skin_ph_typical": "5.0-5.5",
+      "natural_nfm_level": "adequate",
+      "ceramide_level": "normal",
+      "moisture_retention": "good"
+    },
+    "visual_signs": [
+      "Tampak mengkilap dan berminyak, terutama 2–4 jam setelah mandi",
+      "Pori-pori terlihat besar dan mudah tersumbat",
+      "Makeup mudah luntur dalam beberapa jam",
+      "Jerawat, komedo hitam (blackhead), dan komedo putih (whitehead) lebih sering muncul",
+      "Kulit tebal dan tampak padat"
+    ],
+    "common_conditions": [
+      "acne-vulgaris",
+      "seborrheic-dermatitis",
+      "folliculitis",
+      "tinea-versicolor",
+      "perioral-dermatitis"
+    ],
+    "water_sensitivity": {
+      "ph_low": "low",
+      "ph_high": "medium",
+      "tds_high": "medium",
+      "chlorine_high": "very_low",
+      "temp_high": "medium",
+      "overall": "low"
+    },
+    "water_sensitivity_explanation": "Kulit berminyak memiliki barrier alami terkuat berkat sebum yang melindungi dari iritan kimia termasuk klorin. Namun air panas memicu 'rebound sebum overproduction' — produksi minyak berlebih sebagai respons terhadap kehilangan sebum akibat panas. pH air tidak terlalu kritis, namun air basa dapat mengganggu keseimbangan sebum secara paradoksal.",
+    "optimal_shower_parameters": {
+      "temperature_celsius": "30-36",
+      "duration_minutes": "8-15",
+      "frequency_per_day": "1-2",
+      "optimal_ph": "5.5-7.0",
+      "max_chlorine_mgl": 0.8,
+      "max_tds_ppm": 300
+    },
+    "key_ingredients_for": {
+      "cleanser": ["salicylic acid (BHA) 0.5–2%", "niacinamide", "tea tree oil", "zinc"],
+      "moisturizer": ["niacinamide", "hyaluronic acid (ringan)", "gel-based", "non-comedogenic"],
+      "avoid": ["mineral oil", "petrolatum berat", "coconut oil", "isopropyl myristate", "produk oklusif berat"]
+    },
+    "post_shower_protocol": [
+      "Keringkan wajah dengan tepukan lembut — jangan menggosok karena merangsang produksi sebum",
+      "Aplikasikan toner bebas alkohol dengan niacinamide atau BHA untuk mengontrol pori",
+      "Gunakan gel moisturizer ringan non-comedogenic — jangan skip moisturizer",
+      "Bilas wajah dengan air dingin sebagai step terakhir untuk menutup pori"
+    ],
+    "lifestyle_tips": [
+      "Ganti sarung bantal minimal 2× seminggu — minyak kulit malam hari menumpuk di kain",
+      "Jangan menyentuh wajah sering — tangan memindahkan bakteri ke pori kulit berminyak",
+      "Diet rendah indeks glikemik membantu mengurangi produksi sebum (Kwon et al., 2012)",
+      "Kertas minyak (blotting paper) adalah solusi cepat sepanjang hari tanpa merusak makeup"
+    ],
+    "sources": ["doi:10.1111/ics.12562", "doi:10.1016/j.jid.2021.01.021"]
+  },
+
+  "normal": {
+    "id": "normal",
+    "name_id": "Kulit Normal",
+    "name_en": "Normal Skin",
+    "icon": "🌿",
+    "color_hex": "#74c0fc",
+    "prevalence_pct": 20,
+    "characteristics": {
+      "sebum_production": "balanced",
+      "tewl": "normal",
+      "pore_size": "small_to_medium",
+      "texture": "smooth, even, radiant",
+      "skin_ph_typical": "4.5-5.5",
+      "natural_nfm_level": "adequate",
+      "ceramide_level": "normal",
+      "moisture_retention": "good"
+    },
+    "visual_signs": [
+      "Kulit tampak cerah dan bercahaya secara alami",
+      "Pori-pori kecil atau hampir tidak terlihat",
+      "Tidak ada area yang secara konsisten sangat kering atau sangat berminyak",
+      "Makeup bertahan cukup lama tanpa perlu touch-up berlebih",
+      "Kulit terasa nyaman sepanjang hari tanpa rasa tertarik atau berminyak berlebih"
+    ],
+    "common_conditions": [
+      "contact-dermatitis",
+      "pityriasis-rosea",
+      "photodermatitis"
+    ],
+    "water_sensitivity": {
+      "ph_low": "low",
+      "ph_high": "low",
+      "tds_high": "low",
+      "chlorine_high": "low",
+      "temp_high": "low",
+      "overall": "very_low"
+    },
+    "water_sensitivity_explanation": "Kulit normal memiliki barrier kulit yang sehat, pH alami yang terjaga, ceramide cukup, dan sebum seimbang. Ini memberikan buffer yang baik terhadap variasi kualitas air dalam rentang normal. Namun paparan jangka panjang terhadap kualitas air buruk tetap dapat mendegradasi kondisi kulit normal secara bertahap.",
+    "optimal_shower_parameters": {
+      "temperature_celsius": "36-38",
+      "duration_minutes": "10-15",
+      "frequency_per_day": 1,
+      "optimal_ph": "6.5-8.0",
+      "max_chlorine_mgl": 0.5,
+      "max_tds_ppm": 300
+    },
+    "key_ingredients_for": {
+      "cleanser": ["SLS rendah atau bebas", "gliserin", "aloe vera"],
+      "moisturizer": ["gliserin", "hyaluronic acid", "ceramide (preventif)"],
+      "avoid": ["produk dengan bahan aktif terlalu kuat yang tidak diperlukan — 'less is more'"]
+    },
+    "post_shower_protocol": [
+      "Tepuk kering dengan lembut",
+      "Oleskan moisturizer ringan berbasis gliserin",
+      "Tidak ada langkah khusus tambahan yang diperlukan"
+    ],
+    "lifestyle_tips": [
+      "Kulit normal adalah kondisi yang harus dijaga, bukan dianggap remeh",
+      "Konsisten dengan sunscreen SPF 30+ — UV adalah penuaan dini terbesar bahkan untuk kulit normal",
+      "Hindari over-routine dengan terlalu banyak active ingredient — bisa memicu iritasi pada kulit yang sebenarnya baik-baik saja",
+      "Monitor perubahan — kulit normal bisa bergeser ke kering atau berminyak seiring usia, hormon, atau perubahan lingkungan"
+    ],
+    "sources": ["doi:10.1111/ics.12562"]
+  },
+
+  "combination": {
+    "id": "combination",
+    "name_id": "Kulit Kombinasi",
+    "name_en": "Combination Skin",
+    "icon": "⚖️",
+    "color_hex": "#94d82d",
+    "prevalence_pct": 35,
+    "characteristics": {
+      "sebum_production": "mixed_high_in_tzone_low_elsewhere",
+      "tewl": "mixed",
+      "pore_size": "large_in_tzone_small_elsewhere",
+      "texture": "oily/shiny in T-zone, normal/dry at cheeks",
+      "skin_ph_typical": "4.5-6.0 (varies by zone)",
+      "natural_nfm_level": "adequate_tzone_low_cheeks",
+      "ceramide_level": "normal_tzone_slightly_low_cheeks",
+      "moisture_retention": "good_tzone_fair_cheeks"
+    },
+    "visual_signs": [
+      "Dahi, hidung, dan dagu (zona T) mengkilap dan berminyak",
+      "Pipi dan area sekitar mata terasa normal hingga kering",
+      "Pori besar di zona T, pori kecil di pipi",
+      "Jerawat cenderung muncul di zona T",
+      "Area pipi dapat terasa ketat setelah mencuci muka dengan produk yang terlalu kuat"
+    ],
+    "zones": {
+      "t_zone": {
+        "areas": ["dahi", "hidung", "dagu"],
+        "type": "oily",
+        "products": "gel cleanser, BHA toner, gel moisturizer non-comedogenic"
+      },
+      "cheek_zone": {
+        "areas": ["pipi kiri", "pipi kanan", "sekitar mata", "sekitar mulut"],
+        "type": "normal_to_dry",
+        "products": "ceramide moisturizer, hydrating serum, gentle cleanser"
+      }
+    },
+    "common_conditions": [
+      "acne-vulgaris",
+      "seborrheic-dermatitis",
+      "contact-dermatitis",
+      "xerosis"
+    ],
+    "water_sensitivity": {
+      "ph_low": "low",
+      "ph_high": "medium",
+      "tds_high": "medium",
+      "chlorine_high": "low",
+      "temp_high": "medium",
+      "overall": "low_to_medium"
+    },
+    "water_sensitivity_explanation": "Kulit kombinasi memiliki sensitivitas ganda: zona T relatif terlindungi oleh sebum (lebih tahan terhadap klorin dan pH), namun area pipi lebih rentan terhadap air keras, pH basa, dan air panas. Rekomendasi optimal harus menjadi kompromi antara kebutuhan dua area yang berbeda.",
+    "optimal_shower_parameters": {
+      "temperature_celsius": "35-37",
+      "duration_minutes": "10-15",
+      "frequency_per_day": 1,
+      "optimal_ph": "6.0-7.5",
+      "max_chlorine_mgl": 0.5,
+      "max_tds_ppm": 250
+    },
+    "key_ingredients_for": {
+      "cleanser": ["gentle surfactant", "gliserin", "aloe vera — hindari yang terlalu kuat"],
+      "t_zone_treatment": ["niacinamide", "salicylic acid 0.5–1%", "zinc PCA"],
+      "cheek_treatment": ["ceramide", "hyaluronic acid", "centella asiatica"],
+      "avoid": ["produk single-formula terlalu kuat atau terlalu ringan — zone-based approach lebih baik"]
+    },
+    "post_shower_protocol": [
+      "Tepuk kering secara merata",
+      "Oleskan toner bebas alkohol ke seluruh wajah",
+      "Tambahkan niacinamide serum di zona T",
+      "Oleskan ceramide moisturizer di pipi dan area kering",
+      "Gunakan gel moisturizer tipis di zona T sebagai penutup"
+    ],
+    "lifestyle_tips": [
+      "Zone-based skincare adalah kunci — gunakan produk berbeda untuk area berbeda",
+      "Multi-masking efektif: clay mask di zona T, sheet mask atau overnight mask di pipi secara bersamaan",
+      "Hormonal fluctuation (menstruasi, stres) dapat memperparah ketidakseimbangan — perhatikan siklus dan sesuaikan rutinitas",
+      "Jangan memilih produk berdasarkan zona yang lebih bermasalah (T-zone) karena produk oily-control akan mengeringkan pipi"
+    ],
+    "sources": ["doi:10.1111/ics.12562", "doi:10.1016/j.jid.2021.01.021"]
+  },
+
+  "sensitive": {
+    "id": "sensitive",
+    "name_id": "Kulit Sensitif",
+    "name_en": "Sensitive Skin",
+    "icon": "🌸",
+    "color_hex": "#ff8787",
+    "prevalence_pct": 50,
+    "characteristics": {
+      "sebum_production": "variable",
+      "tewl": "elevated",
+      "pore_size": "variable",
+      "texture": "may be smooth but reacts easily",
+      "skin_ph_typical": "5.5-7.0 (often elevated = barrier impaired)",
+      "natural_nfm_level": "variable_often_low",
+      "ceramide_level": "often_deficient",
+      "moisture_retention": "poor_to_fair"
+    },
+    "subtypes": {
+      "acne_subtype": "kulit sensitif rentan jerawat — reaksi terhadap bahan aktif",
+      "rosacea_subtype": "kulit sensitif cenderung kemerahan dan flushing",
+      "burning_stinging_subtype": "kulit sensitif yang terbakar atau perih saat produk dioleskan",
+      "contact_allergic_subtype": "kulit sensitif dengan kecenderungan alergi kontak"
+    },
+    "visual_signs": [
+      "Kemerahan (erythema) yang mudah dipicu oleh panas, produk, atau tekanan",
+      "Rasa gatal, terbakar, atau perih setelah penggunaan produk",
+      "Kulit tampak tipis atau 'transparan' — pembuluh darah terlihat di bawahnya",
+      "Reaksi terhadap bahan yang umumnya ditoleransi orang lain",
+      "Flushing atau kemerahan mendadak akibat panas, stres, atau makanan pedas"
+    ],
+    "common_conditions": [
+      "contact-dermatitis",
+      "rosacea",
+      "atopic-dermatitis",
+      "urticaria",
+      "aquagenic-pruritus",
+      "chlorine-sensitivity-advanced",
+      "sensitive-skin"
+    ],
+    "water_sensitivity": {
+      "ph_low": "high",
+      "ph_high": "very_high",
+      "tds_high": "high",
+      "chlorine_high": "very_high",
+      "temp_high": "high",
+      "overall": "very_high"
+    },
+    "water_sensitivity_explanation": "Kulit sensitif memiliki barrier kulit yang lemah (thin stratum corneum, ceramide defisiensi) dan serat saraf C yang lebih aktif — menghasilkan respons berlebihan terhadap stimuli yang tidak membahayakan. Klorin, pH ekstrem, dan air panas dapat memicu cascade inflamasi yang tidak proporsional pada kulit sensitif, termasuk neurogenic inflammation (pelepasan neuropeptide SP dan CGRP).",
+    "optimal_shower_parameters": {
+      "temperature_celsius": "33-36",
+      "duration_minutes": "5-10",
+      "frequency_per_day": 1,
+      "optimal_ph": "6.5-7.5",
+      "max_chlorine_mgl": 0.2,
+      "max_tds_ppm": 150
+    },
+    "key_ingredients_for": {
+      "cleanser": ["syndet hypoallergenic", "centella asiatica", "panthenol", "aloe vera", "bebas parfum wajib"],
+      "moisturizer": ["ceramide", "hyaluronic acid", "panthenol", "beta-glucan", "madecassoside"],
+      "avoid": ["fragrance/parfum (prioritas utama)", "alkohol denat", "essential oil", "exfoliant kuat (AHA/BHA tinggi)", "preservatif seperti methylisothiazolinone"]
+    },
+    "post_shower_protocol": [
+      "Tepuk kering SANGAT LEMBUT dengan handuk microfiber — jangan ada gesekan",
+      "Aplikasikan soothing serum (centella asiatica, panthenol) SEGERA — hindari kulit kering lebih dari 60 detik",
+      "Oleskan ceramide moisturizer dengan gerakan menepuk, bukan mengusap",
+      "Patch test setiap produk baru selama 48 jam sebelum digunakan secara luas",
+      "Jangan layering terlalu banyak produk sekaligus — tunggu setiap produk menyerap"
+    ],
+    "patch_test_protocol": {
+      "step_1": "Oleskan sedikit produk di dalam pergelangan tangan atau belakang telinga",
+      "step_2": "Tunggu 24–48 jam tanpa mencuci area tersebut",
+      "step_3": "Jika tidak ada reaksi (kemerahan, gatal, bengkak): produk aman digunakan",
+      "step_4": "Jika ada reaksi: bilas dengan air bersih dan hindari produk tersebut"
+    },
+    "lifestyle_tips": [
+      "Catat 'trigger log' — jurnal sederhana yang mencatat produk, makanan, cuaca, dan kondisi air yang memicu reaksi",
+      "Kurangi variabel perubahan — jangan mengganti terlalu banyak produk sekaligus",
+      "Stres adalah pemicu utama kulit sensitif — teknik manajemen stres secara langsung membantu kondisi kulit",
+      "Mandi air dingin secara singkat dapat membantu meredakan flushing dan kemerahan pada kulit sensitif",
+      "Konsultasi dermatologis untuk patch test formale dan identifikasi alergen spesifik"
+    ],
+    "sources": ["doi:10.1111/bjd.19862", "doi:10.1111/jdv.17098", "doi:10.1016/j.jid.2020.11.027"]
+  }
+}

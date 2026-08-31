@@ -1,0 +1,49 @@
+{
+  "name": "AQUENT — Smart Shower Dashboard",
+  "short_name": "AQUENT",
+  "description": "Platform shower pintar real-time untuk pemantauan kualitas air dan kesehatan kulit berbasis AI",
+  "theme_color": "#00b4d8",
+  "background_color": "#000c1a",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "start_url": "/app.html",
+  "scope": "/",
+  "lang": "id",
+  "categories": ["health", "lifestyle", "utilities"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "url": "/app.html#dashboard",
+      "description": "Lihat sensor real-time",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Skin Scanner",
+      "short_name": "Scan",
+      "url": "/app.html#skin-scan",
+      "description": "Scan kondisi kulit",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

@@ -1,0 +1,594 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "compiled_by": "TAB PENELITI — AQUENT Research Team",
+    "description": "Panduan mandi per kombinasi tipe kulit × kondisi air. Key format: {skin_type}_{water_condition}",
+    "skin_types": ["dry", "oily", "normal", "combination", "sensitive"],
+    "water_conditions": ["normal", "ph_low", "ph_high", "tds_high", "chlorine_high", "temp_high"],
+    "sources": "Wollenberg et al. 2022 (JEADV); Jabbar-Lopez et al. 2021 (Br J Dermatol); AAD Guidelines; Lambers et al. 2019"
+  },
+
+  "dry_normal": {
+    "label": "Kulit Kering + Air Normal",
+    "risk_level": "low",
+    "duration_max_min": 12,
+    "water_temp_rec": "36-38°C",
+    "steps": [
+      "Basuh tubuh dengan air hangat 36–38°C selama 2–3 menit",
+      "Gunakan sabun cream atau body wash berbasis gliserin tanpa SLS",
+      "Fokus sabun hanya di area ketiak, selangkangan, dan kaki — bagian tubuh lain cukup dibilas air",
+      "Pijat kulit dengan gerakan memutar lembut, jangan digosok keras",
+      "Tepuk-tepuk tubuh kering dengan handuk lembut — JANGAN digosok",
+      "Oleskan moisturizer ceramide dalam 3 menit setelah mandi saat kulit masih sedikit lembab",
+      "Perhatikan area siku, lutut, dan tumit yang biasanya lebih kering"
+    ],
+    "products_rec": ["moisturizer ceramide (CeraVe, La Roche-Posay Lipikar)", "sabun cream berbasis gliserin", "body oil untuk area sangat kering"],
+    "warning": null,
+    "tip": "Teknik 'soak and smear': oleskan moisturizer saat kulit masih 60–70% lembab — kelembapan air tertahan di dalam kulit.",
+    "sources": ["doi:10.1111/jdv.17927"]
+  },
+
+  "dry_ph_low": {
+    "label": "Kulit Kering + Air Asam (pH < 6.5)",
+    "risk_level": "medium",
+    "duration_max_min": 8,
+    "water_temp_rec": "36-37°C",
+    "steps": [
+      "Persingkat durasi mandi ke maksimal 8 menit karena air asam lebih cepat mengiritasi kulit kering",
+      "Gunakan air 36–37°C (hindari mendekati 38°C untuk mengurangi risiko)",
+      "Pilih sabun pH-balanced dengan pH 5.5–6.5 yang tidak akan menambah keasaman",
+      "Bilas dengan bersih — pastikan tidak ada residu sabun",
+      "Tepuk kering, segera oleskan moisturizer kental berbasis ceramide + petrolatum",
+      "Pertimbangkan menggunakan body oil sebelum moisturizer di area paling kering",
+      "Minum segelas air setelah mandi untuk hidrasi dari dalam"
+    ],
+    "products_rec": ["CeraVe Moisturizing Cream", "sabun pH-balanced (Sebamed pH 5.5)", "Vanicream untuk area sangat kering", "body oil (Johnson's Baby Oil)"],
+    "warning": "Air asam + kulit kering = risiko iritasi dan peningkatan gatal. Jika terjadi kemerahan, segera kompres dingin dan oleskan emolien. Pertimbangkan filter shower alkali.",
+    "tip": "Cuka apel TIDAK cocok untuk kondisi ini — justru menambah keasaman. Gunakan filter pH atau bicarbonate rinse jika diperlukan.",
+    "sources": ["doi:10.1111/ics.12562", "doi:10.1111/bjd.19862"]
+  },
+
+  "dry_ph_high": {
+    "label": "Kulit Kering + Air Basa (pH > 8.5)",
+    "risk_level": "high",
+    "duration_max_min": 7,
+    "water_temp_rec": "36°C",
+    "steps": [
+      "Ini kombinasi risiko tinggi — persingkat mandi ke maksimal 7 menit",
+      "Gunakan suhu terendah yang masih nyaman (sekitar 36°C)",
+      "WAJIB menggunakan sabun pH-balanced (pH 5.5–6.5) untuk mengkompensasi basa air",
+      "Jangan merendam kulit terlalu lama",
+      "Bilas dengan air sesedikit mungkin tapi pastikan sabun benar-benar bersih",
+      "Tepuk kering SEGERA dan langsung oleskan emolien berat (balm/cream kental)",
+      "Pertimbangkan menambahkan beberapa tetes cuka apel ke air bilasan untuk menetralkan pH",
+      "Gunakan moisturizer 2 lapis: serum hyaluronic acid dulu, baru cream ceramide"
+    ],
+    "products_rec": ["Sebamed pH 5.5 cleanser (wajib)", "CeraVe Moisturizing Cream (kental)", "La Roche-Posay Lipikar Baume", "Physiogel AI Cream"],
+    "warning": "⚠️ RISIKO TINGGI: Air basa sangat merusak ceramide kulit kering. Pasang filter shower pH netral sebagai solusi jangka panjang. Jika eksim atau psoriasis, hindari mandi dengan air ini dan cari sumber air alternatif.",
+    "tip": "Investasi terbaik untuk kondisi ini: filter shower karbon aktif + resin yang bisa menurunkan pH air.",
+    "sources": ["doi:10.1111/bjd.19862", "doi:10.1111/jdv.17927"]
+  },
+
+  "dry_tds_high": {
+    "label": "Kulit Kering + Air Keras (TDS > 300 ppm)",
+    "risk_level": "high",
+    "duration_max_min": 8,
+    "water_temp_rec": "36-37°C",
+    "steps": [
+      "Gunakan sabun liquid syndet (bukan sabun batang) — tidak bereaksi dengan mineral air keras",
+      "Perbanyak busa sabun sebelum ke kulit — mineral air keras mengurangi efektivitas sabun",
+      "Bilas LEBIH LAMA dari biasanya (1–2 menit ekstra) — residu mineral perlu waktu untuk dibilas",
+      "Lakukan bilasan terakhir dengan air minum atau air RO jika tersedia untuk menghilangkan residu mineral",
+      "Keringkan dengan tepukan lembut",
+      "Gunakan emolien tebal segera — air keras meninggalkan film mineral yang meningkatkan TEWL"
+    ],
+    "products_rec": ["sabun syndet liquid (Dove, Aveeno Body Wash)", "CeraVe atau Vanicream (emolien kuat)", "Eucerin UreaRepair untuk area bersisik"],
+    "warning": "Air keras + kulit kering = risiko dermatitis atopik yang tinggi (Jabbar-Lopez et al., 2021). Pasang water softener sebagai solusi permanen.",
+    "tip": "Tes sederhana air keras: sabun sulit berbusa? Ada kerak putih di shower head? Itu tanda TDS tinggi.",
+    "sources": ["doi:10.1111/bjd.19862", "doi:10.1016/j.jid.2020.11.027"]
+  },
+
+  "dry_chlorine_high": {
+    "label": "Kulit Kering + Klorin Tinggi (> 0.5 mg/L)",
+    "risk_level": "high",
+    "duration_max_min": 7,
+    "water_temp_rec": "36°C",
+    "steps": [
+      "Persingkat durasi mandi — klorin bekerja kumulatif, semakin lama terpapar semakin besar dampaknya",
+      "Pertimbangkan menunggu 30 menit setelah mengisi ember sebelum mandi — klorin menguap dari air berdiam",
+      "Gunakan shower filter karbon aktif jika ada",
+      "Kurangi suhu air — air panas mempercepat penguapan trihalomethane dari klorin yang bisa terhirup",
+      "Gunakan sabun cream atau oil-based yang membentuk barrier lebih baik",
+      "Bilas cepat dan segera keluar dari kamar mandi",
+      "SEGERA oleskan emolien tebal — jangan biarkan kulit kering lebih dari 3 menit setelah mandi"
+    ],
+    "products_rec": ["Filter shower karbon aktif (prioritas utama)", "Bioderma Atoderm atau La Roche-Posay Lipikar Baume", "sabun cream berbasis oat atau ceramide"],
+    "warning": "⚠️ RISIKO TINGGI untuk penderita eksim. Klorin tinggi + kulit kering = peningkatan TEWL signifikan. Konsultasi dokter kulit jika muncul flare-up.",
+    "tip": "Filter shower karbon aktif adalah investasi terbaik. Mengurangi klorin hingga 95%, harga Rp 100–300 ribu, ganti karbon setiap 3–6 bulan.",
+    "sources": ["pmid:32195872", "doi:10.1016/j.jid.2020.11.027"]
+  },
+
+  "oily_normal": {
+    "label": "Kulit Berminyak + Air Normal",
+    "risk_level": "low",
+    "duration_max_min": 15,
+    "water_temp_rec": "34-37°C",
+    "steps": [
+      "Gunakan air hangat — tidak terlalu panas (merangsang produksi sebum) tidak terlalu dingin",
+      "Gunakan cleanser berbasis gel atau foam ringan dengan salicylic acid atau niacinamide",
+      "Pijat kulit wajah selama 60 detik untuk memaksimalkan pembersihan pori",
+      "Bilas dengan air dingin di akhir untuk menutup pori",
+      "Keringkan dengan tepukan — jangan gosok karena bisa merangsang produksi sebum lebih banyak",
+      "Gunakan toner bebas alkohol dan moisturizer gel ringan (non-comedogenic)",
+      "Hindari over-cleansing — mencuci muka > 2 kali sehari justru merangsang produksi sebum"
+    ],
+    "products_rec": ["cleanser salicylic acid atau niacinamide", "toner bebas alkohol", "moisturizer gel ringan (non-comedogenic)", "Elsheskin AC Care untuk punggung/dada berjerawat"],
+    "warning": null,
+    "tip": "Kulit berminyak tetap butuh moisturizer — melompati moisturizer justru membuat kulit memproduksi lebih banyak sebum sebagai kompensasi.",
+    "sources": []
+  },
+
+  "oily_ph_high": {
+    "label": "Kulit Berminyak + Air Basa (pH > 8.5)",
+    "risk_level": "medium",
+    "duration_max_min": 10,
+    "water_temp_rec": "34-36°C",
+    "steps": [
+      "Gunakan toner BHA (salicylic acid) SETELAH mandi untuk menormalkan pH kulit yang terganggu",
+      "Pilih cleanser dengan pH 5.0–5.5 untuk mengkompensasi air basa",
+      "Bilas wajah dengan air dingin di akhir",
+      "Hindari menggunakan dua produk basa sekaligus (air basa + sabun basa = kerusakan barrier ganda)",
+      "Oleskan niacinamide serum untuk mengontrol sebum yang mungkin meningkat karena reaksi air basa"
+    ],
+    "products_rec": ["cleanser pH-balanced rendah (Sebamed, CeraVe)", "toner salicylic acid atau BHA", "niacinamide serum"],
+    "warning": "Air basa bisa mengganggu keseimbangan minyak kulit berminyak secara paradoksal — kulit memproduksi lebih banyak sebum sebagai respons kompensasi.",
+    "tip": "Setelah mandi dengan air basa, bilas wajah dengan air minum (pH lebih netral) sebagai step terakhir.",
+    "sources": ["doi:10.1111/ics.12562"]
+  },
+
+  "sensitive_normal": {
+    "label": "Kulit Sensitif + Air Normal",
+    "risk_level": "low",
+    "duration_max_min": 10,
+    "water_temp_rec": "35-37°C",
+    "steps": [
+      "Selalu uji produk baru di area kecil 24–48 jam sebelum digunakan luas",
+      "Gunakan tangan saja untuk membersihkan — waslap dan spons terlalu abrasif untuk kulit sensitif",
+      "Pilih sabun hypoallergenic bebas parfum dan bebas pengawet",
+      "Hindari mengganti suhu air secara mendadak",
+      "Keringkan dengan tepukan SANGAT lembut menggunakan handuk microfiber atau kapas",
+      "Oleskan produk satu per satu dengan jeda — jangan layering banyak produk sekaligus"
+    ],
+    "products_rec": ["Cetaphil Gentle Cleanser atau CeraVe Hydrating Cleanser", "Physiogel AI Cream", "Aveeno Skin Relief Body Wash"],
+    "warning": null,
+    "tip": "Kulit sensitif sangat individual — catat produk dan kondisi air yang memicu reaksi dalam jurnal sederhana.",
+    "sources": []
+  },
+
+  "sensitive_ph_low": {
+    "label": "Kulit Sensitif + Air Asam (pH < 6.5)",
+    "risk_level": "high",
+    "duration_max_min": 6,
+    "water_temp_rec": "35-36°C",
+    "steps": [
+      "Persingkat mandi ke maksimal 6 menit — minimal paparan air asam",
+      "Bilas wajah dulu dengan air minum atau air mineral SEBELUM mandi",
+      "Gunakan sabun pH-balanced 5.5 yang tidak menambah keasaman",
+      "Hindari area mata dan mulut dari paparan air langsung",
+      "Keringkan dengan SANGAT lembut — tepukan minimal",
+      "Oleskan soothing serum (centella asiatica atau aloe vera) segera setelah mandi",
+      "Lanjutkan dengan moisturizer ceramide"
+    ],
+    "products_rec": ["Cetaphil Gentle Cleanser (sangat lembut)", "serum centella asiatica", "Physiogel AI Cream atau CeraVe"],
+    "warning": "⚠️ RISIKO TINGGI. Kulit sensitif + air asam adalah kombinasi yang sangat berisiko. Jika terjadi kemerahan atau rasa terbakar: kompres dingin dengan air bersih, oleskan emolien, dan hindari mandi lagi selama 12 jam.",
+    "tip": "Pertimbangkan untuk sementara menggunakan air kemasan atau air matang yang didinginkan untuk mandi wajah.",
+    "sources": ["doi:10.1111/ics.12562"]
+  },
+
+  "sensitive_chlorine_high": {
+    "label": "Kulit Sensitif + Klorin Tinggi (> 0.5 mg/L)",
+    "risk_level": "very_high",
+    "duration_max_min": 5,
+    "water_temp_rec": "34-36°C",
+    "steps": [
+      "Ini kombinasi terburuk — pertimbangkan menunda mandi hingga kondisi klorin membaik",
+      "Jika harus mandi: maksimal 5 menit dengan suhu rendah",
+      "Tutup mulut dan hidung saat membasuh wajah untuk menghindari inhalasi klorin dari uap",
+      "Gunakan shower filter karbon aktif JIKA ada",
+      "Bilas minimal — setiap kontak dengan air adalah paparan klorin",
+      "Setelah mandi, bilas cepat dengan air minum di wastafel",
+      "Oleskan barrier cream atau emolien sangat kental SEGERA"
+    ],
+    "products_rec": ["Filter shower karbon aktif (WAJIB segera dipasang)", "Vanicream atau petrolatum murni sebagai barrier", "kompres aloe vera gel dingin jika terjadi iritasi"],
+    "warning": "⚠️⚠️ RISIKO SANGAT TINGGI. Kulit sensitif + klorin tinggi = risiko dermatitis kontak iritan akut. Segera pasang filter shower dan konsultasi dokter kulit jika ada reaksi parah.",
+    "tip": "Larutan vitamin C (asam askorbat) dapat menetralisir klorin secara kimia. Tambahkan 1/4 sendok teh vitamin C bubuk ke ember air untuk bilasan terakhir.",
+    "sources": ["pmid:32195872"]
+  },
+
+  "normal_normal": {
+    "label": "Kulit Normal + Air Normal",
+    "risk_level": "very_low",
+    "duration_max_min": 15,
+    "water_temp_rec": "36-38°C",
+    "steps": [
+      "Tidak ada restriksi khusus — mandi dengan nyaman",
+      "Gunakan sabun pilihan sesuai preferensi, pilih yang bebas iritan berlebih",
+      "Pertahankan rutinitas moisturizer setelah mandi untuk menjaga kondisi kulit yang baik",
+      "Perhatikan perubahan kondisi kulit seiring waktu — kondisi normal bisa berubah"
+    ],
+    "products_rec": ["sabun bebas SLS berbasis gliserin", "body lotion ringan"],
+    "warning": null,
+    "tip": "Kulit normal tetap butuh perawatan untuk mempertahankan kondisinya. Jangan abaikan moisturizer hanya karena kondisi kulit saat ini baik.",
+    "sources": []
+  },
+
+  "combination_tds_high": {
+    "label": "Kulit Kombinasi + Air Keras (TDS > 300 ppm)",
+    "risk_level": "medium",
+    "duration_max_min": 12,
+    "water_temp_rec": "36-37°C",
+    "steps": [
+      "Gunakan sabun syndet liquid — tidak bereaksi dengan mineral air keras",
+      "Untuk zona T (dahi, hidung, dagu): cleanser berbasis gel ringan",
+      "Untuk pipi (lebih kering): cleanser cream atau milk cleanser",
+      "Bilas ekstra lama untuk memastikan residu mineral terangkat",
+      "Keringkan dengan tepukan",
+      "Gunakan produk berbeda untuk zona T dan pipi: toner BHA di zona T, moisturizer ceramide di pipi"
+    ],
+    "products_rec": ["Cetaphil Gentle Cleanser (untuk seluruh wajah)", "niacinamide serum di zona T", "CeraVe cream di pipi", "Hada Labo Hyaluronic Toner untuk hidrasi dasar"],
+    "warning": "Air keras memperburuk ketidakseimbangan antara area berminyak dan kering pada kulit kombinasi.",
+    "tip": "Double cleansing cocok untuk kulit kombinasi di daerah air keras: micellar water untuk angkat kotoran, lanjut cleanser lembut untuk pembersihan mendalam.",
+    "sources": ["doi:10.1111/bjd.19862"]
+  },
+
+  "all_temp_high": {
+    "label": "Semua Tipe Kulit + Suhu Air Terlalu Tinggi (> 40°C)",
+    "risk_level": "medium",
+    "duration_max_min": 8,
+    "water_temp_rec": "36-38°C (SEGERA TURUNKAN)",
+    "steps": [
+      "Turunkan suhu air SEGERA ke 36–38°C sebelum melanjutkan mandi",
+      "Jika tidak bisa menurunkan suhu: persingkat mandi ke maksimal 8 menit",
+      "Hindari mengarahkan air panas langsung ke wajah dalam waktu lama",
+      "Fokus mandi pada area ketiak dan selangkangan — bagian paling butuh pembersihan",
+      "Keringkan dengan cepat dan segera oleskan moisturizer",
+      "Minum air segelas setelah mandi — air panas meningkatkan penguapan kelembapan tubuh"
+    ],
+    "products_rec": ["moisturizer apapun yang dimiliki — prioritaskan kecepatan aplikasi"],
+    "warning": "Air > 40°C meningkatkan Transepidermal Water Loss (TEWL) secara signifikan pada semua tipe kulit. Untuk penderita rosacea, eksim, atau psoriasis: HINDARI air panas.",
+    "tip": "Suhu optimal mandi bisa dirasakan tanpa termometer: air seharusnya terasa 'hangat nyaman' bukan 'panas menyengat'. Jika kulit menjadi merah saat terkena air, itu tanda suhu terlalu tinggi.",
+    "sources": ["doi:10.1111/jdv.17927"]
+  },
+
+  "dry_temp_high": {
+    "label": "Kulit Kering + Suhu Air Terlalu Tinggi (> 40°C)",
+    "risk_level": "high",
+    "duration_max_min": 5,
+    "water_temp_rec": "35-37°C (turunkan segera)",
+    "steps": [
+      "Turunkan suhu air ke 35–37°C SEGERA — kulit kering kehilangan kelembaban jauh lebih cepat dari air panas",
+      "Batasi durasi mandi maksimal 5 menit jika suhu tidak dapat diturunkan",
+      "Gunakan sabun cream kental atau oil cleanser yang membentuk barrier terhadap panas",
+      "Hindari menggosok kulit — gunakan tangan saja",
+      "Segera tepuk kering dan oleskan dua lapis emolien: serum hyaluronate dulu, lalu ceramide cream",
+      "Minum segelas air setelah mandi — air panas memperparah dehidrasi sistemik yang mempengaruhi kulit"
+    ],
+    "products_rec": ["CeraVe Moisturizing Cream (lapis kedua)", "body oil sebagai pre-shower barrier", "Eucerin UreaRepair untuk area sangat kering"],
+    "warning": "⚠️ RISIKO TINGGI. Kulit kering + air panas = peningkatan TEWL drastis dan risiko flare eksim. Suhu air > 40°C melarutkan sebum alami 3× lebih cepat dari air 37°C. Jika ada kondisi eksim aktif, batalkan mandi dan cari sumber air lebih dingin.",
+    "tip": "Oleskan body oil sebelum mandi sebagai pre-shower barrier untuk kulit kering saat air terpaksa hangat — oil membentuk lapisan oklusif yang mengurangi penetrasi panas dan kehilangan air.",
+    "sources": ["doi:10.1111/bjd.19862", "doi:10.1111/jdv.17927"]
+  },
+
+  "oily_ph_low": {
+    "label": "Kulit Berminyak + Air Asam (pH < 6.5)",
+    "risk_level": "low",
+    "duration_max_min": 15,
+    "water_temp_rec": "32-36°C",
+    "steps": [
+      "Gunakan air agak sejuk ke hangat (32–36°C) — kulit berminyak lebih toleran terhadap suhu rendah",
+      "Gunakan cleanser gel berbasis BHA (salicylic acid) — BHA bekerja optimal di pH 3–4, sehingga air asam sebenarnya kondusif",
+      "Bilas wajah dengan air dingin di akhir untuk menutup pori",
+      "Gunakan toner bebas alkohol dengan niacinamide setelah mandi",
+      "Oleskan gel moisturizer ringan non-comedogenic"
+    ],
+    "products_rec": ["cleanser salicylic acid 0.5–2%", "niacinamide toner", "gel moisturizer non-comedogenic (Elsheskin, Innisfree)"],
+    "warning": null,
+    "tip": "Paradoksnya, kulit berminyak adalah yang paling toleran terhadap air sedikit asam — pH rendah mendekati acid mantle alami kulit (pH 4.5–5.5). Manfaatkan ini dengan memilih produk berbasis acid yang bekerja optimal di pH rendah.",
+    "sources": ["doi:10.1111/ics.12562"]
+  },
+
+  "oily_tds_high": {
+    "label": "Kulit Berminyak + Air Keras (TDS > 300 ppm)",
+    "risk_level": "medium",
+    "duration_max_min": 12,
+    "water_temp_rec": "34-37°C",
+    "steps": [
+      "Gunakan double cleansing: micellar water untuk mengangkat kelebihan minyak, lanjut gel cleanser lembut",
+      "Air keras bereaksi dengan sabun menghasilkan 'soap scum' yang dapat menyumbat pori — bilas LEBIH LAMA",
+      "Gunakan air dingin untuk bilas terakhir wajah setelah memastikan semua residu mineral terangkat",
+      "Eksfoliasi kimia (AHA/BHA) 2–3× seminggu untuk mencegah penyumbatan pori oleh mineral",
+      "Gunakan gel moisturizer — hindari cream berat yang dapat bercampur dengan residu mineral",
+      "Pertimbangkan shower filter untuk mengurangi kadar mineral yang tersumbat di pori"
+    ],
+    "products_rec": ["micellar water untuk pre-cleanse", "BHA/AHA toner untuk eksfoliasi", "Hada Labo Toner sebagai hydrating toner ringan", "gel moisturizer bebas minyak"],
+    "warning": "Air keras meningkatkan komedo dan jerawat pada kulit berminyak karena mineral mengeras di dalam pori bersama sebum. Eksfoliasi teratur adalah kunci.",
+    "tip": "Ciri khas air keras pada kulit berminyak: sabun sulit berbusa dan kulit terasa 'licin tapi kotor' setelah mandi — itu residu soap scum yang belum terangkat. Bilas ekstra 1–2 menit.",
+    "sources": ["doi:10.1111/bjd.19862", "doi:10.1016/j.jid.2020.11.027"]
+  },
+
+  "oily_chlorine_high": {
+    "label": "Kulit Berminyak + Klorin Tinggi (> 0.5 mg/L)",
+    "risk_level": "low",
+    "duration_max_min": 15,
+    "water_temp_rec": "34-37°C",
+    "steps": [
+      "Kulit berminyak relatif lebih terlindungi dari klorin karena sebum membentuk barrier alami",
+      "Gunakan air hangat-sejuk untuk memaksimalkan manfaat pembersihan tanpa menambah paparan klorin dari uap",
+      "Buka ventilasi kamar mandi untuk mengurangi inhalasi uap klorin saat mandi",
+      "Bilas wajah dengan air dingin di akhir",
+      "Oleskan niacinamide serum pasca mandi — niacinamide memiliki efek antioksidan terhadap stres oksidatif klorin",
+      "Gunakan vitamin C serum di pagi hari untuk menetralisir radikal bebas sisa klorin"
+    ],
+    "products_rec": ["gel cleanser dengan BHA", "niacinamide serum 10%", "vitamin C serum (pagi)", "gel moisturizer ringan"],
+    "warning": null,
+    "tip": "Kulit berminyak adalah tipe kulit yang paling tahan terhadap klorin tinggi — sebum bertindak sebagai barrier kimiawi alami. Namun paparan klorin jangka panjang tetap dapat mengganggu keseimbangan microbiome kulit.",
+    "sources": ["doi:10.3390/s20030756"]
+  },
+
+  "oily_temp_high": {
+    "label": "Kulit Berminyak + Suhu Air Terlalu Tinggi (> 40°C)",
+    "risk_level": "medium",
+    "duration_max_min": 8,
+    "water_temp_rec": "30-35°C (turunkan segera)",
+    "steps": [
+      "Turunkan suhu air ke 30–35°C — air panas merangsang produksi sebum berlebih",
+      "Batasi durasi mandi di air panas maksimal 8 menit",
+      "Bilas wajah dengan air dingin secara khusus — bahkan saat tubuh mandi dengan air hangat",
+      "Gunakan gel cleanser yang mengandung niacinamide untuk mengontrol produksi sebum pasca-mandi",
+      "Tutup pori dengan air dingin di akhir mandi",
+      "Gunakan toner sebagai langkah pertama setelah mandi untuk mendinginkan dan mengontrol sebum"
+    ],
+    "products_rec": ["gel cleanser niacinamide atau BHA", "toner bebas alkohol (Innisfree, Elsheskin)", "gel moisturizer ringan non-comedogenic"],
+    "warning": "Air panas memicu rebound sebum overproduction pada kulit berminyak — kulit memproduksi lebih banyak minyak sebagai respons kehilangan sebum akibat panas. Ini paradoksnya: kulit berminyak jadi lebih berminyak setelah mandi air panas.",
+    "tip": "Tes sederhana: jika wajah terlihat lebih berminyak 1–2 jam setelah mandi daripada sebelum mandi, itu tanda Anda mandi dengan air terlalu panas.",
+    "sources": ["doi:10.1111/ics.12562", "doi:10.1111/jdv.17927"]
+  },
+
+  "sensitive_ph_high": {
+    "label": "Kulit Sensitif + Air Basa (pH > 8.5)",
+    "risk_level": "very_high",
+    "duration_max_min": 5,
+    "water_temp_rec": "34-36°C",
+    "steps": [
+      "Ini adalah salah satu kombinasi paling berisiko — pertimbangkan menunda mandi",
+      "Jika harus mandi: maksimal 5 menit dengan suhu terendah yang masih nyaman",
+      "Wajib gunakan sabun pH-balanced (pH 5.0–5.5) — jangan gunakan sabun batang konvensional yang umumnya pH 9–10",
+      "Bilas wajah dengan air minum atau air mineral di wastafel setelah mandi",
+      "Gunakan toner centella asiatica segera setelah mandi untuk menenangkan dan menormalkan pH kulit",
+      "Oleskan emolien lembut dan soothing — hindari produk dengan banyak active ingredient hari ini"
+    ],
+    "products_rec": ["Cetaphil Gentle Cleanser (pH-balanced, hypoallergenic)", "centella asiatica toner atau essence", "Physiogel AI Cream", "La Roche-Posay Toleriane Cream"],
+    "warning": "⚠️⚠️ RISIKO SANGAT TINGGI. Air basa menghancurkan acid mantle kulit sensitif yang sudah tipis. Reaksi dapat berupa kemerahan, rasa terbakar, gatal, atau urtikaria. Jika muncul reaksi: kompres dingin dengan air bersih, oleskan emolien, dan konsultasi dokter jika tidak membaik dalam 2 jam.",
+    "tip": "Investasi wajib untuk pemilik kulit sensitif di daerah air basa: filter shower dengan media resin kation yang dapat menurunkan pH air secara efektif.",
+    "sources": ["doi:10.1111/ics.12562", "doi:10.1111/bjd.19862"]
+  },
+
+  "sensitive_tds_high": {
+    "label": "Kulit Sensitif + Air Keras (TDS > 300 ppm)",
+    "risk_level": "high",
+    "duration_max_min": 7,
+    "water_temp_rec": "35-37°C",
+    "steps": [
+      "Hindari sabun batang — mineral air keras bereaksi dengan sabun batang menghasilkan scum yang sangat iritan untuk kulit sensitif",
+      "Gunakan HANYA pembersih syndet cair (synthetic detergent) yang tidak bereaksi dengan kesadahan air",
+      "Bilas sangat bersih — residu mineral + residu sabun adalah iritan ganda",
+      "Lakukan 'soft water rinse' terakhir: bilas dengan air minum atau air RO jika memungkinkan",
+      "Keringkan dengan tepukan SANGAT lembut menggunakan handuk microfiber",
+      "Oleskan barrier cream berbasis ceramide + hyaluronate segera"
+    ],
+    "products_rec": ["Cetaphil Gentle Cleanser atau Aveeno Sensitive Skin Body Wash", "CeraVe Moisturizing Cream", "Physiogel AI Lotion", "Vanicream sebagai emolien dasar"],
+    "warning": "⚠️ RISIKO TINGGI. Mineral ion Ca²⁺ dan Mg²⁺ dalam air keras bereaksi dengan protein filaggrin pada kulit sensitif memperburuk disfungsi barrier. Studi Jabbar-Lopez et al. 2021 menunjukkan korelasi langsung antara kesadahan air dan keparahan kondisi kulit atopik.",
+    "tip": "Water softener (resin penukar ion) adalah solusi jangka panjang terbaik untuk pemilik kulit sensitif di daerah air keras. Investasi awal Rp 500 ribu–2 juta jauh lebih hemat dari biaya konsultasi kulit berulang.",
+    "sources": ["doi:10.1111/bjd.19862", "doi:10.1016/j.jid.2020.11.027"]
+  },
+
+  "sensitive_temp_high": {
+    "label": "Kulit Sensitif + Suhu Air Terlalu Tinggi (> 40°C)",
+    "risk_level": "high",
+    "duration_max_min": 5,
+    "water_temp_rec": "33-35°C (sejuk-hangat)",
+    "steps": [
+      "HENTIKAN mandi dengan air panas SEGERA — turunkan suhu atau batalkan mandi",
+      "Kulit sensitif memiliki ambang batas yang lebih rendah terhadap panas — apa yang terasa 'biasa' bisa memicu flushing dan peradangan",
+      "Ganti ke air sejuk-hangat (33–35°C)",
+      "Hindari perubahan suhu mendadak yang mengejutkan kulit sensitif",
+      "Mandi SANGAT singkat — 5 menit maksimal",
+      "Oleskan soothing gel (aloe vera, centella) segera setelah mandi jika kulit memerah"
+    ],
+    "products_rec": ["Aloe vera gel murni (pendingin darurat)", "Bioderma Sensibio AR Cream (untuk redness)", "La Roche-Posay Toleriane Cream", "centella asiatica serum"],
+    "warning": "⚠️ RISIKO TINGGI. Pemilik kulit sensitif terutama yang cenderung rosacea WAJIB menghindari air panas. Panas memicu vasodilatasi pembuluh darah wajah yang pada rosacea dapat menjadi permanen. Monitor suhu air dengan sensor AQUENT dan aktifkan alert suhu.",
+    "tip": "Untuk kulit sensitif dengan kecenderungan rosacea: akhiri mandi dengan 30 detik air dingin di wajah — ini menyempitkan pembuluh darah yang membesar akibat panas dan mengurangi kemerahan.",
+    "sources": ["doi:10.1111/jdv.17098", "doi:10.1111/jdv.17927"]
+  },
+
+  "normal_ph_low": {
+    "label": "Kulit Normal + Air Asam (pH < 6.5)",
+    "risk_level": "low",
+    "duration_max_min": 15,
+    "water_temp_rec": "36-38°C",
+    "steps": [
+      "Kulit normal cukup toleran terhadap variasi pH — tidak perlu perubahan drastis dalam rutinitas",
+      "Pilih sabun pH-balanced untuk menjaga acid mantle dalam kondisi optimal",
+      "Perhatikan jika muncul rasa gatal atau kemerahan — kondisi 'normal' bisa berubah",
+      "Gunakan moisturizer ringan setelah mandi seperti biasa",
+      "Monitor kondisi kulit dalam jangka panjang jika air asam adalah kondisi rutin"
+    ],
+    "products_rec": ["sabun bebas SLS pH-balanced", "body lotion ringan berbasis gliserin"],
+    "warning": null,
+    "tip": "Kulit normal memiliki buffer yang baik terhadap variasi pH air dalam batas wajar. Namun paparan jangka panjang terhadap air sangat asam (pH < 5) atau sangat basa (pH > 9) tetap dapat mendegradasi barrier kulit secara bertahap.",
+    "sources": ["doi:10.1111/ics.12562"]
+  },
+
+  "normal_ph_high": {
+    "label": "Kulit Normal + Air Basa (pH > 8.5)",
+    "risk_level": "low",
+    "duration_max_min": 15,
+    "water_temp_rec": "36-38°C",
+    "steps": [
+      "Pilih sabun dengan pH 5–6 untuk mengkompensasi kealkalian air",
+      "Bilas bersih untuk mengangkat residu alkalin dari permukaan kulit",
+      "Gunakan toner ringan setelah mandi untuk menormalkan pH kulit",
+      "Oleskan moisturizer berbasis gliserin atau hyaluronate",
+      "Monitor kondisi kulit jangka panjang — paparan pH basa rutin dapat mengubah kondisi kulit"
+    ],
+    "products_rec": ["sabun pH-balanced (Sebamed, Dove pH balanced)", "toner ringan atau micellar water sebagai 'pH corrector'", "body lotion gliserin"],
+    "warning": null,
+    "tip": "Air PAM Indonesia umumnya cenderung basa (pH 7–8.5 sesuai standar Permenkes). Untuk kulit normal ini tidak masalah, namun menggunakan sabun pH-balanced adalah kebiasaan baik untuk semua orang.",
+    "sources": ["doi:10.1111/ics.12562"]
+  },
+
+  "normal_tds_high": {
+    "label": "Kulit Normal + Air Keras (TDS > 300 ppm)",
+    "risk_level": "low",
+    "duration_max_min": 15,
+    "water_temp_rec": "36-38°C",
+    "steps": [
+      "Gunakan sabun liquid (bukan batang) untuk menghindari soap scum akibat air keras",
+      "Bilas sedikit lebih lama dari biasanya untuk memastikan residu mineral terangkat",
+      "Oleskan moisturizer ringan setelah mandi untuk mengkompensasi efek dehidrasi mineral",
+      "Monitor kondisi kulit — kulit normal bisa berubah ke kering jika terpapar air keras secara rutin"
+    ],
+    "products_rec": ["sabun liquid gliserin (Dove, Aveeno)", "body lotion ringan"],
+    "warning": null,
+    "tip": "Air keras paling terlihat efeknya pada peralatan mandi (kerak putih di shower head, sabun sulit berbusa), bukan langsung pada kulit normal. Namun efek kumulatif jangka panjang tetap ada.",
+    "sources": ["doi:10.1111/bjd.19862"]
+  },
+
+  "normal_chlorine_high": {
+    "label": "Kulit Normal + Klorin Tinggi (> 0.5 mg/L)",
+    "risk_level": "low",
+    "duration_max_min": 15,
+    "water_temp_rec": "36-38°C",
+    "steps": [
+      "Buka ventilasi kamar mandi untuk mengurangi paparan uap klorin yang terhirup",
+      "Gunakan air hangat bukan air panas — air panas mempercepat pelepasan klorin ke udara",
+      "Pilih sabun yang mengandung antioksidan (vitamin E, green tea) untuk mengkompensasi stres oksidatif klorin",
+      "Bilas bersih setelah mandi",
+      "Oleskan body lotion ringan setelah mandi"
+    ],
+    "products_rec": ["sabun dengan vitamin E atau antioksidan", "body lotion ringan", "vitamin C serum untuk wajah (pagi hari)"],
+    "warning": null,
+    "tip": "Kulit normal terlindungi dari dampak klorin jangka pendek. Namun untuk paparan jangka panjang rutin, pertimbangkan filter shower karbon aktif sebagai investasi preventif.",
+    "sources": ["doi:10.3390/s20030756"]
+  },
+
+  "normal_temp_high": {
+    "label": "Kulit Normal + Suhu Air Terlalu Tinggi (> 40°C)",
+    "risk_level": "low",
+    "duration_max_min": 10,
+    "water_temp_rec": "36-38°C (turunkan sedikit)",
+    "steps": [
+      "Turunkan suhu air ke 36–38°C — kulit normal bisa mentoleransi sedikit kehangatan ekstra tapi tetap ada batasnya",
+      "Batasi durasi mandi maksimal 10 menit di suhu agak tinggi",
+      "Gunakan moisturizer setelah mandi untuk mengganti kelembaban yang hilang karena panas",
+      "Perhatikan area kulit yang lebih sensitif (wajah, leher) — lebih cepat terpengaruh dari area tubuh lain"
+    ],
+    "products_rec": ["body lotion gliserin atau ceramide", "gel moisturizer untuk wajah"],
+    "warning": null,
+    "tip": "Kulit normal adalah yang paling tangguh terhadap variasi kualitas air. Namun 'normal' hanyalah kondisi saat ini — kebiasaan mandi air panas dalam jangka panjang adalah salah satu faktor yang perlahan mengubah kulit normal menjadi kering.",
+    "sources": ["doi:10.1111/jdv.17927"]
+  },
+
+  "combination_normal": {
+    "label": "Kulit Kombinasi + Air Normal",
+    "risk_level": "very_low",
+    "duration_max_min": 15,
+    "water_temp_rec": "35-37°C",
+    "steps": [
+      "Gunakan air hangat-sejuk (35–37°C) — kompromi untuk kebutuhan zona T (berminyak) dan pipi (kering)",
+      "Gunakan gel cleanser lembut yang cocok untuk seluruh wajah",
+      "Bilas zona T dengan air dingin di akhir untuk mengontrol pori",
+      "Oleskan dua produk berbeda: toner atau gel di zona T, moisturizer ceramide di pipi",
+      "Pertahankan rutinitas konsisten — kulit kombinasi sangat responsif terhadap perubahan rutinitas"
+    ],
+    "products_rec": ["Cetaphil Gentle Cleanser (cocok kulit kombinasi)", "niacinamide toner di zona T", "CeraVe atau Physiogel di pipi", "Hada Labo Hyaluronic Toner sebagai dasar"],
+    "warning": null,
+    "tip": "Kulit kombinasi di air normal adalah kondisi ideal untuk mencoba 'multi-masking': aplikasikan produk mattifying di zona T dan produk hydrating di pipi secara bersamaan. Air normal memungkinkan eksperimen produk yang lebih bebas.",
+    "sources": []
+  },
+
+  "combination_ph_low": {
+    "label": "Kulit Kombinasi + Air Asam (pH < 6.5)",
+    "risk_level": "low",
+    "duration_max_min": 15,
+    "water_temp_rec": "35-37°C",
+    "steps": [
+      "Air asam sedikit menguntungkan untuk zona T yang berminyak — pH rendah mendekati kondisi optimal acid mantle",
+      "Namun area pipi yang lebih kering bisa bereaksi lebih sensitif — monitor dengan cermat",
+      "Gunakan cleanser pH-balanced yang tidak menambah keasaman",
+      "Bilas bersih untuk menghilangkan residu asam dari seluruh wajah",
+      "Oleskan ceramide moisturizer di area pipi lebih banyak dari biasanya sebagai kompensasi"
+    ],
+    "products_rec": ["gel cleanser pH 5–6", "niacinamide toner di zona T", "ceramide cream di pipi", "Hada Labo Toner sebagai hydrating layer"],
+    "warning": null,
+    "tip": "Perhatikan apakah pipi terasa lebih ketat atau gatal setelah mandi di air asam. Jika ya, kompensasi dengan moisturizer ekstra di area pipi.",
+    "sources": ["doi:10.1111/ics.12562"]
+  },
+
+  "combination_ph_high": {
+    "label": "Kulit Kombinasi + Air Basa (pH > 8.5)",
+    "risk_level": "medium",
+    "duration_max_min": 12,
+    "water_temp_rec": "35-37°C",
+    "steps": [
+      "Gunakan cleanser dengan pH 5–5.5 untuk mengkompensasi basa air di seluruh wajah",
+      "Area pipi yang lebih kering lebih rentan terhadap air basa — berikan perhatian ekstra",
+      "Bilas bersih dengan air bersih",
+      "Gunakan toner BHA di zona T untuk mengontrol sebum yang mungkin meningkat karena reaksi kompensasi air basa",
+      "Oleskan ceramide cream di pipi segera",
+      "Pertimbangkan bilas wajah terakhir dengan air minum"
+    ],
+    "products_rec": ["Sebamed pH 5.5 cleanser", "BHA toner di zona T", "CeraVe Cream di pipi", "Innisfree Green Tea Seed Serum"],
+    "warning": "Air basa mengganggu produksi sebum alami — zona T yang berminyak bisa bereaksi paradoksal dengan memproduksi lebih banyak sebum. Area pipi bisa menjadi lebih kering dan bersisik.",
+    "tip": "Kulit kombinasi di air basa: prioritaskan menyeimbangkan pipi dulu (ceramide cream), lalu kontrol zona T (toner BHA). Urutkan produk dari yang paling hydrating ke yang paling controlling.",
+    "sources": ["doi:10.1111/ics.12562", "doi:10.1111/bjd.19862"]
+  },
+
+  "combination_chlorine_high": {
+    "label": "Kulit Kombinasi + Klorin Tinggi (> 0.5 mg/L)",
+    "risk_level": "medium",
+    "duration_max_min": 10,
+    "water_temp_rec": "35-37°C",
+    "steps": [
+      "Buka ventilasi kamar mandi untuk mengurangi uap klorin yang terhirup",
+      "Gunakan air hangat bukan panas — suhu rendah mengurangi pelepasan klorin ke udara",
+      "Kulit berminyak di zona T relatif lebih terlindungi; area pipi yang kering lebih rentan terhadap klorin",
+      "Gunakan gel cleanser dengan antioksidan (vitamin E, niacinamide) yang membantu melawan stres oksidatif klorin",
+      "Oleskan ceramide cream ekstra di area pipi setelah mandi",
+      "Pertimbangkan filter shower karbon aktif jika klorin tinggi adalah kondisi rutin"
+    ],
+    "products_rec": ["gel cleanser niacinamide", "vitamin C serum pagi hari untuk wajah", "CeraVe atau ceramide cream di pipi", "gel moisturizer di zona T"],
+    "warning": "Area pipi yang lebih kering pada kulit kombinasi lebih rentan terhadap iritasi klorin. Perhatikan jika area pipi mulai terasa lebih kering dari biasanya setelah paparan klorin rutin.",
+    "tip": "Niacinamide adalah ingredient yang paling 'universal' untuk kulit kombinasi + klorin tinggi: mengontrol sebum di zona T sekaligus memperkuat barrier di area kering, sambil memiliki efek antioksidan terhadap stres klorin.",
+    "sources": ["doi:10.3390/s20030756"]
+  },
+
+  "combination_temp_high": {
+    "label": "Kulit Kombinasi + Suhu Air Terlalu Tinggi (> 40°C)",
+    "risk_level": "medium",
+    "duration_max_min": 8,
+    "water_temp_rec": "33-36°C (turunkan segera)",
+    "steps": [
+      "Turunkan suhu air ke 33–36°C — lebih sejuk dari mandi biasa untuk mengimbangi kecenderungan zona T berminyak",
+      "Batasi durasi mandi maksimal 8 menit",
+      "Bilas wajah dengan air DINGIN secara terpisah dari badan",
+      "Setelah mandi, tepuk kering dengan lembut",
+      "Gunakan toner sejuk di zona T untuk mengontrol rebound sebum",
+      "Oleskan ceramide cream di pipi yang lebih rentan kehilangan kelembaban karena panas"
+    ],
+    "products_rec": ["toner bebas alkohol (Innisfree, Elsheskin) di zona T", "CeraVe Cream di pipi", "face mist untuk pendinginan segera setelah mandi"],
+    "warning": "Air panas memperparah ketidakseimbangan kulit kombinasi: zona T memproduksi lebih banyak sebum (rebound), sementara area pipi kehilangan lebih banyak kelembaban. Hasilnya adalah kulit yang sekaligus lebih berminyak DAN lebih kering.",
+    "tip": "Face mist atau thermal water spray (La Roche-Posay Thermal Spring Water, Avène) adalah penyelamat cepat untuk mendinginkan dan menghidrasi kulit kombinasi yang terpapar air panas berlebih.",
+    "sources": ["doi:10.1111/jdv.17927", "doi:10.1111/ics.12562"]
+  }
+}

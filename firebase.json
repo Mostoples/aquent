@@ -1,0 +1,56 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "service-account.json",
+      "setup-admin.js",
+      "seed-demo-data.js",
+      "_dburl.js",
+      "finish-setup.js",
+      "deploy.bat",
+      "deploy.sh",
+      "PLANNING*.md",
+      "RESEARCH.md",
+      "ADMIN_SETUP.md",
+      "TODO.md",
+      "database.rules.json",
+      "functions/**",
+      "models/**/README.md",
+      "models/**/TRAIN_COLAB.md",
+      "models/**/*.example",
+      "models/**/test.html"
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "headers": [
+      {
+        "source": "/sw.js",
+        "headers": [
+          { "key": "Cache-Control", "value": "no-cache" },
+          { "key": "Service-Worker-Allowed", "value": "/" }
+        ]
+      },
+      {
+        "source": "**/*.@(js|css)",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
+      },
+      {
+        "source": "**",
+        "headers": [
+          { "key": "X-Content-Type-Options", "value": "nosniff" },
+          { "key": "X-Frame-Options",        "value": "DENY" }
+        ]
+      }
+    ]
+  }
+}

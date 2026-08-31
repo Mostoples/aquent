@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>AQUAVIV — Android Device Frame</title>
+<!--
+  Template bingkai device Android untuk mockup.
+  Dirender oleh mockup/frame.cjs via Chrome headless.
+  Parameter dibaca dari query string:
+    ?shot=01-landing.png   berkas screenshot di mockup/raw/
+    &mode=flat|tilt        flat = tegak lurus, tilt = pseudo-3D
+    &label=Dashboard       teks caption (opsional)
+-->
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    /* Ukuran layar device — rasio 412:915, identik dengan viewport render
+       (824x1830 @2x), sehingga screenshot pas tanpa distorsi/crop. */
+    --sw: 412px;
+    --sh: 915px;
+    --bezel: 13px;      /* tebal bingkai hitam  */
+    --radius: 46px;     /* radius sudut device  */
+  }
+
+  body {
+    width: 1600px; height: 1200px;
+    display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(circle at 50% 34%, #10353f 0%, #0a1d24 46%, #050f13 100%);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+  }
+
+  /* Mode video: kanvas 16:9, caption disembunyikan bila bare=1. */
+  body.video { width: 1920px; height: 1080px; }
+  body.bare .caption { display: none; }
+
+  /* Latar dekoratif: cahaya lembut bernuansa air. */
+  body::before {
+    content: ""; position: fixed; inset: 0;
+    background:
+      radial-gradient(680px 420px at 22% 24%, rgba(56,214,214,.16), transparent 68%),
+      radial-gradient(620px 400px at 80% 74%, rgba(64,148,240,.15), transparent 68%);
+    pointer-events: none;
+  }
+
+  .stage { position: relative; display: flex; flex-direction: column; align-items: center; gap: 34px; }
+
+  /* ---------- Device ---------- */
+  .device {
+    position: relative;
+    width: calc(var(--sw) + var(--bezel) * 2);
+    height: calc(var(--sh) + var(--bezel) * 2);
+    padding: var(--bezel);
+    border-radius: var(--radius);
+    background: linear-gradient(158deg, #3a4149 0%, #1b1f24 34%, #0d1013 100%);
+    box-shadow:
+      0 2px 0 rgba(255,255,255,.10) inset,
+      0 0 0 1.5px rgba(255,255,255,.07),
+      0 50px 90px -18px rgba(0,0,0,.82),
+      0 20px 40px -12px rgba(0,0,0,.55);
+  }
+
+  /* Pseudo-3D: sedikit rotasi pada sumbu Y + X agar terasa berdimensi. */
+  .device.tilt {
+    transform: perspective(2100px) rotateY(-19deg) rotateX(5deg) rotateZ(-1deg) scale(.99);
+    box-shadow:
+      0 2px 0 rgba(255,255,255,.10) inset,
+      0 0 0 1.5px rgba(255,255,255,.07),
+      64px 62px 104px -22px rgba(0,0,0,.86),
+      26px 26px 48px -14px rgba(0,0,0,.6);
+  }
+
+  .screen {
+    position: relative; width: 100%; height: 100%;
+    border-radius: calc(var(--radius) - var(--bezel));
+    overflow: hidden; background: #000;
+  }
+  /* Screenshot berasio sama dengan layar (412:915), jadi 'contain' menjamin
+     seluruh tangkapan tampil utuh tanpa terpotong. */
+  .screen img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: top center; }
+
+  /* Kilau kaca tipis di atas layar. */
+  .glare {
+    position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(112deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,.05) 17%, transparent 40%, transparent 100%);
+  }
+
+  /* ---------- Status bar Android ---------- */
+  .status {
+    position: absolute; top: 0; left: 0; right: 0; height: 33px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 19px; z-index: 4;
+    color: #fff; font-size: 12.5px; font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0,0,0,.65);
+  }
+  .status .right { display: flex; align-items: center; gap: 5px; }
+  .status svg { display: block; }
+
+  /* Punch-hole camera (gaya Pixel). */
+  .punch {
+    position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+    width: 13px; height: 13px; border-radius: 50%;
+    background: #05070a; z-index: 6;
+    box-shadow: 0 0 0 1.5px rgba(255,255,255,.10), 0 0 7px rgba(0,0,0,.85) inset;
+  }
+  .punch::after {
+    content: ""; position: absolute; top: 3.2px; left: 3.6px;
+    width: 4px; height: 4px; border-radius: 50%;
+    background: radial-gradient(circle at 33% 33%, #2d4a63, #0a1016);
+  }
+
+  /* Gesture bar Android. */
+  .gesture {
+    position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%);
+    width: 116px; height: 4.5px; border-radius: 3px;
+    background: rgba(255,255,255,.82); z-index: 5;
+  }
+
+  /* Tombol fisik samping. */
+  .btn-power, .btn-vol {
+    position: absolute; right: -2.5px; width: 3px; border-radius: 3px;
+    background: linear-gradient(90deg, #0c0f12, #2e343b);
+  }
+  .btn-power { top: 214px; height: 74px; }
+  .btn-vol   { top: 316px; height: 116px; }
+
+  /* ---------- Caption ---------- */
+  .caption { text-align: center; }
+  .caption .brand {
+    font-size: 15px; font-weight: 800; letter-spacing: .3em;
+    color: #38d6d6; text-transform: uppercase; margin-bottom: 9px;
+  }
+  .caption .title { font-size: 31px; font-weight: 700; color: #f2f7f9; letter-spacing: -.015em; }
+  .caption .sub { margin-top: 8px; font-size: 14.5px; color: #7d95a1; letter-spacing: .01em; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="device" id="device">
+    <div class="punch"></div>
+    <div class="btn-power"></div>
+    <div class="btn-vol"></div>
+    <div class="screen">
+      <img id="shot" alt="">
+      <div class="status">
+        <span id="clock">09:41</span>
+        <span class="right">
+          <!-- sinyal -->
+          <svg width="17" height="12" viewBox="0 0 17 12" fill="#fff">
+            <rect x="0"  y="8.5" width="2.6" height="3.5" rx=".6" opacity=".55"/>
+            <rect x="4"  y="6"   width="2.6" height="6"   rx=".6" opacity=".8"/>
+            <rect x="8"  y="3"   width="2.6" height="9"   rx=".6"/>
+            <rect x="12" y="0"   width="2.6" height="12"  rx=".6"/>
+          </svg>
+          <!-- wifi -->
+          <svg width="15" height="12" viewBox="0 0 15 12" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round">
+            <path d="M1 4.1a9.6 9.6 0 0 1 13 0"/>
+            <path d="M3.4 6.9a6.2 6.2 0 0 1 8.2 0"/>
+            <circle cx="7.5" cy="10.1" r="1.05" fill="#fff" stroke="none"/>
+          </svg>
+          <!-- baterai -->
+          <svg width="24" height="12" viewBox="0 0 24 12" fill="none">
+            <rect x=".7" y=".7" width="20" height="10.6" rx="2.6" stroke="#fff" stroke-opacity=".85" stroke-width="1.3"/>
+            <rect x="2.4" y="2.4" width="14.6" height="7.2" rx="1.5" fill="#fff"/>
+            <path d="M22.4 4.1v3.8c1-.4 1.5-1 1.5-1.9s-.5-1.5-1.5-1.9Z" fill="#fff" fill-opacity=".85"/>
+          </svg>
+        </span>
+      </div>
+      <div class="glare"></div>
+      <div class="gesture"></div>
+    </div>
+  </div>
+
+  <div class="caption">
+    <div class="brand">AQUAVIV</div>
+    <div class="title" id="label">Dashboard</div>
+    <div class="sub" id="sub">Smart Shower Water Quality Monitor</div>
+  </div>
+</div>
+
+<script>
+  var q = new URLSearchParams(location.search);
+  var shot = q.get('shot') || '01-landing.png';
+  var mode = q.get('mode') || 'flat';
+  var label = q.get('label');
+  var sub = q.get('sub');
+
+  var img = document.getElementById('shot');
+  var device = document.getElementById('device');
+
+  img.src = 'raw/' + shot;
+  if (mode === 'tilt') device.classList.add('tilt');
+  if (label) document.getElementById('label').textContent = label;
+  if (sub) document.getElementById('sub').textContent = sub;
+
+  // ---- Mode video (dipakai mockup/video.cjs) ----
+  // video=1  : kanvas 1920x1080
+  // bare=1   : sembunyikan caption
+  // rotY/rotX/rotZ/scale : transform eksplisit per-frame
+  // pan      : 0..1 posisi vertikal screenshot (efek scroll/Ken Burns)
+  if (q.get('video') === '1') document.body.classList.add('video');
+  if (q.get('bare') === '1') document.body.classList.add('bare');
+
+  var rotY = q.get('rotY');
+  var rotX = q.get('rotX');
+  var rotZ = q.get('rotZ');
+  var scale = q.get('scale');
+
+  if (rotY !== null || rotX !== null || rotZ !== null || scale !== null) {
+    // Transform eksplisit menggantikan preset .tilt agar animasi mulus.
+    device.classList.remove('tilt');
+    device.style.transform =
+      'perspective(2100px)' +
+      ' rotateY(' + (rotY || 0) + 'deg)' +
+      ' rotateX(' + (rotX || 0) + 'deg)' +
+      ' rotateZ(' + (rotZ || 0) + 'deg)' +
+      ' scale(' + (scale || 1) + ')';
+  }
+
+  // Pan vertikal: geser object-position gambar untuk mensimulasikan scroll.
+  var pan = q.get('pan');
+  if (pan !== null) {
+    var p = Math.max(0, Math.min(1, parseFloat(pan) || 0));
+    img.style.objectFit = 'cover';
+    img.style.objectPosition = 'center ' + (p * 100).toFixed(2) + '%';
+  }
+</script>
+</body>
+</html>

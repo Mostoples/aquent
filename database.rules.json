@@ -1,0 +1,65 @@
+{
+  "rules": {
+    "meta": {
+      "admins": {
+        ".read":  "auth != null && data.child(auth.uid).val() === true",
+        ".write": "auth != null && data.child(auth.uid).val() === true"
+      }
+    },
+    "sensors": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "controls": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "session": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "reminders": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      "$reminderId": {
+        ".validate": "newData.hasChildren(['time', 'label', 'days'])"
+      }
+    },
+    "profiles": {
+      "$uid": {
+        ".read":  "$uid === auth.uid",
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "fcmTokens": {
+      "$uid": {
+        ".read":  "$uid === auth.uid",
+        ".write": "$uid === auth.uid"
+      }
+    },
+    "sessions": {
+      ".read": "auth != null && root.child('meta/admins').child(auth.uid).val() === true",
+      "$uid": {
+        ".read": "$uid === auth.uid || (auth != null && root.child('meta/admins').child(auth.uid).val() === true)",
+        ".write": "$uid === auth.uid",
+        "$timestamp": {
+          ".validate": "newData.hasChildren(['duration_min', 'volume_liters', 'quality_score'])"
+        }
+      }
+    },
+    "surveys": {
+      ".read": "auth != null && root.child('meta/admins').child(auth.uid).val() === true",
+      "$uid": {
+        ".read":  "$uid === auth.uid || (auth != null && root.child('meta/admins').child(auth.uid).val() === true)",
+        ".write": "$uid === auth.uid",
+        "$timestamp": {
+          ".validate": "newData.hasChildren(['submittedAt'])"
+        }
+      }
+    },
+    "announcements": {
+      ".read": "auth != null",
+      ".write": "auth != null && root.child('meta/admins').child(auth.uid).val() === true"
+    }
+  }
+}

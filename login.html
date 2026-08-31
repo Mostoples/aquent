@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AQUENT — Masuk / Daftar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+
+  <script defer src="/__/firebase/12.12.1/firebase-app-compat.js"></script>
+  <script defer src="/__/firebase/12.12.1/firebase-auth-compat.js"></script>
+  <script defer src="/__/firebase/12.12.1/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/init.js"></script>
+  <script src="i18n.js"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --pri: #00b4d8; --pri2: #48cae4; --pri-dark: #0077b6;
+      --bg:  #0d1117; --bg2:  #161b22;
+      --glass: rgba(22,27,34,.72);
+      --border: rgba(255,255,255,.10);
+      --text: #caf0f8; --text2: rgba(202,240,248,.65);
+      --red: #ff6b6b; --green: #4ade80; --gold: #f0c040;
+      --r: 16px; --ease: .2s ease;
+    }
+    body {
+      font-family:'Inter',sans-serif; background:var(--bg); color:var(--text);
+      min-height:100vh; display:flex; flex-direction:column;
+      align-items:center; justify-content:center; padding:16px;
+      overflow:hidden; position:relative;
+    }
+
+    /* ---- Background ---- */
+    .bg-orbs { position:fixed; inset:0; pointer-events:none; z-index:0; }
+    .orb {
+      position:absolute; border-radius:50%; filter:blur(80px); opacity:.18;
+      animation:drift 12s ease-in-out infinite alternate;
+    }
+    .orb-1 { width:520px;height:520px; background:#00b4d8; top:-180px; left:-180px; }
+    .orb-2 { width:380px;height:380px; background:#0077b6; bottom:-120px; right:-100px; animation-delay:-6s; }
+    .orb-3 { width:260px;height:260px; background:#48cae4; top:40%; left:60%; animation-delay:-3s; }
+    @keyframes drift { to { transform:translate(40px,30px) scale(1.08); } }
+
+    /* ---- Card ---- */
+    .login-wrap {
+      position:relative; z-index:1; width:100%; max-width:440px;
+      background:var(--glass); border:1px solid var(--border);
+      border-radius:24px; padding:36px 32px 32px;
+      backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+      box-shadow:0 8px 48px rgba(0,0,0,.5);
+    }
+
+    /* Logo */
+    .auth-logo { display:flex; align-items:center; gap:10px; margin-bottom:28px; }
+    .logo-drop-sm {
+      width:32px; height:40px;
+      background:linear-gradient(135deg,var(--pri),var(--pri-dark));
+      clip-path:polygon(50% 0%,100% 35%,100% 70%,50% 100%,0% 70%,0% 35%);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .logo-text-sm { font-size:1.15rem; font-weight:700; letter-spacing:.06em; color:var(--text); }
+
+    /* Tabs */
+    .auth-tabs { display:flex; background:rgba(255,255,255,.05); border-radius:10px; padding:3px; margin-bottom:24px; }
+    .auth-tab {
+      flex:1; padding:9px 0; border:none; background:transparent; border-radius:8px;
+      color:var(--text2); font-size:.875rem; font-weight:500; cursor:pointer; transition:all var(--ease);
+    }
+    .auth-tab.active { background:rgba(0,180,216,.18); color:var(--pri2); }
+
+    /* Forms */
+    .auth-form { display:none; flex-direction:column; gap:14px; }
+    .auth-form.visible { display:flex; }
+
+    .form-group { display:flex; flex-direction:column; gap:6px; }
+    .form-group label { font-size:.78rem; font-weight:500; color:var(--text2); letter-spacing:.02em; }
+    .form-input {
+      background:rgba(255,255,255,.06); border:1px solid var(--border);
+      border-radius:10px; padding:11px 14px; color:var(--text); font-size:.9rem;
+      font-family:'Inter',sans-serif; transition:border-color var(--ease);
+      outline:none; width:100%;
+    }
+    .form-input:focus { border-color:var(--pri); }
+    .remember-row { display:flex; align-items:center; gap:9px; font-size:.78rem; color:var(--text2); cursor:pointer; user-select:none; }
+    .remember-row input { width:16px; height:16px; accent-color:var(--pri); cursor:pointer; flex-shrink:0; }
+    .form-input::placeholder { color:rgba(202,240,248,.35); }
+
+    .input-eye {
+      position:relative;
+    }
+    .input-eye input { padding-right:40px; }
+    .eye-btn {
+      position:absolute; right:12px; top:50%; transform:translateY(-50%);
+      background:none; border:none; color:var(--text2); cursor:pointer; padding:4px;
+      font-size:1rem; display:flex; align-items:center;
+    }
+
+    /* Google button */
+    .btn-google {
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      width:100%; padding:12px 16px; border-radius:10px;
+      background:rgba(255,255,255,.08); border:1px solid var(--border);
+      color:var(--text); font-size:.9rem; font-weight:500;
+      cursor:pointer; transition:all var(--ease);
+    }
+    .btn-google:hover { background:rgba(255,255,255,.14); border-color:rgba(255,255,255,.22); }
+    .google-icon { width:20px; height:20px; flex-shrink:0; }
+
+    /* Divider */
+    .divider { display:flex; align-items:center; gap:12px; color:var(--text2); font-size:.78rem; }
+    .divider::before, .divider::after { content:''; flex:1; height:1px; background:var(--border); }
+
+    /* Submit button */
+    .btn-auth {
+      width:100%; padding:12px; border:none; border-radius:10px;
+      background:linear-gradient(135deg,var(--pri),var(--pri-dark));
+      color:#fff; font-size:.92rem; font-weight:600; cursor:pointer;
+      transition:opacity var(--ease), transform var(--ease);
+      display:flex; align-items:center; justify-content:center; gap:8px;
+    }
+    .btn-auth:hover { opacity:.88; transform:translateY(-1px); }
+    .btn-auth:disabled { opacity:.45; cursor:not-allowed; transform:none; }
+
+    /* Error/success */
+    .auth-msg {
+      padding:10px 14px; border-radius:10px; font-size:.82rem; font-weight:500;
+      display:none; align-items:center; gap:8px;
+    }
+    .auth-msg.error   { display:flex; background:rgba(255,107,107,.12); border:1px solid rgba(255,107,107,.3); color:var(--red); }
+    .auth-msg.success { display:flex; background:rgba(74,222,128,.10); border:1px solid rgba(74,222,128,.25); color:var(--green); }
+
+    /* Footer link */
+    .auth-footer { text-align:center; margin-top:20px; font-size:.8rem; color:var(--text2); }
+    .auth-footer a { color:var(--pri2); text-decoration:none; font-weight:500; }
+    .auth-footer a:hover { text-decoration:underline; }
+
+    /* Loading spinner */
+    .spin {
+      width:18px; height:18px; border:2px solid rgba(255,255,255,.3);
+      border-top-color:#fff; border-radius:50%; animation:spin .7s linear infinite; flex-shrink:0;
+    }
+    @keyframes spin { to { transform:rotate(360deg); } }
+
+    /* Full-page loading gate */
+    .auth-gate {
+      position:fixed; inset:0; background:var(--bg); z-index:9999;
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;
+      transition:opacity .4s;
+    }
+    .auth-gate.hide { opacity:0; pointer-events:none; }
+    .gate-logo { font-size:2rem; font-weight:700; letter-spacing:.08em; color:var(--pri2); }
+    .gate-sub  { font-size:.85rem; color:var(--text2); }
+
+    /* Password strength */
+    .pw-strength { height:3px; border-radius:2px; transition:width .3s, background .3s; width:0; }
+
+    /* ============================================================
+       AKSESIBILITAS MOBILE — target sentuh
+       ============================================================
+       Halaman ini memakai style inline (tidak memuat style.css), jadi
+       aturan area sentuh ditulis di sini. Panduan Material/Apple HIG
+       menyarankan area tekan minimal 44x44 px.
+
+       Pemicu memakai lebar layar, bukan `pointer: coarse`, karena
+       pointer:coarse tidak dapat diandalkan (laptop layar-sentuh dan
+       sebagian lingkungan melaporkan `fine`).
+       ------------------------------------------------------------ */
+    @media (max-width: 768px) {
+      /* Tab Masuk/Daftar, tombol utama, dan tombol Google. */
+      .auth-tab,
+      #tabLogin,
+      #tabRegister,
+      #loginBtn,
+      #registerBtn,
+      #googleBtn {
+        min-height: 44px;
+      }
+
+      /* Baris "biarkan saya tetap masuk": seluruh baris jadi area tekan. */
+      .remember-row {
+        min-height: 44px;
+      }
+
+      /* Tombol mata (lihat/sembunyikan sandi) & pemilih bahasa:
+         area tekan diperluas lewat ::after transparan sehingga ukuran
+         VISUAL ikon tetap kecil namun mudah disentuh. */
+      .eye-btn,
+      #langToggle {
+        position: relative;
+      }
+      .eye-btn::after,
+      #langToggle::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 44px;
+        min-height: 44px;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        background: transparent;
+      }
+
+      /* Ikon/teks di dalam kontrol tidak menangkap sentuhan sendiri,
+         agar area 44px pada induknya yang berlaku. */
+      .eye-btn > i,
+      #langToggle > span,
+      #loginBtn > i,
+      #registerBtn > i {
+        pointer-events: none;
+      }
+
+      /* Tautan sekunder (lupa sandi, syarat) diberi tinggi sentuh. */
+      .auth-link,
+      .form-foot a,
+      .auth-card a,
+      #loginForm a,
+      #registerForm a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+      }
+
+      /* Semua <label> pada form ini berpasangan dengan input, jadi diberi
+         tinggi sentuh minimum. box-sizing menjamin hasil akhir >= 44px
+         meski ada padding/line-height. */
+      label,
+      .remember-row {
+        box-sizing: border-box;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Auth gate (while Firebase initialises) -->
+<div class="auth-gate" id="authGate">
+  <div class="gate-logo">AQUENT</div>
+  <div class="spin"></div>
+  <div class="gate-sub">Memeriksa sesi...</div>
+</div>
+
+<!-- Background -->
+<div class="bg-orbs">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- Card -->
+<div class="login-wrap" id="loginCard" style="display:none">
+
+  <!-- Logo -->
+  <div class="auth-logo">
+    <div class="logo-drop-sm"></div>
+    <span class="logo-text-sm">AQUENT</span>
+    <button id="langToggle" title="Switch language" data-i18n-attr="title" data-i18n="lang.toggle"
+      style="margin-left:auto;background:rgba(255,255,255,.08);border:1px solid var(--border);color:var(--text2);border-radius:8px;padding:5px 12px;font-size:.75rem;font-weight:700;cursor:pointer;letter-spacing:.5px">
+      <span class="lang-label">ID</span>
+    </button>
+  </div>
+
+  <!-- Tabs -->
+  <div class="auth-tabs">
+    <button class="auth-tab active" id="tabLogin" data-i18n="login.tabLogin">Masuk</button>
+    <button class="auth-tab"        id="tabRegister" data-i18n="login.tabRegister">Daftar</button>
+  </div>
+
+  <!-- Error / success message -->
+  <div class="auth-msg" id="authMsg"></div>
+
+  <!-- Google -->
+  <button class="btn-google" id="googleBtn">
+    <svg class="google-icon" viewBox="0 0 24 24">
+      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/>
+      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+    </svg>
+    <span data-i18n="login.google">Lanjutkan dengan Google</span>
+  </button>
+
+  <div class="divider" data-i18n="login.or">atau</div>
+
+  <!-- ===== LOGIN FORM ===== -->
+  <form class="auth-form visible" id="loginForm" onsubmit="return false">
+    <div class="form-group">
+      <label data-i18n="login.email">Alamat Email</label>
+      <input type="email" class="form-input" id="loginEmail" placeholder="nama@email.com" required>
+    </div>
+    <div class="form-group">
+      <label data-i18n="login.password">Kata Sandi</label>
+      <div class="input-eye">
+        <input type="password" class="form-input" id="loginPassword" placeholder="Minimal 6 karakter" data-i18n-attr="placeholder" data-i18n="login.passwordPlaceholder" required>
+        <button type="button" class="eye-btn" id="eyeLogin"><i class="ph ph-eye"></i></button>
+      </div>
+    </div>
+    <label class="remember-row">
+      <input type="checkbox" id="rememberMe" checked>
+      <span data-i18n="login.remember">Biarkan saya tetap masuk di perangkat ini</span>
+    </label>
+    <button type="submit" class="btn-auth" id="loginBtn">
+      <i class="ph-fill ph-sign-in"></i> <span data-i18n="login.signIn">Masuk</span>
+    </button>
+  </form>
+
+  <!-- ===== REGISTER FORM ===== -->
+  <form class="auth-form" id="registerForm" onsubmit="return false">
+    <div class="form-group">
+      <label data-i18n="login.name">Nama Lengkap</label>
+      <input type="text" class="form-input" id="regName" placeholder="Nama Anda" data-i18n-attr="placeholder" data-i18n="login.namePlaceholder" required>
+    </div>
+    <div class="form-group">
+      <label data-i18n="login.email">Alamat Email</label>
+      <input type="email" class="form-input" id="regEmail" placeholder="nama@email.com" required>
+    </div>
+    <div class="form-group">
+      <label data-i18n="login.password">Kata Sandi</label>
+      <div class="input-eye">
+        <input type="password" class="form-input" id="regPassword" placeholder="Minimal 6 karakter" data-i18n-attr="placeholder" data-i18n="login.passwordPlaceholder" required>
+        <button type="button" class="eye-btn" id="eyeReg"><i class="ph ph-eye"></i></button>
+      </div>
+      <div class="pw-strength" id="pwStrength"></div>
+    </div>
+    <button type="submit" class="btn-auth" id="registerBtn">
+      <i class="ph-fill ph-user-plus"></i> <span data-i18n="login.signUp">Buat Akun Gratis</span>
+    </button>
+  </form>
+
+  <div class="auth-footer">
+    <a href="index.html"><i class="ph ph-arrow-left" style="font-size:.8rem"></i> <span data-i18n="login.backHome">Kembali ke Beranda</span></a>
+  </div>
+</div>
+
+<script>
+/* Wait for Firebase init.js */
+document.addEventListener('DOMContentLoaded', () => {
+  const gate  = document.getElementById('authGate');
+  const card  = document.getElementById('loginCard');
+  const msg   = document.getElementById('authMsg');
+
+  function showGate(text) {
+    gate.querySelector('.gate-sub').textContent = text;
+    gate.classList.remove('hide');
+    card.style.display = 'none';
+  }
+  function hideGate() {
+    gate.classList.add('hide');
+    card.style.display = '';
+  }
+  function showMsg(type, text) {
+    msg.className = 'auth-msg ' + type;
+    msg.innerHTML = `<i class="ph ${type==='error'?'ph-warning-circle':'ph-check-circle'}"></i> ${text}`;
+  }
+  function clearMsg() { msg.className = 'auth-msg'; }
+
+  /* ---- Tab switch ---- */
+  document.getElementById('tabLogin').addEventListener('click', () => {
+    document.getElementById('tabLogin').classList.add('active');
+    document.getElementById('tabRegister').classList.remove('active');
+    document.getElementById('loginForm').classList.add('visible');
+    document.getElementById('registerForm').classList.remove('visible');
+    clearMsg();
+  });
+  document.getElementById('tabRegister').addEventListener('click', () => {
+    document.getElementById('tabRegister').classList.add('active');
+    document.getElementById('tabLogin').classList.remove('active');
+    document.getElementById('registerForm').classList.add('visible');
+    document.getElementById('loginForm').classList.remove('visible');
+    clearMsg();
+  });
+
+  /* ---- Eye toggles ---- */
+  function eyeToggle(btnId, inputId) {
+    const btn = document.getElementById(btnId);
+    const inp = document.getElementById(inputId);
+    if (!btn || !inp) return;
+    btn.addEventListener('click', () => {
+      const show = inp.type === 'password';
+      inp.type = show ? 'text' : 'password';
+      btn.innerHTML = show ? '<i class="ph ph-eye-slash"></i>' : '<i class="ph ph-eye"></i>';
+    });
+  }
+  eyeToggle('eyeLogin', 'loginPassword');
+  eyeToggle('eyeReg',   'regPassword');
+
+  /* ---- Password strength ---- */
+  document.getElementById('regPassword')?.addEventListener('input', e => {
+    const pw = e.target.value;
+    const bar = document.getElementById('pwStrength');
+    const score = [pw.length >= 8, /[A-Z]/.test(pw), /[0-9]/.test(pw), /[^A-Za-z0-9]/.test(pw)].filter(Boolean).length;
+    const colors = ['', '#ff6b6b','#f0c040','#4ade80','#00b4d8'];
+    const widths = ['0%','30%','55%','78%','100%'];
+    bar.style.width   = pw ? widths[score] : '0';
+    bar.style.background = colors[score];
+  });
+
+  /* ---- Persistensi sesi ----
+     LOCAL  = sesi bertahan setelah browser ditutup (default, "ingat saya").
+     SESSION = sesi hilang saat tab ditutup.
+     Harus dipanggil SEBELUM signIn agar kredensial disimpan di tempat benar. */
+  async function applyPersistence() {
+    const remember = document.getElementById('rememberMe')?.checked !== false;
+    const mode = remember ? 'local' : 'session';
+    try { localStorage.setItem('aquent-persist', mode); } catch {}
+    const P = firebase.auth.Auth.Persistence;
+    try {
+      await firebase.auth().setPersistence(remember ? P.LOCAL : P.SESSION);
+    } catch (e) {
+      console.warn('Persistensi sesi gagal diterapkan:', e.message);
+    }
+  }
+
+  /* ---- After auth: check role, redirect ---- */
+  async function afterLogin(user) {
+    showGate('Memuat profil...');
+    const db  = firebase.firestore();
+    const ref = db.collection('users').doc(user.uid);
+    let snap  = await ref.get();
+    if (!snap.exists) {
+      await ref.set({
+        email: user.email || '', displayName: user.displayName || '',
+        photoURL: user.photoURL || '', role:'free', plan:'free',
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      });
+      snap = await ref.get();
+    }
+    const role = snap.data().role || 'free';
+    try { localStorage.setItem('aquent-role-' + user.uid, role); } catch {}
+
+    let dest = role === 'admin' ? '/admin.html' : '/app.html';
+    // Kembalikan pengguna ke halaman yang tadi ingin dibuka (bila ada).
+    try {
+      const back = sessionStorage.getItem('aquent-after-login');
+      sessionStorage.removeItem('aquent-after-login');
+      if (role !== 'admin' && back && back.startsWith('/') && !back.startsWith('//') && !back.startsWith('/login')) {
+        dest = back;
+      }
+    } catch {}
+    window.location.href = dest;
+  }
+
+  /* ---- Google sign in ---- */
+  document.getElementById('googleBtn').addEventListener('click', async () => {
+    clearMsg();
+    const provider = new firebase.auth.GoogleAuthProvider();
+    try {
+      await applyPersistence();
+      const result = await firebase.auth().signInWithPopup(provider);
+      await afterLogin(result.user);
+    } catch (e) {
+      if (e.code !== 'auth/popup-closed-by-user')
+        showMsg('error', _firebaseMsg(e.code));
+    }
+  });
+
+  /* ---- Email login ---- */
+  document.getElementById('loginForm').addEventListener('submit', async () => {
+    clearMsg();
+    const email = document.getElementById('loginEmail').value.trim();
+    const pass  = document.getElementById('loginPassword').value;
+    const btn   = document.getElementById('loginBtn');
+    if (!email || !pass) return;
+    btn.disabled = true;
+    btn.innerHTML = '<div class="spin"></div> Masuk...';
+    try {
+      await applyPersistence();
+      const result = await firebase.auth().signInWithEmailAndPassword(email, pass);
+      await afterLogin(result.user);
+    } catch (e) {
+      showMsg('error', _firebaseMsg(e.code));
+      btn.disabled = false;
+      btn.innerHTML = '<i class="ph-fill ph-sign-in"></i> Masuk';
+    }
+  });
+
+  /* ---- Email register ---- */
+  document.getElementById('registerForm').addEventListener('submit', async () => {
+    clearMsg();
+    const name  = document.getElementById('regName').value.trim();
+    const email = document.getElementById('regEmail').value.trim();
+    const pass  = document.getElementById('regPassword').value;
+    const btn   = document.getElementById('registerBtn');
+    if (!name || !email || !pass) return;
+    if (pass.length < 6) { showMsg('error','Kata sandi minimal 6 karakter.'); return; }
+    btn.disabled = true;
+    btn.innerHTML = '<div class="spin"></div> Membuat akun...';
+    try {
+      await applyPersistence();
+      const cred = await firebase.auth().createUserWithEmailAndPassword(email, pass);
+      await cred.user.updateProfile({ displayName: name });
+      await afterLogin(cred.user);
+    } catch (e) {
+      showMsg('error', _firebaseMsg(e.code));
+      btn.disabled = false;
+      btn.innerHTML = '<i class="ph-fill ph-user-plus"></i> Buat Akun Gratis';
+    }
+  });
+
+  /* ---- Firebase error messages (Indonesian) ---- */
+  function _firebaseMsg(code) {
+    const map = {
+      'auth/email-already-in-use':   'Email sudah terdaftar. Silakan masuk.',
+      'auth/invalid-email':          'Format email tidak valid.',
+      'auth/user-not-found':         'Akun tidak ditemukan. Silakan daftar.',
+      'auth/wrong-password':         'Kata sandi salah. Coba lagi.',
+      'auth/invalid-credential':     'Email atau kata sandi salah.',
+      'auth/too-many-requests':      'Terlalu banyak percobaan. Coba lagi nanti.',
+      'auth/network-request-failed': 'Koneksi internet bermasalah.',
+      'auth/weak-password':          'Kata sandi terlalu lemah.',
+    };
+    return map[code] || 'Terjadi kesalahan. Coba lagi.';
+  }
+
+  /* ---- Auth state: if already logged in, redirect immediately ---- */
+  firebase.auth().onAuthStateChanged(async user => {
+    if (user) {
+      await afterLogin(user);
+    } else {
+      hideGate();
+    }
+  });
+});
+</script>
+</body>
+</html>

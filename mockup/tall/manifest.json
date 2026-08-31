@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "01-landing",
+    "url": "/index.html",
+    "ok": true,
+    "w": 824,
+    "h": 12000,
+    "docH": 6000,
+    "screens": 6.56
+  },
+  {
+    "slug": "02-login",
+    "url": "/login.html",
+    "ok": true,
+    "w": 824,
+    "h": 1830,
+    "docH": 915,
+    "screens": 1
+  },
+  {
+    "slug": "03-dashboard",
+    "url": "/app.html",
+    "ok": true,
+    "w": 824,
+    "h": 2978,
+    "docH": 1489,
+    "screens": 1.63
+  },
+  {
+    "slug": "04-account",
+    "url": "/account.html",
+    "ok": true,
+    "w": 824,
+    "h": 3904,
+    "docH": 1952,
+    "screens": 2.13
+  },
+  {
+    "slug": "05-help",
+    "url": "/help.html",
+    "ok": true,
+    "w": 824,
+    "h": 4170,
+    "docH": 2085,
+    "screens": 2.28
+  }
+]

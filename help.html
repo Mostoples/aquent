@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <!-- Terapkan tema tersimpan sebelum render (hindari flash tema salah) -->
+  <script>(function(){try{var t=localStorage.getItem('aquent-theme');if(['dark','light','elegant','neon','serene'].indexOf(t)>-1)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bantuan / Help — AQUENT</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+  <script src="i18n.js"></script>
+
+  <style>
+    body { padding: 32px 16px 60px; }
+    .help-wrap { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+    .help-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .help-header h1 { font-size: 1.5rem; font-weight: 700; flex: 1; }
+    .help-header .back-btn, .lang-btn {
+      width: 36px; height: 36px; border-radius: 50%; border: none;
+      background: rgba(255,255,255,.08); color: var(--txt2);
+      display: flex; align-items: center; justify-content: center; cursor: pointer; text-decoration: none;
+    }
+    .lang-btn { width: auto; padding: 0 14px; border-radius: 18px; font-weight: 700; font-size: .75rem; letter-spacing: .5px; }
+    .search-box { padding: 14px 18px; margin-bottom: 16px; display: flex; gap: 10px; align-items: center; }
+    .search-box input { flex: 1; background: transparent; border: none; outline: none; color: var(--txt1); font-size: .95rem; font-family: 'Inter',sans-serif; }
+    .help-section { padding: 22px 26px; margin-bottom: 14px; }
+    .help-section h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; color: var(--pri2); }
+    .faq-item { padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-size: .92rem; font-weight: 600; color: var(--txt1); cursor: pointer; display: flex; align-items: center; gap: 10px; list-style: none; padding: 4px 0; }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q::before { content: '+'; color: var(--pri); font-size: 1.3rem; font-weight: 300; transition: transform .2s; width: 18px; }
+    details[open] .faq-q::before { transform: rotate(45deg); }
+    .faq-a { font-size: .85rem; color: var(--txt2); line-height: 1.7; padding: 10px 0 4px 28px; }
+    .faq-a code { background: rgba(0,0,0,.3); padding: 2px 6px; border-radius: 4px; font-size: .9em; }
+    .faq-a a { color: var(--pri2); }
+    .faq-a ul { margin: 8px 0 8px 22px; }
+    .faq-a li { margin-bottom: 4px; }
+    .quick-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+    .ql-card { padding: 14px 16px; background: rgba(255,255,255,.04); border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--txt1); transition: all .2s; display: flex; align-items: center; gap: 12px; }
+    .ql-card:hover { background: rgba(0,180,216,.1); border-color: rgba(0,180,216,.3); transform: translateY(-2px); }
+
+    /* ============================================================
+       AKSESIBILITAS MOBILE — target sentuh
+       ============================================================
+       Halaman ini memakai style inline, jadi aturan area sentuh ditulis
+       di sini. Panduan Material/Apple HIG menyarankan minimal 44x44 px.
+       Pemicu memakai lebar layar (bukan pointer:coarse) agar konsisten
+       dengan style.css dan andal di semua lingkungan.
+       ------------------------------------------------------------ */
+    @media (max-width: 768px) {
+      /* Tautan di dalam jawaban FAQ dan tautan cepat. */
+      .faq-a a,
+      .help-section a:not(.ql-card):not(.back-btn) {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+      }
+
+      /* Judul FAQ: seluruh baris menjadi area tekan. */
+      .faq-q,
+      summary.faq-q {
+        box-sizing: border-box;
+        min-height: 44px;
+      }
+
+      /* Kartu tautan cepat sudah tinggi, cukup dipastikan minimumnya. */
+      .ql-card {
+        box-sizing: border-box;
+        min-height: 44px;
+      }
+    }
+    .ql-card i { font-size: 1.5rem; color: var(--pri2); flex-shrink: 0; }
+    .ql-card strong { display: block; font-size: .88rem; }
+    .ql-card span { font-size: .72rem; color: var(--txt3); }
+    .contact-row { display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .contact-row:last-child { border-bottom: none; }
+    .contact-row i { font-size: 1.5rem; color: var(--pri2); width: 36px; text-align: center; }
+    .contact-row .label { font-weight: 600; font-size: .88rem; }
+    .contact-row .value { font-size: .76rem; color: var(--txt3); }
+  </style>
+</head>
+<body>
+<div class="bg-scene">
+  <div class="orb orb-1"></div><div class="orb orb-2"></div>
+  <div class="orb orb-3"></div><div class="orb orb-4"></div>
+</div>
+
+<div class="help-wrap">
+  <div class="help-header">
+    <a href="javascript:history.back()" class="back-btn"><i class="ph ph-arrow-left"></i></a>
+    <h1><span data-lang="id">Pusat Bantuan</span><span data-lang="en">Help Center</span></h1>
+    <button id="langToggle" class="lang-btn" title="Switch language"><span class="lang-label">ID</span></button>
+  </div>
+
+  <div class="glass-card search-box">
+    <i class="ph ph-magnifying-glass" style="font-size:1.2rem;color:var(--txt3)"></i>
+    <input type="search" id="faqSearch" data-i18n-attr="placeholder" data-i18n="enc.searchPlaceholder" placeholder="Cari..." oninput="filterFaq()">
+  </div>
+
+  <!-- Quick Links -->
+  <div class="glass-card help-section">
+    <h2><i class="ph-duotone ph-rocket-launch"></i><span data-lang="id">Tautan Cepat</span><span data-lang="en">Quick Links</span></h2>
+    <div class="quick-links">
+      <a href="/account.html" class="ql-card"><i class="ph-duotone ph-user-circle"></i>
+        <div><strong><span data-lang="id">Akun Saya</span><span data-lang="en">My Account</span></strong><span data-lang="id">Edit profil & data</span><span data-lang="en">Edit profile & data</span></div></a>
+      <a href="/privacy.html" class="ql-card"><i class="ph-duotone ph-shield-check"></i>
+        <div><strong><span data-lang="id">Privasi</span><span data-lang="en">Privacy</span></strong><span>UU PDP & GDPR</span></div></a>
+      <a href="/app.html" class="ql-card"><i class="ph-duotone ph-squares-four"></i>
+        <div><strong>Dashboard</strong><span data-lang="id">Kembali ke app</span><span data-lang="en">Back to app</span></div></a>
+      <a href="/index.html" class="ql-card"><i class="ph-duotone ph-house"></i>
+        <div><strong><span data-lang="id">Beranda</span><span data-lang="en">Home</span></strong><span data-lang="id">Tentang AQUENT</span><span data-lang="en">About AQUENT</span></div></a>
+    </div>
+  </div>
+
+  <!-- FAQ Getting Started -->
+  <div class="glass-card help-section">
+    <h2><i class="ph-duotone ph-play-circle"></i><span data-lang="id">Memulai</span><span data-lang="en">Getting Started</span></h2>
+
+    <details class="faq-item">
+      <summary class="faq-q"><span data-lang="id">Apa itu AQUENT?</span><span data-lang="en">What is AQUENT?</span></summary>
+      <div class="faq-a">
+        <p data-lang="id">AQUENT adalah platform smart shower berbasis IoT + AI yang memantau kualitas air mandi (pH, suhu, kekeruhan) secara real-time, dan memberikan rekomendasi kesehatan kulit personal. Semua keputusan AI dilengkapi penjelasan transparan (XAI).</p>
+        <p data-lang="en">AQUENT is an IoT + AI smart shower platform that monitors bathing water quality (pH, temperature, turbidity) in real time and provides personalized skin-health recommendations. Every AI decision comes with transparent explanations (XAI).</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q"><span data-lang="id">Bagaimana cara mendaftar?</span><span data-lang="en">How do I sign up?</span></summary>
+      <div class="faq-a">
+        <div data-lang="id"><p>Buka <a href="/login.html">halaman login</a>, klik tab <strong>Daftar</strong>, lalu pilih Google atau email + password (minimal 6 karakter). Akun baru otomatis dapat paket <strong>Free</strong>.</p></div>
+        <div data-lang="en"><p>Open the <a href="/login.html">login page</a>, click the <strong>Sign Up</strong> tab, then choose Google or email + password (minimum 6 characters). New accounts get the <strong>Free</strong> plan automatically.</p></div>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q"><span data-lang="id">Saya butuh hardware apa?</span><span data-lang="en">What hardware do I need?</span></summary>
+      <div class="faq-a">
+        <div data-lang="id"><p>Untuk fitur dasar (dashboard, AI Chat, skin scan, ensiklopedia), <strong>tidak butuh hardware</strong>. Untuk monitoring real butuh ESP32 + sensor pH, suhu, turbidity yang push data ke Firebase.</p></div>
+        <div data-lang="en"><p>For basic features (dashboard, AI Chat, skin scan, encyclopedia), <strong>no hardware is needed</strong>. For real monitoring you need an ESP32 + pH, temperature, and turbidity sensors that push data to Firebase.</p></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- FAQ Features -->
+  <div class="glass-card help-section">
+    <h2><i class="ph-duotone ph-sparkle"></i><span data-lang="id">Fitur</span><span data-lang="en">Features</span></h2>
+
+    <details class="faq-item">
+      <summary class="faq-q"><span data-lang="id">Apa itu Quality Score 0-100?</span><span data-lang="en">What is the 0-100 Quality Score?</span></summary>
+      <div class="faq-a">
+        <div data-lang="id"><p>Ringkasan kualitas air dari 3 parameter: <strong>pH</strong> (35%, ideal 6.5-7.5), <strong>Suhu</strong> (35%, ideal 36-38°C), <strong>Kekeruhan</strong> (30%, ideal ≤0.5 NTU). Grade A (90-100) hingga F (&lt;45). Klik "Kenapa skor ini?" untuk penjelasan XAI.</p></div>
+        <div data-lang="en"><p>A water quality summary from 3 parameters: <strong>pH</strong> (35%, ideal 6.5-7.5), <strong>Temperature</strong> (35%, ideal 36-38°C), <strong>Turbidity</strong> (30%, ideal ≤0.5 NTU). Grade A (90-100) to F (&lt;45). Click "Why this score?" for the XAI explanation.</p></div>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q"><span data-lang="id">Bagaimana Skin Scanner bekerja tanpa Gemini?</span><span data-lang="en">How does the Skin Scanner work without Gemini?</span></summary>
+      <div class="faq-a">
+        <div data-lang="id"><p>Skin Scanner AQUENT <strong>100% lokal di browser Anda</strong> — foto tidak pernah dikirim ke server. Pipeline: TensorFlow.js model (klasifikasi tipe kulit) + pixel analysis (hidrasi, kemerahan, oiliness, tekstur). Bisa jalan offline setelah model di-cache.</p></div>
+        <div data-lang="en"><p>AQUENT's Skin Scanner runs <strong>100% locally in your browser</strong> — photos are never sent to a server. Pipeline: TensorFlow.js model (skin type classification) + pixel analysis (hydration, redness, oiliness, texture). Works offline once the model is cached.</p></div>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q"><span data-lang="id">Apa beda paket Free, Premium, Ultimate?</span><span data-lang="en">What's the difference between Free, Premium, and Ultimate?</span></summary>
+      <div class="faq-a">
+        <div data-lang="id"><ul><li><strong>Free:</strong> Dashboard, Skin Scanner AI, 5 pesan AI/hari, eco-monitor</li><li><strong>Premium:</strong> AI Chat unlimited, Riwayat tak terbatas</li><li><strong>Ultimate:</strong> Semua Premium + Multi-Profil, Push Notifikasi, Laporan PDF</li></ul></div>
+        <div data-lang="en"><ul><li><strong>Free:</strong> Dashboard, AI Skin Scanner, 5 AI messages/day, eco-monitor</li><li><strong>Premium:</strong> Unlimited AI Chat, unlimited History</li><li><strong>Ultimate:</strong> All Premium + Multi-Profile, Push Notifications, PDF Reports</li></ul></div>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q"><span data-lang="id">Bagaimana mengganti tema & bahasa?</span><span data-lang="en">How do I change theme & language?</span></summary>
+      <div class="faq-a">
+        <div data-lang="id"><p>Klik ikon tema (matahari/bulan/sparkle) di header untuk 3 mode: Dark, Light, Elegant. Klik tombol ID/EN untuk ganti bahasa.</p></div>
+        <div data-lang="en"><p>Click the theme icon (sun/moon/sparkle) in the header for 3 modes: Dark, Light, Elegant. Click the ID/EN button to switch language.</p></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- FAQ Privacy -->
+  <div class="glass-card help-section">
+    <h2><i class="ph-duotone ph-shield-check"></i><span data-lang="id">Privasi & Keamanan</span><span data-lang="en">Privacy & Security</span></h2>
+
+    <details class="faq-item">
+      <summary class="faq-q"><span data-lang="id">Apakah foto skin scan saya disimpan?</span><span data-lang="en">Are my skin scan photos stored?</span></summary>
+      <div class="faq-a">
+        <p data-lang="id"><strong>Tidak.</strong> Foto wajah diproses sepenuhnya di browser via TensorFlow.js dan tidak pernah dikirim ke server. Hanya hasil analisis (teks) yang tersimpan.</p>
+        <p data-lang="en"><strong>No.</strong> Facial photos are processed entirely in your browser via TensorFlow.js and never sent to a server. Only the analysis results (text) are saved.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q"><span data-lang="id">Bagaimana cara hapus akun & download data?</span><span data-lang="en">How do I delete my account & download my data?</span></summary>
+      <div class="faq-a">
+        <div data-lang="id"><p>Buka <a href="/account.html">Pengaturan Akun</a>. Untuk hapus: bagian <strong>Zona Berbahaya</strong>. Untuk download: bagian <strong>Privasi & Data</strong> → Export (file JSON). Sesuai UU PDP & GDPR.</p></div>
+        <div data-lang="en"><p>Open <a href="/account.html">Account Settings</a>. To delete: the <strong>Danger Zone</strong> section. To download: the <strong>Privacy & Data</strong> section → Export (JSON file). Compliant with Indonesian PDP Law & GDPR.</p></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- FAQ Troubleshooting -->
+  <div class="glass-card help-section">
+    <h2><i class="ph-duotone ph-wrench"></i>Troubleshooting</h2>
+
+    <details class="faq-item">
+      <summary class="faq-q"><span data-lang="id">App tidak load / putih saja</span><span data-lang="en">App won't load / blank screen</span></summary>
+      <div class="faq-a">
+        <div data-lang="id"><ul><li>Hard refresh: <code>Ctrl + Shift + R</code></li><li>Bersihkan cache browser</li><li>Cek console error (F12)</li><li>Coba browser lain</li></ul></div>
+        <div data-lang="en"><ul><li>Hard refresh: <code>Ctrl + Shift + R</code></li><li>Clear browser cache</li><li>Check console errors (F12)</li><li>Try another browser</li></ul></div>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q"><span data-lang="id">Sensor menampilkan "Demo Mode"</span><span data-lang="en">Sensors show "Demo Mode"</span></summary>
+      <div class="faq-a">
+        <div data-lang="id"><p>Device IoT belum push data ke Firebase. Cek ESP32 terhubung WiFi, config Firebase benar, dan rules mengizinkan write. Demo Mode tetap menampilkan simulasi data realistis.</p></div>
+        <div data-lang="en"><p>The IoT device hasn't pushed data to Firebase yet. Check that the ESP32 is connected to WiFi, the Firebase config is correct, and rules allow writes. Demo Mode still shows realistic simulated data.</p></div>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q"><span data-lang="id">Skin scanner gagal akses kamera</span><span data-lang="en">Skin scanner can't access camera</span></summary>
+      <div class="faq-a">
+        <div data-lang="id"><p>Browser butuh izin kamera & akses via <code>https://</code>. Klik "Allow" saat diminta. Alternatif: klik <strong>upload foto dari galeri</strong>.</p></div>
+        <div data-lang="en"><p>The browser needs camera permission & access via <code>https://</code>. Click "Allow" when prompted. Alternative: click <strong>upload a photo from gallery</strong>.</p></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- Contact -->
+  <div class="glass-card help-section">
+    <h2><i class="ph-duotone ph-paper-plane-tilt"></i><span data-lang="id">Masih Butuh Bantuan?</span><span data-lang="en">Still Need Help?</span></h2>
+    <div class="contact-row">
+      <i class="ph-duotone ph-envelope"></i>
+      <div><div class="label"><span data-lang="id">Email Support</span><span data-lang="en">Support Email</span></div><div class="value">support@aquent-id.web.app</div></div>
+    </div>
+    <div class="contact-row">
+      <i class="ph-duotone ph-shield-check"></i>
+      <div><div class="label"><span data-lang="id">Email Privasi</span><span data-lang="en">Privacy Email</span></div><div class="value">privacy@aquent-id.web.app</div></div>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:24px;color:var(--txt3);font-size:.78rem">
+    AQUENT © 2026 · <a href="/privacy.html" style="color:var(--pri2)"><span data-lang="id">Privasi</span><span data-lang="en">Privacy</span></a> · <a href="/index.html" style="color:var(--pri2)"><span data-lang="id">Beranda</span><span data-lang="en">Home</span></a>
+  </div>
+</div>
+
+<script>
+function filterFaq() {
+  const q = document.getElementById('faqSearch').value.toLowerCase().trim();
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const text = item.textContent.toLowerCase();
+    const match = !q || text.includes(q);
+    item.style.display = match ? '' : 'none';
+    if (match && q) item.setAttribute('open', '');
+    else if (!q) item.removeAttribute('open');
+  });
+}
+</script>
+</body>
+</html>
