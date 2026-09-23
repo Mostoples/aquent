@@ -616,7 +616,7 @@ h1,h2,h3,h4,h5,.l-nav__brand,.section-title { font-family: var(--font-display); 
 
 /* mobile menu refined */
 #mobileMenu { display: none; position: fixed; top: 84px; left: 14px; right: 14px; z-index: 99;
-  background: rgba(10,16,28,.96); border: 1px solid var(--card-bd);
+  background: rgba(255,255,255,.97); border: 1px solid var(--card-bd);
   border-radius: 18px; padding: 14px; backdrop-filter: blur(16px);
   box-shadow: 0 20px 50px rgba(13,60,94,.12); }
 #mobileMenu.open { display: block; animation: popIn .2s ease; }

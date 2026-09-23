@@ -115,10 +115,10 @@
     /* Dropdown */
     .user-dropdown {
       position: absolute; top: calc(100% + 10px); right: 0;
-      background: rgba(22,27,34,.96); border: 1px solid var(--border);
+      background: var(--glass); border: 1px solid var(--border);
       border-radius: 14px; padding: 10px 0; min-width: 200px;
-      box-shadow: 0 8px 32px rgba(0,0,0,.5); z-index: 500;
-      backdrop-filter: blur(20px); display: none;
+      box-shadow: var(--shadow-h); z-index: 500;
+      display: none;
     }
     .user-dropdown.open { display: block; }
     .ud-header { padding: 10px 16px 12px; border-bottom: 1px solid rgba(255,255,255,.07); }
@@ -138,7 +138,7 @@
     /* Premium lock overlay */
     .premium-lock {
       position: absolute; inset: 0; z-index: 10;
-      background: rgba(13,17,23,.88); border-radius: inherit;
+      background: color-mix(in srgb, var(--bg-body) 92%, transparent); border-radius: inherit;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       gap: 12px; text-align: center; padding: 24px;
       backdrop-filter: blur(4px);
@@ -1083,9 +1083,9 @@
 
 <!-- PWA Install Banner -->
 <div id="pwaInstallBanner" style="display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:1100;
-  background:rgba(22,27,34,.96);border:1px solid rgba(0,180,216,.3);border-radius:16px;
+  background:var(--glass);border:1px solid var(--pri-line);border-radius:16px;
   padding:14px 20px;display:none;align-items:center;gap:14px;backdrop-filter:blur(20px);
-  box-shadow:0 8px 32px rgba(0,0,0,.5);max-width:340px;width:calc(100% - 32px)">
+  box-shadow:var(--shadow-h);max-width:340px;width:calc(100% - 32px)">
   <img src="icons/icon-192.png" style="width:40px;height:40px;border-radius:10px" alt="AQUENT">
   <div style="flex:1">
     <div style="font-size:.85rem;font-weight:700">Pasang AQUENT</div>

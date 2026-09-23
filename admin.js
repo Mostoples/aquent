@@ -1093,8 +1093,8 @@ function renderUserGrowthChart() {
       responsive: true, maintainAspectRatio: false,
       interaction: { mode:'index', intersect:false },
       plugins: {
-        legend: { labels:{ color:'#caf0f8', font:{ size:11 } } },
-        tooltip: { backgroundColor:'rgba(13,17,23,.9)', borderColor:'rgba(255,255,255,.1)', borderWidth:1 },
+        legend: { labels:{ color:'#10293d', font:{ size:11 } } },
+        tooltip: { backgroundColor:'rgba(16,41,61,.92)', borderColor:'#e4edf5', borderWidth:1 },
       },
       scales: {
         x: { ticks:{ color:'#7791a6', font:{ size:10 }, maxRotation:0, autoSkip:true, maxTicksLimit:10 }, grid:{ display:false } },

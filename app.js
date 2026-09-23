@@ -2300,8 +2300,8 @@ function showBadgeToast(badge) {
   addLog(`Badge diperoleh: ${badge.name}`, 'ok');
   // Show a floating notification
   const el = document.createElement('div');
-  el.style.cssText = 'position:fixed;bottom:80px;right:20px;background:rgba(22,27,34,.95);border:1px solid rgba(0,180,216,.3);border-radius:12px;padding:12px 18px;z-index:8000;font-size:.85rem;font-weight:500;color:#caf0f8;animation:slideUp .3s ease;display:flex;align-items:center;gap:10px';
-  el.innerHTML = `<span style="font-size:1.5rem">${badge.icon}</span><div><div style="font-weight:700">Badge Baru!</div><div style="color:rgba(202,240,248,.7)">${badge.name}</div></div>`;
+  el.style.cssText = 'position:fixed;bottom:80px;right:20px;background:var(--glass);border:1px solid var(--pri-line);border-radius:12px;padding:12px 18px;z-index:8000;font-size:.85rem;font-weight:500;color:var(--txt1);box-shadow:var(--shadow-h);animation:slideUp .3s ease;display:flex;align-items:center;gap:10px';
+  el.innerHTML = `<span style="font-size:1.5rem">${badge.icon}</span><div><div style="font-weight:700">Badge Baru!</div><div style="color:var(--txt2)">${badge.name}</div></div>`;
   document.body.appendChild(el);
   setTimeout(() => el.remove(), 4000);
 }

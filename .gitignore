@@ -75,3 +75,13 @@ service-account.json
 # Build artifacts
 dist/
 .cache/
+
+# Artefak sementara render/pratinjau — _preview.html melewati gerbang
+# auth, jadi tidak boleh ikut ter-commit maupun ter-deploy.
+_preview*.html
+_frame.html
+_old_style.css
+build/
+
+# Sumber presentasi (26 MB, bukan bagian dari aplikasi)
+PPT AQUENT.pptx
