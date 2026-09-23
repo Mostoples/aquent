@@ -181,8 +181,11 @@ function setStatus(type, label) {
   const text = document.getElementById('statusText');
   if (dot)  dot.className  = 'conn-dot ' + type;
   if (text) {
-    text.removeAttribute('data-i18n'); // dikontrol manual dari sini
     const key = { connected:'hdr.connected', disconnected:'hdr.disconnected', demo:'hdr.demo' }[type];
+    // Kuncinya dipasang kembali, bukan dihapus: bila atributnya dibuang,
+    // teks status tertinggal di bahasa lama saat pengguna berganti bahasa.
+    if (key) text.setAttribute('data-i18n', key);
+    else     text.removeAttribute('data-i18n');
     text.textContent = key ? _st2(key, label) : label;
   }
 }
@@ -397,8 +400,7 @@ function renderQualityScore() {
   // Label
   const labelEl = document.getElementById('qsLabel');
   if (labelEl) {
-    const labels = { A:'Sangat Baik', B:'Baik', C:'Cukup', D:'Kurang', F:'Buruk' };
-    labelEl.textContent = labels[grade] || '';
+    labelEl.textContent = grade ? t('qs.grade' + grade) : '';
     labelEl.style.color = gradeColor;
   }
 
@@ -407,9 +409,9 @@ function renderQualityScore() {
   if (container) {
     const { ph, temperature, turbidity } = state.sensor;
     container.innerHTML = [
-      { label:`pH ${ph}`, score: phScore,   ref:'Referensi: 6.5–7.5 (WHO)' },
-      { label:`Suhu ${temperature}°C`, score: tempScore, ref:'Referensi: 36–38°C (JEADV)' },
-      { label:`Kekeruhan ${turbidity} NTU`, score: turbScore, ref:'Referensi: ≤0.5 NTU (WHO)' },
+      { label:t('qs.fPh',   {v: ph}),          score: phScore,   ref:t('qs.refPh')   },
+      { label:t('qs.fTemp', {v: temperature}), score: tempScore, ref:t('qs.refTemp') },
+      { label:t('qs.fTurb', {v: turbidity}),   score: turbScore, ref:t('qs.refTurb') },
     ].map(f => `
       <div class="factor-row">
         <span class="factor-name">${f.label}</span>
