@@ -18,17 +18,17 @@
   --accent:  #48cae4;
 
   /* ---------- Latar ---------- */
-  --bg-body:  #eef4f9;
-  --scene-bg: radial-gradient(ellipse at 18% 12%, #ffffff 0%, #f1f6fb 42%, #e7eff7 100%);
-  --bg-orb1:  rgba(0,180,216,.10);
-  --bg-orb2:  rgba(0,119,182,.08);
+  --bg-body:  #dae4f0;
+  --scene-bg: radial-gradient(ellipse at 18% 12%, #f2f7fc 0%, #e4edf6 45%, #d4e1ee 100%);
+  --bg-orb1:  rgba(255,255,255,.55);
+  --bg-orb2:  rgba(255,255,255,.40);
   --bg-orb3:  rgba(0,180,216,.06);
   --bg-orb4:  rgba(0,119,182,.05);
 
   /* ---------- Permukaan ---------- */
   --glass:  #ffffff;    /* badan kartu                        */
   --glass2: #f7fbfe;    /* permukaan sekunder / bubble        */
-  --chrome: rgba(255,255,255,.86);  /* header, sidebar, bottom nav */
+  --chrome: rgba(255,255,255,.92);  /* header, sidebar, bottom nav */
   --border:  #e4edf5;
   --border2: #d5e5f1;
 
@@ -54,8 +54,8 @@
   --pri-glow:  rgba(0,119,182,.22);
 
   /* ---------- Bayangan soft-UI ---------- */
-  --shadow:   6px 6px 16px rgba(13,60,94,.09), -6px -6px 14px rgba(255,255,255,.92);
-  --shadow-h: 8px 10px 26px rgba(13,60,94,.14), -6px -6px 16px rgba(255,255,255,.95);
+  --shadow:   6px 8px 20px rgba(13,60,94,.10), -6px -6px 14px rgba(255,255,255,.75);
+  --shadow-h: 8px 12px 30px rgba(13,60,94,.16), -6px -6px 16px rgba(255,255,255,.8);
   --shadow-in: inset 3px 3px 7px rgba(13,60,94,.08), inset -3px -3px 7px rgba(255,255,255,.9);
   --chrome-shadow: 0 2px 14px rgba(13,60,94,.07);
   --sheen: none;                 /* kilau diagonal khas kaca — dimatikan */
