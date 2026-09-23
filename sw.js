@@ -40,17 +40,17 @@ const DATA_FILES = [
 ];
 
 const OFFLINE_HTML = `<!doctype html>
-<html lang="id" data-theme="dark"><head>
+<html lang="id" data-theme="light"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Offline — AQUENT</title>
 <style>
-body{font-family:-apple-system,system-ui,sans-serif;background:#000c1a;color:#caf0f8;
+body{font-family:-apple-system,system-ui,sans-serif;background:#eef4f9;color:#10293d;
 min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;text-align:center;margin:0}
 h1{font-size:1.5rem;margin:0 0 8px;letter-spacing:.06em}
-p{color:rgba(202,240,248,.65);max-width:380px;line-height:1.6;font-size:.9rem}
+p{color:#44627c;max-width:380px;line-height:1.6;font-size:.9rem}
 .icon{font-size:3rem;margin-bottom:16px}
-button{margin-top:20px;padding:10px 24px;border:1px solid rgba(0,180,216,.35);background:rgba(0,180,216,.12);color:#48cae4;border-radius:10px;cursor:pointer;font-family:inherit;font-size:.88rem;font-weight:500}
-button:hover{background:rgba(0,180,216,.2)}
+button{margin-top:20px;padding:10px 24px;border:1px solid rgba(0,180,216,.35);background:#fff;color:#06769a;box-shadow:3px 3px 8px rgba(13,60,94,.1),-3px -3px 8px rgba(255,255,255,.9);border-radius:10px;cursor:pointer;font-family:inherit;font-size:.88rem;font-weight:500}
+button:hover{background:rgba(0,180,216,.08)}
 </style></head><body>
 <div class="icon">📡</div>
 <h1>AQUENT</h1>

@@ -1,7 +1,7 @@
 /* =====================================================
    AQUENT — UI Dialog (glass modal) + Toast
    Pengganti confirm()/alert()/prompt() native agar
-   konsisten dengan tema (dark/light/elegant) & bilingual.
+   konsisten dengan tema (terang/gelap) & bilingual.
 
    API global:
      await uiConfirm(message, opts?)  -> boolean
@@ -25,19 +25,12 @@
   function injectStyle() {
     if (document.getElementById(ID + '-style')) return;
     var css =
-      ':root{--uid-surface:rgba(22,27,34,.97);--uid-surface2:rgba(255,255,255,.06);' +
+      ':root{--uid-surface:#ffffff;--uid-surface2:#f4f9fd;' +
+      '--uid-border:#e4edf5;--uid-text:#10293d;--uid-text2:#44627c}' +
+      ':root[data-theme="dark"]{--uid-surface:rgba(22,27,34,.97);--uid-surface2:rgba(255,255,255,.06);' +
       '--uid-border:rgba(255,255,255,.12);--uid-text:rgba(255,255,255,.95);--uid-text2:rgba(202,240,248,.72)}' +
-      ':root[data-theme="light"]{--uid-surface:#ffffff;--uid-surface2:rgba(0,119,182,.06);' +
-      '--uid-border:rgba(0,119,182,.2);--uid-text:#0f2136;--uid-text2:#2d5986}' +
-      ':root[data-theme="elegant"]{--uid-surface:#2c2f36;--uid-surface2:#34373f;' +
-      '--uid-border:rgba(255,255,255,.08);--uid-text:rgba(255,255,255,.92);--uid-text2:rgba(202,240,248,.62)}' +
-      ':root[data-theme="neon"]{--uid-surface:#080d18;--uid-surface2:#0d1526;' +
-      '--uid-border:rgba(34,211,238,.45);--uid-text:rgba(236,254,255,.96);--uid-text2:rgba(165,243,252,.7)}' +
-      ':root[data-theme="neon"] .uid-card{box-shadow:0 0 14px rgba(79,227,255,.45),0 0 38px rgba(14,165,233,.3),0 18px 60px rgba(0,0,0,.6)}' +
-      ':root[data-theme="serene"]{--uid-surface:#12539f;--uid-surface2:rgba(255,255,255,.16);' +
-      '--uid-border:rgba(255,255,255,.24);--uid-text:#ffffff;--uid-text2:rgba(255,255,255,.8)}' +
       '.uid-backdrop{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;' +
-      'justify-content:center;padding:20px;background:rgba(2,8,18,.62);backdrop-filter:blur(6px);' +
+      'justify-content:center;padding:20px;background:var(--uid-backdrop,rgba(16,41,61,.34));backdrop-filter:blur(6px);' +
       '-webkit-backdrop-filter:blur(6px);opacity:0;transition:opacity .18s ease;font-family:inherit}' +
       '.uid-backdrop.show{opacity:1}' +
       '.uid-card{width:100%;max-width:380px;border-radius:18px;padding:22px 22px 18px;' +

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="dark">
+<html lang="id" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,11 +50,11 @@
       display: inline-flex; align-items: center; gap: 6px;
       color: rgba(202,240,248,.7); font-size: .78rem; font-weight: 500;
       text-decoration: none; padding: 5px 10px;
-      border: 1px solid rgba(255,255,255,.13); border-radius: 8px;
-      background: rgba(255,255,255,.06); transition: all .2s;
+      border: 1px solid var(--border); border-radius: 8px;
+      background: var(--surf-tint); transition: all .2s;
       margin-right: 8px;
     }
-    .back-home-btn:hover { background: rgba(0,180,216,.15); color: #caf0f8; }
+    .back-home-btn:hover { background: var(--pri-tint); color: #caf0f8; }
 
     /* Sidebar footer settings btn */
     .sidebar-footer {
@@ -64,17 +64,17 @@
     }
     .sidebar-settings-btn {
       display: flex; align-items: center; gap: 10px; width: 100%;
-      background: rgba(0,180,216,.08); border: 1px solid rgba(0,180,216,.2);
+      background: var(--pri-tint); border: 1px solid var(--pri-line);
       border-radius: 10px; padding: 10px 14px;
-      color: rgba(202,240,248,.75); font-size: .82rem; font-weight: 500;
+      color: var(--pri-ink); font-size: .82rem; font-weight: 600;
       cursor: pointer; transition: all .2s;
     }
-    .sidebar-settings-btn:hover { background: rgba(0,180,216,.18); color: #caf0f8; }
+    .sidebar-settings-btn:hover { background: var(--pri-tint2); color: var(--pri-ink); }
     .sidebar-settings-btn .ph { font-size: 1.1rem; }
 
     /* ---- Auth gate overlay ---- */
     .auth-gate {
-      position: fixed; inset: 0; background: var(--bg, #0d1117); z-index: 9999;
+      position: fixed; inset: 0; background: var(--bg-body); z-index: 9999;
       display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
       transition: opacity .4s;
     }
@@ -91,10 +91,10 @@
     .user-widget {
       position: relative; display: flex; align-items: center; gap: 8px;
       cursor: pointer; padding: 4px 10px 4px 4px;
-      border: 1px solid rgba(255,255,255,.1); border-radius: 30px;
-      background: rgba(255,255,255,.05); transition: background .2s;
+      border: 1px solid var(--border); border-radius: 30px;
+      background: var(--surf-tint); transition: background .2s;
     }
-    .user-widget:hover { background: rgba(255,255,255,.1); }
+    .user-widget:hover { background: var(--surf-tint2); }
     .user-avatar {
       width: 28px; height: 28px; border-radius: 50%; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
@@ -109,13 +109,13 @@
     }
     .plan-free     { background: rgba(139,148,158,.15); color: #8b949e; }
     .plan-premium  { background: rgba(240,192,64,.15);  color: #f0c040; }
-    .plan-ultimate { background: rgba(0,180,216,.15);   color: #48cae4; }
+    .plan-ultimate { background: var(--pri-tint);   color: #48cae4; }
     .plan-admin    { background: rgba(255,107,107,.15); color: #ff6b6b; }
 
     /* Dropdown */
     .user-dropdown {
       position: absolute; top: calc(100% + 10px); right: 0;
-      background: rgba(22,27,34,.96); border: 1px solid rgba(255,255,255,.1);
+      background: rgba(22,27,34,.96); border: 1px solid var(--border);
       border-radius: 14px; padding: 10px 0; min-width: 200px;
       box-shadow: 0 8px 32px rgba(0,0,0,.5); z-index: 500;
       backdrop-filter: blur(20px); display: none;
@@ -130,7 +130,7 @@
       font-size: .84rem; cursor: pointer; transition: background .15s;
       color: rgba(202,240,248,.75);
     }
-    .ud-item:hover { background: rgba(255,255,255,.06); color: #caf0f8; }
+    .ud-item:hover { background: var(--surf-tint); color: #caf0f8; }
     .ud-item.danger { color: #ff6b6b; }
     .ud-item.danger:hover { background: rgba(255,107,107,.08); }
     .ud-item i { font-size: 1rem; }
@@ -159,7 +159,7 @@
     /* Modal overlay (survey, encyclopedia, upgrade) */
     .modal-overlay {
       position: fixed; inset: 0; z-index: 1200;
-      background: rgba(0,0,0,.65); backdrop-filter: blur(4px);
+      background: var(--surf-tint2); backdrop-filter: blur(4px);
       display: flex; align-items: center; justify-content: center;
       padding: 16px;
     }
@@ -211,12 +211,9 @@
       </div>
     </div>
     <div class="hdr-right">
-      <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Ganti tema" title="Ganti tema (Dark / Light / Elegant / Neon / Serene)" data-i18n-attr="title" data-i18n="theme.toggle">
-        <i class="ph ph-sun icon-sun ico-md"></i>
-        <i class="ph ph-moon icon-moon ico-md" style="display:none"></i>
-        <i class="ph ph-sparkle icon-elegant ico-md" style="display:none"></i>
-        <i class="ph ph-lightning icon-neon ico-md" style="display:none"></i>
-        <i class="ph ph-waves icon-serene ico-md" style="display:none"></i>
+      <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Ganti tema" title="Ganti tema (Terang / Gelap)" data-i18n-attr="title" data-i18n="theme.toggle">
+        <i class="ph ph-sun icon-sun ico-md" style="display:none"></i>
+        <i class="ph ph-moon icon-moon ico-md"></i>
       </button>
       <button class="icon-btn lang-toggle" id="langToggle" aria-label="Switch language" title="Switch language" data-i18n-attr="title" data-i18n="lang.toggle" style="font-weight:700;font-size:.72rem">
         <span class="lang-label">ID</span>
@@ -357,7 +354,7 @@
         <div class="glass-card qs-card">
           <div class="qs-ring-wrap">
             <svg class="qs-ring" viewBox="0 0 140 140">
-              <circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="12"/>
+              <circle cx="70" cy="70" r="54" fill="none" stroke="var(--track)" stroke-width="12"/>
               <circle id="qsCircle" cx="70" cy="70" r="54" fill="none" stroke="#00b4d8" stroke-width="12"
                 stroke-dasharray="339" stroke-dashoffset="339" stroke-linecap="round"
                 transform="rotate(-90 70 70)"/>
@@ -388,7 +385,7 @@
             </div>
             <div class="gauge-wrap">
               <svg class="gauge" viewBox="0 0 200 130">
-                <path d="M20 110 A80 80 0 0 1 180 110" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="14" stroke-linecap="round"/>
+                <path d="M20 110 A80 80 0 0 1 180 110" fill="none" stroke="var(--track)" stroke-width="14" stroke-linecap="round"/>
                 <path id="phArc" d="M20 110 A80 80 0 0 1 180 110" fill="none" stroke="#00b4d8" stroke-width="14" stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="251" filter="url(#glow)"/>
                 <defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
                 <text id="phValue" x="100" y="94" text-anchor="middle" class="g-val">7.2</text>
@@ -411,7 +408,7 @@
             </div>
             <div class="gauge-wrap">
               <svg class="gauge" viewBox="0 0 200 130">
-                <path d="M20 110 A80 80 0 0 1 180 110" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="14" stroke-linecap="round"/>
+                <path d="M20 110 A80 80 0 0 1 180 110" fill="none" stroke="var(--track)" stroke-width="14" stroke-linecap="round"/>
                 <path id="tempArc" d="M20 110 A80 80 0 0 1 180 110" fill="none" stroke="#ff6b6b" stroke-width="14" stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="251" filter="url(#glow)"/>
                 <text id="tempValue" x="100" y="94" text-anchor="middle" class="g-val">38</text>
                 <text x="100" y="114" text-anchor="middle" class="g-unit">&#176;C</text>
@@ -433,7 +430,7 @@
             </div>
             <div class="gauge-wrap">
               <svg class="gauge" viewBox="0 0 200 130">
-                <path d="M20 110 A80 80 0 0 1 180 110" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="14" stroke-linecap="round"/>
+                <path d="M20 110 A80 80 0 0 1 180 110" fill="none" stroke="var(--track)" stroke-width="14" stroke-linecap="round"/>
                 <path id="turbArc" d="M20 110 A80 80 0 0 1 180 110" fill="none" stroke="#caf0f8" stroke-width="14" stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="251" filter="url(#glow)"/>
                 <text id="turbValue" x="100" y="94" text-anchor="middle" class="g-val">0.30</text>
                 <text x="100" y="114" text-anchor="middle" class="g-unit">NTU</text>

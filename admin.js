@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ---- Plans section ---- */
 const PLANS = [
   {
-    key:'free', name:'Free', price:'Rp 0', period:'selamanya', color:'#8b949e',
+    key:'free', name:'Free', price:'Rp 0', period:'selamanya', color:'#7791a6',
     icon:'ph-leaf',
     features:[
       { label:'Dashboard real-time', ok:true },
@@ -1097,8 +1097,8 @@ function renderUserGrowthChart() {
         tooltip: { backgroundColor:'rgba(13,17,23,.9)', borderColor:'rgba(255,255,255,.1)', borderWidth:1 },
       },
       scales: {
-        x: { ticks:{ color:'rgba(202,240,248,.5)', font:{ size:10 }, maxRotation:0, autoSkip:true, maxTicksLimit:10 }, grid:{ display:false } },
-        y: { position:'left', ticks:{ color:'rgba(202,240,248,.5)', font:{ size:10 } }, grid:{ color:'rgba(255,255,255,.04)' }, beginAtZero:true },
+        x: { ticks:{ color:'#7791a6', font:{ size:10 }, maxRotation:0, autoSkip:true, maxTicksLimit:10 }, grid:{ display:false } },
+        y: { position:'left', ticks:{ color:'#7791a6', font:{ size:10 } }, grid:{ color:'rgba(255,255,255,.04)' }, beginAtZero:true },
         y1:{ position:'right', ticks:{ color:'rgba(192,132,252,.7)', font:{ size:10 } }, grid:{ display:false }, beginAtZero:true },
       },
     },
@@ -1211,8 +1211,8 @@ function _renderHourChart(hourBins) {
         },
       },
       scales: {
-        x: { ticks:{ color:'rgba(202,240,248,.5)', font:{ size:9 } }, grid:{ display:false } },
-        y: { ticks:{ color:'rgba(202,240,248,.5)', font:{ size:10 } }, grid:{ color:'rgba(255,255,255,.04)' }, beginAtZero:true },
+        x: { ticks:{ color:'#7791a6', font:{ size:9 } }, grid:{ display:false } },
+        y: { ticks:{ color:'#7791a6', font:{ size:10 } }, grid:{ color:'rgba(255,255,255,.04)' }, beginAtZero:true },
       },
     },
   });

@@ -577,6 +577,24 @@ function chartFontSize(base = 11) {
   return narrow ? Math.max(12, base) : base;
 }
 
+/**
+ * Warna grafik mengikuti tema aktif.
+ *
+ * Nilainya dibaca dari CSS custom property pada <html> sehingga grafik
+ * otomatis benar di tema medical (teks gelap, garis kisi biru tipis)
+ * maupun mode gelap — tanpa daftar warna terpisah di JS.
+ *
+ * @returns {{ink:string, grid:string}} Warna label sumbu dan garis kisi.
+ */
+function chartTheme() {
+  const cs = getComputedStyle(document.documentElement);
+  const pick = (name, fallback) => (cs.getPropertyValue(name) || '').trim() || fallback;
+  return {
+    ink:  pick('--txt3', '#7791a6'),
+    grid: pick('--border', '#e4edf5'),
+  };
+}
+
 function initChart() {
   const ctx = document.getElementById('ecoChart');
   if (!ctx || ecoChart) return;
@@ -598,8 +616,8 @@ function initChart() {
           titleColor:'#caf0f8', bodyColor:'#fff', cornerRadius:10, padding:12 },
       },
       scales:{
-        x:{ grid:{display:false}, ticks:{color:'rgba(202,240,248,.5)',font:{size:chartFontSize(11)}} },
-        y:{ grid:{color:'rgba(0,180,216,.08)'}, ticks:{color:'rgba(202,240,248,.5)',font:{size:chartFontSize(11)},callback:v=>v+'L'}, beginAtZero:true },
+        x:{ grid:{display:false}, ticks:{color:chartTheme().ink,font:{size:chartFontSize(11)}} },
+        y:{ grid:{color:chartTheme().grid}, ticks:{color:chartTheme().ink,font:{size:chartFontSize(11)},callback:v=>v+'L'}, beginAtZero:true },
       },
     },
   });
@@ -782,42 +800,58 @@ function closeSidebar() {
 }
 
 // =====================================================
-// THEME — Dark / Light / Elegant / Neon / Serene
+// THEME — Medical (terang) / Dark
+// -----------------------------------------------------
+// Tema terang "medical clean" adalah identitas utama dan
+// dipakai sebagai default. Mode gelap tetap tersedia untuk
+// pemakaian malam. Nilai 'light' dipertahankan sebagai nama
+// tema terang supaya preferensi lama pengguna tetap terbaca.
 // =====================================================
-const THEME_CYCLE = ['dark', 'light', 'elegant', 'neon', 'serene'];
+const THEME_CYCLE = ['light', 'dark'];
 
 function initTheme() {
   let saved = localStorage.getItem('aquent-theme');
+  // Tema lama (elegant/neon/serene) sudah dihapus — arahkan ke terang.
   if (!THEME_CYCLE.includes(saved)) {
-    saved = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
   applyTheme(saved);
   document.getElementById('themeToggle')?.addEventListener('click', () => {
-    const cur  = document.documentElement.dataset.theme || 'dark';
-    const idx  = THEME_CYCLE.indexOf(cur);
-    const next = THEME_CYCLE[(idx + 1) % THEME_CYCLE.length];
+    const cur  = document.documentElement.dataset.theme || 'light';
+    const next = cur === 'dark' ? 'light' : 'dark';
     applyTheme(next);
     localStorage.setItem('aquent-theme', next);
   });
 }
 
 function applyTheme(theme) {
-  if (!THEME_CYCLE.includes(theme)) theme = 'dark';
+  if (!THEME_CYCLE.includes(theme)) theme = 'light';
   document.documentElement.dataset.theme = theme;
-  const sun     = document.querySelector('.icon-sun');
-  const moon    = document.querySelector('.icon-moon');
-  const elegant = document.querySelector('.icon-elegant');
-  const neon    = document.querySelector('.icon-neon');
-  const serene  = document.querySelector('.icon-serene');
-  // Ikon yang ditampilkan = ikon mode BERIKUTNYA (tooltip preview)
-  // dark -> moon (next: light), light -> sparkle (next: elegant),
-  // elegant -> lightning (next: neon), neon -> waves (next: serene),
-  // serene -> sun (next: dark)
-  if (sun)     sun.style.display     = theme === 'serene'  ? '' : 'none';
-  if (moon)    moon.style.display    = theme === 'dark'    ? '' : 'none';
-  if (elegant) elegant.style.display = theme === 'light'   ? '' : 'none';
-  if (neon)    neon.style.display    = theme === 'elegant' ? '' : 'none';
-  if (serene)  serene.style.display  = theme === 'neon'    ? '' : 'none';
+  const sun  = document.querySelector('.icon-sun');
+  const moon = document.querySelector('.icon-moon');
+  // Ikon yang tampil = tema BERIKUTNYA, sebagai pratinjau tujuan.
+  if (moon) moon.style.display = theme === 'light' ? '' : 'none';
+  if (sun)  sun.style.display  = theme === 'dark'  ? '' : 'none';
+  refreshChartTheme();
+}
+
+/**
+ * Menyegarkan warna sumbu & kisi grafik setelah tema berganti.
+ *
+ * Chart.js menyalin warna saat grafik dibuat, jadi nilai lama akan
+ * bertahan sampai opsinya ditulis ulang. Dipanggil dari applyTheme().
+ */
+function refreshChartTheme() {
+  if (typeof ecoChart === 'undefined' || !ecoChart) return;
+  const t = chartTheme();
+  const sc = ecoChart.options?.scales;
+  if (!sc) return;
+  Object.values(sc).forEach(ax => {
+    if (ax.ticks) ax.ticks.color = t.ink;
+    if (ax.grid && ax.grid.display !== false) ax.grid.color = t.grid;
+    if (ax.title) ax.title.color = t.ink;
+  });
+  ecoChart.update('none');
 }
 
 // =====================================================
@@ -2120,9 +2154,9 @@ function renderHistory() {
         responsive:true, maintainAspectRatio:false,
         plugins:{ legend:{ labels:{ color:'#caf0f8', font:{ size:chartFontSize(11) } } } },
         scales:{
-          x:{ ticks:{ color:'#8b949e', font:{ size:chartFontSize(10) } }, grid:{ color:'rgba(255,255,255,.05)' } },
-          y:{ ticks:{ color:'#8b949e', font:{ size:chartFontSize(10) } }, grid:{ color:'rgba(255,255,255,.05)' }, title:{ display:true, text:'pH / °C', color:'#8b949e', font:{ size:chartFontSize(10) } } },
-          y2:{ position:'right', ticks:{ color:'#8b949e', font:{ size:chartFontSize(10) } }, grid:{ display:false }, title:{ display:true, text:'Skor', color:'#8b949e', font:{ size:chartFontSize(10) } } },
+          x:{ ticks:{ color:chartTheme().ink, font:{ size:chartFontSize(10) } }, grid:{ color:chartTheme().grid } },
+          y:{ ticks:{ color:chartTheme().ink, font:{ size:chartFontSize(10) } }, grid:{ color:chartTheme().grid }, title:{ display:true, text:'pH / °C', color:chartTheme().ink, font:{ size:chartFontSize(10) } } },
+          y2:{ position:'right', ticks:{ color:chartTheme().ink, font:{ size:chartFontSize(10) } }, grid:{ display:false }, title:{ display:true, text:'Skor', color:chartTheme().ink, font:{ size:chartFontSize(10) } } },
         },
       },
     });
@@ -2316,7 +2350,7 @@ function renderBadges() {
     const borderColor = isEarned ? (tierColors[badge.tier] || '#00b4d8') : 'rgba(255,255,255,.08)';
     return `<div style="background:rgba(255,255,255,.04);border:1px solid ${borderColor};border-radius:14px;padding:16px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;${isEarned ? '' : 'opacity:.38;filter:grayscale(1)'}">
       <div style="font-size:2rem">${badge.icon}</div>
-      <div style="font-size:.8rem;font-weight:700;color:${isEarned ? (tierColors[badge.tier]||'#caf0f8') : '#8b949e'}">${badge.name}</div>
+      <div style="font-size:.8rem;font-weight:700;color:${isEarned ? (tierColors[badge.tier]||'var(--pri-ink)') : 'var(--txt3)'}">${badge.name}</div>
       <div style="font-size:.68rem;color:var(--muted);line-height:1.4">${badge.description.slice(0,60)}...</div>
       ${isEarned ? `<span style="font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:8px;background:rgba(74,222,128,.12);color:#4ade80">✓ Diraih</span>` : ''}
     </div>`;
@@ -3147,7 +3181,7 @@ function renderSurveyQuestion(q) {
   if (q.type === 'textarea') {
     return `<div class="survey-q" style="margin-bottom:16px">
       <label style="font-size:.82rem;font-weight:600;display:block;margin-bottom:6px">${q.text}</label>
-      <textarea name="q_${q.id}" rows="3" maxlength="300" oninput="surveyAnswers['${q.id}']=this.value" style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px;color:var(--text);font-family:Inter,sans-serif;font-size:.82rem;resize:vertical;outline:none">${saved||''}</textarea>
+      <textarea name="q_${q.id}" rows="3" maxlength="300" oninput="surveyAnswers['${q.id}']=this.value" style="width:100%;background:var(--glass);border:1px solid var(--border);border-radius:8px;padding:10px;color:var(--txt1);font-family:Inter,sans-serif;font-size:.82rem;resize:vertical;outline:none">${saved||''}</textarea>
     </div>`;
   }
   return '';

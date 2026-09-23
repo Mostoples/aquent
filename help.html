@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="dark">
+<html lang="id" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <!-- Terapkan tema tersimpan sebelum render (hindari flash tema salah) -->
@@ -20,7 +20,7 @@
     .help-header h1 { font-size: 1.5rem; font-weight: 700; flex: 1; }
     .help-header .back-btn, .lang-btn {
       width: 36px; height: 36px; border-radius: 50%; border: none;
-      background: rgba(255,255,255,.08); color: var(--txt2);
+      background: var(--surf-tint); color: var(--txt2);
       display: flex; align-items: center; justify-content: center; cursor: pointer; text-decoration: none;
     }
     .lang-btn { width: auto; padding: 0 14px; border-radius: 18px; font-weight: 700; font-size: .75rem; letter-spacing: .5px; }
@@ -35,13 +35,13 @@
     .faq-q::before { content: '+'; color: var(--pri); font-size: 1.3rem; font-weight: 300; transition: transform .2s; width: 18px; }
     details[open] .faq-q::before { transform: rotate(45deg); }
     .faq-a { font-size: .85rem; color: var(--txt2); line-height: 1.7; padding: 10px 0 4px 28px; }
-    .faq-a code { background: rgba(0,0,0,.3); padding: 2px 6px; border-radius: 4px; font-size: .9em; }
+    .faq-a code { background: var(--surf-tint2); padding: 2px 6px; border-radius: 4px; font-size: .9em; }
     .faq-a a { color: var(--pri2); }
     .faq-a ul { margin: 8px 0 8px 22px; }
     .faq-a li { margin-bottom: 4px; }
     .quick-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
-    .ql-card { padding: 14px 16px; background: rgba(255,255,255,.04); border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--txt1); transition: all .2s; display: flex; align-items: center; gap: 12px; }
-    .ql-card:hover { background: rgba(0,180,216,.1); border-color: rgba(0,180,216,.3); transform: translateY(-2px); }
+    .ql-card { padding: 14px 16px; background: var(--surf-tint); border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--txt1); transition: all .2s; display: flex; align-items: center; gap: 12px; }
+    .ql-card:hover { background: var(--pri-tint); border-color: var(--pri-line); transform: translateY(-2px); }
 
     /* ============================================================
        AKSESIBILITAS MOBILE — target sentuh
