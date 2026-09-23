@@ -7,7 +7,7 @@
    - HTML navigation: network-first dengan fallback offline page
    ===================================================== */
 
-const SW_VERSION = 'v2.8.0';
+const SW_VERSION = 'v2.9.0';
 const SHELL_CACHE = `aquent-shell-${SW_VERSION}`;
 const DATA_CACHE  = `aquent-data-${SW_VERSION}`;
 const RUNTIME     = `aquent-runtime-${SW_VERSION}`;

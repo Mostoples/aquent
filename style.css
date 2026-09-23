@@ -22,6 +22,8 @@
   --scene-bg: radial-gradient(ellipse at 18% 12%, #ffffff 0%, #f1f6fb 42%, #e7eff7 100%);
   --bg-orb1:  rgba(0,180,216,.10);
   --bg-orb2:  rgba(0,119,182,.08);
+  --bg-orb3:  rgba(0,180,216,.06);
+  --bg-orb4:  rgba(0,119,182,.05);
 
   /* ---------- Permukaan ---------- */
   --glass:  #ffffff;    /* badan kartu                        */
@@ -87,6 +89,8 @@
   --scene-bg: radial-gradient(ellipse at 20% 20%, #001d3d 0%, #000814 40%, #000c1a 100%);
   --bg-orb1:  rgba(0,119,182,.55);
   --bg-orb2:  rgba(0,180,216,.4);
+  --bg-orb3:  rgba(3,4,94,.5);
+  --bg-orb4:  rgba(0,119,182,.3);
 
   --glass:  rgba(255,255,255,.07);
   --glass2: rgba(255,255,255,.12);
@@ -163,8 +167,8 @@ input, textarea { font-family:inherit; }
 .orb { position:absolute; border-radius:50%; filter:blur(80px); pointer-events:none; }
 .orb-1 { width:500px;height:500px; background:radial-gradient(circle,var(--bg-orb1) 0%,transparent 70%); top:-150px;left:-150px; animation:orbFloat1 20s ease-in-out infinite; }
 .orb-2 { width:400px;height:400px; background:radial-gradient(circle,var(--bg-orb2) 0%,transparent 70%); bottom:-100px;right:-100px; animation:orbFloat2 25s ease-in-out infinite; }
-.orb-3 { width:300px;height:300px; background:radial-gradient(circle,rgba(3,4,94,.5) 0%,transparent 70%); top:40%;left:60%; animation:orbFloat3 18s ease-in-out infinite; }
-.orb-4 { width:250px;height:250px; background:radial-gradient(circle,rgba(0,119,182,.3) 0%,transparent 70%); top:60%;left:10%; animation:orbFloat4 22s ease-in-out infinite; }
+.orb-3 { width:300px;height:300px; background:radial-gradient(circle,var(--bg-orb3) 0%,transparent 70%); top:40%;left:60%; animation:orbFloat3 18s ease-in-out infinite; }
+.orb-4 { width:250px;height:250px; background:radial-gradient(circle,var(--bg-orb4) 0%,transparent 70%); top:60%;left:10%; animation:orbFloat4 22s ease-in-out infinite; }
 
 @keyframes orbFloat1 { 0%,100%{transform:translate(0,0)} 33%{transform:translate(80px,60px)} 66%{transform:translate(-40px,100px)} }
 @keyframes orbFloat2 { 0%,100%{transform:translate(0,0)} 33%{transform:translate(-70px,-80px)} 66%{transform:translate(50px,-40px)} }
