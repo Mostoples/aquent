@@ -8,6 +8,7 @@ app/        <- isi folder web/ (app + assets/3d + assets/brand)
 blender/    <- blender/assets.py
 showreel/   <- record.py, compose.py, capcut_draft.py, shots.py (+ fonts/PlusJakartaSans.ttf)
 deck/       <- build_deck.py, shots_deck.py (+ src/ berisi media dari PPT asli)
+galeri/     <- foto prototipe asli (dipakai di slide Working prototype & Prototype gallery)
 output/     <- hasil: AQUENT_Showreel.mp4, AQUENT_Deck_Neumorph.pptx
 ```
 

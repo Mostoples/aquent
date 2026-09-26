@@ -37,7 +37,9 @@ FONT = "Segoe UI"
 FONT_B = "Segoe UI Semibold"
 FONT_H = "Segoe UI Black"
 
-TOTAL = 23
+TOTAL = 25
+GAL = ROOT / "galeri"
+FX_START = {}  # slide_id -> index of first animated shape
 
 
 def rgb(h):
@@ -266,6 +268,72 @@ def text(slide, x, y, w, h, content, size=14, color=INK2, bold=False, font=FONT,
     return tb
 
 
+def glow(shape, color=BLUE, rad_pt=7, alpha=38):
+    """Native PowerPoint glow = soft blue aura around a shape."""
+    spPr = shape._element.spPr
+    eff = spPr.find(qn("a:effectLst"))
+    if eff is None:
+        eff = spPr.makeelement(qn("a:effectLst"), {})
+        spPr.append(eff)
+    g = eff.makeelement(qn("a:glow"), {"rad": str(int(rad_pt * 12700))})
+    c = g.makeelement(qn("a:srgbClr"), {"val": color})
+    c.append(c.makeelement(qn("a:alpha"), {"val": str(alpha * 1000)}))
+    g.append(c)
+    eff.insert(0, g)
+
+
+def orb_img(color=(70, 150, 255)):
+    p = cache("orb", color)
+    if p.exists():
+        return p
+    N = 600
+    y, x = np.mgrid[0:N, 0:N].astype(np.float32)
+    d = np.sqrt((x - N / 2) ** 2 + (y - N / 2) ** 2) / (N / 2)
+    a = np.clip(1 - d, 0, 1) ** 2.2 * 190
+    im = np.zeros((N, N, 4), np.uint8)
+    im[..., :3] = color
+    im[..., 3] = a.astype(np.uint8)
+    Image.fromarray(im).save(p)
+    return p
+
+
+def aura_orb(slide, cx, cy, d, color=(70, 150, 255)):
+    sh = pic(slide, orb_img(color), cx - d / 2, cy - d / 2, d, d)
+    sh.name = "FX_PULSE orb"
+    return sh
+
+
+def photo_aura(path, w, h, r=0.24):
+    """Real photo, cover-cropped and rounded, with a baked blue aura + white rim."""
+    p = cache("paura", (str(path), w, h, r, 2))
+    if p.exists():
+        return p
+    from PIL import ImageOps
+    src = ImageOps.exif_transpose(Image.open(path)).convert("RGBA")
+    W, H, m = int(w * PX), int(h * PX), int(M_IN * PX)
+    s_ = max(W / src.width, H / src.height)
+    src = src.resize((int(src.width * s_) + 1, int(src.height * s_) + 1), Image.LANCZOS)
+    l, t = (src.width - W) // 2, (src.height - H) // 2
+    src = src.crop((l, t, l + W, t + H))
+    R = int(r * PX)
+    out = Image.new("RGBA", (W + 2 * m, H + 2 * m), (0, 0, 0, 0))
+    box = (m, m, m + W, m + H)
+    halo = _rr(out.size, (box[0] - 4, box[1] + 6, box[2] + 4, box[3] + 10), R).filter(ImageFilter.GaussianBlur(int(0.16 * PX)))
+    lay = Image.new("RGBA", out.size, (60, 140, 255, 0))
+    lay.putalpha(Image.fromarray((np.array(halo) * 0.62).astype(np.uint8)))
+    out.alpha_composite(lay)
+    rim = _rr(out.size, (box[0] - 5, box[1] - 5, box[2] + 5, box[3] + 5), R + 5)
+    out.paste(Image.new("RGBA", out.size, (255, 255, 255, 235)), (0, 0), rim)
+    src.putalpha(_rr((W, H), (0, 0, W - 1, H - 1), R))
+    out.alpha_composite(src, (m, m))
+    out.save(p)
+    return p
+
+
+def photo(slide, path, x, y, w, h, r=0.24):
+    return pic(slide, photo_aura(path, w, h, r), x - M_IN, y - M_IN, w + 2 * M_IN, h + 2 * M_IN)
+
+
 def chip(slide, x, y, label, fill=ICE, color=DEEP, size=9.5):
     w = 0.4 + len(label) * 0.098 * size / 9.5
     s = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(x), Inches(y), Inches(w), Inches(0.3))
@@ -285,6 +353,7 @@ def chip(slide, x, y, label, fill=ICE, color=DEEP, size=9.5):
     r.font.size, r.font.bold, r.font.name = Pt(size), True, FONT
     r.font.color.rgb = rgb(color)
     r._r.get_or_add_rPr().set("spc", "120")
+    glow(s, BLUE, 5, 22)
     return w
 
 
@@ -304,6 +373,7 @@ def badge(slide, x, y, d, label, fill=BLUE, size=12):
     r.text = label
     r.font.size, r.font.bold, r.font.name = Pt(size), True, FONT
     r.font.color.rgb = rgb("FFFFFF")
+    glow(s, fill, 8, 45)
 
 
 def arrow(slide, x, y, w=0.34, h=0.3, color=BLUE):
@@ -312,6 +382,7 @@ def arrow(slide, x, y, w=0.34, h=0.3, color=BLUE):
     s.fill.fore_color.rgb = rgb(color)
     s.line.fill.background()
     s.shadow.inherit = False
+    glow(s, color, 6, 40)
 
 
 def new_slide(num, section, title, sub=None, bg="light", logo=True):
@@ -327,13 +398,14 @@ def new_slide(num, section, title, sub=None, bg="light", logo=True):
     if logo:
         pic(s, BR / "logo_grad.png", SW_IN - 0.6 - 1.35, 0.5, 1.35)
     if num:
-        text(s, SW_IN - 1.4, SH_IN - 0.42, 0.8, 0.25, f"{num:02d} / {TOTAL}", size=9, color=MUTED, align="r")
+        text(s, SW_IN - 1.4, SH_IN - 0.42, 0.8, 0.25, f"{len(prs.slides):02d} / {TOTAL}", size=9, color=MUTED, align="r")
+    FX_START[s.slide_id] = len(s.shapes)
     return s
 
 
 def deco(slide, items):
     for name, x, y, w in items:
-        pic(slide, A3 / f"{name}.png", x, y, w)
+        pic(slide, A3 / f"{name}.png", x, y, w).name = "FX_FLOAT " + name
 
 
 def notes(slide, t):
@@ -344,6 +416,7 @@ def notes(slide, t):
 # 1 · Cover ------------------------------------------------------------------
 s = prs.slides.add_slide(BLANK)
 pic(s, bg_light(), 0, 0, SW_IN, SH_IN)
+FX_START[s.slide_id] = 1
 deco(s, [("deco_ring", 11.9, 5.7, 1.2), ("deco_sphere", 6.1, 0.35, 0.55), ("deco_bubbles", 12.1, 2.6, 1.0)])
 pic(s, MED / "image24.png", 0.6, 0.3, 0.98)           # Indonesia Inventors Day 2026
 pic(s, MED / "image11.png", 1.75, 0.55, 1.45)          # INNOPA
@@ -372,6 +445,7 @@ for img, w in (("image22", 0.72), ("image21", 0.8), ("image23", 0.95), ("image25
     pic(s, MED / f"{img}.png", lx, 6.36 + (0.5 - h) / 2, w)
     lx += w + 0.2
 # hero: product on a neumorphic stage
+aura_orb(s, 10.0, 3.6, 7.2)
 pic(s, circle_img(5.1, "raise"), 7.45 - M_IN, 1.05 - M_IN, 5.1 + 2 * M_IN, 5.1 + 2 * M_IN)
 pic(s, circle_img(4.3, "inset"), 7.85 - M_IN, 1.45 - M_IN, 4.3 + 2 * M_IN, 4.3 + 2 * M_IN)
 pic(s, A3 / "unit_hero.png", 7.2, 0.75, 5.6)
@@ -556,9 +630,38 @@ for i, (ic, t, d) in enumerate(feats):
             xx = 1.95 + [0, 0.8, 2.05, 3.3][k]
             pic(s, A3 / f"{sic}.png", xx, y + 0.63, 0.42)
             text(s, xx + 0.42, y + 0.72, 1.5, 0.3, lab, size=10.5, bold=True, color=DEEP)
+aura_orb(s, 10.05, 4.35, 6.6)
 pic(s, circle_img(4.9, "raise"), 7.6 - M_IN, 1.9 - M_IN, 4.9 + 2 * M_IN, 4.9 + 2 * M_IN)
 pic(s, MED / "image47.png", 7.45, 2.95, 5.2)
 chip(s, 8.1, 6.62, "360 × 360 × 149 mm  ·  CEILING-MOUNTED", fill="FFFFFF", color=DEEP)
+
+# 10b · Working prototype (real photos) -------------------------------------
+gp = {k: GAL / f"WhatsApp Image 2026-09-26 at {k}.jpeg" for k in ("07.37.47", "07.53.28", "07.53.29 (1)", "07.53.29", "07.53.30 (1)", "07.53.30", "07.53.31")}
+s = new_slide(11, "03 · PRODUCT & INSTALLATION", [("Working ", INK), ("prototype", BLUE)], "The first physical build of AQUENT, photographed in the lab.")
+aura_orb(s, 3.15, 4.4, 6.0)
+photo(s, gp["07.53.29 (1)"], 0.75, 2.05, 4.8, 4.75, 0.3)
+chip(s, 0.95, 6.28, "REAL PHOTO · PROTOTYPE V1", fill="FFFFFF", color=DEEP)
+calls = [("filter", "Twin transparent columns", "Two clear columns rise from the housing, keeping the water path visible."),
+         ("shield", "Blue status light", "A glowing indicator on top of the unit shows the system is running."),
+         ("drop", "Handheld shower & hose", "A chrome shower head on a flexible steel hose for everyday use."),
+         ("unit_iso", "Compact white housing", "The branded AQUENT body holds the system in one bench-top unit.")]
+for i, (ic, t, d) in enumerate(calls):
+    y = 2.05 + i * 1.2
+    card(s, 6.1, y, 6.63, 1.0, r=0.24)
+    well(s, ic, 6.25, y + 0.1, 0.8)
+    text(s, 7.25, y + 0.12, 5.3, 0.32, t, size=14, bold=True, color=INK)
+    text(s, 7.25, y + 0.47, 5.3, 0.5, d, size=10.5, color=INK2, spacing=1.04)
+
+# 10c · Prototype gallery ------------------------------------------------------
+s = new_slide(12, "03 · PRODUCT & INSTALLATION", [("Prototype ", INK), ("gallery", BLUE)], "Every angle of the first AQUENT build.")
+aura_orb(s, 2.55, 4.45, 5.0)
+photo(s, gp["07.37.47"], 0.75, 2.05, 3.6, 4.75, 0.28)
+shots = [("07.53.28", "Side profile"), ("07.53.30 (1)", "Three-quarter view"), ("07.53.30", "Top & status light"),
+         ("07.53.29", "Label & shower head"), ("07.53.31", "Front elevation"), ("07.53.29 (1)", "Front view")]
+for i, (k, cap) in enumerate(shots):
+    x, y = 4.85 + (i % 3) * 2.68, 2.05 + (i // 3) * 2.45
+    photo(s, gp[k], x, y, 2.38, 1.92, 0.2)
+    text(s, x, y + 2.0, 2.38, 0.25, cap, size=10, bold=True, color=INK2, align="c")
 
 # 11 · Product anatomy -------------------------------------------------------
 s = new_slide(11, "03 · PRODUCT & INSTALLATION", [("Product ", INK), ("anatomy", BLUE)], "Three views of the 360 × 360 × 149 mm housing.")
@@ -588,7 +691,8 @@ for i, u in enumerate(uses):
     card(s, 6.6, y, 6.13, 0.9)
     badge(s, 6.82, y + 0.22, 0.46, str(i + 1), fill=AQUA)
     text(s, 7.5, y + 0.12, 5.0, 0.7, u, size=12, color=INK, anchor="m", spacing=1.05)
-text(s, SW_IN - 1.4, SH_IN - 0.42, 0.8, 0.25, f"12 / {TOTAL}", size=9, color=MUTED, align="r")
+text(s, SW_IN - 1.4, SH_IN - 0.42, 0.8, 0.25, f"{len(prs.slides):02d} / {TOTAL}", size=9, color=MUTED, align="r")
+FX_START[s.slide_id] = 1
 
 # 13 · Filtration system ------------------------------------------------------
 s = new_slide(13, "02 · THE AQUENT SYSTEM", [("Filtration ", INK), ("system", BLUE)], "Six layers of natural, recycled media — top to bottom.")
@@ -792,6 +896,8 @@ text(s, 8.45, 4.55, 3.83, 0.6, "© 2026 Team AQUENT", size=11, color=INK2, align
 # 23 · Thank you --------------------------------------------------------------
 s = prs.slides.add_slide(BLANK)
 pic(s, bg_brand(), 0, 0, SW_IN, SH_IN)
+FX_START[s.slide_id] = 1
+aura_orb(s, 9.8, 3.7, 7.5, (255, 255, 255))
 deco(s, [("deco_sphere_white", 12.1, 0.3, 0.9), ("deco_ring", 0.25, 6.0, 1.1), ("deco_drops", 5.7, 5.9, 1.3)])
 pic(s, BR / "logo_white.png", 0.8, 1.2, 4.6)
 text(s, 0.8, 2.6, 6.2, 1.0, "Thank you", size=54, bold=True, color="FFFFFF", font=FONT_H)
@@ -804,6 +910,101 @@ pic(s, photo_round(MED / "image12.png", 5.2, 2.9, 0.25), 7.2, 1.75, 5.2)
 pic(s, A3 / "unit_hero.png", 11.0, 4.55, 1.3)
 for i, sdg in enumerate(("image16", "image15", "image27", "image17")):
     pic(s, MED / f"{sdg}.png", 7.25 + i * 0.72, 4.95, 0.6)
+
+
+# =========================================================== FUTURISTIC FX ===
+# Morph transitions, staggered "rise" entrances, looping float on 3D props and
+# a breathing pulse on the blue aura orbs. All written as native PowerPoint XML.
+from lxml import etree
+
+NS_P = "http://schemas.openxmlformats.org/presentationml/2006/main"
+TRANS = (
+    '<mc:AlternateContent xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">'
+    '<mc:Choice xmlns:p159="http://schemas.microsoft.com/office/powerpoint/2015/09/main" '
+    'xmlns:p14="http://schemas.microsoft.com/office/powerpoint/2010/main" Requires="p159">'
+    '<p:transition xmlns:p="%s" spd="slow" p14:dur="1400"><p159:morph option="byObject"/></p:transition>'
+    '</mc:Choice><mc:Fallback><p:transition xmlns:p="%s" spd="slow"><p:fade/></p:transition></mc:Fallback>'
+    '</mc:AlternateContent>' % (NS_P, NS_P))
+
+
+class Ids:
+    def __init__(self):
+        self.n = 2
+
+    def __call__(self):
+        self.n += 1
+        return self.n
+
+
+def _target(spid):
+    return f'<p:tgtEl><p:spTgt spid="{spid}"/></p:tgtEl>'
+
+
+def fx_entrance(nid, spid, delay, dur=650):
+    return (f'<p:par><p:cTn id="{nid()}" presetID="42" presetClass="entr" presetSubtype="0" fill="hold" grpId="0" nodeType="withEffect">'
+            f'<p:stCondLst><p:cond delay="{delay}"/></p:stCondLst><p:childTnLst>'
+            f'<p:set><p:cBhvr><p:cTn id="{nid()}" dur="1" fill="hold"><p:stCondLst><p:cond delay="0"/></p:stCondLst></p:cTn>{_target(spid)}'
+            f'<p:attrNameLst><p:attrName>style.visibility</p:attrName></p:attrNameLst></p:cBhvr><p:to><p:strVal val="visible"/></p:to></p:set>'
+            f'<p:animEffect transition="in" filter="fade"><p:cBhvr><p:cTn id="{nid()}" dur="{dur}"/>{_target(spid)}</p:cBhvr></p:animEffect>'
+            f'<p:anim calcmode="lin" valueType="num"><p:cBhvr><p:cTn id="{nid()}" dur="{dur}" decel="100000" fill="hold"/>{_target(spid)}'
+            f'<p:attrNameLst><p:attrName>ppt_y</p:attrName></p:attrNameLst></p:cBhvr><p:tavLst>'
+            f'<p:tav tm="0"><p:val><p:strVal val="#ppt_y+0.04"/></p:val></p:tav><p:tav tm="100000"><p:val><p:strVal val="#ppt_y"/></p:val></p:tav>'
+            f'</p:tavLst></p:anim></p:childTnLst></p:cTn></p:par>')
+
+
+def fx_float(nid, spid, delay, amp=0.012, dur=2600):
+    return (f'<p:par><p:cTn id="{nid()}" presetID="0" presetClass="path" presetSubtype="0" repeatCount="indefinite" accel="50000" decel="50000" autoRev="1" fill="hold" grpId="1" nodeType="withEffect">'
+            f'<p:stCondLst><p:cond delay="{delay}"/></p:stCondLst><p:childTnLst>'
+            f'<p:animMotion origin="layout" path="M 0 0 L 0 -{amp} E" pathEditMode="relative" ptsTypes="AA"><p:cBhvr>'
+            f'<p:cTn id="{nid()}" dur="{dur}" fill="hold"/>{_target(spid)}<p:attrNameLst><p:attrName>ppt_x</p:attrName><p:attrName>ppt_y</p:attrName></p:attrNameLst>'
+            f'</p:cBhvr><p:rCtr x="0" y="0"/></p:animMotion></p:childTnLst></p:cTn></p:par>')
+
+
+def fx_pulse(nid, spid, delay, dur=3200):
+    return (f'<p:par><p:cTn id="{nid()}" presetID="6" presetClass="emph" presetSubtype="0" repeatCount="indefinite" accel="50000" decel="50000" autoRev="1" fill="hold" grpId="1" nodeType="withEffect">'
+            f'<p:stCondLst><p:cond delay="{delay}"/></p:stCondLst><p:childTnLst>'
+            f'<p:animScale><p:cBhvr><p:cTn id="{nid()}" dur="{dur}" fill="hold"/>{_target(spid)}</p:cBhvr><p:by x="112000" y="112000"/></p:animScale>'
+            f'</p:childTnLst></p:cTn></p:par>')
+
+
+def apply_fx(slide, start):
+    nid = Ids()
+    pars, blds = [], []
+    step, delay = 55, 150
+    for sh in list(slide.shapes)[start:]:
+        spid = sh.shape_id
+        if sh.name.startswith("FX_PULSE"):
+            pars.append(fx_pulse(nid, spid, 0))
+            continue
+        pars.append(fx_entrance(nid, spid, min(delay, 2200)))
+        if sh.name.startswith("FX_FLOAT"):
+            pars.append(fx_float(nid, spid, min(delay, 2200) + 700))
+        if sh.shape_type != 13:  # text boxes / autoshapes need a build entry
+            blds.append(f'<p:bldP spid="{spid}" grpId="0" animBg="1"/>')
+        delay += step
+    sld = slide._element
+    anchor = sld.find(qn("p:clrMapOvr"))
+    if anchor is None:
+        anchor = sld.find(qn("p:cSld"))
+    t = etree.fromstring(TRANS)
+    anchor.addnext(t)
+    if not pars:
+        return
+    xml = (f'<p:timing xmlns:p="{NS_P}"><p:tnLst><p:par><p:cTn id="1" dur="indefinite" restart="never" nodeType="tmRoot"><p:childTnLst>'
+           f'<p:seq concurrent="1" nextAc="seek"><p:cTn id="2" dur="indefinite" nodeType="mainSeq"><p:childTnLst>'
+           f'<p:par><p:cTn id="{nid()}" fill="hold"><p:stCondLst><p:cond delay="indefinite"/><p:cond evt="onBegin" delay="0"><p:tn val="2"/></p:cond></p:stCondLst><p:childTnLst>'
+           f'<p:par><p:cTn id="{nid()}" fill="hold"><p:stCondLst><p:cond delay="0"/></p:stCondLst><p:childTnLst>'
+           + "".join(pars) +
+           '</p:childTnLst></p:cTn></p:par></p:childTnLst></p:cTn></p:par>'
+           '</p:childTnLst></p:cTn><p:prevCondLst><p:cond evt="onPrev" delay="0"><p:tgtEl><p:sldTgt/></p:tgtEl></p:cond></p:prevCondLst>'
+           '<p:nextCondLst><p:cond evt="onNext" delay="0"><p:tgtEl><p:sldTgt/></p:tgtEl></p:cond></p:nextCondLst></p:seq>'
+           '</p:childTnLst></p:cTn></p:par></p:tnLst>'
+           + (f'<p:bldLst>{"".join(blds)}</p:bldLst>' if blds else '') + '</p:timing>')
+    t.addnext(etree.fromstring(xml))
+
+
+for sl in prs.slides:
+    apply_fx(sl, FX_START.get(sl.slide_id, len(sl.shapes)))
 
 prs.save(OUT)
 print("saved", OUT, len(prs.slides), "slides")
