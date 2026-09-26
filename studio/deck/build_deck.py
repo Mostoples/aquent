@@ -229,10 +229,19 @@ def card(slide, x, y, w, h, r=0.26, kind="raise", **kw):
     return pic(slide, p, x - M_IN, y - M_IN, w + 2 * M_IN, h + 2 * M_IN)
 
 
-def well(slide, icon, x, y, d, scale=0.74, kind="inset"):
+ANIM_GIF = ROOT / "deck/build/anim_gif"
+
+
+def icon(name):
+    """Animated GIF of the 3D icon when available (plays in slideshow), else the static PNG."""
+    g = ANIM_GIF / f"{name}.gif"
+    return g if g.exists() else A3 / f"{name}.png"
+
+
+def well(slide, icon_name, x, y, d, scale=0.74, kind="inset"):
     pic(slide, circle_img(d, kind), x - M_IN, y - M_IN, d + 2 * M_IN, d + 2 * M_IN)
     s = d * scale
-    return pic(slide, A3 / f"{icon}.png", x + (d - s) / 2, y + (d - s) / 2, s, s)
+    return pic(slide, icon(icon_name), x + (d - s) / 2, y + (d - s) / 2, s, s)
 
 
 def text(slide, x, y, w, h, content, size=14, color=INK2, bold=False, font=FONT, align="l", anchor="t",
@@ -405,7 +414,7 @@ def new_slide(num, section, title, sub=None, bg="light", logo=True):
 
 def deco(slide, items):
     for name, x, y, w in items:
-        pic(slide, A3 / f"{name}.png", x, y, w).name = "FX_FLOAT " + name
+        pic(slide, icon(name), x, y, w).name = "FX_FLOAT " + name
 
 
 def notes(slide, t):
@@ -448,7 +457,7 @@ for img, w in (("image22", 0.72), ("image21", 0.8), ("image23", 0.95), ("image25
 aura_orb(s, 10.0, 3.6, 7.2)
 pic(s, circle_img(5.1, "raise"), 7.45 - M_IN, 1.05 - M_IN, 5.1 + 2 * M_IN, 5.1 + 2 * M_IN)
 pic(s, circle_img(4.3, "inset"), 7.85 - M_IN, 1.45 - M_IN, 4.3 + 2 * M_IN, 4.3 + 2 * M_IN)
-pic(s, A3 / "unit_hero.png", 7.2, 0.75, 5.6)
+pic(s, icon("unit_hero"), 7.2, 0.75, 5.6)
 card(s, 10.35, 6.05, 2.35, 0.85, r=0.2)
 text(s, 10.5, 6.12, 2.1, 0.3, "±380 × 250 × 270 mm", size=13, bold=True, color=DEEP)
 text(s, 10.5, 6.48, 2.1, 0.3, "prototype V1 · estimated", size=10, color=INK2)
@@ -459,7 +468,7 @@ notes(s, "AQUENT — AIoT smart shower that recycles greywater at the point of u
 # 2 · Agenda -----------------------------------------------------------------
 s = new_slide(2, "AGENDA", [("What we will ", INK), ("cover", BLUE)], "Five chapters, from the global water problem to evidence and next steps.")
 pic(s, circle_img(3.6, "raise"), 1.0 - M_IN, 2.55 - M_IN, 3.6 + 2 * M_IN, 3.6 + 2 * M_IN)
-pic(s, A3 / "unit_iso.png", 0.75, 2.25, 4.1)
+pic(s, icon("unit_iso"), 0.75, 2.25, 4.1)
 deco(s, [("deco_drops", 3.9, 5.4, 1.2)])
 rows = [("globe", "The water problem", "Global scarcity, health burden, and where a household can act."),
         ("recycle", "The AQUENT system", "Closed-loop shower, six-layer bio-filter, four-sensor gate."),
@@ -541,12 +550,12 @@ for i, (ic, q, d) in enumerate(qs):
     badge(s, x + 0.25, y + 0.25, 0.46, str(i + 1))
     text(s, x + 0.9, y + 0.22, 3.55, 0.95, q, size=14, bold=True, color=INK, spacing=1.05)
     text(s, x + 0.9, y + 1.3, 3.55, 0.7, d, size=11, color=INK2)
-    pic(s, A3 / f"{ic}.png", x + 4.45, y + 0.45, 1.25)
+    pic(s, icon(ic), x + 4.45, y + 0.45, 1.25)
 
 # 7 · The solution -----------------------------------------------------------
 s = new_slide(7, "02 · THE AQUENT SYSTEM", [("The ", INK), ("solution", BLUE)])
 card(s, 0.6, 1.75, 4.3, 5.0)
-pic(s, A3 / "unit_hero.png", 1.2, 1.6, 3.1)
+pic(s, icon("unit_hero"), 1.2, 1.6, 3.1)
 text(s, 0.85, 4.75, 3.8, 0.3, "INNOVATION", size=9.5, bold=True, color=AQUA, charsp=150)
 text(s, 0.85, 5.05, 3.85, 1.6, "Aquent is an AIoT smart shower that sanitizes greywater through natural multilayer filtration and "
      "returns it to the shower head — monitored in real time by four sensors and paired with an AI dermatology assistant.",
@@ -582,7 +591,7 @@ for i, (t, d) in enumerate(nov):
     if i == 0:
         pic(s, phone_img("xai"), x + 1.12, 2.2, 1.6)
     elif i == 1:
-        pic(s, A3 / "filter_stack.png", x + 1.12, 2.3, 1.6)
+        pic(s, icon("filter_stack"), x + 1.12, 2.3, 1.6)
     else:
         pic(s, phone_img("home"), x + 1.12, 2.2, 1.6)
     text(s, x + 0.3, 5.3, 3.25, 0.35, t, size=14.5, bold=True, color=INK, align="c")
@@ -591,7 +600,7 @@ for i, (t, d) in enumerate(nov):
 # 9 · Closing the loop -------------------------------------------------------
 s = new_slide(9, "02 · THE AQUENT SYSTEM", [("How AQUENT ", INK), ("closes the loop", BLUE)],
               "Point-of-use treatment: the water never leaves the fixture unless it fails.")
-steps = [("drop", "Greywater intake", "60–80 L per shower captured at the floor gully."),
+steps = [("drop", "Greywater intake", "60–80 L of used shower water returns to the unit."),
          ("deco_bubbles", "Sedimentation", "Hair and coarse solids trapped before the media bed."),
          ("filter", "Six-layer bio-filter", "Zeolite · biochar · chitosan · loofah · bamboo · bagasse."),
          ("shield", "Sensor verification", "pH · turbidity · ORP · temperature, every cycle."),
@@ -628,11 +637,11 @@ for i, (ic, t, d) in enumerate(feats):
     else:
         for k, (sic, lab) in enumerate((("ph", "pH"), ("turbidity", "Turbidity"), ("chlorine", "Chlorine"), ("temp", "Temperature"))):
             xx = 1.95 + [0, 0.8, 2.05, 3.3][k]
-            pic(s, A3 / f"{sic}.png", xx, y + 0.63, 0.42)
+            pic(s, icon(sic), xx, y + 0.63, 0.42)
             text(s, xx + 0.42, y + 0.72, 1.5, 0.3, lab, size=10.5, bold=True, color=DEEP)
 aura_orb(s, 10.05, 4.35, 6.6)
 pic(s, circle_img(4.9, "raise"), 7.6 - M_IN, 1.9 - M_IN, 4.9 + 2 * M_IN, 4.9 + 2 * M_IN)
-pic(s, A3 / "unit_hero.png", 7.35, 1.55, 5.5)
+pic(s, icon("unit_hero"), 7.35, 1.55, 5.5)
 chip(s, 8.25, 6.62, "±380 × 250 × 270 mm  ·  PROTOTYPE V1", fill="FFFFFF", color=DEEP)
 
 # 10b · Working prototype (real photos) -------------------------------------
@@ -659,7 +668,7 @@ photo(s, gp["07.53.30 (1)"], 0.75, 2.05, 3.55, 4.7, 0.28)
 chip(s, 0.95, 6.28, "REAL PHOTO", fill="FFFFFF", color=DEEP)
 aura_orb(s, 6.55, 4.3, 5.2)
 card(s, 4.65, 2.05, 3.85, 4.7)
-pic(s, A3 / "unit_iso.png", 4.62, 2.05, 3.9)
+pic(s, icon("unit_iso"), 4.62, 2.05, 3.9)
 chip(s, 4.85, 6.28, "BLENDER 3D", fill="FFFFFF", color=DEEP)
 card(s, 8.85, 2.05, 3.88, 4.7)
 text(s, 9.1, 2.25, 3.4, 0.3, "ESTIMATED DIMENSIONS", size=9.5, bold=True, color=AQUA, charsp=150)
@@ -721,7 +730,7 @@ FX_START[s.slide_id] = 1
 # 13 · Filtration system ------------------------------------------------------
 s = new_slide(13, "02 · THE AQUENT SYSTEM", [("Filtration ", INK), ("system", BLUE)], "Six layers of natural, recycled media — top to bottom.")
 card(s, 0.6, 2.1, 3.9, 4.65)
-pic(s, A3 / "filter_stack.png", 1.1, 2.0, 2.9 * 900 / 1300 * 1.35)
+pic(s, icon("filter_stack"), 1.1, 2.0, 2.9 * 900 / 1300 * 1.35)
 layers = [("9FB06A", "Dried bamboo leaf", "Coarse filtration; flavonoids, phenolic acids and silica add an antioxidant finish."),
           ("E3CF98", "Loofah", "Natural fibrous medium that captures suspended particles."),
           ("D5D9DE", "Zeolite", "Ion exchange binds Pb, Cd and Ni; broad antibacterial and antifungal activity."),
@@ -779,7 +788,7 @@ sens = [("ph", "pH", "SEN0165", "Acidity across 0–14. Keeps reused water insid
 for i, (ic, t, model, d) in enumerate(sens):
     x = 0.6 + i * 3.08
     card(s, x, 2.1, 2.83, 2.85)
-    pic(s, A3 / f"{ic}.png", x + 0.22, 2.2, 1.05)
+    pic(s, icon(ic), x + 0.22, 2.2, 1.05)
     chip(s, x + 1.35, 2.32, model, fill="FFFFFF", size=8.5)
     text(s, x + 0.25, 3.3, 2.4, 0.35, t, size=14.5, bold=True, color=INK)
     text(s, x + 0.25, 3.68, 2.4, 1.2, d, size=9.8, color=INK2, spacing=1.05)
@@ -931,7 +940,7 @@ text(s, 0.8, 5.05, 5.8, 0.8, "Dhafa Krisna Bagus Harjanto · Lais Arsalan Farzan
      "Joanna Dharmarina Saputra", size=11, color="EAF4FF", spacing=1.1)
 pic(s, card_img(5.6, 4.3, 0.35, fill=(236, 243, 252)), 7.0 - M_IN, 1.55 - M_IN, 5.6 + 2 * M_IN, 4.3 + 2 * M_IN)
 pic(s, photo_round(MED / "image12.png", 5.2, 2.9, 0.25), 7.2, 1.75, 5.2)
-pic(s, A3 / "unit_hero.png", 11.0, 4.55, 1.3)
+pic(s, icon("unit_hero"), 11.0, 4.55, 1.3)
 for i, sdg in enumerate(("image16", "image15", "image27", "image17")):
     pic(s, MED / f"{sdg}.png", 7.25 + i * 0.72, 4.95, 0.6)
 

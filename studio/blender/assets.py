@@ -856,7 +856,11 @@ exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "prototype.py
 
 
 # ------------------------------------------------------------------- main ---
-if ONLY == {"anim"}:
+exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "animate_icons.py"), encoding="utf-8").read())
+
+if "animicons" in ONLY:
+    animate_icons([a for a in ARGS[1:] if a != "animicons"])
+elif ONLY == {"anim"}:
     anim_proto()
 else:
     for name, (fn, res, samples) in ASSETS.items():

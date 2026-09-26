@@ -10,7 +10,9 @@
 
   const fmt = (v, d = 0) => Number(v).toLocaleString("id-ID", { minimumFractionDigits: d, maximumFractionDigits: d });
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-  const img = (n) => `assets/3d/${n}.png`;
+  // animated 3D icons (Blender renders packed as looping WebP); static PNG fallback
+  const ANIM = new Set(["unit_hero", "unit_iso", "unit_face", "filter_stack", "filter", "drop", "deco_drops", "robot", "bell", "shield", "recycle", "sun", "snow", "sparkle", "globe", "chlorine", "ph", "turbidity", "temp", "calendar", "chart", "home", "user", "leaf", "tank", "deco_sphere", "deco_sphere_white", "deco_torus", "deco_ring", "deco_pill", "deco_bubbles"]);
+  const img = (n) => (ANIM.has(n) ? `assets/anim/${n}.webp` : `assets/3d/${n}.png`);
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const store = {
     get: (k, d) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
@@ -835,7 +837,11 @@
     to.classList.add("active");
     current = id;
     const nav = order(to);
-    $$("#tabbar button").forEach((b) => b.classList.toggle("active", +b.dataset.idx === nav));
+    $$("#tabbar button").forEach((b) => {
+      b.classList.toggle("active", +b.dataset.idx === nav);
+      const im = b.querySelector("img[data-icon]");
+      if (im) im.src = b.classList.contains("active") || b.classList.contains("fab") ? img(im.dataset.icon) : `assets/3d/${im.dataset.icon}.png`;
+    });
     $("#tabbar").classList.toggle("hide", id === "splash" || id === "login");
     countUp(to);
     const ring = $("#qualityRing");
