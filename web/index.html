@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#E9EFF7">
+  <meta name="description" content="AQUENT — companion app smart shower AIoT: daur ulang greywater, sensor kualitas air real-time & AI Dermatology.">
+  <title>AQUENT</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/brand/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/brand/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Firebase (config is served by Firebase Hosting; absent locally -> demo mode) -->
+  <script defer src="/__/firebase/12.12.1/firebase-app-compat.js"></script>
+  <script defer src="/__/firebase/12.12.1/firebase-auth-compat.js"></script>
+  <script defer src="/__/firebase/12.12.1/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/12.12.1/firebase-database-compat.js"></script>
+  <script defer src="/__/firebase/init.js"></script>
+  <script defer src="js/backend.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+<div class="device" id="device">
+
+  <!-- status bar (mockup mode only) -->
+  <div class="statusbar">
+    <span>9:41</span>
+    <span class="sb-icons">
+      <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+      <svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 8.8a3.4 3.4 0 0 1 4.8 0zM3.4 6.6a6.6 6.6 0 0 1 9.2 0l-1.5 1.5a4.5 4.5 0 0 0-6.2 0zM1 4.2a10 10 0 0 1 14 0l-1.5 1.5a7.9 7.9 0 0 0-11 0z"/></svg>
+      <svg viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2" y="2" width="17" height="8" rx="2"/><rect x="23.5" y="4" width="2" height="4" rx="1"/></svg>
+    </span>
+  </div>
+
+  <main class="screens">
+
+    <!-- ============================== SPLASH ============================== -->
+    <section class="screen active" id="splash" data-nav="0">
+      <div class="splash">
+        <img class="deco d1 float-slow" src="assets/3d/deco_sphere.png" alt="">
+        <img class="deco d2 float" src="assets/3d/deco_torus.png" alt="">
+        <img class="deco d3 float-slow" src="assets/3d/deco_bubbles.png" alt="">
+        <img class="deco d4 float" src="assets/3d/deco_ring.png" alt="">
+        <div class="splash-stage">
+          <div class="halo neu-inset"></div>
+          <img class="splash-hero float" src="assets/3d/unit_hero.png" alt="Unit AQUENT smart shower plafon">
+        </div>
+        <div class="splash-copy">
+          <div class="brand"><img class="logo" src="assets/brand/logo_grad.png" alt="Aquent"><span>AIoT SMART SHOWER</span></div>
+          <h1>Mandi cerdas,<br><em>air kembali bersih.</em></h1>
+          <p>Smart shower AIoT dengan filtrasi greywater 6 lapis dari material alami, sensor kualitas air real-time &amp; asisten AI Dermatology.</p>
+          <div class="splash-feats">
+            <span class="pill neu"><img src="assets/3d/recycle.png" alt="">Daur ulang</span>
+            <span class="pill neu"><img src="assets/3d/shield.png" alt="">Sensor QC</span>
+            <span class="pill neu"><img src="assets/3d/robot.png" alt="">AI Derma</span>
+          </div>
+          <button class="btn-primary" id="startBtnSplash">Mulai Sekarang
+            <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================== LOGIN ============================== -->
+    <section class="screen" id="login" data-nav="0">
+      <div class="login">
+        <img class="deco l1 float" src="assets/3d/deco_drops.png" alt="">
+        <img class="deco l2 float-slow" src="assets/3d/deco_sphere.png" alt="">
+        <img class="login-logo stagger" src="assets/brand/logo_grad.png" alt="Aquent">
+        <h2 class="stagger" id="authTitle">Masuk ke akunmu</h2>
+        <p class="muted stagger" id="authSub">Pantau shower, kualitas air &amp; kesehatan kulitmu.</p>
+
+        <button class="btn-google neu stagger" id="googleBtn">
+          <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+          Lanjutkan dengan Google
+        </button>
+        <div class="divider stagger"><span>atau dengan email</span></div>
+        <form class="auth-form stagger" id="authForm" novalidate>
+          <label class="field neu-inset" id="nameField" hidden><input id="authName" placeholder="Nama lengkap" autocomplete="name"></label>
+          <label class="field neu-inset"><input id="authEmail" type="email" placeholder="Email" autocomplete="email" required></label>
+          <label class="field neu-inset"><input id="authPass" type="password" placeholder="Password (min. 6 karakter)" autocomplete="current-password" required></label>
+          <div class="auth-row"><label class="check"><input type="checkbox" id="remember" checked><span></span>Ingat saya</label><a id="forgotBtn">Lupa password?</a></div>
+          <p class="auth-err" id="authErr" role="alert"></p>
+          <button class="btn-primary" type="submit" id="authSubmit">Masuk</button>
+        </form>
+        <p class="switch-auth stagger"><span id="switchText">Belum punya akun?</span> <a id="switchAuth">Daftar</a></p>
+        <button class="demo-link stagger" id="demoBtn">Coba mode demo tanpa akun</button>
+      </div>
+    </section>
+
+    <!-- =============================== HOME =============================== -->
+    <section class="screen" id="home" data-nav="1">
+      <header class="topbar stagger">
+        <button class="avatar neu" id="avatarBtn" aria-label="Profil"><img id="avatarImg" src="assets/3d/user.png" alt=""></button>
+        <div class="greet"><small id="greetTime">Selamat pagi,</small><h2 id="greetName">Pengguna</h2></div>
+        <button class="icon-btn neu" id="bellBtn" aria-label="Notifikasi"><img src="assets/3d/bell.png" alt=""><i class="dot" id="bellDot" hidden></i></button>
+      </header>
+
+      <article class="card device-card neu stagger">
+        <div class="dc-text">
+          <span class="chip live" id="devChip"><i></i><b>Menghubungkan…</b></span>
+          <h3>AQUENT Shower</h3>
+          <p>Rain shower plafon · 360 × 360 mm</p>
+          <div class="dc-stats">
+            <div><b><span id="todayRec">0</span><small>L</small></b><em>Air didaur ulang hari ini</em></div>
+          </div>
+        </div>
+        <img class="dc-img float" src="assets/3d/unit_hero.png" alt="">
+        <button class="dc-start" data-go="shower"><img src="assets/3d/drop.png" alt="">Mulai Mandi</button>
+      </article>
+
+      <div class="sec-title stagger"><h4>Kualitas Air</h4><a data-go="monitor">Lihat detail</a></div>
+
+      <article class="card quality neu stagger">
+        <div class="ring-wrap">
+          <svg class="ring" viewBox="0 0 120 120">
+            <defs><linearGradient id="gRing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8CC6FF"/><stop offset="1" stop-color="#1646D6"/></linearGradient></defs>
+            <circle class="ring-bg" cx="60" cy="60" r="50"/>
+            <circle class="ring-fg" id="qualityRing" cx="60" cy="60" r="50" stroke="url(#gRing)"/>
+          </svg>
+          <div class="ring-val"><b id="qScore">–</b><small>/100</small></div>
+        </div>
+        <div class="quality-text">
+          <span class="chip ok" id="qGrade">–</span>
+          <h5 id="qTitle">Menunggu data sensor</h5>
+          <p id="qDesc">Skor dihitung dari pH, kekeruhan &amp; sisa klorin.</p>
+        </div>
+        <img class="quality-badge float-slow" src="assets/3d/shield.png" alt="">
+      </article>
+
+      <div class="sensor-grid stagger" id="sensorGrid"></div>
+
+      <div class="duo stagger">
+        <article class="card mini neu" data-go="filter">
+          <img src="assets/3d/filter.png" alt="">
+          <small>Kesehatan Filter</small>
+          <b><span id="filterPct">–</span>%</b>
+          <div class="bar neu-inset"><i id="filterBar" style="--w:0%"></i></div>
+          <em id="filterNote">Estimasi dari volume tersaring</em>
+        </article>
+        <article class="card mini neu" data-go="impact">
+          <img src="assets/3d/recycle.png" alt="">
+          <small>Air Dihemat</small>
+          <b><span id="monthSaved">0</span> L</b>
+          <div class="bar neu-inset"><i id="monthBar" style="--w:0%"></i></div>
+          <em id="monthNote">Bulan ini</em>
+        </article>
+      </div>
+
+      <article class="card ai-tip neu stagger" data-go="derma">
+        <img src="assets/3d/robot.png" alt="">
+        <div><small>Derma AI</small><p id="aiTip">Menunggu data sensor untuk rekomendasi.</p></div>
+        <svg class="chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
+      </article>
+    </section>
+
+    <!-- ============================== MONITOR ============================= -->
+    <section class="screen" id="monitor" data-nav="2">
+      <header class="pagebar stagger">
+        <button class="icon-btn neu" data-go="home" aria-label="Kembali"><svg viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg></button>
+        <div><h2>Smart Monitoring</h2><small><i class="live-dot"></i><span id="monSub">Real-time</span></small></div>
+      </header>
+
+      <div class="segmented neu-inset stagger" id="sensorTabs"></div>
+
+      <article class="card sensor-hero neu stagger">
+        <img id="shImg" src="assets/3d/ph.png" alt="">
+        <div>
+          <span class="chip" id="shModel">SEN0165</span>
+          <h3><span id="shVal">–</span><small id="shUnit">pH</small></h3>
+          <p id="shState" class="state ok">–</p>
+        </div>
+      </article>
+
+      <article class="card chart-card neu stagger">
+        <div class="chart-head"><h5 id="chTitle">Tren pH</h5><span class="chip soft" id="chRange">Rentang aman</span></div>
+        <svg id="chart" viewBox="0 0 320 150" preserveAspectRatio="none"></svg>
+        <div class="chart-x" id="chartX"></div>
+      </article>
+
+      <article class="card info neu stagger">
+        <h5 id="infoTitle">Tentang sensor</h5>
+        <p id="infoText"></p>
+      </article>
+
+      <div class="sec-title stagger"><h4>Alur Daur Ulang Greywater</h4></div>
+      <article class="card flow neu stagger">
+        <div class="flow-step"><div class="fs-ico neu"><img src="assets/3d/drop.png" alt=""></div><div><b>Greywater</b><small>60–80 L per mandi ditampung di floor gully</small></div><span class="chip soft">Masuk</span></div>
+        <div class="flow-step"><div class="fs-ico neu"><img src="assets/3d/deco_bubbles.png" alt=""></div><div><b>Sedimentasi</b><small>Rambut &amp; padatan kasar tertahan</small></div><span class="chip soft">Aktif</span></div>
+        <div class="flow-step"><div class="fs-ico neu"><img src="assets/3d/filter.png" alt=""></div><div><b>Bio-filter 6 Lapis</b><small>Material alami &amp; daur ulang</small></div><span class="chip soft" id="flowFilter">–</span></div>
+        <div class="flow-step"><div class="fs-ico neu"><img src="assets/3d/shield.png" alt=""></div><div><b>Verifikasi Sensor</b><small>pH · Turbidity · Klorin · Suhu</small></div><span class="chip ok" id="flowQc">–</span></div>
+        <div class="flow-step"><div class="fs-ico neu"><img src="assets/3d/robot.png" alt=""></div><div><b>Keputusan AI</b><small>Lolos → dipakai ulang · gagal → drain</small></div><span class="chip ok" id="flowAi">–</span></div>
+        <div class="flow-step"><div class="fs-ico neu"><img src="assets/3d/unit_face.png" alt=""></div><div><b>Kembali ke Shower</b><small>Tanpa tangki terpisah</small></div><span class="chip soft">Siap</span></div>
+        <div class="flow-line"><i></i></div>
+      </article>
+    </section>
+
+    <!-- ============================== SHOWER ============================== -->
+    <section class="screen" id="shower" data-nav="3">
+      <header class="pagebar stagger">
+        <button class="icon-btn neu" data-go="home" aria-label="Kembali"><svg viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg></button>
+        <div><h2>Sesi Mandi</h2><small id="swClimate">Mode Tropis · rekomendasi suhu ruang</small></div>
+      </header>
+
+      <div class="dial-wrap stagger">
+        <div class="dial neu" id="dial">
+          <svg viewBox="0 0 240 240">
+            <defs><linearGradient id="gDial" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#8CC6FF"/><stop offset=".6" stop-color="#2F7BFF"/><stop offset="1" stop-color="#FF7A59"/></linearGradient></defs>
+            <circle class="dial-track" cx="120" cy="120" r="96"/>
+            <circle class="dial-arc" id="dialArc" cx="120" cy="120" r="96" stroke="url(#gDial)"/>
+          </svg>
+          <div class="dial-inner neu-inset">
+            <img class="dial-drops" src="assets/3d/deco_drops.png" alt="">
+            <b><span id="tempVal">37</span>°C</b>
+            <small id="tempLabel">Hangat</small>
+          </div>
+          <div class="knob" id="knob"><i></i></div>
+        </div>
+        <div class="dial-btns">
+          <button class="round neu" id="tMinus" aria-label="Turunkan suhu">−</button>
+          <button class="round neu" id="tPlus" aria-label="Naikkan suhu">+</button>
+        </div>
+      </div>
+
+      <div class="presets stagger">
+        <button class="preset neu" data-temp="24"><img src="assets/3d/sun.png" alt=""><b>Suhu Ruang</b><small>20–25°C</small></button>
+        <button class="preset neu active" data-temp="38"><img src="assets/3d/drop.png" alt=""><b>Hangat</b><small>37–40°C</small></button>
+      </div>
+
+      <div class="stats3 stagger">
+        <div class="neu"><small>Durasi</small><b id="swTime">00:00</b></div>
+        <div class="neu"><small>Air terpakai</small><b><span id="swUsed">0,0</span> L</b></div>
+        <div class="neu"><small>Daur ulang</small><b class="blue"><span id="swRec">0,0</span> L</b></div>
+      </div>
+
+      <article class="card eco neu stagger">
+        <img src="assets/3d/recycle.png" alt="">
+        <div><b>Mode Eco</b><small>Gunakan air hasil daur ulang</small></div>
+        <label class="switch"><input type="checkbox" checked id="ecoSw" data-control="eco"><span></span></label>
+      </article>
+
+      <article class="card controls neu stagger">
+        <h5>Kontrol Perangkat</h5>
+        <div class="ctl"><img src="assets/3d/filter.png" alt=""><div><b>Filter aktif</b><small>Bio-filter 6 lapis</small></div><label class="switch"><input type="checkbox" checked data-control="filter"><span></span></label></div>
+        <div class="ctl"><img src="assets/3d/recycle.png" alt=""><div><b>Resirkulasi</b><small>Alirkan air lolos QC ke shower</small></div><label class="switch"><input type="checkbox" data-control="recirculation"><span></span></label></div>
+        <div class="ctl"><img src="assets/3d/temp.png" alt=""><div><b>Pemanas</b><small>Jaga suhu target</small></div><label class="switch"><input type="checkbox" checked data-control="heating"><span></span></label></div>
+        <p class="note" id="ctlNote">Perubahan dikirim ke perangkat secara real-time.</p>
+      </article>
+
+      <button class="big-start stagger" id="startBtn"><span class="pulse"></span><img src="assets/3d/drop.png" alt=""><b id="startLbl">Mulai</b></button>
+      <p class="note center" id="swNote">Volume diestimasi dari laju aliran ±9 L/menit bila perangkat belum mengirim data.</p>
+    </section>
+
+    <!-- ============================== JADWAL ============================== -->
+    <section class="screen" id="schedule" data-nav="4">
+      <header class="pagebar stagger">
+        <button class="icon-btn neu" data-go="home" aria-label="Kembali"><svg viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg></button>
+        <div><h2>Jadwal &amp; Strategi</h2><small>Disesuaikan dengan iklim kamu</small></div>
+      </header>
+
+      <div class="climate stagger">
+        <button class="clim neu active" data-climate="tropis"><img src="assets/3d/sun.png" alt=""><b>Tropis</b><small>20–30°C sepanjang tahun</small></button>
+        <button class="clim neu" data-climate="subtropis"><img src="assets/3d/snow.png" alt=""><b>Subtropis</b><small>4 musim · &lt;0–35°C</small></button>
+      </div>
+
+      <article class="card reco neu stagger">
+        <img src="assets/3d/calendar.png" alt="">
+        <div>
+          <small>Rekomendasi frekuensi</small>
+          <h3 id="recoFreq">2–3× sehari</h3>
+          <p id="recoText">Pagi, sore, dan malam bila perlu — terutama setelah beraktivitas atau berolahraga.</p>
+        </div>
+      </article>
+
+      <div class="sec-title stagger"><h4>Jadwal Mandi</h4><a id="addSched">+ Tambah</a></div>
+      <div class="sched-list stagger" id="schedList"></div>
+      <button class="btn-soft neu stagger" id="notifBtn" hidden>Aktifkan notifikasi pengingat</button>
+
+      <div class="sec-title stagger"><h4>Strategi Penggunaan Air</h4></div>
+      <div class="season stagger neu-inset" id="seasonSeg" hidden>
+        <button class="active" data-season="dingin">Musim dingin</button><button data-season="panas">Musim panas</button>
+      </div>
+      <div class="tips stagger" id="tips"></div>
+    </section>
+
+    <!-- ============================== DERMA AI ============================ -->
+    <section class="screen" id="derma" data-nav="5">
+      <header class="pagebar stagger">
+        <button class="icon-btn neu" data-go="home" aria-label="Kembali"><svg viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg></button>
+        <div><h2>AI Dermatology</h2><small><i class="live-dot"></i>Asisten kulit pintar</small></div>
+      </header>
+
+      <article class="card derma-hero neu stagger">
+        <div>
+          <span class="chip soft">Derma AI</span>
+          <h3 id="dermaHello">Siap cek kondisi kulitmu?</h3>
+          <button class="btn-small" id="scanBtn">Scan Kulit</button>
+        </div>
+        <img class="float" src="assets/3d/robot.png" alt="">
+      </article>
+
+      <article class="card scan neu stagger" id="scanCard">
+        <div class="scan-frame neu-inset">
+          <div class="face" id="faceArt"><i></i><i></i><i></i></div>
+          <video id="cam" playsinline muted hidden></video>
+          <div class="scan-line"></div>
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <div class="scan-status" id="scanStatus">Arahkan wajah ke kamera</div>
+        </div>
+        <div class="skin">
+          <div class="sk"><small>Kemerahan</small><b data-skin="redness">–</b><div class="bar neu-inset"><i></i></div></div>
+          <div class="sk"><small>Kilap / minyak</small><b data-skin="shine">–</b><div class="bar neu-inset"><i></i></div></div>
+          <div class="sk"><small>Kerataan tone</small><b data-skin="evenness">–</b><div class="bar neu-inset"><i></i></div></div>
+          <div class="sk"><small>Cocok dg air</small><b data-skin="match">–</b><div class="bar neu-inset"><i></i></div></div>
+        </div>
+      </article>
+      <p class="note stagger">Estimasi visual dari kamera — bukan diagnosis medis. Konsultasikan ke dokter kulit untuk keluhan serius.</p>
+
+      <article class="card xai neu stagger">
+        <div class="xai-head">
+          <div class="xai-score neu-inset"><b id="xaiScore">–</b><small>Skor kulit</small></div>
+          <div><h5 id="xaiTitle">Kenapa skornya begini?</h5><p>Penjelasan AI (XAI) — parameter air yang memengaruhi kulitmu saat ini.</p><span class="chip soft" id="xaiConf">Keyakinan –</span></div>
+        </div>
+        <div id="xaiRows"></div>
+      </article>
+
+      <div class="sec-title stagger"><h4>Tanya Derma AI</h4></div>
+      <article class="card chat neu stagger">
+        <div class="msgs" id="msgs">
+          <div class="msg bot"><img src="assets/3d/robot.png" alt=""><p id="botHello">Aku memantau kualitas air shower kamu dan memberi saran berdasarkan data sensor terbaru.</p></div>
+        </div>
+        <div class="quick" id="quickQs">
+          <button>Kulitku kering</button><button>Air aman hari ini?</button><button>Suhu mandi ideal?</button><button>Kulit berjerawat</button>
+        </div>
+        <form class="composer neu-inset" id="composer">
+          <input id="chatIn" placeholder="Tanyakan soal kulitmu…" autocomplete="off">
+          <button class="send" aria-label="Kirim"><img src="assets/3d/sparkle.png" alt=""></button>
+        </form>
+      </article>
+    </section>
+
+    <!-- ============================== FILTER ============================== -->
+    <section class="screen" id="filter" data-nav="1">
+      <header class="pagebar stagger">
+        <button class="icon-btn neu" data-go="home" aria-label="Kembali"><svg viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg></button>
+        <div><h2>Filtrasi Multilayer</h2><small>6 lapis material alami &amp; daur ulang</small></div>
+      </header>
+      <article class="card filter-hero neu stagger">
+        <img class="float-slow" src="assets/3d/filter_stack.png" alt="Filter 6 lapis">
+        <div class="fh-side">
+          <div class="fh-stat neu-inset"><small>Kesehatan</small><b id="fhHealth">–</b></div>
+          <div class="fh-stat neu-inset"><small>Tersaring</small><b id="fhTotal">–</b></div>
+          <div class="fh-stat neu-inset"><small>Ganti dalam</small><b id="fhDays">–</b></div>
+        </div>
+      </article>
+      <p class="note stagger" id="filterCapNote">Estimasi berdasarkan kapasitas cartridge 1.500 L.</p>
+      <div class="layers" id="layers"></div>
+    </section>
+
+    <!-- ============================== IMPACT ============================== -->
+    <section class="screen" id="impact" data-nav="1">
+      <header class="pagebar stagger">
+        <button class="icon-btn neu" data-go="home" aria-label="Kembali"><svg viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg></button>
+        <div><h2>Dampak &amp; SDGs</h2><small>Kontribusi kamu untuk bumi</small></div>
+      </header>
+      <article class="card impact-hero neu stagger">
+        <div>
+          <small>Air bersih dihemat bulan ini</small>
+          <h3><span id="impSaved">0</span><small> liter</small></h3>
+          <p id="impEq">Mulai sesi mandi untuk mencatat penghematan.</p>
+        </div>
+        <img class="float" src="assets/3d/globe.png" alt="">
+      </article>
+      <article class="card week neu stagger">
+        <div class="chart-head"><h5>Air didaur ulang · 7 hari</h5><span class="chip ok" id="weekTotal">0 L</span></div>
+        <div class="bars" id="weekBars"></div>
+      </article>
+      <div class="sec-title stagger"><h4>Mendukung SDGs</h4></div>
+      <div class="sdgs stagger">
+        <article class="sdg neu" style="--c:#4C9F38"><b>3</b><div><h6>Kehidupan Sehat &amp; Sejahtera</h6><p>Material alami antibakteri &amp; antiinflamasi melindungi kesehatan kulit.</p></div></article>
+        <article class="sdg neu" style="--c:#26BDE2"><b>6</b><div><h6>Air Bersih &amp; Sanitasi</h6><p>Greywater difiltrasi dan diverifikasi sensor agar aman dipakai ulang.</p></div></article>
+        <article class="sdg neu" style="--c:#FD6925"><b>9</b><div><h6>Industri, Inovasi &amp; Infrastruktur</h6><p>AI, IoT &amp; sensor pintar memantau kualitas air real-time.</p></div></article>
+        <article class="sdg neu" style="--c:#BF8B2E"><b>12</b><div><h6>Konsumsi &amp; Produksi Bertanggung Jawab</h6><p>Filter dari bahan organik &amp; daur ulang, konsumsi air terkontrol.</p></div></article>
+      </div>
+    </section>
+  </main>
+
+  <!-- bottom navigation -->
+  <nav class="tabbar" id="tabbar">
+    <button data-go="home" data-idx="1"><img src="assets/3d/home.png" alt=""><span>Beranda</span></button>
+    <button data-go="monitor" data-idx="2"><img src="assets/3d/chart.png" alt=""><span>Monitor</span></button>
+    <button class="fab" data-go="shower" data-idx="3" aria-label="Sesi mandi"><img src="assets/3d/drop.png" alt=""></button>
+    <button data-go="schedule" data-idx="4"><img src="assets/3d/calendar.png" alt=""><span>Jadwal</span></button>
+    <button data-go="derma" data-idx="5"><img src="assets/3d/robot.png" alt=""><span>Derma AI</span></button>
+  </nav>
+
+  <!-- bottom sheets -->
+  <div class="scrim" id="scrim"></div>
+  <section class="sheet" id="profileSheet" aria-label="Profil">
+    <i class="grab"></i>
+    <div class="sheet-head">
+      <div class="avatar neu"><img id="sheetAvatar" src="assets/3d/user.png" alt=""></div>
+      <div><h3 id="pfName">Pengguna</h3><small id="pfEmail">Mode demo</small></div>
+      <span class="chip" id="pfRole">Free</span>
+    </div>
+    <label class="lbl">Nama panggilan</label>
+    <label class="field neu-inset"><input id="pfNameIn" placeholder="Nama"></label>
+    <label class="lbl">Tipe kulit</label>
+    <div class="chips" id="pfSkin">
+      <button data-v="normal">Normal</button><button data-v="kering">Kering</button><button data-v="berminyak">Berminyak</button><button data-v="sensitif">Sensitif</button><button data-v="kombinasi">Kombinasi</button>
+    </div>
+    <button class="btn-primary" id="pfSave">Simpan</button>
+    <button class="btn-soft neu" id="pfLogout">Keluar</button>
+  </section>
+
+  <section class="sheet" id="schedSheet" aria-label="Tambah jadwal">
+    <i class="grab"></i>
+    <h3>Tambah Jadwal Mandi</h3>
+    <label class="lbl">Jam</label>
+    <label class="field neu-inset"><input id="sTime" type="time" value="06:00"></label>
+    <label class="lbl">Label</label>
+    <label class="field neu-inset"><input id="sLabel" placeholder="Mis. Mandi pagi" maxlength="40"></label>
+    <label class="lbl">Hari</label>
+    <div class="chips days" id="sDays">
+      <button data-d="Sen" class="on">Sen</button><button data-d="Sel" class="on">Sel</button><button data-d="Rab" class="on">Rab</button><button data-d="Kam" class="on">Kam</button><button data-d="Jum" class="on">Jum</button><button data-d="Sab" class="on">Sab</button><button data-d="Min" class="on">Min</button>
+    </div>
+    <label class="lbl">Suhu yang disarankan</label>
+    <div class="chips" id="sTemp"><button data-v="Suhu ruang 20–25°C" class="on">Suhu ruang</button><button data-v="Hangat 37–40°C">Hangat</button></div>
+    <button class="btn-primary" id="sSave">Simpan Jadwal</button>
+  </section>
+
+  <div class="toast" id="toast"></div>
+</div>
+</body>
+</html>

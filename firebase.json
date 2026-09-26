@@ -7,38 +7,46 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "public": ".",
+    "public": "web",
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**",
-      "service-account.json",
-      "setup-admin.js",
-      "seed-demo-data.js",
-      "_dburl.js",
-      "finish-setup.js",
-      "deploy.bat",
-      "deploy.sh",
-      "PLANNING*.md",
-      "RESEARCH.md",
-      "ADMIN_SETUP.md",
-      "TODO.md",
-      "database.rules.json",
-      "functions/**",
-      "models/**/README.md",
-      "models/**/TRAIN_COLAB.md",
-      "models/**/*.example",
-      "models/**/test.html",
-      "_preview*.html",
-      "_frame.html",
-      "_old_style.css",
-      "PPT AQUENT.pptx",
-      "build/**",
-      "showcase/**",
-      "_cap_*.html"
+      "**/node_modules/**"
     ],
     "cleanUrls": true,
     "trailingSlash": false,
+    "redirects": [
+      {
+        "source": "/app",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/app.html",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/login",
+        "destination": "/#login",
+        "type": 301
+      },
+      {
+        "source": "/login.html",
+        "destination": "/#login",
+        "type": 301
+      },
+      {
+        "source": "/admin",
+        "destination": "/",
+        "type": 302
+      },
+      {
+        "source": "/admin.html",
+        "destination": "/",
+        "type": 302
+      }
+    ],
     "headers": [
       {
         "source": "/sw.js",
@@ -54,11 +62,20 @@
         ]
       },
       {
-        "source": "**/*.@(js|css)",
+        "source": "**/*.@(js|css|html|json)",
         "headers": [
           {
             "key": "Cache-Control",
             "value": "public, max-age=0, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "/assets/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=604800"
           }
         ]
       },
@@ -72,6 +89,10 @@
           {
             "key": "X-Frame-Options",
             "value": "DENY"
+          },
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
           }
         ]
       }
