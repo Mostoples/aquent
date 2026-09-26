@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AQUENT repo card</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0D1117; --panel:#111823; --line:#253041; --txt:#E6EDF3; --mut:#8B98A9; --acc:#7CC4E4; }
+  body.light { --bg:#F3F6FB; --panel:#FFFFFF; --line:#DCE4EF; --txt:#16233F; --mut:#5B6B85; --acc:#1F7FB5; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Inter, "Segoe UI", sans-serif; background:transparent; padding:80px; }
+  .win { width:1040px; background:var(--bg); border-radius:22px; overflow:hidden; color:var(--txt);
+         box-shadow:0 30px 60px rgba(10,20,40,.35), 0 0 0 1px rgba(255,255,255,.04) inset; }
+  body.light .win { box-shadow:0 26px 60px rgba(90,120,170,.28), 0 0 0 1px #E3EAF4 inset; }
+  .bar { display:flex; align-items:center; gap:10px; padding:16px 20px; background:rgba(255,255,255,.02); }
+  .dot { width:12px; height:12px; border-radius:50%; }
+  .url { margin-left:14px; flex:1; background:var(--panel); border:1px solid var(--line); border-radius:9px; padding:8px 14px;
+         font-size:13px; color:var(--mut); display:flex; align-items:center; gap:8px; }
+  .url svg { width:13px; height:13px; fill:none; stroke:currentColor; stroke-width:2; }
+  .body { padding:22px 28px 30px; }
+  h1 { font-size:24px; font-weight:700; display:flex; align-items:center; gap:10px; letter-spacing:-.01em; }
+  h1 .sl { color:var(--mut); font-weight:500; }
+  .pub { font-size:11px; font-weight:700; letter-spacing:.08em; border:1.5px solid var(--acc); color:var(--acc);
+         border-radius:99px; padding:3px 10px; margin-left:4px; }
+  .desc { margin-top:12px; font-size:15px; color:var(--txt); opacity:.86; }
+  .lang { margin-top:20px; height:9px; border-radius:9px; overflow:hidden; display:flex; }
+  .legend { display:flex; gap:22px; margin-top:12px; font-size:13px; color:var(--mut); }
+  .legend b { color:var(--txt); font-weight:700; margin-right:4px; }
+  .legend i { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:7px; vertical-align:0; }
+  .cards { display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; margin-top:24px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 16px 18px; }
+  .card h3 { font-size:12.5px; letter-spacing:.14em; color:var(--acc); font-weight:800; }
+  .card p { margin-top:10px; font-size:13.5px; line-height:1.55; color:var(--txt); opacity:.82; }
+  .rows { margin-top:16px; border:1px solid var(--line); border-radius:12px; overflow:hidden; background:var(--panel); }
+  .row { display:flex; align-items:center; gap:12px; padding:13px 16px; font-size:14px; border-top:1px solid var(--line); }
+  .row:first-child { border-top:0; }
+  .row svg { width:15px; height:15px; fill:none; stroke:var(--mut); stroke-width:1.8; flex:none; }
+  .row span:last-child { margin-left:auto; color:var(--mut); font-size:12.5px; }
+  .row code { font-family:inherit; }
+</style>
+</head>
+<body class="dark">
+<div class="win" id="card">
+  <div class="bar">
+    <span class="dot" style="background:#FF5F57"></span><span class="dot" style="background:#FEBC2E"></span><span class="dot" style="background:#28C840"></span>
+    <div class="url"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>github.com/Mostoples/aquent</div>
+  </div>
+  <div class="body">
+    <h1>Mostoples <span class="sl">/</span> aquent <span class="pub">PUBLIC</span></h1>
+    <p class="desc">AQUENT — smart shower dashboard: water quality monitoring, anomaly detection, forecasting &amp; XAI (Firebase + vanilla JS)</p>
+    <div class="lang">
+      <i style="flex:63.3;background:#F1E05A"></i><i style="flex:27.5;background:#E34C26"></i><i style="flex:9.1;background:#663399"></i><i style="flex:.4;background:#C1F12E"></i>
+    </div>
+    <div class="legend">
+      <span><i style="background:#F1E05A"></i><b>JavaScript</b>63.3%</span>
+      <span><i style="background:#E34C26"></i><b>HTML</b>27.5%</span>
+      <span><i style="background:#663399"></i><b>CSS</b>9.1%</span>
+      <span><i style="background:#C1F12E"></i><b>Batchfile</b>0.1%</span>
+    </div>
+    <div class="cards">
+      <div class="card"><h3>MONITORING</h3><p>sensors.js · alerts.js · anomaly.js — live pH, turbidity, chlorine and temperature with threshold alarms.</p></div>
+      <div class="card"><h3>INTELLIGENCE</h3><p>xai.js · forecasting.js · ai-context.js — explainable recommendations with per-factor attribution.</p></div>
+      <div class="card"><h3>PLATFORM</h3><p>Firebase Realtime Database, hosting, cloud messaging; PWA with service worker and offline cache.</p></div>
+    </div>
+    <div class="rows">
+      <div class="row"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>models · prompts · functions · tests</span><span>application modules</span></div>
+      <div class="row"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></svg><span>app.js · app.html · index.html</span><span>dashboard &amp; landing</span></div>
+      <div class="row"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></svg><span>RESEARCH.md · PLANNING.md · QUESTIONNAIRE.md</span><span>research record</span></div>
+      <div class="row"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span><code>ab5dac2</code> — Initial commit: AQUENT smart shower dashboard</span><span>branch main</span></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

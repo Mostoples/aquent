@@ -37,7 +37,7 @@ FONT = "Segoe UI"
 FONT_B = "Segoe UI Semibold"
 FONT_H = "Segoe UI Black"
 
-TOTAL = 25
+TOTAL = 26
 GAL = ROOT / "galeri"
 FX_START = {}  # slide_id -> index of first animated shape
 
@@ -450,8 +450,8 @@ pic(s, circle_img(5.1, "raise"), 7.45 - M_IN, 1.05 - M_IN, 5.1 + 2 * M_IN, 5.1 +
 pic(s, circle_img(4.3, "inset"), 7.85 - M_IN, 1.45 - M_IN, 4.3 + 2 * M_IN, 4.3 + 2 * M_IN)
 pic(s, A3 / "unit_hero.png", 7.2, 0.75, 5.6)
 card(s, 10.35, 6.05, 2.35, 0.85, r=0.2)
-text(s, 10.5, 6.12, 2.1, 0.3, "360 × 360 × 149 mm", size=13, bold=True, color=DEEP)
-text(s, 10.5, 6.48, 2.1, 0.3, "ceiling-mounted unit", size=10, color=INK2)
+text(s, 10.5, 6.12, 2.1, 0.3, "±380 × 250 × 270 mm", size=13, bold=True, color=DEEP)
+text(s, 10.5, 6.48, 2.1, 0.3, "prototype V1 · estimated", size=10, color=INK2)
 for i, sdg in enumerate(("image16", "image15", "image27", "image17")):
     pic(s, MED / f"{sdg}.png", 7.55 + i * 0.66, 6.12, 0.56)
 notes(s, "AQUENT — AIoT smart shower that recycles greywater at the point of use, verified by four sensors, with an explainable AI dermatology assistant.")
@@ -463,7 +463,7 @@ pic(s, A3 / "unit_iso.png", 0.75, 2.25, 4.1)
 deco(s, [("deco_drops", 3.9, 5.4, 1.2)])
 rows = [("globe", "The water problem", "Global scarcity, health burden, and where a household can act."),
         ("recycle", "The AQUENT system", "Closed-loop shower, six-layer bio-filter, four-sensor gate."),
-        ("unit_face", "Product & installation", "360 × 360 × 149 mm ceiling unit in a normal bathroom."),
+        ("unit_face", "Product & installation", "Bench-top prototype with a handheld shower, ±380 × 250 × 270 mm."),
         ("robot", "Software & AI", "Live dashboard, explainable recommendations, skin assistant."),
         ("chart", "Evidence & openness", "Literature base, open-source code, next steps.")]
 for i, (ic, t, d) in enumerate(rows):
@@ -609,7 +609,7 @@ card(s, 0.6, 5.4, 12.13, 1.35)
 pic(s, A3 / "recycle.png", 0.85, 5.55, 1.05)
 text(s, 2.1, 5.55, 10.4, 0.3, "Water that clears every threshold returns to the next shower cycle", size=14, bold=True, color=INK)
 text(s, 2.1, 5.9, 10.4, 0.8, "Nothing is stored in a separate tank and no plumbing rework is required: the cartridge, pump and sensor board "
-     "all sit inside the 149 mm-deep housing. Only water that fails a threshold is sent to the drain, so the loop degrades safely rather than silently.",
+     "all sit inside the compact housing. Only water that fails a threshold is sent to the drain, so the loop degrades safely rather than silently.",
      size=11, color=INK2, spacing=1.08)
 
 # 10 · Meet our product ------------------------------------------------------
@@ -632,8 +632,8 @@ for i, (ic, t, d) in enumerate(feats):
             text(s, xx + 0.42, y + 0.72, 1.5, 0.3, lab, size=10.5, bold=True, color=DEEP)
 aura_orb(s, 10.05, 4.35, 6.6)
 pic(s, circle_img(4.9, "raise"), 7.6 - M_IN, 1.9 - M_IN, 4.9 + 2 * M_IN, 4.9 + 2 * M_IN)
-pic(s, MED / "image47.png", 7.45, 2.95, 5.2)
-chip(s, 8.1, 6.62, "360 × 360 × 149 mm  ·  CEILING-MOUNTED", fill="FFFFFF", color=DEEP)
+pic(s, A3 / "unit_hero.png", 7.35, 1.55, 5.5)
+chip(s, 8.25, 6.62, "±380 × 250 × 270 mm  ·  PROTOTYPE V1", fill="FFFFFF", color=DEEP)
 
 # 10b · Working prototype (real photos) -------------------------------------
 gp = {k: GAL / f"WhatsApp Image 2026-09-26 at {k}.jpeg" for k in ("07.37.47", "07.53.28", "07.53.29 (1)", "07.53.29", "07.53.30 (1)", "07.53.30", "07.53.31")}
@@ -652,6 +652,26 @@ for i, (ic, t, d) in enumerate(calls):
     text(s, 7.25, y + 0.12, 5.3, 0.32, t, size=14, bold=True, color=INK)
     text(s, 7.25, y + 0.47, 5.3, 0.5, d, size=10.5, color=INK2, spacing=1.04)
 
+# 10b2 · 3D digital twin -----------------------------------------------------
+s = new_slide(12, "03 · PRODUCT & INSTALLATION", [("3D ", INK), ("digital twin", BLUE)],
+              "Blender model rebuilt from the prototype's real shape and estimated dimensions.")
+photo(s, gp["07.53.30 (1)"], 0.75, 2.05, 3.55, 4.7, 0.28)
+chip(s, 0.95, 6.28, "REAL PHOTO", fill="FFFFFF", color=DEEP)
+aura_orb(s, 6.55, 4.3, 5.2)
+card(s, 4.65, 2.05, 3.85, 4.7)
+pic(s, A3 / "unit_iso.png", 4.62, 2.05, 3.9)
+chip(s, 4.85, 6.28, "BLENDER 3D", fill="FFFFFF", color=DEEP)
+card(s, 8.85, 2.05, 3.88, 4.7)
+text(s, 9.1, 2.25, 3.4, 0.3, "ESTIMATED DIMENSIONS", size=9.5, bold=True, color=AQUA, charsp=150)
+im = Image.open(A3 / "proto_dims_side.png")
+hh = 2.55
+pic(s, A3 / "proto_dims_side.png", 8.85 + (3.88 - hh * im.width / im.height) / 2, 2.6, None, hh)
+dims = [("Housing", "±380 × 250 × 270 mm"), ("Columns", "Ø40 mm · ±540 mm tall"), ("Shower head", "Ø110 mm, 1.5 m hose")]
+for i, (k, v) in enumerate(dims):
+    y = 5.3 + i * 0.44
+    text(s, 9.1, y, 1.3, 0.3, k, size=10.5, bold=True, color=INK)
+    text(s, 10.35, y, 2.3, 0.3, v, size=10.5, color=DEEP, bold=True)
+
 # 10c · Prototype gallery ------------------------------------------------------
 s = new_slide(12, "03 · PRODUCT & INSTALLATION", [("Prototype ", INK), ("gallery", BLUE)], "Every angle of the first AQUENT build.")
 aura_orb(s, 2.55, 4.45, 5.0)
@@ -664,27 +684,31 @@ for i, (k, cap) in enumerate(shots):
     text(s, x, y + 2.0, 2.38, 0.25, cap, size=10, bold=True, color=INK2, align="c")
 
 # 11 · Product anatomy -------------------------------------------------------
-s = new_slide(11, "03 · PRODUCT & INSTALLATION", [("Product ", INK), ("anatomy", BLUE)], "Three views of the 360 × 360 × 149 mm housing.")
-views = [("image48", "Nozzle band & panel", "104 chrome nozzles ring the backlit diffuser aperture on the face plate."),
-         ("image49", "Top & inlet", "G1/2 inlet, status LED strip and the side filter-cartridge hatch."),
-         ("image50", "Elevation", "149 mm deep — the full loop fits between the face plate and the ceiling.")]
-for i, (im, t, d) in enumerate(views):
+s = new_slide(11, "03 · PRODUCT & INSTALLATION", [("Product ", INK), ("anatomy", BLUE)], "Three views of the prototype housing (dimensions estimated from photos).")
+views = [("proto_front", "Front panel", "Backlit AQUENT label, indicator holes and a hose outlet with shut-off valve."),
+         ("proto_top", "Top & columns", "Two transparent columns in white sockets, plus a blue status light."),
+         ("proto_dims_front", "Dimensions", "Housing ±380 × 250 × 270 mm; the columns rise ±540 mm above it.")]
+for i, (im_name, t, d) in enumerate(views):
     x = 0.6 + i * 4.1
     card(s, x, 2.15, 3.85, 4.6)
     card(s, x + 0.22, 2.37, 3.41, 2.35, kind="inset", r=0.22)
-    pic(s, photo_round(MED / f"{im}.png", 3.21, 2.15, 0.18), x + 0.32, 2.47, 3.21)
+    im = Image.open(A3 / f"{im_name}.png")
+    bw, bh = 3.25, 2.2
+    sc_ = min(bw / im.width, bh / im.height)
+    w_, h_ = im.width * sc_, im.height * sc_
+    pic(s, A3 / f"{im_name}.png", x + 0.22 + (3.41 - w_) / 2, 2.37 + (2.35 - h_) / 2, w_, h_)
     text(s, x + 0.3, 4.95, 3.25, 0.35, t, size=15, bold=True, color=INK, align="c")
     text(s, x + 0.3, 5.38, 3.25, 1.0, d, size=11, color=INK2, align="c", spacing=1.08)
 
 # 12 · In use ----------------------------------------------------------------
 s = new_slide(12, None, None, logo=True)
-pic(s, photo_round(MED / "image51.png", 5.6, 6.5, 0.3), 0.5, 0.5, 5.6)
+pic(s, photo_round(A3 / "proto_inuse.png", 5.6, 6.5, 0.3), 0.5, 0.5, 5.6)
 chip(s, 6.6, 0.45, "03 · PRODUCT & INSTALLATION")
 text(s, 6.6, 0.86, 6.2, 0.7, [[("In ", {"color": INK}), ("use", {"color": BLUE})]], size=32, bold=True)
-text(s, 6.6, 1.5, 6.2, 0.4, "Installed like any ceiling rain shower.", size=13.5, color=INK2)
-uses = ["Water leaves the perimeter nozzle band while the centre panel glows as a soft light source.",
-        "The floor gully returns greywater to the cartridge inside the unit.",
-        "Filtered water re-enters the head for the next cycle; only water that fails a threshold goes to drain.",
+text(s, 6.6, 1.5, 6.2, 0.4, "Connects like a regular handheld shower.", size=13.5, color=INK2)
+uses = ["The unit sits on the bathroom floor; water flows from the handheld shower as usual.",
+        "Used shower water returns to the unit for multilayer filtration.",
+        "Filtered water passes the sensor check before reuse; water that fails goes to drain.",
         "No separate tank and no plumbing rework in the bathroom."]
 for i, u in enumerate(uses):
     y = 2.2 + i * 1.12

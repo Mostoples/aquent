@@ -356,12 +356,12 @@ def star(points, r_out, r_in, depth, m, loc=(0, 0, 0), rot=(0, 0, 0), parent=Non
     return ob
 
 # -------------------------------------------------------------- framing ---
-def frame(az=32, el=22, pad=1.16, shadow=False, persp=False):
+def frame(az=32, el=22, pad=1.16, shadow=False, persp=False, focus=None):
     bpy.context.view_layer.update()
     dg = bpy.context.evaluated_depsgraph_get()
     pts = []
     for o in bpy.context.scene.objects:
-        if o.type in ("MESH", "CURVE") and not o.get("noframe"):
+        if o.type in ("MESH", "CURVE", "FONT") and not o.get("noframe") and (not focus or any(o.name.startswith(f) for f in focus)):
             oe = o.evaluated_get(dg)
             pts += [oe.matrix_world @ Vector(c) for c in oe.bound_box]
     lo = Vector([min(p[i] for p in pts) for i in range(3)])
@@ -451,69 +451,6 @@ def shower_head(m, parent=None, tilt=-46, drops=True, seed=4):
             drop_objs.append((ob, start, down, dist, s))
     return head, drop_objs
 
-
-AQUA = "#4EC0DE"
-
-def ceiling_unit(m, water=True, seed=3, parent=None):
-    """AQUENT housing: 360 x 360 x 149 mm, face (nozzles + light panel) points down (-Z)."""
-    g = empty("unit")
-    if parent:
-        g.parent = parent
-    aqua = mat("aqua", AQUA, 0.18, coat=1.0)
-    panel = mat("panel", "#EAF8FF", 0.3, emit="#D8F4FF", emit_str=2.2)
-    rbox(3.6, 3.6, 1.12, 0.16, m["white"], (0, 0, 0.56), parent=g, name="body")
-    rbox(3.64, 3.64, 0.2, 0.08, aqua, (0, 0, 1.2), parent=g, name="rim")
-    rbox(3.36, 3.36, 0.22, 0.12, m["white"], (0, 0, 1.36), parent=g, name="top")
-    cyl(0.2, 0.9, m["chrome"], (0, 0, 1.9), parent=g, name="inlet")
-    cyl(0.32, 0.08, m["chrome"], (0, 0, 1.5), bevel=0.02, parent=g, name="flange")
-    rbox(3.3, 3.3, 0.04, 0.1, m["ice"], (0, 0, -0.01), parent=g, name="face")
-    rbox(2.0, 2.0, 0.05, 0.12, panel, (0, 0, -0.03), parent=g, name="panel")
-    # 104 chrome nozzles on a perimeter band
-    bm = bmesh.new()
-    for side in range(4):
-        for i in range(26):
-            u = -1.3 + 2.6 * (i + 0.5) / 26
-            x, y = [(u, -1.34), (1.34, u), (-u, 1.34), (-1.34, -u)][side]
-            bmesh.ops.create_uvsphere(bm, u_segments=12, v_segments=6, radius=0.038,
-                                      matrix=Matrix.Translation((x, y, -0.035)))
-    mk(bm, "nozzles", m["chrome"], parent=g)
-    # status LED strip (front) and filter-cartridge hatch (side)
-    rbox(1.0, 0.06, 0.26, 0.08, m["navy"], (0, -1.8, 0.6), parent=g, name="ledbar")
-    for i in range(4):
-        sphere(0.045, m["glow"], (-0.33 + i * 0.22, -1.84, 0.6), seg=16, parent=g)
-    rbox(0.06, 1.6, 0.62, 0.1, aqua, (1.8, 0, 0.55), parent=g, name="hatch")
-    streams = []
-    if water:
-        wm = mat("stream", "#A9D8FF", 0.04, trans=0.85, ior=1.33)
-        rnd = random.Random(seed)
-        for side in range(4):
-            for i in range(1, 26, 4):
-                u = -1.3 + 2.6 * (i + 0.5) / 26
-                x, y = [(u, -1.34), (1.34, u), (-u, 1.34), (-1.34, -u)][side]
-                L = rnd.uniform(1.6, 2.8)
-                cyl(0.022, L, wm, (x, y, -0.06 - L / 2), seg=16, parent=g, name="stream")
-                if rnd.random() < 0.45:
-                    d = drop(rnd.uniform(0.07, 0.1), m["blue"], (x, y, -0.4 - rnd.uniform(0.4, 2.8)), parent=g)
-                    streams.append((d, x, y))
-    return g, streams
-
-@asset("unit_hero", (1024, 1024), 160)
-def a_unit_hero():
-    m = M()
-    ceiling_unit(m, water=True)
-    frame(az=30, el=-24, pad=1.06)
-
-@asset("unit_iso", (1024, 1024), 160)
-def a_unit_iso():
-    m = M()
-    ceiling_unit(m, water=False)
-    frame(az=35, el=30, pad=1.1)
-
-@asset("unit_face", (1024, 1024), 128)
-def a_unit_face():
-    m = M()
-    ceiling_unit(m, water=False)
-    frame(az=20, el=-38, pad=1.12)
 
 @asset("shower_hero", (1024, 1024), 160)
 def a_shower():
@@ -915,35 +852,12 @@ def bg_b():
     backdrop(LAYOUT_B, "bg_deco_b")
 
 # ---- turntable animation for the showreel intro ----------------------------
-def anim(frames=120):
-    reset()
-    setup((1000, 1000), 48)
-    m = M()
-    g, drops = ceiling_unit(m, water=True, seed=9)
-    cam = frame(az=30, el=-24, pad=1.2)
-    bpy.context.view_layer.update()
-    center = cam.location + (cam.matrix_world.to_3x3() @ Vector((0, 0, -30)))
-    seq = os.path.join(OUT, "anim")
-    os.makedirs(seq, exist_ok=True)
-    rnd = random.Random(5)
-    phase = [rnd.random() for _ in drops]
-    for f in range(frames):
-        t = f / frames
-        az = math.radians(10 + 45 * (0.5 - 0.5 * math.cos(t * math.pi)))
-        e = math.radians(-24)
-        d = Vector((math.sin(az) * math.cos(e), -math.cos(az) * math.cos(e), math.sin(e)))
-        cam.location = center + d * 30
-        cam.rotation_euler = (-d).to_track_quat("-Z", "Y").to_euler()
-        for (ob, x, y), ph in zip(drops, phase):
-            k = (ph + t * 2.5) % 1.0
-            ob.location = (x, y, -0.25 - k * 3.4)
-        bpy.context.scene.render.filepath = os.path.join(seq, "f_%04d.png" % f)
-        bpy.ops.render.render(write_still=True)
-        print("FRAME", f)
+exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "prototype.py"), encoding="utf-8").read())
+
 
 # ------------------------------------------------------------------- main ---
 if ONLY == {"anim"}:
-    anim()
+    anim_proto()
 else:
     for name, (fn, res, samples) in ASSETS.items():
         if ONLY and name not in ONLY:
