@@ -858,7 +858,16 @@ exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "prototype.py
 # ------------------------------------------------------------------- main ---
 exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "animate_icons.py"), encoding="utf-8").read())
 
-if "animicons" in ONLY:
+exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "inuse_anim.py"), encoding="utf-8").read())
+
+if "film" in ONLY:
+    _d = os.path.dirname(os.path.abspath(__file__))
+    exec(open(os.path.join(_d, "human.py"), encoding="utf-8").read())
+    exec(open(os.path.join(_d, "film.py"), encoding="utf-8").read())
+    render_film(preview="preview" in ONLY)
+elif "inuse" in ONLY:
+    render_inuse(preview="preview" in ONLY)
+elif "animicons" in ONLY:
     animate_icons([a for a in ARGS[1:] if a != "animicons"])
 elif ONLY == {"anim"}:
     anim_proto()

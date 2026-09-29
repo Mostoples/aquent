@@ -503,6 +503,26 @@ def synth_music(total, path):
 
 
 # -------------------------------------------------------------------- main ---
+FILM_CUTS = [(0.6, 4.4), (5.6, 9.6), (11.0, 14.2), (21.0, 25.4), (35.0, 38.0), (38.6, 41.2), (46.4, 51.6)]
+
+
+def render_film_highlight():
+    """'Cara kerja' scene: cuts from the Blender process film (captions included), 30 fps 1080p."""
+    src = OUTDIR / "AQUENT_Process_Film.mp4"
+    if not src.exists():
+        return None
+    parts, fc = [], []
+    for i, (a, b) in enumerate(FILM_CUTS):
+        fc.append(f"[0:v]trim={a}:{b},setpts=PTS-STARTPTS,fps={FPS},scale={W}:{H},format=yuv420p[p{i}]")
+    fc.append("".join(f"[p{i}]" for i in range(len(FILM_CUTS))) + f"concat=n={len(FILM_CUTS)}:v=1:a=0,fade=in:st=0:d=0.4[v]")
+    dur = sum(b - a for a, b in FILM_CUTS)
+    enc = ["-r", FPS, "-c:v", "libx264", "-crf", 16, "-preset", "medium", "-pix_fmt", "yuv420p"]
+    ff("-i", src, "-filter_complex", ";".join(fc), "-map", "[v]", *enc, S / "98_film.mp4")
+    shutil.copy(S / "98_film.mp4", S / "clean" / "98_film.mp4")
+    print("scene 98_film", f"{dur:.1f}s")
+    return S / "98_film.mp4", dur
+
+
 def main():
     marks = json.loads((B / "rec/marks.json").read_text())
     make_bg()
@@ -510,6 +530,9 @@ def main():
     clips = [render_intro()]
     for i, sc in enumerate(SCENES):
         clips.append(render_scene(i, sc, marks))
+    film = render_film_highlight()
+    if film:
+        clips.append(film)
     clips.append(render_outro(marks))
     (B / "clips.json").write_text(json.dumps([[str(p), d] for p, d in clips], indent=1))
 

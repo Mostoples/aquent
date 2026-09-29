@@ -37,7 +37,8 @@ FONT = "Segoe UI"
 FONT_B = "Segoe UI Semibold"
 FONT_H = "Segoe UI Black"
 
-TOTAL = 26
+TOTAL = 28
+CON = ROOT / "output/concept"
 GAL = ROOT / "galeri"
 FX_START = {}  # slide_id -> index of first animated shape
 
@@ -600,25 +601,26 @@ for i, (t, d) in enumerate(nov):
 # 9 · Closing the loop -------------------------------------------------------
 s = new_slide(9, "02 · THE AQUENT SYSTEM", [("How AQUENT ", INK), ("closes the loop", BLUE)],
               "Point-of-use treatment: the water never leaves the fixture unless it fails.")
-steps = [("drop", "Greywater intake", "60–80 L of used shower water returns to the unit."),
-         ("deco_bubbles", "Sedimentation", "Hair and coarse solids trapped before the media bed."),
-         ("filter", "Six-layer bio-filter", "Zeolite · biochar · chitosan · loofah · bamboo · bagasse."),
-         ("shield", "Sensor verification", "pH · turbidity · ORP · temperature, every cycle."),
-         ("robot", "AI decision", "Reuse if every threshold holds; divert to drain if not.")]
+steps = [("drop", "Greywater intake", "Floor drain + sump pump send used water up to AQUENT."),
+         ("deco_bubbles", "Sediment screen", "Hair and coarse solids are trapped first."),
+         ("filter", "Six-layer bio-filter", "Two columns of natural, recycled media."),
+         ("sparkle", "UV-C 254 nm", "Inactivates remaining bacteria and viruses."),
+         ("shield", "Sensors + AI valve", "pH · turbidity · ORP · temp decide reuse or drain."),
+         ("temp", "Heater + mixer", "Built-in heater; clean & hot lines meet at the mixer.")]
 for i, (ic, t, d) in enumerate(steps):
-    x = 0.6 + i * 2.5
-    card(s, x, 2.2, 2.15, 2.85)
-    well(s, ic, x + 0.5, 2.4, 1.15)
-    badge(s, x + 0.18, 2.35, 0.38, str(i + 1), fill=AQUA if i != 4 else BLUE, size=11)
-    text(s, x + 0.15, 3.72, 1.85, 0.35, t, size=13, bold=True, color=INK, align="c")
-    text(s, x + 0.15, 4.1, 1.85, 0.9, d, size=10, color=INK2, align="c", spacing=1.05)
-    if i < 4:
-        arrow(s, x + 2.22, 3.4, 0.22, 0.3)
+    x = 0.6 + i * 2.07
+    card(s, x, 2.2, 1.8, 2.85)
+    well(s, ic, x + 0.37, 2.4, 1.06)
+    badge(s, x + 0.12, 2.32, 0.36, str(i + 1), fill=AQUA if i != 5 else BLUE, size=11)
+    text(s, x + 0.1, 3.66, 1.6, 0.35, t, size=12, bold=True, color=INK, align="c")
+    text(s, x + 0.1, 4.08, 1.6, 0.95, d, size=9.5, color=INK2, align="c", spacing=1.04)
+    if i < 5:
+        arrow(s, x + 1.85, 3.4, 0.18, 0.28)
 card(s, 0.6, 5.4, 12.13, 1.35)
 pic(s, A3 / "recycle.png", 0.85, 5.55, 1.05)
 text(s, 2.1, 5.55, 10.4, 0.3, "Water that clears every threshold returns to the next shower cycle", size=14, bold=True, color=INK)
-text(s, 2.1, 5.9, 10.4, 0.8, "Nothing is stored in a separate tank and no plumbing rework is required: the cartridge, pump and sensor board "
-     "all sit inside the compact housing. Only water that fails a threshold is sent to the drain, so the loop degrades safely rather than silently.",
+text(s, 2.1, 5.9, 10.4, 0.8, "Nothing is stored in a separate tank: the filters, UV-C lamp, sensors, pump and water heater all sit inside "
+     "the wall-mounted AQUENT unit. Only water that fails a threshold is sent to the drain, so the loop degrades safely rather than silently.",
      size=11, color=INK2, spacing=1.08)
 
 # 10 · Meet our product ------------------------------------------------------
@@ -626,7 +628,7 @@ s = new_slide(10, "03 · PRODUCT & INSTALLATION", [("Meet our ", INK), ("product
               "An AIoT smart shower that sanitizes and recycles greywater inside the system.")
 feats = [("recycle", "Closed water loop", "Used shower water passes through multilayer filtration and returns to the shower head instead of the drain."),
          ("shield", "Four sensors, real time", None),
-         ("unit_face", "Built for a normal bathroom", "Shower body, pipes, faucet and water heater — with the filter cartridge serviced by hand.")]
+         ("unit_face", "Wall-mounted, heater built in", "Mounted above the shower; the water heater, pump and electronics live inside the same box.")]
 for i, (ic, t, d) in enumerate(feats):
     y = 2.15 + i * 1.6
     card(s, 0.6, y, 6.4, 1.35)
@@ -709,23 +711,44 @@ for i, (im_name, t, d) in enumerate(views):
     text(s, x + 0.3, 4.95, 3.25, 0.35, t, size=15, bold=True, color=INK, align="c")
     text(s, x + 0.3, 5.38, 3.25, 1.0, d, size=11, color=INK2, align="c", spacing=1.08)
 
-# 12 · In use ----------------------------------------------------------------
-s = new_slide(12, None, None, logo=True)
-pic(s, photo_round(A3 / "proto_inuse.png", 5.6, 6.5, 0.3), 0.5, 0.5, 5.6)
-chip(s, 6.6, 0.45, "03 · PRODUCT & INSTALLATION")
-text(s, 6.6, 0.86, 6.2, 0.7, [[("In ", {"color": INK}), ("use", {"color": BLUE})]], size=32, bold=True)
-text(s, 6.6, 1.5, 6.2, 0.4, "Connects like a regular handheld shower.", size=13.5, color=INK2)
-uses = ["The unit sits on the bathroom floor; water flows from the handheld shower as usual.",
-        "Used shower water returns to the unit for multilayer filtration.",
-        "Filtered water passes the sensor check before reuse; water that fails goes to drain.",
-        "No separate tank and no plumbing rework in the bathroom."]
-for i, u in enumerate(uses):
-    y = 2.2 + i * 1.12
-    card(s, 6.6, y, 6.13, 0.9)
-    badge(s, 6.82, y + 0.22, 0.46, str(i + 1), fill=AQUA)
-    text(s, 7.5, y + 0.12, 5.0, 0.7, u, size=12, color=INK, anchor="m", spacing=1.05)
-text(s, SW_IN - 1.4, SH_IN - 0.42, 0.8, 0.25, f"{len(prs.slides):02d} / {TOTAL}", size=9, color=MUTED, align="r")
-FX_START[s.slide_id] = 1
+# 12 · In use — usage mechanism (annotated render) ---------------------------------
+s = new_slide(12, "03 · HOW IT WORKS", [("AQUENT ", INK), ("in use", BLUE)],
+              "Follow the water: shower → floor drain → AQUENT → mixer → shower again.")
+aura_orb(s, 6.67, 4.6, 8.5)
+pic(s, photo_round(CON / "D1_inuse_annotated_en.png", 9.9, 5.57, 0.28), 1.72, 1.78, 9.9)
+
+# 12b · Inside AQUENT — device mechanism ------------------------------------------------
+s = new_slide(13, "03 · HOW IT WORKS", [("Inside AQUENT: ", INK), ("device mechanism", BLUE)],
+              "The casing made transparent — every stage the water passes through, in order.")
+aura_orb(s, 3.9, 4.5, 7.0)
+pic(s, photo_round(CON / "E1_teardown_annotated_en.png", 6.52, 5.3, 0.26), 0.6, 1.8, 6.52)
+mech = [("filter", "Filter first", "Sediment screen, then two columns of six natural media remove solids, metals and organics."),
+        ("sparkle", "Then sterilise", "A UV-C 254 nm chamber inactivates the bacteria and viruses that remain."),
+        ("shield", "Measured, not assumed", "Four probes check every cycle; a 3-way valve sends failing water to the drain."),
+        ("temp", "Hot water on demand", "The built-in heater keeps 37–40 °C; ESP32 streams everything to the app.")]
+for i, (ic, t, d) in enumerate(mech):
+    y = 1.85 + i * 1.3
+    card(s, 7.55, y, 5.18, 1.08, r=0.22)
+    well(s, ic, 7.7, y + 0.13, 0.82)
+    text(s, 8.72, y + 0.12, 3.9, 0.32, t, size=13.5, bold=True, color=INK)
+    text(s, 8.72, y + 0.45, 3.9, 0.6, d, size=10, color=INK2, spacing=1.03)
+
+# 12c · How to use — user steps with the app --------------------------------------------
+s = new_slide(14, "03 · HOW IT WORKS", [("How to use ", INK), ("AQUENT", BLUE)],
+              "Maintenance: rinse the sediment screen weekly · replace the filter cartridge about every 1,500 L.")
+use = [("splash", "Install once", "AQUENT mounts above the shower: mains, return line, power and WiFi."),
+       ("home", "Open the app", "See the water-quality score, filter health and litres recycled."),
+       ("shower", "Set temperature & Eco", "Room temperature or warm 37–40 °C; Eco mode reuses treated water."),
+       ("flow", "Shower as usual", "Greywater is collected, filtered, sterilised and checked automatically."),
+       ("monitor", "Watch it live", "pH, turbidity, chlorine and temperature stream in real time."),
+       ("xai", "After the shower", "Scan your skin with Derma AI; follow schedule and filter reminders.")]
+for i, (scr, t, d) in enumerate(use):
+    x, y = 0.6 + (i % 3) * 4.1, 1.95 + (i // 3) * 2.62
+    card(s, x, y, 3.85, 2.38)
+    pic(s, phone_img(scr), x + 0.08, y + 0.02, None, 2.36)
+    badge(s, x + 1.55, y + 0.22, 0.42, str(i + 1), fill=AQUA if i else BLUE, size=12)
+    text(s, x + 1.55, y + 0.78, 2.15, 0.62, t, size=13.5, bold=True, color=INK, spacing=1.0)
+    text(s, x + 1.55, y + 1.4, 2.15, 0.9, d, size=9.8, color=INK2, spacing=1.04)
 
 # 13 · Filtration system ------------------------------------------------------
 s = new_slide(13, "02 · THE AQUENT SYSTEM", [("Filtration ", INK), ("system", BLUE)], "Six layers of natural, recycled media — top to bottom.")

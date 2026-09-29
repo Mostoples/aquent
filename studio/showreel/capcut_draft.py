@@ -16,7 +16,7 @@ from compose import FFMPEG, SCENES  # noqa: E402
 
 TITLES = [("AQUENT", "AIoT Smart Shower", 0)] + [
     (sc["chip"], " ".join(t for t, _ in sc["title"]), i + 1) for i, sc in enumerate(SCENES)
-] + [("AQUENT", "Air lebih bersih, kulit lebih sehat, bumi lebih lestari.", None)]
+] + [("09 · CARA KERJA", "Proses AQUENT dari awal sampai akhir", 9)] + [("AQUENT", "Air lebih bersih, kulit lebih sehat, bumi lebih lestari.", None)]
 
 
 def run(*args):
@@ -42,8 +42,9 @@ def main():
         if k == 0:
             x = 0.3
         label = f"{chip}\n{title}" if 0 < k < len(clips) - 1 else title
-        text.append({"text": label, "start": round(t + 0.45, 3), "duration": round(dur - 0.75, 3),
-                     "fontSize": 10 if 0 < k < len(clips) - 1 else 13, "color": "#16233F", "x": x, "y": 0.12})
+        if idx != 9:  # the process-film clip already carries its own captions
+            text.append({"text": label, "start": round(t + 0.45, 3), "duration": round(dur - 0.75, 3),
+                         "fontSize": 10 if 0 < k < len(clips) - 1 else 13, "color": "#16233F", "x": x, "y": 0.12})
         t += dur
     spec = {
         "name": NAME, "width": 1920, "height": 1080, "fps": 30, "ratio": "16:9",
