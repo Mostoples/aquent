@@ -10,7 +10,8 @@ from inuse_video import card  # noqa: E402
 SEQ = B / "film"
 L = B / "film_layers"
 L.mkdir(parents=True, exist_ok=True)
-OUT = ROOT / "output/AQUENT_Process_Film.mp4"
+LANG = sys.argv[1] if len(sys.argv) > 1 else "id"
+OUT = ROOT / ("output/AQUENT_Process_Film.mp4" if LANG == "id" else f"output/AQUENT_Process_Film_{LANG.upper()}.mp4")
 W, H, FPS = 1920, 1080, 24
 
 STEPS = [  # start, end, badge, title, subtitle
@@ -28,6 +29,27 @@ STEPS = [  # start, end, badge, title, subtitle
 ]
 LEGEND = [("#8C8272", "Greywater (air bekas)"), ("#A8A695", "Setelah kolom 1"), ("#9ACFF8", "Setelah kolom 2"),
           ("#3D95FF", "Air bersih (setelah UV)"), ("#FF5A3C", "Air panas")]
+STEPS_EN = [
+    (0.0, 5.0, "", "Shower as usual", "AQUENT is mounted above; the shower runs on recycled water."),
+    (5.0, 10.5, "1", "Greywater drains into the floor", "Used shower water is collected under the floor — not sent to the sewer."),
+    (10.5, 15.5, "2", "Pumped up to AQUENT", "A greywater pump sends it up through the wall pipe."),
+    (15.5, 20.2, "", "Inside AQUENT", "Casing opened: this is how the water is cleaned, step by step."),
+    (20.2, 23.2, "3", "Sediment screen", "Traps hair and coarse solids before the filter media."),
+    (23.2, 29.0, "4", "Filter column 1", "Dried bamboo leaf · loofah · zeolite — captures particles & binds heavy metals."),
+    (29.0, 34.5, "5", "Filter column 2", "Banana-peel biochar · chitosan · bagasse — adsorbs pollutants & inhibits bacteria."),
+    (34.5, 38.0, "6", "UV-C 254 nm sterilisation", "UV-C light inactivates the remaining bacteria and viruses."),
+    (38.0, 41.0, "7", "4 real-time sensors", "pH · turbidity · residual chlorine (ORP) · temperature."),
+    (41.0, 46.0, "8", "AI decides & water is heated", "Pass → reused · fail → drained. The built-in heater prepares hot water."),
+    (46.0, 53.0, "9", "Back to the shower", "Clean and hot lines from AQUENT meet at the mixer — used for the next shower."),
+]
+LEGEND_EN = [("#8C8272", "Greywater (used water)"), ("#A8A695", "After column 1"), ("#9ACFF8", "After column 2"),
+             ("#3D95FF", "Clean water (after UV)"), ("#FF5A3C", "Hot water")]
+OUTRO = {"id": ("Air yang sama, dipakai lagi.", "Greywater → filtrasi alami → UV-C → sensor → shower"),
+         "en": ("The same water, used again.", "Greywater → natural filtration → UV-C → sensors → shower")}
+if LANG == "en":
+    STEPS, LEGEND = STEPS_EN, LEGEND_EN
+    L = B / "film_layers_en"
+    L.mkdir(parents=True, exist_ok=True)
 
 
 def caption(i, badge, title, sub):
@@ -80,8 +102,7 @@ def outro():
     lg.thumbnail((430, 130), Image.LANCZOS)
     c.alpha_composite(lg, (m + (1000 - lg.width) // 2, m + 40))
     d = ImageDraw.Draw(c)
-    for txt, f, y, col in (("Air yang sama, dipakai lagi.", font(50, "ExtraBold"), 190, INK),
-                           ("Greywater → filtrasi alami → UV-C → sensor → shower", font(27, "Medium"), 262, INK2)):
+    for txt, f, y, col in ((OUTRO[LANG][0], font(50, "ExtraBold"), 190, INK), (OUTRO[LANG][1], font(27, "Medium"), 262, INK2)):
         tw = d.textlength(txt, font=f)
         d.text((m + (1000 - tw) / 2, m + y), txt, font=f, fill=hexc(col))
     im.alpha_composite(c, ((W - c.width) // 2, (H - c.height) // 2 + 120))
@@ -94,10 +115,21 @@ def main():
     for i, (_, _, b, t, s) in enumerate(STEPS):
         caption(i, b, t, s)
     legend(); logo_badge(); app_overlay(); outro()
-    synth_music(dur, B / "film_music_raw.wav")
-    ff("-i", B / "film_music_raw.wav", "-af", "aecho=0.8:0.6:120|260:0.3|0.18,loudnorm=I=-17:TP=-1.5", "-ar", 48000, B / "film_music.wav")
+    if not (B / "film_music.wav").exists():
+        synth_music(dur, B / "film_music_raw.wav")
+    if not (B / "film_music.wav").exists(): ff("-i", B / "film_music_raw.wav", "-af", "aecho=0.8:0.6:120|260:0.3|0.18,loudnorm=I=-17:TP=-1.5", "-ar", 48000, B / "film_music.wav")
     loop = lambda p: ["-loop", 1, "-t", f"{dur:.2f}", "-i", p]
-    ins = ["-framerate", FPS, "-i", SEQ / "f_%04d.png"]
+    if LANG == "id":
+        ins = ["-framerate", FPS, "-i", SEQ / "f_%04d.png"]
+    else:  # frames with 3D labels come from film_<lang>, everything else is shared
+        alt = B / f"film_{LANG}"
+        lst = B / f"film_{LANG}_frames.txt"
+        lines = []
+        for f in range(n):
+            p = alt / f"f_{f:04d}.png"
+            lines += [f"file '{(p if p.exists() else SEQ / f'f_{f:04d}.png').as_posix()}'", f"duration {1 / FPS:.6f}"]
+        lst.write_text(chr(10).join(lines))
+        ins = ["-f", "concat", "-safe", 0, "-i", lst]
     fc = [f"[0]scale={W}:{H}:flags=lanczos,setsar=1[b0]"]
     prev, k = "b0", 1
     for i, (a, b, *_r) in enumerate(STEPS):

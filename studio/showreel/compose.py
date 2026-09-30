@@ -18,7 +18,8 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 B = ROOT / "showreel/build"
 C = B / "comp"
-S = B / "scenes"
+LANG = os.environ.get("AQ_LANG", "id")
+S = B / ("scenes" if LANG == "id" else "scenes_" + LANG)
 A3 = ROOT / "app/assets/3d"
 OUTDIR = ROOT / "output"
 FONT = str(ROOT / "showreel/fonts/PlusJakartaSans.ttf")
@@ -262,6 +263,38 @@ SCENES = [
          pills=[("globe", "1.260 L / bulan"), ("leaf", "SDG 3 · 6 · 9 · 12")], icon="globe", deco="b"),
 ]
 
+EN_TEXT = {
+    "splash": ("01 · AQUENT APP", [("Smart showers,", INK), ("water made clean again.", "grad")],
+               "Companion app for the AIoT smart shower: greywater recycling, water-quality sensors & AI Dermatology.",
+               ["Greywater recycling", "Sensor QC", "AI Derma"]),
+    "home": ("02 · DASHBOARD", [("Everything at a glance,", INK), ("on one screen.", "grad")],
+             "Shower status, water-quality score, four sensors, filter health and water saved — in real time.",
+             ["Water score 92/100", "42 L recycled", "Filter 86%"]),
+    "monitor": ("03 · SMART MONITORING", [("Water quality,", INK), ("monitored live.", "grad")],
+                "Four sensors verify the recycled water every 2 seconds before it is reused.",
+                ["pH · SEN0165", "Turbidity · SEN0189", "Chlorine · ORP", "Temp · DS18B20"]),
+    "filter": ("04 · MULTILAYER FILTRATION", [("Six filter layers", INK), ("from natural materials.", "grad")],
+               "Pre-filtration (bamboo leaf, loofah), adsorption (zeolite, banana-peel biochar, chitosan) and polishing (bagasse) — removing particles, heavy metals, organic pollutants & microbes.",
+               ["3 stages · 6 layers", "Eco-friendly", "Recycled materials"]),
+    "shower": ("05 · SHOWER SESSION", [("Precise", INK), ("shower control.", "grad")],
+               "Set the temperature with the dial, pick room-temp or warm, and track water used vs. recycled.",
+               ["20–40°C", "Eco mode", "Saves clean water"]),
+    "schedule": ("06 · SCHEDULE & STRATEGY", [("Shower schedules", INK), ("for your climate.", "grad")],
+                 "Tropical: 2–3× a day with room-temperature water. Subtropical: 1–2× a day, adjusted by season.",
+                 ["Tropical", "Subtropical", "Auto reminders"]),
+    "derma": ("07 · AI DERMATOLOGY", [("An AI-powered", INK), ("skin assistant.", "grad")],
+              "Skin scan, moisture & sensitivity analysis, then shower advice matched to the water quality.",
+              ["Skin scan", "Personal advice", "Skin-safe water"]),
+    "impact": ("08 · IMPACT & SDGs", [("Real impact", INK), ("for the planet.", "grad")],
+               "Point-of-use treatment with no separate tank: saves clean water every day and supports SDGs 3 · 6 · 9 · 12.",
+               ["1,260 L / month", "SDG 3 · 6 · 9 · 12"]),
+}
+if LANG == "en":
+    for sc_ in SCENES:
+        chip_, title_, desc_, pills_ = EN_TEXT[sc_["seg"]]
+        sc_["chip"], sc_["title"], sc_["desc"] = chip_, title_, desc_
+        sc_["pills"] = [(ic, lab) for (ic, _), lab in zip(sc_["pills"], pills_)]
+
 def deco_for(kind, text_left):
     """Deco layer with the 3D props faded out behind the title block."""
     path = C / f"deco_{kind}_{'L' if text_left else 'R'}.png"
@@ -400,7 +433,7 @@ def render_outro(marks, dur=6.5):
     logo = Image.open(ROOT / "app/assets/brand/logo_grad.png")
     logo.thumbnail((520, 300), Image.LANCZOS)
     logo.save(L / "word.png")
-    layer_desc(L / "desc.png", "Air lebih bersih, kulit lebih sehat, bumi lebih lestari.", 560)
+    layer_desc(L / "desc.png", "Air lebih bersih, kulit lebih sehat, bumi lebih lestari." if LANG == "id" else "Cleaner water, healthier skin, a greener planet.", 560)
     # SDG badges
     fb = font(30, "ExtraBold")
     sdg = Image.new("RGBA", (4 * 86, 90), (0, 0, 0, 0))
@@ -508,7 +541,7 @@ FILM_CUTS = [(0.6, 4.4), (5.6, 9.6), (11.0, 14.2), (21.0, 25.4), (35.0, 38.0), (
 
 def render_film_highlight():
     """'Cara kerja' scene: cuts from the Blender process film (captions included), 30 fps 1080p."""
-    src = OUTDIR / "AQUENT_Process_Film.mp4"
+    src = OUTDIR / ("AQUENT_Process_Film.mp4" if LANG == "id" else f"AQUENT_Process_Film_{LANG.upper()}.mp4")
     if not src.exists():
         return None
     parts, fc = [], []
@@ -534,7 +567,7 @@ def main():
     if film:
         clips.append(film)
     clips.append(render_outro(marks))
-    (B / "clips.json").write_text(json.dumps([[str(p), d] for p, d in clips], indent=1))
+    (B / ("clips.json" if LANG == "id" else f"clips_{LANG}.json")).write_text(json.dumps([[str(p), d] for p, d in clips], indent=1))
 
     total = sum(d for _, d in clips) - XF * (len(clips) - 1)
     synth_music(total, B / "music_raw.wav")
@@ -553,7 +586,7 @@ def main():
         fc.append(f"[{prev}][{k}:v]xfade=transition={trans}:duration={XF}:offset={off:.3f}[{lab}]")
         prev = lab
     fc.append(f"[{prev}]format=yuv420p[v]")
-    final = OUTDIR / "AQUENT_Showreel.mp4"
+    final = OUTDIR / ("AQUENT_Showreel.mp4" if LANG == "id" else f"AQUENT_Showreel_{LANG.upper()}.mp4")
     ff(*ins, "-i", B / "music.wav", "-filter_complex", ";".join(fc), "-map", "[v]", "-map", f"{len(clips)}:a",
        "-c:v", "libx264", "-crf", 17, "-preset", "slow", "-pix_fmt", "yuv420p", "-r", FPS,
        "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", final)

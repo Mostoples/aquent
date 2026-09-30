@@ -50,6 +50,15 @@ LABELS = [  # text, world position, t_on, t_off
 ]
 
 
+LANG = os.environ.get("AQ_LANG", "id")
+LABELS_EN = {"Saringan sedimen": "Sediment screen", "Daun bambu kering": "Dried bamboo leaf", "Loofah": "Loofah",
+             "Zeolit": "Zeolite", "Biochar kulit pisang": "Banana-peel biochar", "Kitosan": "Chitosan",
+             "Ampas tebu": "Sugarcane bagasse", "UV-C 254 nm": "UV-C 254 nm", "pH · Turbidity · ORP · Suhu": "pH · Turbidity · ORP · Temp",
+             "Katup 3-arah": "3-way valve", "ESP32 + WiFi": "ESP32 + WiFi", "Water heater terintegrasi": "Built-in water heater"}
+if LANG == "en":
+    LABELS = [(LABELS_EN.get(t, t), p_, a_, b_) for t, p_, a_, b_ in LABELS]
+
+
 def ghost_material(m):
     """Add a Transparent mix to a material; returns the factor socket to animate."""
     nt = m.node_tree
@@ -375,13 +384,14 @@ def render_film(preview=False, only=None):
         pass
     sc.render.fps = FPS_F
     F = build_film()
-    seq = os.path.join(OUT, "film")
+    seq = os.path.join(OUT, "film" if LANG == "id" else "film_" + LANG)
     os.makedirs(seq, exist_ok=True)
     total = int(DUR_F * FPS_F)
     if preview:
         frames = [int(s * FPS_F) for s in (8, 13, 49, 52)]
     else:
-        frames = [f for f in range(total) if not os.path.exists(os.path.join(seq, "f_%04d.png" % f))]
+        frames = range(total) if LANG == "id" else range(int(20.3 * FPS_F), int(45.3 * FPS_F) + 1)   # other languages: only frames with 3D labels
+        frames = [f for f in frames if not os.path.exists(os.path.join(seq, "f_%04d.png" % f))]
     for f in frames:
         sc.frame_set(f)
         update_film(F, f / FPS_F)
