@@ -6,6 +6,10 @@
 .nav .links { display: flex; gap: 26px; margin-left: auto; }
 .nav .links a { color: var(--ink-2); font-weight: 700; font-size: 14px; text-decoration: none; }
 .nav .links a:hover { color: var(--blue); }
+.lang-switch { display: inline-flex; gap: 2px; padding: 4px; border-radius: 999px; background: var(--bg); box-shadow: var(--raise); font: 800 12px var(--font); text-decoration: none; }
+.lang-switch b, .lang-switch span { padding: 6px 10px; border-radius: 999px; color: var(--muted); }
+.lang-switch b { background: var(--grad); color: #fff; }
+.nav .links + .lang-switch { margin-left: 0; }
 .btn-primary.sm { padding: 11px 18px; font-size: 14px; }
 
 .l-hero { padding-top: 40px; }
