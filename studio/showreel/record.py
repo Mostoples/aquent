@@ -13,7 +13,7 @@ from playwright.async_api import async_playwright
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "showreel/build/rec"
 FR = OUT / "frames"
-URL = (ROOT / "app/index.html").as_uri() + "?mock"
+URL = (ROOT / "app/app.html").as_uri() + "?mock"
 FFMPEG = shutil.which("ffmpeg") or (glob.glob(os.environ.get("LOCALAPPDATA", "").replace("\\", "/") +
     "/Microsoft/WinGet/Packages/Gyan.FFmpeg*/ffmpeg-*/bin/ffmpeg.exe") or ["ffmpeg"])[0]
 

@@ -2,8 +2,8 @@
    Replaces the previous app's worker: every older cache is deleted on activate.
    Strategy: network-first for pages/app files (fresh after each deploy),
    cache-first for 3D assets and fonts, never cache Firebase/API traffic. */
-const VERSION = "aq-v5";
-const CORE = ["/", "/index.html", "/css/style.css", "/js/app.js", "/js/backend.js", "/manifest.json",
+const VERSION = "aq-v6";
+const CORE = ["/app", "/css/style.css", "/js/app.js", "/js/backend.js", "/manifest.json",
   "/assets/brand/logo_grad.png", "/assets/brand/icon-192.png"];
 
 self.addEventListener("install", (e) => {
@@ -33,5 +33,5 @@ self.addEventListener("fetch", (e) => {
   e.respondWith(fetch(req).then((res) => {
     if (res.ok) { const copy = res.clone(); caches.open(VERSION).then((c) => c.put(req, copy)); }
     return res;
-  }).catch(() => caches.match(req).then((hit) => hit || caches.match("/index.html"))));
+  }).catch(() => caches.match(req).then((hit) => hit || caches.match("/app"))));
 });

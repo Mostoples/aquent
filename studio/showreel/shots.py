@@ -4,7 +4,7 @@ from playwright.sync_api import sync_playwright
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else ROOT / "showreel/build/shots")
 OUT.mkdir(parents=True, exist_ok=True)
-url = (ROOT / "app/index.html").as_uri() + "?mock"
+url = (ROOT / "app/app.html").as_uri() + "?mock"
 with sync_playwright() as p:
     b = p.chromium.launch()
     pg = b.new_page(viewport={"width": 390, "height": 844}, device_scale_factor=2)

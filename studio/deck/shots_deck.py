@@ -5,7 +5,7 @@ from playwright.sync_api import sync_playwright
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "deck/build/screens"
 OUT.mkdir(parents=True, exist_ok=True)
-URL = (ROOT / "app/index.html").as_uri() + "?mock"
+URL = (ROOT / "app/app.html").as_uri() + "?mock"
 
 STATES = [
     ("splash", "", 0),

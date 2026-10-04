@@ -17,33 +17,23 @@
     "trailingSlash": false,
     "redirects": [
       {
-        "source": "/app",
-        "destination": "/",
-        "type": 301
-      },
-      {
-        "source": "/app.html",
-        "destination": "/",
-        "type": 301
-      },
-      {
         "source": "/login",
-        "destination": "/#login",
+        "destination": "/app#login",
         "type": 301
       },
       {
         "source": "/login.html",
-        "destination": "/#login",
+        "destination": "/app#login",
         "type": 301
       },
       {
         "source": "/admin",
-        "destination": "/",
+        "destination": "/app",
         "type": 302
       },
       {
         "source": "/admin.html",
-        "destination": "/",
+        "destination": "/app",
         "type": 302
       }
     ],
