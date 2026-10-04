@@ -3,7 +3,7 @@
 import bpy, os, sys, math
 from mathutils import Vector
 
-ROOT = "C:/Users/mosto/Desktop/AQUENT/"
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))).replace("\\", "/") + "/"
 sys.argv = [sys.argv[0], "--", ROOT + "output/concept", "none"]
 __file__ = ROOT + "blender/assets.py"
 exec(open(__file__, encoding="utf-8").read().split("# ------------------------------------------------------------------- main ---")[0])

@@ -558,3 +558,8 @@ button[disabled] { opacity: .6; pointer-events: none; }
 .quick button { flex: none; font-size: 11.5px; font-weight: 700; color: var(--deep); padding: 7px 12px; border-radius: 99px; background: var(--bg); box-shadow: var(--raise-sm); }
 .chip.live.off i { background: var(--warn); animation: none; }
 .chip.live.demo i { background: var(--blue); animation: none; }
+
+/* link to the team appreciation page */
+.team-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-size: 13px; font-weight: 700; color: var(--blue); text-decoration: none; }
+.team-link img { width: 22px; height: 22px; }
+.team-btn { display: flex; justify-content: center; align-items: center; text-decoration: none; color: var(--blue); margin-bottom: 10px; }

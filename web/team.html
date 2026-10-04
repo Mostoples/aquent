@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#E9EFF7">
+  <title>Tim AQUENT</title>
+  <meta name="description" content="Penghargaan untuk Tim AQUENT yang berjuang di INNOPA · Indonesia Inventors Day 2026, Jakarta.">
+  <meta property="og:title" content="Terima kasih, Tim AQUENT">
+  <meta property="og:description" content="Lima inovator muda di balik AQUENT — smart shower daur ulang greywater — di INNOPA IID Jakarta 2026.">
+  <meta property="og:image" content="assets/team/journey_product.webp">
+  <link rel="icon" href="assets/brand/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/team.css">
+</head>
+<body>
+  <img class="orb o1" src="assets/anim/deco_sphere.webp" alt="">
+  <img class="orb o2" src="assets/anim/deco_torus.webp" alt="">
+  <img class="orb o3" src="assets/anim/deco_bubbles.webp" alt="">
+
+  <header class="top">
+    <a href="/" class="logo"><img src="assets/brand/logo_grad.png" alt="Aquent"></a>
+    <a href="/" class="btn-soft">Buka app
+      <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+  </header>
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero wrap">
+    <div class="hero-copy reveal">
+      <span class="chip">INNOPA · INDONESIA INVENTORS DAY 2026 · JAKARTA</span>
+      <h1>Terima kasih,<br><em>Tim AQUENT.</em></h1>
+      <p>Lima siswa yang membawa <b>AQUENT</b> — smart shower AIoT dengan daur ulang greywater dan AI Dermatology — ke panggung INNOPA IID Jakarta 2026. Halaman ini adalah penghargaan untuk riset, kerja keras, dan semangat mereka.</p>
+      <div class="stats">
+        <div class="stat"><b>5</b><span>inovator muda</span></div>
+        <div class="stat"><b>6</b><span>lapis filter alami</span></div>
+        <div class="stat"><b>4</b><span>sensor real-time</span></div>
+        <div class="stat"><b>3·6·9·12</b><span>SDGs</span></div>
+      </div>
+    </div>
+    <figure class="hero-photo reveal">
+      <img src="assets/team/journey_product.webp" alt="Tim AQUENT berjas lab bersama prototipe AQUENT">
+      <figcaption class="badge"><img src="assets/anim/sparkle.webp" alt="">IID 2026 · Jakarta</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================ TEAM ============================ -->
+  <section class="wrap" id="tim">
+    <div class="sec-head reveal">
+      <span class="chip">01 · THE TEAM</span>
+      <h2>Wajah di balik <em>AQUENT</em></h2>
+      <p>Ketuk kartu untuk melihat versi jas lab.</p>
+    </div>
+    <div class="team" id="team"></div>
+  </section>
+
+  <!-- ============================ VIDEO ============================ -->
+  <section class="wrap" id="video-sec" hidden>
+    <div class="sec-head reveal">
+      <span class="chip">02 · MEET AQUENT</span>
+      <h2>Perkenalan tim <em>&amp; produk</em></h2>
+    </div>
+    <div class="video-card reveal">
+      <video id="teamVideo" controls playsinline preload="metadata" poster="assets/team/video_poster.webp">
+        <source src="assets/team/AQUENT_Team_Intro.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <!-- ============================ JOURNEY ============================ -->
+  <section class="wrap" id="perjalanan">
+    <div class="sec-head reveal">
+      <span class="chip">03 · THE JOURNEY</span>
+      <h2>Perjalanan <em>menuju Jakarta</em></h2>
+      <p>Diskusi, kolaborasi, dan uji prototipe bersama para mitra.</p>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <!-- ============================ CLOSING ============================ -->
+  <section class="wrap closing reveal">
+    <div class="close-card">
+      <img class="close-mark" src="assets/brand/icon-192.png" alt="">
+      <h2>Air yang sama, dipakai lagi.<br><em>Semangat yang sama, terus berlanjut.</em></h2>
+      <p>Terima kasih Dhafa, Lais, Zharifa, Joanna, dan Kinan atas perjuangan kalian di INNOPA IID Jakarta 2026.</p>
+      <a href="/" class="btn-primary">Coba aplikasi AQUENT
+        <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+    </div>
+    <footer>Team AQUENT · Indonesia Inventors Day 2026</footer>
+  </section>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <button class="lb-close" aria-label="Tutup">×</button>
+    <img id="lbImg" alt=""><p id="lbCap"></p>
+  </div>
+
+<script>
+const TEAM = [
+  { id: "dhafa", name: "Dhafa Krisna Bagus Harjanto", role: "CEO", full: "Chief Executive Officer",
+    desc: "Menentukan arah strategis, membangun dan memimpin tim eksekutif, serta mengalokasikan sumber daya untuk mencapai tujuan." },
+  { id: "lais", name: "Lais Arsalan Farzana Hartanto", role: "CTO", full: "Chief Technology Officer",
+    desc: "Memimpin tim teknologi dan memastikan produk serta sistem AQUENT inovatif dan efisien." },
+  { id: "zharifa", name: "Zharifa Laduna Faiza", role: "COO", full: "Chief Operating Officer",
+    desc: "Mengawasi operasional harian dan menjalankan strategi bisnis tim." },
+  { id: "joanna", name: "Joanna Dharmarina Saputra", role: "CPO", full: "Chief Product Officer",
+    desc: "Menjembatani kebutuhan pengguna, tim engineering, dan tujuan bisnis agar produk inovatif dan sukses secara komersial." },
+  { id: "kinan", name: "Kinan Hayu Prima Andini", role: "CMO", full: "Chief Marketing Officer",
+    desc: "Mengelola identitas brand dan menjalankan strategi pemasaran berdampak tinggi." },
+];
+const GALLERY = [
+  ["enuma", "Bersama CV. Enuma Technology", "wide"],
+  ["sman4", "Kunjungan ke SMA Negeri 4 Surakarta", "hspan"],
+  ["sman4_meet", "Diskusi bersama pihak sekolah"],
+  ["sman4_talk", "Presentasi & tanya jawab"],
+  ["sman4_green", "Foto bersama — Tiada Hari Tanpa Prestasi", "hspan"],
+  ["clovers_talk", "Diskusi bersama mitra"],
+  ["clovers", "Bersama Clovers", "hspan"],
+  ["clovers_in", "Kunjungan mitra", "tall"],
+  ["enuma2", "Uji & dokumentasi prototipe"],
+];
+
+const team = document.getElementById("team");
+TEAM.forEach((m, i) => {
+  const el = document.createElement("article");
+  el.className = "member reveal";
+  el.style.setProperty("--d", i * 70 + "ms");
+  el.innerHTML = `
+    <div class="ph" tabindex="0" aria-label="Foto ${m.name}">
+      <img class="a" src="assets/team/${m.id}_formal.webp" alt="${m.name}" loading="lazy">
+      <img class="b" src="assets/team/${m.id}_lab.webp" alt="${m.name} berjas lab" loading="lazy">
+      <span class="role">${m.role}</span>
+    </div>
+    <h3>${m.name}</h3>
+    <span class="full">${m.full}</span>
+    <p>${m.desc}</p>`;
+  el.querySelector(".ph").addEventListener("click", e => e.currentTarget.classList.toggle("flip"));
+  team.appendChild(el);
+});
+
+const gal = document.getElementById("gallery");
+const lb = document.getElementById("lightbox"), lbImg = document.getElementById("lbImg"), lbCap = document.getElementById("lbCap");
+GALLERY.forEach(([id, cap, size]) => {
+  const f = document.createElement("figure");
+  f.className = "shot reveal" + (size ? " " + size : "");
+  f.innerHTML = `<img src="assets/team/journey_${id}.webp" alt="${cap}" loading="lazy"><figcaption>${cap}</figcaption>`;
+  f.addEventListener("click", () => { lbImg.src = `assets/team/journey_${id}.webp`; lbCap.textContent = cap; lb.classList.add("open"); });
+  gal.appendChild(f);
+});
+lb.addEventListener("click", e => { if (e.target !== lbImg) lb.classList.remove("open"); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") lb.classList.remove("open"); });
+
+// show the video section only when the video file exists
+fetch("assets/team/AQUENT_Team_Intro.mp4", { method: "HEAD" })
+  .then(r => { if (r.ok && (r.headers.get("content-type") || "").includes("video")) document.getElementById("video-sec").hidden = false; })
+  .catch(() => {});
+
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>

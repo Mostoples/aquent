@@ -2,7 +2,7 @@
    Replaces the previous app's worker: every older cache is deleted on activate.
    Strategy: network-first for pages/app files (fresh after each deploy),
    cache-first for 3D assets and fonts, never cache Firebase/API traffic. */
-const VERSION = "aq-v4-2";
+const VERSION = "aq-v5";
 const CORE = ["/", "/index.html", "/css/style.css", "/js/app.js", "/js/backend.js", "/manifest.json",
   "/assets/brand/logo_grad.png", "/assets/brand/icon-192.png"];
 
@@ -19,6 +19,7 @@ self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET") return;
   const url = new URL(req.url);
+  if (req.headers.has("range") || /\.(mp4|mov|webm)$/i.test(url.pathname)) return; // stream video straight from the network
   if (url.pathname.startsWith("/__/") || /firebase|googleapis\.com\/(identitytoolkit|securetoken)|firebaseio/.test(url.href)) return;
   const isStatic = url.pathname.startsWith("/assets/") || url.host.includes("fonts.g");
   if (isStatic) {
